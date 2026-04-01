@@ -84,9 +84,7 @@ Focus potentials: V2, V3, V7, V14
 ### Standard Model Extension (SME)
 The SME is an effective field theory framework for Lorentz and CPT 
 violation. The CPT-odd fermion sector Lagrangian includes:
-```
-L_SME ⊃ b_μ ψ̄ γ^μ γ^5 ψ
-```
+$$\mathcal{L}_{\text{SME}} \supset b_{\mu} \bar{\psi} \gamma^{\mu} \gamma^{5} \psi$$
 
 where b_μ is a fixed CPT-violating background 4-vector.
 
