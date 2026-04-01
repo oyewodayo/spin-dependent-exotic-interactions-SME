@@ -61,9 +61,10 @@ matter-sector and antimatter-sector bounds to test CPT symmetry.
   Lagrangian
 - Extract non-relativistic Hamiltonian including CPT-odd operators
 - Match resulting potentials to the Dobrescu–Mocioiu basis (V1–V16)
-- Derive closed-form translation formulas for b_μ, H_μν, d_μν
+- Derive closed-form translation formulas for $b_\mu$, $H_{\mu\nu}$, $d_{\mu\nu}$
 
-Focus potentials: V2, V3, V7, V14
+Focus potentials: $V_2$, $V_3$, $V_7$, $V_{14}$
+
 
 **Aim 2 — Constraint Compilation and Cross-Platform Analysis**
 - Build a comprehensive database of published constraints (2006–2024)
