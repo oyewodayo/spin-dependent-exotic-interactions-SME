@@ -106,9 +106,9 @@ SME Lagrangian → Modified Dirac Equation → FW Transformation
 
 ### CPT Symmetry Test
 The asymmetry parameter used in this work is:
-```
+
 $$A_{\alpha} = (g_{\alpha} \alpha^{\dagger} - g_{\alpha} \alpha^{\dagger}) / (g_{\alpha} \alpha^{\dagger} + g_{\alpha} \alpha^{\dagger})$$
-```
+
 
 A large χ² across experiments indicates CPT violation.  
 A small χ² confirms CPT symmetry within experimental precision.
