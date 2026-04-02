@@ -60,7 +60,7 @@ matter-sector and antimatter-sector bounds to test CPT symmetry.
 - Apply Foldy–Wouthuysen transformation to the SME-modified fermion 
   Lagrangian
 - Extract non-relativistic Hamiltonian including CPT-odd operators
-- Match resulting potentials to the Dobrescu–Mocioiu basis (V1–V16)
+- Match resulting potentials to the Dobrescu–Mocioiu basis ($$V_1–V_{16}$$)
 - Derive closed-form translation formulas for $b_\mu$, $H_{\mu\nu}$, $d_{\mu\nu}$
 
 Focus potentials: $V_2$, $V_3$, $V_7$, $V_{14}$
