@@ -248,10 +248,10 @@ seaborn>=0.12.0
 
 | SME Coefficient | Target Potential | Coupling Relation | Status |
 |----------------|-----------------|-------------------|--------|
-| $b_\mu$ (spatial)  | $V_2$ (dipole-dipole) | $b_i$ ~ $g_A$ × $σ_source$ | ✅ Derived |
+| $b_\mu$ (spatial)  | $V_2$ (dipole-dipole) | $$b_i \sim g_A \sigma_{\text{source}}$$ | ✅ Derived |
 | $b_\mu$ (temporal) | $V_{9+10}$ (monopole-dipole) | $b_0$ ~ $g_p$ $g_s$ / m | ✅ Derived |
 | $H_{\mu\nu}$          | $V_3$, $V_{14}$ | H_ij ~ $g_T$ × tensor | 🔄 In Progress |
-| $d_{\mu\nu}$           | $V_7$ (spin-velocity) | $d_{ij}$ ~ $g_s$ g_A / m | 📋 Planned |
+| $d_{\mu\nu}$           | $V_7$ (spin-velocity) |$$d_{ij} ~ g_{s} g_{A} / m$$| 📋 Planned |
 
 ### Matter-Antimatter Comparison Summary
 
