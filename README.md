@@ -85,9 +85,9 @@ Focus potentials: $V_2$, $V_3$, $V_7$, $V_{14}$
 ### Standard Model Extension (SME)
 The SME is an effective field theory framework for Lorentz and CPT 
 violation. The CPT-odd fermion sector Lagrangian includes:
-$$\mathcal{L}_{\mathrm{SME}} \supset b_{\mu} \bar{\psi} \gamma^{\mu} \gamma^{5} \psi$$
+$$\mathcal{L}_{\mathrm{SME}} \supset b_{\mu}\,\bar{\psi}\gamma^{\mu}\gamma^{5}\psi$$
 
-where b_μ is a fixed CPT-violating background 4-vector.
+where $b_\mu$ is a fixed CPT-violating background 4-vector.
 
 ### Dobrescu–Mocioiu Classification
 The complete set of 16 non-relativistic potentials (V1–V16) 
