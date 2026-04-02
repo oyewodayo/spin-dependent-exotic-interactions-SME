@@ -248,19 +248,19 @@ seaborn>=0.12.0
 
 | SME Coefficient | Target Potential | Coupling Relation | Status |
 |----------------|-----------------|-------------------|--------|
-| b_μ (spatial)  | V2 (dipole-dipole) | b_i ~ g_A × σ_source | ✅ Derived |
-| b_μ (temporal) | V9+10 (monopole-dipole) | b_0 ~ g_p g_s / m | ✅ Derived |
-| H_μν           | V3, V14 | H_ij ~ g_T × tensor | 🔄 In Progress |
-| d_μν           | V7 (spin-velocity) | d_ij ~ g_s g_A / m | 📋 Planned |
+| $b_\mu$ (spatial)  | $V_2$ (dipole-dipole) | $b_i$ ~ $g_A$ × $σ_source$ | ✅ Derived |
+| $b_\mu$ (temporal) | $V_{9+10}$ (monopole-dipole) | $b_0$ ~ $g_p$ $g_s$ / m | ✅ Derived |
+| $H_{\mu\nu}$          | $V_3$, $V_{14}$ | H_ij ~ $g_T$ × tensor | 🔄 In Progress |
+| $d_{\mu\nu}$           | $V_7$ (spin-velocity) | $d_{ij}$ ~ $g_s$ g_A / m | 📋 Planned |
 
 ### Matter-Antimatter Comparison Summary
 
 | Potential | Best Matter Bound | Best Antimatter Bound | Asymmetry A_α | Status |
 |-----------|------------------|----------------------|---------------|--------|
-| V2        | — | — | — | 📋 Planned |
-| V3        | — | — | — | 📋 Planned |
-| V7        | — | — | — | 📋 Planned |
-| V14       | — | — | — | 📋 Planned |
+| $V_2$        | — | — | — | 📋 Planned |
+| $V_3$        | — | — | — | 📋 Planned |
+| $V_7$        | — | — | — | 📋 Planned |
+| $V_{14}$       | — | — | — | 📋 Planned |
 
 *Tables will be populated as constraints are compiled.*
 
@@ -271,9 +271,9 @@ seaborn>=0.12.0
 | Phase | Duration | Status | Notes |
 |-------|----------|--------|-------|
 | Literature Review | Weeks 1–4 | 🔄 In Progress | Cong et al. 2025 studied |
-| FW: b_μ derivation | Week 5 | ✅ Complete | Verified vs K&L 1999 |
-| FW: H_μν derivation | Week 6–7 | 🔄 In Progress | — |
-| FW: d_μν derivation | Week 7–8 | 📋 Planned | — |
+| FW: $b_\mu$ derivation | Week 5 | ✅ Complete | Verified vs K&L 1999 |
+| FW: $H_{\mu\nu}$ derivation | Week 6–7 | 🔄 In Progress | — |
+| FW: $d_{\mu\nu}$ derivation | Week 7–8 | 📋 Planned | — |
 | Constraint compilation | Weeks 9–14 | 📋 Planned | — |
 | Gap analysis | Weeks 15–18 | 📋 Planned | — |
 | Thesis writing | Weeks 19–24 | 📋 Planned | — |
