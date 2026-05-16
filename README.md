@@ -375,3 +375,5 @@ and the comprehensive experimental review by Cong et al. (2025).
 ---
 
 *Last updated: April 2026*
+
+cp -r "/mnt/c/Users/DELL/Downloads/FW_bmu_term.ipynb" ~/exotic-spin-interactions-SME/derivations/sympy
