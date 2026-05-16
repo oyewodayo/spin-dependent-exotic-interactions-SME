@@ -75,8 +75,7 @@ for s in sigma:
 # gamma^5 = i gamma^0 gamma^1 gamma^2 gamma^3
 gamma5 = _block(_zero2(), I2, I2, _zero2())
 
-# Verify: (gamma5)^2 = I4
-assert simplify(gamma5 * gamma5 - I4) == Z4, "gamma5^2 != 1"
+
 
 # alpha^i = gamma^0 gamma^i  (i=1,2,3; stored at alpha[0..2])
 alpha = []
@@ -195,6 +194,8 @@ def lower(M):
 
 def _run_checks():
     print("Running Dirac algebra consistency checks...")
+    # Verify: (gamma5)^2 = I4
+    assert simplify(gamma5 * gamma5 - I4) == Z4, "gamma5^2 != 1"
 
     # {gamma^mu, gamma^nu} = 2 g^{mu nu} I4
     g = [1, -1, -1, -1]  # metric
