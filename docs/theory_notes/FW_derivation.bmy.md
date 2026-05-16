@@ -1,6 +1,4 @@
 
-# `potential_matching_table.md`
-
 ## SME Coefficient → Dobrescu–Mocioiu Potential Matching Table
 
 ---
