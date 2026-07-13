@@ -16,41 +16,48 @@ June 2026
 
 The SME coefficient $H_{\mu\nu}$ is a rank-2 antisymmetric tensor coupling:
 
-$$
+\[
 L_H = -\frac{1}{2} H_{\mu\nu} \bar{\psi} \sigma^{\mu\nu} \psi
-$$
+\]
 
 where
 
-$$
+\[
 \sigma^{\mu\nu} = \frac{i}{2}[\gamma^\mu, \gamma^\nu].
-$$
+\]
 
 Unlike $b_\mu$, $H_{\mu\nu}$ is CPT-EVEN but Lorentz-odd. It does not change sign under CPT, meaning matter and antimatter couple identically at tree level. Its primary experimental signature is an anisotropy (direction-dependence) rather than a matter--antimatter asymmetry.
 
 $H_{\mu\nu}$ has two distinct sectors: the magnetic-like spatial components $H_{ij}$ and the electric-like mixed components $H_{0i}$. These generate different DM potentials at different orders in the $1/m$ expansion, as derived below.
-
 ---
 
 ## Key Result
 
 * $H_{ij}$ (magnetic-like):
 
-  $$
+  <div align="center">
+  \[
   H_{NR} = -\mathcal{H}^k \sigma^k
-  $$
+  \]
+  </div>
 
   where
 
-  $$
+  <div align="center">
+  \[
   \mathcal{H}^k = \frac{1}{2}\varepsilon^{ijk} H_{ij}
-  $$
+  \]
+  </div>
 
   $\rightarrow V_3$ (dipole-dipole)
 
 * $H_{0i}$ (electric-like):
 
-  $$ H_{NR} = -\frac{1}{m}\sigma \cdot (p \times H_E) $$
+  <div align="center">
+  \[
+  H_{NR} = -\frac{1}{m}\sigma \cdot (p \times H_E)
+  \]
+  </div>
 
   $\rightarrow V_7$ (spin-velocity)
 
