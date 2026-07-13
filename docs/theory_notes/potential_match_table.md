@@ -8,7 +8,7 @@ June 2026
 **Note:** Theory Note 4 --- Master Reference  
 **Repository:** `exotic-spin-interactions-SME/docs/theory_notes/potential_matching_table.md`
 
-> *Complete reference: all SME operators $\rightarrow$ NR Hamiltonians $\rightarrow$ DM potentials $V_1$--$V_{16}$ $\rightarrow$ SPINDEP coupling*
+> *Complete reference: all SME operators $`\rightarrow`$ NR Hamiltonians $`\rightarrow`$ DM potentials $`V_1`$--$`V_{16}`$ $`\rightarrow`$ SPINDEP coupling*
 
 ---
 
@@ -23,7 +23,7 @@ The primary use of this table in the SPINDEP framework is to interpret measured 
 | **Symbol** | **Meaning** |
 | :--- | :--- |
 | $\sigma_{1,2}$ | Pauli matrices acting on particle 1 or 2 |
-| $\hat{r} = r/|r|$ | Unit vector from source to field point |
+| $\hat{r} = r/\|r\|$ | Unit vector from source to field point |
 | $\lambda = 1/m_\phi$ | Mediator Compton wavelength (interaction range parameter) |
 | $v = v_{\text{rel}}$ | Relative velocity of the two particles |
 | $f, \bar{f}$ | Matter fermion and antimatter fermion |
@@ -34,69 +34,69 @@ The primary use of this table in the SPINDEP framework is to interpret measured 
 
 The 16 DM potentials $V_1$--$V_{16}$ from Dobrescu & Mocioiu (2006), with their explicit position-space forms:
 
-\[
+$$
 V_1 = e^{-r/\lambda} / r
-\]
+$$
 
-\[
+$$
 V_2 = (\sigma_1\cdot\hat{r}) \left[\frac{1}{\lambda r} + \frac{1}{r^2}\right] e^{-r/\lambda} / r
-\]
+$$
 
-\[
+$$
 V_3 = \left[\sigma_1\cdot\sigma_2 - (\sigma_1\cdot\hat{r})(\sigma_2\cdot\hat{r})\left(3+\frac{3}{\lambda r}+\frac{1}{\lambda^2 r^2}\right)\right] e^{-r/\lambda} / r
-\]
+$$
 
-\[
+$$
 V_4 = \left[(\sigma_1\cdot\hat{r})(\sigma_2\cdot\hat{r}) - \frac{1}{3}\sigma_1\cdot\sigma_2\right] e^{-r/\lambda} / r
-\]
+$$
 
-\[
+$$
 V_5 = \sigma_1\cdot(\hat{r}\times v)\, e^{-r/\lambda} / r
-\]
+$$
 
-\[
+$$
 V_6 = (\sigma_1\cdot v)(\sigma_2\cdot v)\, e^{-r/\lambda} / r
-\]
+$$
 
-\[
+$$
 V_7 = \sigma_1\cdot(v\times\hat{r})\, e^{-r/\lambda} / r
-\]
+$$
 
-\[
+$$
 V_8 = \{\sigma_1\cdot v,\, e^{-r/\lambda}/r\} \quad \text{(anticommutator with potential)}
-\]
+$$
 
-\[
+$$
 V_9 = (\sigma_1\cdot\hat{r})(\sigma_2\cdot\hat{r})\, e^{-r/\lambda} / r
-\]
+$$
 
-\[
+$$
 V_{10} = (\sigma_1\cdot v)(\sigma_2\cdot\hat{r})\, e^{-r/\lambda} / r
-\]
+$$
 
-\[
+$$
 V_{11} = L\cdot S \times e^{-r/\lambda}/r \quad \text{(spin-orbit: } L = r\times p,\ S = \sigma_1+\sigma_2\text{)}
-\]
+$$
 
-\[
+$$
 V_{12} = (\sigma_1\times\sigma_2)\cdot\hat{r} \times e^{-r/\lambda}/r
-\]
+$$
 
-\[
+$$
 V_{13} = (\sigma_1\times\sigma_2)\cdot v \times e^{-r/\lambda}/r
-\]
+$$
 
-\[
+$$
 V_{14} = (\sigma_1\cdot\hat{r})(\sigma_2\cdot v)\, e^{-r/\lambda}/r
-\]
+$$
 
-\[
+$$
 V_{15} = \{(\sigma_1\cdot v),\, (\sigma_2\cdot\hat{r})\}\, e^{-r/\lambda}/r \quad \text{(anticommutator)}
-\]
+$$
 
-\[
+$$
 V_{16} = (\sigma_1\cdot\hat{r})(\sigma_2\cdot\hat{r})\, v^2\, e^{-r/\lambda}/r
-\]
+$$
 
 ## Main SME $\rightarrow$ DM Potential Matching Table
 
@@ -106,8 +106,8 @@ The table below gives the complete mapping from SME coefficient to NR Hamiltonia
 
 | **SME Coeff.** | **CPT** | **Lorentz** | **NR Hamiltonian** | **DM Potential(s)** | **1/m Order** | **SPINDEP $A\alpha$ prediction** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| $b_i$ | **Odd** | **Odd** | $-b\cdot\sigma$ (matter) $+b\cdot\sigma$ (antimatter) | $V_2$ | $m^0$ | $|A\alpha| \rightarrow 1$ (sign flip under C) |
-| $b_0$ | **Odd** | **Odd** | $+b_0(\sigma\cdot p)/m$ | $V_7, V_8$ | $m^{-1}$ | $|A\alpha| \rightarrow 1$ ($b_0$ flips for antimatter) |
+| $b_i$ | **Odd** | **Odd** | $-b\cdot\sigma$ (matter) $+b\cdot\sigma$ (antimatter) | $V_2$ | $m^0$ | $\|A\alpha\| \rightarrow 1$ (sign flip under C) |
+| $b_0$ | **Odd** | **Odd** | $+b_0(\sigma\cdot p)/m$ | $V_7, V_8$ | $m^{-1}$ | $\|A\alpha\| \rightarrow 1$ ($b_0$ flips for antimatter) |
 | $H_{ij}$ | **Even** | **Odd** | $-\mathcal{H}_B\cdot\sigma$ | $V_3$ | $m^0$ | $A\alpha \approx 0$ (same sign, sensitivity gap only) |
 | $H_{0i}$ | **Even** | **Odd** | $-\frac{1}{m}\sigma\cdot(p\times H_E)$ | $V_7$ | $m^{-1}$ | $A\alpha \approx 0$ (same sign for matter/anti) |
 | $d_{i0}$ | **Even** | **Odd** | $+d_{i0}\, m\, \sigma^i$ | $V_2$ | $m^1$ (!) | $A\alpha \approx 0$ (CPT-even; same sign) |
@@ -122,11 +122,11 @@ The table below gives the complete mapping from SME coefficient to NR Hamiltonia
 
 <div style="overflow-x: auto;">
 
-| **SPINDEP Pair** | **Coupling** | **DM Potential** | **Dominant SME coeff.** | **Theoretical $|A\alpha|$ prediction** |
+| **SPINDEP Pair** | **Coupling** | **DM Potential** | **Dominant SME coeff.** | **Theoretical $\|A\alpha\|$ prediction** |
 | :--- | :--- | :--- | :--- | :--- |
 | gsgs$\cdot$UNKNOWN$\cdot$ee | Scalar-scalar | $V_1$ (UNKNOWN) | $c_{\mu\nu}$ (CPT-even) | $A\alpha \approx 0$ if CPT holds; 0.873 is anomalous --- likely sensitivity gap |
-| gAgA$\cdot$V1$\cdot$ep | Axial-axial | $V_2$ (monopole-dipole) | $b_\mu$ (CPT-odd) | $|A\alpha| = 1$ --- consistent with 0.9998 |
-| gAgA$\cdot$V2$\cdot$ee ($\times 5$) | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $|A\alpha| = 1$ --- consistent with 0.954--1.000 |
+| gAgA$\cdot$V1$\cdot$ep | Axial-axial | $V_2$ (monopole-dipole) | $b_\mu$ (CPT-odd) | $\|A\alpha\| = 1$ --- consistent with 0.9998 |
+| gAgA$\cdot$V2$\cdot$ee ($\times 5$) | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $\|A\alpha\| = 1$ --- consistent with 0.954--1.000 |
 
 </div>
 
@@ -144,13 +144,13 @@ The gsgs$\cdot$UNKNOWN$\cdot$ee pair shows $|A\alpha| = 0.873$ --- lower than al
 
 The general rule, derived from the Foldy--Wouthuysen analysis, is:
 
-\[
+$$
 H_{NR}^{\text{antiparticle}}(X^{\text{CPT-odd}}) = -H_{NR}^{\text{particle}}(X^{\text{CPT-odd}})
-\]
+$$
 
-\[
+$$
 H_{NR}^{\text{antiparticle}}(X^{\text{CPT-even}}) = +H_{NR}^{\text{particle}}(X^{\text{CPT-even}})
-\]
+$$
 
 This implies:
 
