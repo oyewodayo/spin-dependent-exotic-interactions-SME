@@ -50,9 +50,7 @@ $H_{\mu\nu}$ has two distinct sectors: the magnetic-like spatial components $H_{
 
 * $H_{0i}$ (electric-like):
 
-  $$
-  H_{NR} = -\frac{1}{m}\sigma \cdot (p \times H_E)
-  $$
+  $$ H_{NR} = -\frac{1}{m}\sigma \cdot (p \times H_E) $$
 
   $\rightarrow V_7$ (spin-velocity)
 
