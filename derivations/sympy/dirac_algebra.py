@@ -92,7 +92,7 @@ def sigma_munu(mu, nu):
     """Compute sigma^{mu nu} = (i/2)[gamma^mu, gamma^nu]."""
     gmu = gamma[mu]
     gnu = gamma[nu]
-    return Rational(1, 2) * I * (gmu * gnu - gnu * gmu)
+    return Rational(1, 2) * I * (gmu * gnu - gnu * gmu) # type: ignore
 
 
 # ---------------------------------------------------------------------------
