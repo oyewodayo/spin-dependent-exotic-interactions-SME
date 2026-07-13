@@ -116,7 +116,7 @@ $$
 
 Since this is odd, it does not contribute at m⁰. At order m⁻¹, using the FW expansion (3.2), the odd operator generates:
 $$
-H_NR(b_0) = β(γ_5 b_0)²/(2m) + \... → +b_0(σ·p)/m + O(m⁻²)
+H_NR(b_0) = β(γ_5 b_0)²/(2m) + ... → +b_0(σ·p)/m + O(m⁻²)
 $$
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.8)*
 
@@ -181,9 +181,10 @@ The coupling constant g in eq.(5.1) is identified with the b_μ coefficient thro
 ### 5.2 Summary of Matchings
 
 > [!NOTE]
-> **b_μ component**    **NR Hamiltonian**   **DM Potential**   **Order in 1/m**   **Notes**
-> **b_i (spatial)**    -b·σ                 **V₂**             m⁰ (leading)       Monopole-dipole, spin of particle 1 only
-> **b_0 (temporal)**   +b₀(σ·p)/m           **V₇, V₈**         m⁻¹                Velocity-dependent spin coupling
+> | **b_μ component** | **NR Hamiltonian** | **DM Potential** | **Order in 1/m** | **Notes** |
+> | --- | --- | --- | --- | --- |
+> | **b_i (spatial)** | -b·σ | **V₂** | m⁰ (leading) | Monopole-dipole, spin of particle 1 only |
+> | **b_0 (temporal)** | +b₀(σ·p)/m | **V₇, V₈** | m⁻¹ | Velocity-dependent spin coupling |
 
 ## 6. Physical Consequences and SPINDEP Implications
 
