@@ -250,8 +250,8 @@ seaborn>=0.12.0
 |----------------|-----------------|-------------------|--------|
 | $b_\mu$ (spatial)  | $V_2$ (dipole-dipole) | $$b_i \sim g_A \sigma_{\text{source}}$$ | ✅ Derived |
 | $b_\mu$ (temporal) | $V_{9+10}$ (monopole-dipole) | $b_0$ ~ $g_p$ $g_s$ / m | ✅ Derived |
-| $H_{\mu\nu}$          | $V_3$, $V_{14}$ | H_ij ~ $g_T$ × tensor | 🔄 In Progress |
-| $d_{\mu\nu}$           | $V_7$ (spin-velocity) |$$d_{ij} ~ g_{s} g_{A} / m$$| 📋 Planned |
+| $H_{\mu\nu}$          | $V_3$, $V_{14}$ | H_ij ~ $g_T$ × tensor | ✅ Derived |
+| $d_{\mu\nu}$           | $V_7$ (spin-velocity) |$$d_{ij} ~ g_{s} g_{A} / m$$| ✅ Derived |
 
 ### Matter-Antimatter Comparison Summary
 
@@ -272,8 +272,8 @@ seaborn>=0.12.0
 |-------|----------|--------|-------|
 | Literature Review | Weeks 1–4 | 🔄 In Progress | Cong et al. 2025 studied |
 | FW: $b_\mu$ derivation | Week 5 | ✅ Complete | Verified vs K&L 1999 |
-| FW: $H_{\mu\nu}$ derivation | Week 6–7 | 🔄 In Progress | — |
-| FW: $d_{\mu\nu}$ derivation | Week 7–8 | 📋 Planned | — |
+| FW: $H_{\mu\nu}$ derivation | Week 6–7 | ✅ Complete | — |
+| FW: $d_{\mu\nu}$ derivation | Week 7–8 | ✅ Complete | — |
 | Constraint compilation | Weeks 9–14 | 📋 Planned | — |
 | Gap analysis | Weeks 15–18 | 📋 Planned | — |
 | Thesis writing | Weeks 19–24 | 📋 Planned | — |
