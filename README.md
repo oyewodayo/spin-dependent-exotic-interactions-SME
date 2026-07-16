@@ -63,7 +63,7 @@ matter-sector and antimatter-sector bounds to test CPT symmetry.
 - Match resulting potentials to the Dobrescu–Mocioiu basis ($$V_1–V_{16}$$)
 - Derive closed-form translation formulas for $b_\mu$, $H_{\mu\nu}$, $d_{\mu\nu}$
 
-Focus potentials: $V_2$, $V_3$, $V_7$, $V_{14}$
+Focus potentials: $V_2$, $V_3$, $V_7$, $V_8$ (matching what `docs/theory_notes/` actually derives; $V_{14}$ previously listed here does not appear in any derivation and was removed — no SME coefficient among $b_\mu, H_{\mu\nu}, d_{\mu\nu}$ has been shown to map to it)
 
 
 **Aim 2 — Constraint Compilation and Cross-Platform Analysis**
@@ -123,27 +123,24 @@ exotic-spin-interactions-SME/
 ├── .gitignore                 # Python, LaTeX, Mathematica ignores
 │
 ├── docs/                      # Documentation and notes
-│   ├── theory_notes/          # Handwritten scan PDFs, typed notes
-│   │   ├── FW_derivation_bmу.md
+│   ├── theory_notes/
+│   │   ├── FW_derivation_bmy.md
 │   │   ├── FW_derivation_Hmunu.md
-│   │   ├── FW_derivation_dmunu.md
-│   │   └── potential_matching_table.md
-│   ├── references/            # Annotated bibliography
+│   │   ├── FW_derivation_dmunu.md   # d_i0 -> V2 claim flagged unverified
+│   │   └── potential_match_table.md
+│   ├── references/            # Annotated bibliography (not yet started)
 │   │   └── bibliography.md
-│   └── timeline/              # Research progress tracking
+│   └── timeline/              # Research progress tracking (not yet started)
 │       └── progress_log.md
 │
 ├── derivations/               # Symbolic computation notebooks
-│   ├── mathematica/
-│   │   ├── FW_bmу_term.nb
-│   │   ├── FW_Hmunu_term.nb
-│   │   ├── FW_dmunu_term.nb
-│   │   └── potential_matching.nb
 │   └── sympy/
-│       ├── FW_bmу_term.ipynb
-│       ├── FW_Hmunu_term.ipynb
+│       ├── FW_bmu_term.ipynb      # executed; see corrections in cells
+│       ├── FW_Hmunu_term.ipynb    # executed
 │       ├── dirac_algebra.py
 │       └── pauli_matrices.py
+│       # FW_dmunu_term.ipynb not yet created -- see caveat in
+│       # FW_derivation_dmunu.md before relying on its claims
 │
 ├── constraints/               # Experimental constraint database
 │   ├── data/
@@ -246,12 +243,14 @@ seaborn>=0.12.0
 
 ### SME → Dobrescu-Mocioiu Translation Table
 
+**Correction (this revision):** the table below previously listed potential targets that didn't match the detailed derivation notes ($b_\mu$ temporal → $V_{9+10}$ instead of $V_7,V_8$; $H_{\mu\nu}$ → $V_{14}$, which is not derived anywhere), and marked the $d_{\mu\nu}$ row "Derived" despite that derivation not verifying against the same Dirac-algebra tooling used for $b_\mu$/$H_{\mu\nu}$ (see `FW_derivation_dmunu.md`). Corrected to match the notes actually in `docs/theory_notes/`:
+
 | SME Coefficient | Target Potential | Coupling Relation | Status |
 |----------------|-----------------|-------------------|--------|
-| $b_\mu$ (spatial)  | $V_2$ (dipole-dipole) | $$b_i \sim g_A \sigma_{\text{source}}$$ | ✅ Derived |
-| $b_\mu$ (temporal) | $V_{9+10}$ (monopole-dipole) | $b_0$ ~ $g_p$ $g_s$ / m | ✅ Derived |
-| $H_{\mu\nu}$          | $V_3$, $V_{14}$ | H_ij ~ $g_T$ × tensor | ✅ Derived |
-| $d_{\mu\nu}$           | $V_7$ (spin-velocity) |$$d_{ij} ~ g_{s} g_{A} / m$$| ✅ Derived |
+| $b_\mu$ (spatial)  | $V_2$ (spin-spin — corrected; was mislabeled dipole-dipole) | $b_i \leftrightarrow g_A/2$ | ✅ Derived and verified (`FW_bmu_term.ipynb`, executed) |
+| $b_\mu$ (temporal) | $V_7, V_8$ | $b_0 \sim (\sigma\cdot p)/m$ | ✅ Derived and verified |
+| $H_{\mu\nu}$          | $V_3$ (from $H_{ij}$), $V_7$ (from $H_{0i}$) | $H_{ij}\sim g_T$ × tensor | ✅ Derived and verified (`FW_Hmunu_term.ipynb`, executed) |
+| $d_{\mu\nu}$           | $V_2$ (from $d_{i0}$, claimed), $V_7,V_8$ (from $d_{ij}$, claimed) |$d_{ij} \sim g_{s} g_{A} / m$| ⚠️ **Unverified** — no executed notebook yet; the $d_{i0}\to V_2$ mass-enhancement claim did not reproduce under the same numeric check that caught the $b_\mu$ sign error |
 
 ### Matter-Antimatter Comparison Summary
 
@@ -260,7 +259,7 @@ seaborn>=0.12.0
 | $V_2$        | — | — | — | 📋 Planned |
 | $V_3$        | — | — | — | 📋 Planned |
 | $V_7$        | — | — | — | 📋 Planned |
-| $V_{14}$       | — | — | — | 📋 Planned |
+| $V_8$        | — | — | — | 📋 Planned |
 
 *Tables will be populated as constraints are compiled.*
 
@@ -374,6 +373,4 @@ and the comprehensive experimental review by Cong et al. (2025).
 
 ---
 
-*Last updated: April 2026*
-
-cp -r "/mnt/c/Users/DELL/Downloads/FW_bmu_term.ipynb" ~/exotic-spin-interactions-SME/derivations/sympy
+*Last updated: July 2026*

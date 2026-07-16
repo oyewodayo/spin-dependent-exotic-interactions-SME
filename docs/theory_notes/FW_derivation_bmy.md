@@ -158,13 +158,17 @@ V_pair ∝ H_NR^matter × H_NR^antimatter ∝ (-b·σ_1)(+b·σ_2)
 $$
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.5)*
 
-This gives a potential that changes sign relative to the matter—matter case (where both factors carry −b·σ). The coupling constant g measured from matter—matter experiments and from matter—antimatter experiments therefore differ by a sign, yielding g_matter = −g_antimatter. Substituting into the SPINDEP asymmetry parameter:
+This gives a potential that changes sign relative to the matter—matter case (where both factors carry −b·σ). The coupling constant g measured from matter—matter experiments and from matter—antimatter experiments therefore differ by a sign, yielding g_matter = −g_antimatter *for a hypothetical, exactly-known, signed coupling*. Substituting into the SPINDEP asymmetry parameter:
 $$
-Aα = (g_m - g_ā) / (g_m + g_ā) = (g - (-g)) / (g + (-g)) → ∞
+Aα = (g_m - g_ā) / (g_m + g_ā) = (g - (-g)) / (g + (-g)) = 2g/0 → ∞
 $$
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.6)*
 
-In the bounded definition |g_m| ≠ |g_ā| (because experimental upper bounds are always positive), the asymmetry saturates at |Aα| = 1. This is fully consistent with the observed |Aα| ≈ 1.000 across all gAgA pairs in SPINDEP. The b_μ term is thus the primary theoretical explanation for the near-maximal asymmetry.
+**Correction (this revision):** this is a genuine divergence — the denominator vanishes identically — not a value that "saturates at 1". (Verified directly with `sympy.limit` in `derivations/sympy/pauli_matrices.py`, which previously asserted the false "→ 1" conclusion in a comment that contradicted its own printed output.) An exact CPT-odd sign flip of a *signed* coupling makes Eq. (4.6) formally undefined, not bounded.
+
+The resolution is that Eq. (4.6) does not describe what SPINDEP actually computes. SPINDEP's `g_matter`/`g_antimatter` inputs are the `coupling_abs` columns of independent experimental datasets — **always-positive upper bounds** from separate experiments (see `spindep/README.md`), not a signed measurement of one real underlying coupling. For any two independent positive bounds $g_1, g_2$, the ratio $(g_1-g_2)/(g_1+g_2)$ approaches $\pm 1$ whenever one bound is far tighter than the other — **regardless of whether the underlying physics is CPT-odd or CPT-even.** This is a generic property of comparing two positive numbers of very different size (a sensitivity-gap effect), not a signature of the b_μ mechanism specifically. `derivations/sympy/pauli_matrices.py` now demonstrates this explicitly: substituting $g_{\text{tight}} = r\, g_{\text{loose}}$ and taking $r\to 0^+$ gives $A_\alpha \to 1$ with no CPT content at all.
+
+Consequently, the observed $|A\alpha| \approx 1.000$ across gAgA pairs in SPINDEP is **consistent with**, but not **evidence for**, a nonzero $b_\mu$: the same numerical pattern is exactly what independent bounds of very different sensitivity would produce even under exact CPT symmetry. Distinguishing the two would require comparing bounds of comparable sensitivity, or using actual signed measured values (with symmetric uncertainties) rather than one-sided upper limits.
 
 ## 5. Matching to Dobrescu—Mocioiu Potentials
 
@@ -190,9 +194,9 @@ The coupling constant $g_A$ in eq. (5.1) is identified with the b_μ coefficient
 
 ## 6. Physical Consequences and SPINDEP Implications
 
-- **All gAgA pairs show |Aα| ≈ 1:** Fully explained by the b_μ sign flip. The theoretical prediction is |Aα| = 1 for any pair where the b_μ interaction dominates. The small deviations from 1 in pairs 4—5 reflect curve curvature effects in the uncertainty model, not physics.
+- **All gAgA pairs show |Aα| ≈ 1:** This is *consistent with* a b_μ sign flip, but — per the corrected §4.2 above — is equally well explained by a sensitivity gap between the matter- and antimatter-sector bounds, with no CPT violation required. The two explanations cannot be distinguished from the asymmetry value alone; it would require checking whether the matter and antimatter bounds being compared are of comparable experimental precision. The small deviations from 1 in pairs 4—5 reflect curve curvature effects in the uncertainty model, not necessarily physics.
 
-- **gsgs pair at |Aα| = 0.873:** The gsgs potential does not couple to b_μ at leading order (scalar coupling requires c_μν, which is CPT-even). The lower |Aα| is consistent with the dominant operator being CPT-even, with the gap driven by experimental sensitivity differences rather than a sign flip.
+- **gsgs pair at |Aα| = 0.873:** The gsgs potential does not couple to b_μ at leading order (scalar coupling requires c_μν, which is CPT-even), so a value below 1 is consistent with no CPT-odd contribution. But note this is the *same type* of argument as the gAgA case above: a lower or higher |Aα| here is also compatible with a smaller sensitivity gap between the two experiments, independent of the CPT status of the dominant operator.
 
 - **Observable consequences:** A measurement of b_i ≠ 0 for any fermion would appear as a direction-dependent shift in atomic energy levels (sidereal variation). SPINDEP constraints bound the effective b_i from the ratio of matter to antimatter coupling bounds.
 

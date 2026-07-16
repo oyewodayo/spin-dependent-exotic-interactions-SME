@@ -106,21 +106,25 @@ $$
 
 ## Main SME $\rightarrow$ DM Potential Matching Table
 
-The table below gives the complete mapping from SME coefficient to NR Hamiltonian to DM potential(s), with CPT/Lorentz properties and the predicted $A\alpha$ signature in SPINDEP.
+The table below gives the complete mapping from SME coefficient to NR Hamiltonian to DM potential(s), with CPT/Lorentz properties and the naive predicted $A\alpha$ signature.
+
+**Correction (this revision):** the "prediction" column below assumed that substituting an exact, signed CPT-odd relation ($g_{\bar f}=-g_f$) directly into the SPINDEP formula $A_\alpha=(g_f-g_{\bar f})/(g_f+g_{\bar f})$ gives $|A\alpha|\to 1$. It does not — the denominator vanishes and the expression diverges (verified with `sympy.limit` in `derivations/sympy/pauli_matrices.py`). More importantly, SPINDEP's actual inputs are independent, always-positive experimental *upper bounds*, not a signed measured coupling, so this signed substitution does not describe what is actually computed. Comparing two positive bounds of very different tightness drives $|A\alpha|\to 1$ regardless of CPT status — a sensitivity-gap effect. The predictions below should therefore be read as "**consistent with**," not "**caused by**," the stated CPT parity; see `FW_derivation_bmy.md` §4.2 for the full argument.
 
 <div style="overflow-x: auto;">
 
 | **SME Coeff.** | **CPT** | **Lorentz** | **NR Hamiltonian** | **DM Potential(s)** | **1/m Order** | **SPINDEP $A\alpha$ prediction** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| $b_i$ | **Odd** | **Odd** | $-b\cdot\sigma$ (matter) $+b\cdot\sigma$ (antimatter) | $V_2$ | $m^0$ | $\|A\alpha\| \rightarrow 1$ (sign flip under C) |
-| $b_0$ | **Odd** | **Odd** | $+b_0(\sigma\cdot p)/m$ | $V_7, V_8$ | $m^{-1}$ | $\|A\alpha\| \rightarrow 1$ ($b_0$ flips for antimatter) |
-| $H_{ij}$ | **Even** | **Odd** | $-\mathcal{H}_B\cdot\sigma$ | $V_3$ | $m^0$ | $A\alpha \approx 0$ (same sign, sensitivity gap only) |
-| $H_{0i}$ | **Even** | **Odd** | $-\frac{1}{m}\sigma\cdot(p\times H_E)$ | $V_7$ | $m^{-1}$ | $A\alpha \approx 0$ (same sign for matter/anti) |
-| $d_{i0}$ | **Even** | **Odd** | $+d_{i0}\, m\, \sigma^i$ | $V_2$ | $m^1$ (!) | $A\alpha \approx 0$ (CPT-even; same sign) |
-| $d_{ij}$ | **Even** | **Odd** | $+d_{ij}\, p^j\, \sigma^i$ | $V_7, V_8$ | $m^0$ (vel.) | $A\alpha \approx 0$ (velocity-dependent; same sign) |
+| $b_i$ | **Odd** | **Odd** | $-b\cdot\sigma$ (matter) $+b\cdot\sigma$ (antimatter) | $V_2$ | $m^0$ | Consistent with $\|A\alpha\|$ near 1, but equally consistent with a sensitivity gap (no sign-flip evidence from $A\alpha$ alone) |
+| $b_0$ | **Odd** | **Odd** | $+b_0(\sigma\cdot p)/m$ | $V_7, V_8$ | $m^{-1}$ | Same caveat as $b_i$ |
+| $H_{ij}$ | **Even** | **Odd** | $-\mathcal{H}_B\cdot\sigma$ | $V_3$ | $m^0$ | $A\alpha \approx 0$ expected if bounds are comparably sensitive; a sensitivity gap can still produce $\|A\alpha\|$ near 1 despite CPT-even physics |
+| $H_{0i}$ | **Even** | **Odd** | $-\frac{1}{m}\sigma\cdot(p\times H_E)$ | $V_7$ | $m^{-1}$ | Same caveat as $H_{ij}$ |
+| $d_{i0}$ | **Even** | **Odd** | $+d_{i0}\, m\, \sigma^i$ | $V_2$ | $m^1$ (!) | Same caveat as $H_{ij}$ |
+| $d_{ij}$ | **Even** | **Odd** | $+d_{ij}\, p^j\, \sigma^i$ | $V_7, V_8$ | $m^0$ (vel.) | Same caveat as $H_{ij}$ |
 | $d_{00}$ | **Even** | **Even** | $= 0$ by antisymmetry | None | --- | No contribution |
 
 </div>
+
+**Note on "consistent with" vs. "caused by":** because every SPINDEP $A\alpha$ value is a ratio of two independent one-sided bounds, an observed value near $\pm 1$ can arise either from a genuine CPT-odd signal *or* from nothing more than one experiment being much more sensitive than the other. Distinguishing the two requires independent information about the relative precision of the matter- and antimatter-sector measurements being compared — it cannot be read off $A\alpha$ alone. This applies uniformly to every row above, CPT-odd or CPT-even.
 
 ## Connecting to SPINDEP Results
 
@@ -128,23 +132,23 @@ The table below gives the complete mapping from SME coefficient to NR Hamiltonia
 
 <div style="overflow-x: auto;">
 
-| **SPINDEP Pair** | **Coupling** | **DM Potential** | **Dominant SME coeff.** | **Theoretical $\|A\alpha\|$ prediction** |
+| **SPINDEP Pair** | **Coupling** | **DM Potential** | **Dominant SME coeff.** | **Observed $\|A\alpha\|$ — consistent with, not proof of** |
 | :--- | :--- | :--- | :--- | :--- |
-| gsgs$\cdot$UNKNOWN$\cdot$ee | Scalar-scalar | $V_1$ (UNKNOWN) | $c_{\mu\nu}$ (CPT-even) | $A\alpha \approx 0$ if CPT holds; 0.873 is anomalous --- likely sensitivity gap |
-| gAgA$\cdot$V1$\cdot$ep | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $\|A\alpha\| = 1$ --- consistent with 0.9998 |
-| gAgA$\cdot$V2$\cdot$ee ($\times 5$) | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $\|A\alpha\| = 1$ --- consistent with 0.954--1.000 |
+| gsgs$\cdot$UNKNOWN$\cdot$ee | Scalar-scalar | $V_1$ (UNKNOWN) | $c_{\mu\nu}$ (CPT-even) | $0.873$: consistent with a sensitivity-gap-dominated CPT-even channel |
+| gAgA$\cdot$V1$\cdot$ep | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $0.9998$: consistent with a CPT-odd sign flip, but equally consistent with a pure sensitivity gap |
+| gAgA$\cdot$V2$\cdot$ee ($\times 5$) | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $0.954$--$1.000$: same caveat as above |
 
 </div>
 
 ### Interpretation of the gsgs result
 
-The gsgs$\cdot$UNKNOWN$\cdot$ee pair shows $|A\alpha| = 0.873$ --- lower than all gAgA pairs. This is physically significant for two reasons:
+The gsgs$\cdot$UNKNOWN$\cdot$ee pair shows $|A\alpha| = 0.873$ --- lower than all gAgA pairs. Two notes:
 
-*   **CPT-even coupling:** The scalar--scalar (gsgs) coupling does not appear in the minimal SME at dimension 4. Its primary contribution comes from $c_{\mu\nu}$, a CPT-even coefficient. CPT-even terms predict $A\alpha \approx 0$, so $0.873 \neq 0$ is entirely attributable to the experimental sensitivity gap (Delaunay 2017 matter constraint is 3--4 orders of magnitude tighter than Adkins 2022 positronium constraint).
+*   **CPT-even coupling:** The scalar--scalar (gsgs) coupling does not appear in the minimal SME at dimension 4. Its primary contribution comes from $c_{\mu\nu}$, a CPT-even coefficient. A value below the gAgA pairs is *consistent with* a CPT-even channel and a sizeable sensitivity gap (Delaunay 2017 matter constraint is 3--4 orders of magnitude tighter than Adkins 2022 positronium constraint) — but, per the correction above, the gAgA pairs' higher values are *equally* explainable by a sensitivity gap alone, so the comparison between rows in this table cannot by itself distinguish "CPT-odd" from "CPT-even, larger sensitivity gap."
 
-*   **UNKNOWN potential:** The potential label UNKNOWN indicates the parser could not match the filename to a $V_n$ token. The likely candidate is $V_1$ (monopole--monopole, scalar exchange) given the gsgs coupling. $V_1$ has no spin structure and would produce $A\alpha = 0$ for a CPT-symmetric world.
+*   **UNKNOWN potential:** The potential label UNKNOWN indicates the parser could not match the filename to a $V_n$ token. The likely candidate is $V_1$ (monopole--monopole, scalar exchange) given the gsgs coupling. $V_1$ has no spin structure and would produce $A\alpha = 0$ for a CPT-symmetric world *if* the compared bounds were of comparable sensitivity.
 
-*   **Width of 95% CI:** $[0.871, 0.875]$ --- wider than gAgA CIs ($[0.999, 1.000]$). This reflects that gsgs pair is not at saturation; the bootstrap is correctly capturing genuine uncertainty in the asymmetry estimate.
+*   **Width of 95% CI:** $[0.871, 0.875]$ --- wider than gAgA CIs ($[0.999, 1.000]$). This reflects that the gsgs pair's bootstrap has more relative spread; it is not, by itself, evidence about CPT parity.
 
 ### CPT Rule for All SME Coefficients
 
@@ -158,11 +162,13 @@ $$
 H_{NR}^{\text{antiparticle}}(X^{\text{CPT-even}}) = +H_{NR}^{\text{particle}}(X^{\text{CPT-even}})
 $$
 
-This implies:
+This is a statement about a single, hypothetical *signed* coupling and its antiparticle counterpart. It does **not**, by itself, imply anything about the ratio of two independent experimental upper bounds:
 
-*   **CPT-odd ($b_\mu$):** $g_{\bar{a}} = -g_m \rightarrow |A\alpha| = 1$ (saturated) for exact CPT-odd coupling
+*   **CPT-odd ($b_\mu$):** for an exact signed relation $g_{\bar a} = -g_m$, the SPINDEP formula $A_\alpha=(g_m-g_{\bar a})/(g_m+g_{\bar a})$ is undefined (0/0 in the exactly-equal-magnitude case) or diverges (for any small mismatch) — it does **not** evaluate to a bounded $|A\alpha|=1$. What actually produces $|A\alpha|\to 1$ in real SPINDEP output is two independent *positive* bounds of very different tightness, which happens regardless of CPT parity.
 
-*   **CPT-even ($H_{\mu\nu}, d_{\mu\nu}, c_{\mu\nu}$):** $g_{\bar{a}} = +g_m \rightarrow A\alpha = 0$ for exact CPT-even coupling; non-zero $A\alpha$ from sensitivity gaps only
+*   **CPT-even ($H_{\mu\nu}, d_{\mu\nu}, c_{\mu\nu}$):** $g_{\bar a} = +g_m$ for an exact signed relation gives $A\alpha = 0$ only if $g_m$ and $g_{\bar a}$ are numerically equal — again a statement about a hypothetical signed measurement, not about independent one-sided bounds, which will show whatever sensitivity gap exists between the two experiments regardless of the true CPT-even relation.
+
+In short: **$A\alpha$ computed from upper bounds cannot currently distinguish CPT violation from an experimental sensitivity gap.** Doing so would require either (a) bounds of demonstrably comparable sensitivity, or (b) actual central-value measurements with symmetric errors instead of one-sided limits.
 
 ## Additional SME Coefficients (for completeness)
 

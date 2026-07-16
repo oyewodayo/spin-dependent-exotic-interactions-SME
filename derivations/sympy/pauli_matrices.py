@@ -359,11 +359,37 @@ if __name__ == "__main__":
     print(desc2)
     sp.pprint(H2)
 
-    print("\n--- Asymmetry parameter (b_mu, CPT-odd) ---")
-    # For CPT-odd b_mu: g_fbar = -g_f exactly, so denominator vanishes.
-    # The bounded SPINDEP definition clips this to |A_alpha| = 1.
+    print("\n--- Asymmetry parameter: naive signed substitution (b_mu, CPT-odd) ---")
+    # For an EXACT CPT-odd sign flip, a hypothetical *signed* coupling would
+    # satisfy g_fbar = -g_f, so the denominator g_f + g_fbar vanishes
+    # identically. This is a genuine divergence, not a bounded value --
+    # verified here with sympy's own limit(), rather than asserted by hand.
     gm_sym = symbols('g_f', positive=True)
     eps_sym = symbols('epsilon', positive=True)
-    A_lim = asymmetry(gm_sym, -gm_sym + eps_sym)
-    print(f"  A(g_fbar -> -g_f + eps) = {sp.simplify(A_lim)}")
-    print("  As eps -> 0: |A_alpha| -> 1  (consistent with SPINDEP report)")
+    A_signed = asymmetry(gm_sym, -gm_sym + eps_sym)
+    print(f"  A(g_fbar -> -g_f + eps) = {sp.simplify(A_signed)}")
+    limit_val = sp.limit(A_signed, eps_sym, 0, dir='+')
+    print(f"  sympy limit as eps -> 0+: {limit_val}")
+    assert limit_val is sp.oo, "Expected divergence, not saturation at 1"
+    print("  => DIVERGES. A CPT-odd sign flip does NOT predict |A_alpha| -> 1")
+    print("     when substituted directly as a signed coupling in this formula.")
+
+    print("\n--- What SPINDEP actually computes: ratio of two independent bounds ---")
+    # SPINDEP's `coupling_abs` columns (see spindep/README.md) are always-
+    # positive experimental UPPER BOUNDS from independent experiments, not
+    # signed measured values. Their ratio saturates near +/-1 whenever one
+    # bound is far tighter than the other, with NO dependence on whether the
+    # underlying physics is CPT-odd or CPT-even -- a generic property of
+    # comparing two positive numbers of very different size, i.e. a
+    # sensitivity-gap effect, not evidence of a sign flip.
+    g_loose = symbols('g_loose', positive=True)
+    ratio = symbols('r', positive=True)  # r = g_tight / g_loose
+    A_bounds = sp.simplify(asymmetry(g_loose, ratio * g_loose))
+    print(f"  A(g_tight = r * g_loose) = {A_bounds}")
+    print(f"  limit as r -> 0+ (bounds differ by orders of magnitude): "
+          f"{sp.limit(A_bounds, ratio, 0, dir='+')}")
+    print("  => |A_alpha| -> 1 purely from a large sensitivity gap between two")
+    print("     positive bounds. This is indistinguishable from a real CPT-odd")
+    print("     signal using bound magnitudes alone -- observing |A_alpha| ~ 1")
+    print("     in SPINDEP output is therefore NOT, by itself, evidence of the")
+    print("     b_mu sign-flip mechanism (see potential_match_table.md).")

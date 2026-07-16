@@ -20,7 +20,9 @@ The $d_{\mu\nu}$ term is particularly important for electron--nucleon scattering
 
 ---
 
-### Key Results
+**Unresolved — flagged, not yet fixed (this revision):** while completing the executable `derivations/sympy/` notebooks for `b_μ` and `H_μν`, a real Dirac-algebra sign error was found and fixed in the `b_μ` notebook (see `FW_bmu_term.ipynb` §2–3, and the correction notes in `FW_derivation_bmy.md`) — it was only caught by actually running the symbolic computation rather than trusting the hand-derived prose. Applying that same numeric check here (`gamma[0]*gamma5*sigma_munu(i,0)` in `dirac_algebra.py`'s tooling) for the electric-axial $d_{i0}$ term gives an **even**, $O(m^0)$, *imaginary*-coefficient operator ($\propto -i\,\Sigma^i\beta$) — not the real, $O(m^1)$, mass-*enhanced* $+d_{i0}\,m\,\sigma^i$ claimed below. The claimed order-$m^1$ enhancement does not fall out of the same direct $\gamma^0\Gamma$ projection that correctly reproduced the $b_\mu$ and $H_{\mu\nu}$ results, and re-deriving it properly needs more careful multi-step work than could be verified in this pass. **Treat the "Key Results" below as unverified pending a dedicated `FW_dmunu_term.ipynb` notebook** (not yet created) that checks each claim numerically the way the other two notebooks now do — do not cite the $d_{i0}\to V_2$ mass-enhancement claim in the thesis until that verification is done.
+
+### Key Results (unverified — see caveat above)
 
 *   $d_{i0}$: $H_{NR} = +d_{i0}\, m\, \sigma^i$ (order $m^1$, large but static) $\rightarrow V_2$
 *   $d_{ij}$: $H_{NR} = +d_{ij}\, p^j\, \sigma^i$ (order $m^0$ in velocity) $\rightarrow V_7, V_8$
