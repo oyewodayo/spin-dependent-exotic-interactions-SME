@@ -142,34 +142,25 @@ exotic-spin-interactions-SME/
 │       # FW_dmunu_term.ipynb not yet created -- see caveat in
 │       # FW_derivation_dmunu.md before relying on its claims
 │
-├── constraints/               # Experimental constraint database
-│   ├── data/
-│   │   ├── matter_sector/
-│   │   │   ├── NV_centres.csv
-│   │   │   ├── torsion_balances.csv
-│   │   │   └── atomic_magnetometers.csv
-│   │   └── antimatter_sector/
-│   │       ├── BASE_antiproton.csv
-│   │       ├── ALPHA_antihydrogen.csv
-│   │       └── positronium_hfs.csv
-│   ├── schema.md              # Database column definitions
-│   └── sources.md             # Data provenance and references
+├── constraints/               # Experimental constraint database (not yet started here --
+│                              # the compiled registry currently lives in spindep_framework/
+│                              # spindep/results/tables/{dataset_registry,asymmetry_summary}.csv)
 │
-├── analysis/                  # Python analysis scripts
+├── analysis/                  # Python analysis scripts -- thin wrappers around the real
+│   │                          # implementation in the sibling spindep_framework repo
 │   ├── requirements.txt       # Python dependencies
-│   ├── constraint_plots.py    # Coupling constant vs range plots
-│   ├── chi_square_tests.py    # CPT consistency tests
-│   ├── asymmetry_calc.py      # A_α parameter calculation
-│   ├── unit_conversion.py     # Standardise units across platforms
-│   └── notebooks/
-│       ├── 01_data_exploration.ipynb
-│       ├── 02_constraint_atlas.ipynb
-│       └── 03_CPT_comparison.ipynb
+│   ├── constraint_plots.py    # Coupling constant vs range plots (real, executable)
+│   ├── chi_square_tests.py    # CPT consistency tests (real, executable)
+│   ├── asymmetry_calc.py      # A_α parameter calculation (real, executable)
+│   ├── unit_conversion.py     # Standardise units across platforms (real, executable)
+│   └── notebooks/             # Interactive exploration -- not yet created; the SPINDEP
+│                              # GUI (spindep_framework/gui/) currently serves this role
 │
-├── figures/                   # Generated publication-quality figures
-│   ├── constraint_atlas/      # 16-panel Vi constraint plots
-│   ├── matter_antimatter/     # Comparison plots
-│   └── gap_analysis/          # White space identification plots
+├── figures/                   # Generated publication-quality figures -- populated from
+│   │                          # spindep_framework's real pipeline output
+│   ├── constraint_atlas/      # 22 per-potential + combined atlas plots
+│   ├── matter_antimatter/     # 15 comparison plots
+│   └── gap_analysis/          # 3 white-space identification plots
 │
 └── thesis/                    # Thesis writing (LaTeX)
     ├── main.tex
@@ -254,14 +245,20 @@ seaborn>=0.12.0
 
 ### Matter-Antimatter Comparison Summary
 
-| Potential | Best Matter Bound | Best Antimatter Bound | Asymmetry A_α | Status |
-|-----------|------------------|----------------------|---------------|--------|
-| $V_2$        | — | — | — | 📋 Planned |
-| $V_3$        | — | — | — | 📋 Planned |
-| $V_7$        | — | — | — | 📋 Planned |
-| $V_8$        | — | — | — | 📋 Planned |
+**Correction (this revision):** populated from `spindep_framework/spindep/results/tables/asymmetry_summary.csv` (see `analysis/asymmetry_calc.py`). Numeric coupling-bound magnitudes aren't reproduced here (only $A_\alpha$, which the summary table stores directly) — see the CSV / `dataset_registry.csv` for the underlying bounds.
 
-*Tables will be populated as constraints are compiled.*
+| Potential | Matter source | Antimatter source | Sector | $A_\alpha$ | Status |
+|-----------|---------------|--------------------|--------|-----------|--------|
+| $V_2$ ($g_Ag_A$)   | Karshenboim2011 | Ficek2018       | e-$\bar p$ | 0.9998 | ✅ Compiled |
+| $V_2$ ($g_Ag_A$)   | Ficek2017       | Karshenboim2011 | e-e        | 0.9892 | ✅ Compiled |
+| $V_{2+3}$ ($g_Ag_A$) | Ficek2017     | Fadeev2022      | e-e        | 0.9539 | ✅ Compiled |
+| $V_{2+3}$ ($g_pg_p$) | Fadeev2022    | Fadeev2022      | e-e        | 0.9535 | ✅ Compiled |
+| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Fadeev2022      | e-e        | 0.9535 | ✅ Compiled |
+| $V_3$        | — | — | — | 📋 Planned (no compiled pair yet) |
+| $V_7$        | — | — | — | 📋 Planned (no compiled pair yet) |
+| $V_8$        | — | — | — | 📋 Planned (no compiled pair yet) |
+
+**Caveat:** per `docs/theory_notes/potential_match_table.md`, a high $A_\alpha$ here is *consistent with* CPT violation but equally explained by a sensitivity gap between the matter- and antimatter-sector experiments — it is not, by itself, evidence of either.
 
 ---
 
@@ -270,12 +267,12 @@ seaborn>=0.12.0
 | Phase | Duration | Status | Notes |
 |-------|----------|--------|-------|
 | Literature Review | Weeks 1–4 | 🔄 In Progress | Cong et al. 2025 studied |
-| FW: $b_\mu$ derivation | Week 5 | ✅ Complete | Verified vs K&L 1999 |
-| FW: $H_{\mu\nu}$ derivation | Week 6–7 | ✅ Complete | — |
-| FW: $d_{\mu\nu}$ derivation | Week 7–8 | ✅ Complete | — |
-| Constraint compilation | Weeks 9–14 | 📋 Planned | — |
-| Gap analysis | Weeks 15–18 | 📋 Planned | — |
-| Thesis writing | Weeks 19–24 | 📋 Planned | — |
+| FW: $b_\mu$ derivation | Week 5 | ✅ Complete | Executed and verified in `FW_bmu_term.ipynb`; a sign error found and fixed in this pass |
+| FW: $H_{\mu\nu}$ derivation | Week 6–7 | ✅ Complete | Executed and verified in `FW_Hmunu_term.ipynb` |
+| FW: $d_{\mu\nu}$ derivation | Week 7–8 | ⚠️ Needs re-verification | Claimed results don't reproduce under the same numeric check that caught the $b_\mu$ error — see `FW_derivation_dmunu.md` |
+| Constraint compilation | Weeks 9–14 | ✅ Substantially complete | 273 datasets, 10 matched pairs, 22+15+3 figures — done via the sibling `spindep_framework` tool; see `analysis/` and `figures/` |
+| Gap analysis | Weeks 15–18 | ✅ Figures compiled | `figures/gap_analysis/` (lambda coverage, matter/antimatter ratio, pair coverage matrix); written analysis not yet drafted |
+| Thesis writing | Weeks 19–24 | 🔄 In Progress | `docs/chapters/01_introduction.tex` started |
 
 ---
 
