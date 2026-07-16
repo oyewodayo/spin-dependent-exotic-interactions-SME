@@ -89,11 +89,13 @@ By antisymmetry of $d_{\mu\nu}$, $d_{00} = 0$ identically. The notation $d_{00}$
 
 ### $d_{i0} \rightarrow V_2$
 
-The large $d_{i0}m\sigma^i$ coupling contributes to $V_2$ in the two-body potential as the spin-polarised vertex:
+The large $d_{i0}m\sigma^i$ coupling contributes to $V_2$ in the two-body potential as the spin-polarised vertex. Since $H_{NR}(d_{i0})$ has the same $\sigma^i$ (Zeeman-like) structure as the $b_i$ case, the two-body potential it generates is likewise spin--spin, not monopole--dipole:
 
 $$
-V_2 \text{ contribution} \propto (d_{i0}\, m) \times g_2 \times (\sigma_1 \cdot \hat{r})\left[\frac{1}{\lambda r} + \frac{1}{r^2}\right] e^{-r/\lambda}
+V_2 \text{ contribution} \propto (d_{i0}\, m)^{(1)} (d_{i0}\, m)^{(2)} \times (\sigma_1 \cdot \sigma_2) \frac{e^{-r/\lambda}}{r}
 $$
+
+**Correction (this revision):** this previously used the monopole--dipole radial form $(\sigma_1\cdot\hat r)[1/(\lambda r)+1/r^2]e^{-r/\lambda}$, which belongs to $V_9,V_{10}$, not $V_2$. $V_2$ is spin--spin ($\sigma_1\cdot\sigma_2$) with no $\hat r$ dependence — see `potential_match_table.md` for the corrected $V_1$--$V_{16}$ catalogue.
 
 The large $m$ factor means even very small $d_{i0}$ coefficients produce potentially observable effects. Current bounds from atomic magnetometry constrain $|d_{i0}| < 10^{-25}$ GeV (Heckel et al. 2008).
 

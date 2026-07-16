@@ -32,71 +32,77 @@ The primary use of this table in the SPINDEP framework is to interpret measured 
 
 ## Complete Dobrescu--Mocioiu Potential Catalogue
 
-The 16 DM potentials $V_1$--$V_{16}$ from Dobrescu & Mocioiu (2006), with their explicit position-space forms:
+**Correction (this revision):** the previous version of this table had several
+potentials transcribed with the wrong spin/vector structure (most critically,
+$V_2$ was written in $V_9$/$V_{10}$'s monopole--dipole form). The forms below
+are transcribed directly from Cong et al. (2025), Eqs. (1)--(12) [equivalent
+to Dobrescu & Mocioiu (2006), Eqs. (3.1)--(3.16)], with $\sigma_X\to\sigma_1$,
+$\sigma_Y'\to\sigma_2$, and $y(r) = e^{-r/\lambda}/(4\pi)$, $\lambda = 1/m_\phi$.
+$\hat{r}$ points from particle 2 to particle 1, $v$ is their relative velocity,
+and $m$ is the fermion mass relevant to the term (see Cong et al. for the
+fully general two-mass $m_X, m_Y$ bookkeeping). The differential operators
+$(1 - r\,d/dr)$ and $(1 - r\,d/dr + \tfrac{1}{3}r^2 d^2/dr^2)$ act on $y(r)$;
+evaluated explicitly they contribute the extra $1/(\lambda r)$, $1/(\lambda^2 r^2)$
+terms seen in $V_3$ below (worked out fully) and analogously for $V_4$--$V_7$,
+$V_{15}$, $V_{16}$ (left in operator form here — see Cong et al. Sec. V for the
+fully evaluated closed forms once specialised to a given coupling channel).
 
 $$
-V_1 = e^{-r/\lambda} / r
-$$
-
-$$
-V_2 = (\sigma_1\cdot\hat{r}) \left[\frac{1}{\lambda r} + \frac{1}{r^2}\right] e^{-r/\lambda} / r
-$$
-
-$$
-V_3 = \left[\sigma_1\cdot\sigma_2 - (\sigma_1\cdot\hat{r})(\sigma_2\cdot\hat{r})\left(3+\frac{3}{\lambda r}+\frac{1}{\lambda^2 r^2}\right)\right] e^{-r/\lambda} / r
-$$
-
-$$
-V_4 = \left[(\sigma_1\cdot\hat{r})(\sigma_2\cdot\hat{r}) - \frac{1}{3}\sigma_1\cdot\sigma_2\right] e^{-r/\lambda} / r
-$$
-
-$$
-V_5 = \sigma_1\cdot(\hat{r}\times v)\, e^{-r/\lambda} / r
+V_1 = \frac{1}{r}\, y(r) \qquad \text{(monopole--monopole, spin-independent)}
 $$
 
 $$
-V_6 = (\sigma_1\cdot v)(\sigma_2\cdot v)\, e^{-r/\lambda} / r
+V_2 = \frac{1}{r}\,(\sigma_1\cdot\sigma_2)\, y(r) \qquad \text{(dipole--dipole / spin--spin)}
 $$
 
 $$
-V_7 = \sigma_1\cdot(v\times\hat{r})\, e^{-r/\lambda} / r
+V_3 = \frac{1}{m^2 r^3}\left[\sigma_1\cdot\sigma_2\left(1 - r\frac{d}{dr}\right) - 3(\sigma_1\cdot\hat{r})(\sigma_2\cdot\hat{r})\left(1 - r\frac{d}{dr} + \frac{r^2}{3}\frac{d^2}{dr^2}\right)\right] y(r)
 $$
 
 $$
-V_8 = \{\sigma_1\cdot v,\, e^{-r/\lambda}/r\} \quad \text{(anticommutator with potential)}
+\hphantom{V_3} = \frac{e^{-r/\lambda}}{4\pi m^2}\left\{\sigma_1\cdot\sigma_2\left[\frac{1}{r^3}+\frac{1}{\lambda r^2}\right] - (\sigma_1\cdot\hat{r})(\sigma_2\cdot\hat{r})\left[\frac{3}{r^3}+\frac{3}{\lambda r^2}+\frac{1}{\lambda^2 r}\right]\right\} \qquad \text{(tensor dipole--dipole)}
 $$
 
 $$
-V_9 = (\sigma_1\cdot\hat{r})(\sigma_2\cdot\hat{r})\, e^{-r/\lambda} / r
+V_{4,5} = -\frac{1}{2mr^2}(\sigma_1 \pm \sigma_2)\cdot(v\times\hat{r})\left(1 - r\frac{d}{dr}\right) y(r) \qquad \text{(spin--velocity; $+$ = $V_4$, $-$ = $V_5$)}
 $$
 
 $$
-V_{10} = (\sigma_1\cdot v)(\sigma_2\cdot\hat{r})\, e^{-r/\lambda} / r
+V_{6,7} = -\frac{1}{2mr^2}\Big[(\sigma_1\cdot v)(\sigma_2\cdot\hat{r}) \pm (\sigma_1\cdot\hat{r})(\sigma_2\cdot v)\Big]\left(1 - r\frac{d}{dr}\right) y(r) \qquad \text{($+$ = $V_6$, $-$ = $V_7$)}
 $$
 
 $$
-V_{11} = L\cdot S \times e^{-r/\lambda}/r \quad \text{(spin-orbit: } L = r\times p,\ S = \sigma_1+\sigma_2\text{)}
+V_8 = \frac{1}{r}(\sigma_1\cdot v)(\sigma_2\cdot v)\, y(r) \qquad \text{(velocity--velocity)}
 $$
 
 $$
-V_{12} = (\sigma_1\times\sigma_2)\cdot\hat{r} \times e^{-r/\lambda}/r
+V_{9,10} = -\frac{1}{2mr^2}(\sigma_1 \pm \sigma_2)\cdot\hat{r}\left(1 - r\frac{d}{dr}\right) y(r) \qquad \text{(monopole--dipole; $+$ = $V_9$, $-$ = $V_{10}$)}
 $$
 
 $$
-V_{13} = (\sigma_1\times\sigma_2)\cdot v \times e^{-r/\lambda}/r
+V_{11} = -\frac{1}{mr^2}(\sigma_1\times\sigma_2)\cdot\hat{r}\left(1 - r\frac{d}{dr}\right) y(r) \qquad \text{(spin cross-product; \emph{not} $L\cdot S$ spin-orbit)}
 $$
 
 $$
-V_{14} = (\sigma_1\cdot\hat{r})(\sigma_2\cdot v)\, e^{-r/\lambda}/r
+V_{12,13} = \frac{1}{2r}(\sigma_1 \pm \sigma_2)\cdot v\, y(r) \qquad \text{($+$ = $V_{12}$, $-$ = $V_{13}$)}
 $$
 
 $$
-V_{15} = \{(\sigma_1\cdot v),\, (\sigma_2\cdot\hat{r})\}\, e^{-r/\lambda}/r \quad \text{(anticommutator)}
+V_{14} = \frac{1}{r}(\sigma_1\times\sigma_2)\cdot v\, y(r)
 $$
 
 $$
-V_{16} = (\sigma_1\cdot\hat{r})(\sigma_2\cdot\hat{r})\, v^2\, e^{-r/\lambda}/r
+V_{15} = -\frac{3}{2m^2r^3}\Big\{[\sigma_1\cdot(v\times\hat{r})](\sigma_2\cdot\hat{r}) + (\sigma_1\cdot\hat{r})[\sigma_2\cdot(v\times\hat{r})]\Big\}\left(1 - r\frac{d}{dr} + \frac{r^2}{3}\frac{d^2}{dr^2}\right) y(r)
 $$
+
+$$
+V_{16} = -\frac{1}{2mr^2}\Big\{[\sigma_1\cdot(v\times\hat{r})](\sigma_2\cdot v) + (\sigma_1\cdot v)[\sigma_2\cdot(v\times\hat{r})]\Big\}\left(1 - r\frac{d}{dr}\right) y(r)
+$$
+
+**Notes on the corrections:**
+- $V_2$ is spin--spin ($\sigma_1\cdot\sigma_2$), with *no* $\hat{r}$ dependence and *no* $1/r^2$ or $1/(\lambda r)$ terms — it is $V_9,V_{10}$ (monopole--dipole, single spin dotted into $\hat{r}$) that has that radial structure. The previous version of this table had these swapped.
+- $V_{11}$ is $(\sigma_1\times\sigma_2)\cdot\hat{r}$ — a cross product of the *two* spins with $\hat{r}$ — not an $L\cdot S$ orbital spin-orbit coupling. $V_{12},V_{13}$ are the $\pm$ pair $(\sigma_1\pm\sigma_2)\cdot v$ (single-spin-combination dotted into velocity), not cross products.
+- $V_4,V_5$ and $V_9,V_{10}$ and $V_{12},V_{13}$ are each a $\pm$ **pair of the same structure** (sum vs. difference of the two particles' spins), not two independent structures as previously listed.
 
 ## Main SME $\rightarrow$ DM Potential Matching Table
 
@@ -125,7 +131,7 @@ The table below gives the complete mapping from SME coefficient to NR Hamiltonia
 | **SPINDEP Pair** | **Coupling** | **DM Potential** | **Dominant SME coeff.** | **Theoretical $\|A\alpha\|$ prediction** |
 | :--- | :--- | :--- | :--- | :--- |
 | gsgs$\cdot$UNKNOWN$\cdot$ee | Scalar-scalar | $V_1$ (UNKNOWN) | $c_{\mu\nu}$ (CPT-even) | $A\alpha \approx 0$ if CPT holds; 0.873 is anomalous --- likely sensitivity gap |
-| gAgA$\cdot$V1$\cdot$ep | Axial-axial | $V_2$ (monopole-dipole) | $b_\mu$ (CPT-odd) | $\|A\alpha\| = 1$ --- consistent with 0.9998 |
+| gAgA$\cdot$V1$\cdot$ep | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $\|A\alpha\| = 1$ --- consistent with 0.9998 |
 | gAgA$\cdot$V2$\cdot$ee ($\times 5$) | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $\|A\alpha\| = 1$ --- consistent with 0.954--1.000 |
 
 </div>

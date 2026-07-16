@@ -170,20 +170,22 @@ In the bounded definition |g_m| ≠ |g_ā| (because experimental upper bounds ar
 
 ### 5.1 From Single-Particle to Two-Body Potential
 
-The DM catalogue describes two-body potentials from boson exchange between particles 1 and 2. The single-particle Hamiltonian H_NR(ψ1) from §3 must be promoted to a two-body potential by including the mediator propagator and the second vertex. For a Yukawa mediator of mass m_φ:
+The DM catalogue describes two-body potentials from boson exchange between particles 1 and 2. The single-particle Hamiltonian H_NR(ψ1) from §3 is the same "$-b\cdot\sigma$" Zeeman-like structure that an axial-vector-boson exchange produces at *each* vertex (cf. axial-vector/axial-vector coupling in Cong et al. 2025, Eq. 47). Promoting to the two-body potential — i.e. matching the exchange of the same axial-vector mediator between *both* fermions — therefore gives the spin-spin form:
 $$
-V₂(r) = g^2 / (4π) × (σ_1·r̂) × [λ⁻²/r + λ⁻¹/r²] × e^{-r/λ} / r where λ = 1/m_φ
+V_2(r) = -g_A^{(1)} g_A^{(2)} \frac{1}{4\pi} (\sigma_1\cdot\sigma_2) \frac{e^{-r/\lambda}}{r} \quad \text{where } \lambda = 1/m_\phi
 $$
 &nbsp;&nbsp;&nbsp;&nbsp;*(5.1)*
 
-The coupling constant g in eq.(5.1) is identified with the b_μ coefficient through the matching condition g ⇔ |b_μ| / m_f for the relevant fermion mass m_f. The spatial b_i term maps to V₂ (monopole—dipole in the single-spin form) at leading order.
+**Correction (this revision):** Eq. (5.1) previously gave $V_2$ in the monopole--dipole functional form $(\sigma_1\cdot\hat r)[\lambda^{-2}/r+\lambda^{-1}/r^2]e^{-r/\lambda}/r$ — that form belongs to $V_9,V_{10}$ (single spin dotted into $\hat r$), not $V_2$. The correct $V_2$ is spin--spin ($\sigma_1\cdot\sigma_2$), with no $\hat r$ dependence and no $1/r^2$ term; see `potential_match_table.md` for the full corrected $V_1$--$V_{16}$ catalogue transcribed from Cong et al. (2025).
+
+The coupling constant $g_A$ in eq. (5.1) is identified with the b_μ coefficient through the matching condition $g_A \Leftrightarrow |b_\mu| / m_f$ for the relevant fermion mass $m_f$. The spatial $b_i$ term maps to $V_2$ (spin--spin) at leading order — each fermion contributes one $-b\cdot\sigma$ vertex, and the product of the two single-particle Hamiltonians yields the $\sigma_1\cdot\sigma_2$ structure.
 
 ### 5.2 Summary of Matchings
 
 > [!NOTE]
 > | **b_μ component** | **NR Hamiltonian** | **DM Potential** | **Order in 1/m** | **Notes** |
 > | --- | --- | --- | --- | --- |
-> | **b_i (spatial)** | -b·σ | **V₂** | m⁰ (leading) | Monopole-dipole, spin of particle 1 only |
+> | **b_i (spatial)** | -b·σ | **V₂** | m⁰ (leading) | Spin--spin ($\sigma_1\cdot\sigma_2$); both particles' spins couple |
 > | **b_0 (temporal)** | +b₀(σ·p)/m | **V₇, V₈** | m⁻¹ | Velocity-dependent spin coupling |
 
 ## 6. Physical Consequences and SPINDEP Implications
