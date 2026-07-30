@@ -32,7 +32,7 @@ The primary use of this table in the SPINDEP framework is to interpret measured 
 
 ## Complete Dobrescu--Mocioiu Potential Catalogue
 
-**Correction (this revision):** the previous version of this table had several
+An earlier version of this table had several
 potentials transcribed with the wrong spin/vector structure (most critically,
 $V_2$ was written in $V_9$/$V_{10}$'s monopole--dipole form). The forms below
 are transcribed directly from Cong et al. (2025), Eqs. (1)--(12) [equivalent
@@ -108,7 +108,7 @@ $$
 
 The table below gives the complete mapping from SME coefficient to NR Hamiltonian to DM potential(s), with CPT/Lorentz properties and the naive predicted $A\alpha$ signature.
 
-**Correction (this revision):** the "prediction" column below assumed that substituting an exact, signed CPT-odd relation ($g_{\bar f}=-g_f$) directly into the SPINDEP formula $A_\alpha=(g_f-g_{\bar f})/(g_f+g_{\bar f})$ gives $|A\alpha|\to 1$. It does not — the denominator vanishes and the expression diverges (verified with `sympy.limit` in `derivations/sympy/pauli_matrices.py`). More importantly, SPINDEP's actual inputs are independent, always-positive experimental *upper bounds*, not a signed measured coupling, so this signed substitution does not describe what is actually computed. Comparing two positive bounds of very different tightness drives $|A\alpha|\to 1$ regardless of CPT status — a sensitivity-gap effect. The predictions below should therefore be read as "**consistent with**," not "**caused by**," the stated CPT parity; see `FW_derivation_bmy.md` §4.2 for the full argument.
+A caveat on the "prediction" column below: it is tempting to substitute an exact, signed CPT-odd relation ($g_{\bar f}=-g_f$) directly into the SPINDEP formula $A_\alpha=(g_f-g_{\bar f})/(g_f+g_{\bar f})$ and conclude $|A\alpha|\to 1$. That substitution does not hold — the denominator vanishes and the expression diverges instead (verified with `sympy.limit` in `derivations/sympy/pauli_matrices.py`). More importantly, SPINDEP's actual inputs are independent, always-positive experimental *upper bounds*, not a signed measured coupling, so the signed substitution does not describe what is actually computed. Comparing two positive bounds of very different tightness drives $|A\alpha|\to 1$ regardless of CPT status — a sensitivity-gap effect. The predictions below should therefore be read as "**consistent with**," not "**caused by**," the stated CPT parity; see `FW_derivation_bmy.md` §4.2 for the full argument.
 
 <div style="overflow-x: auto;">
 
@@ -134,7 +134,7 @@ The table below gives the complete mapping from SME coefficient to NR Hamiltonia
 
 | **SPINDEP Pair** | **Coupling** | **DM Potential** | **Dominant SME coeff.** | **Observed $\|A\alpha\|$ — consistent with, not proof of** |
 | :--- | :--- | :--- | :--- | :--- |
-| gsgs$\cdot$UNKNOWN$\cdot$ee | Scalar-scalar | $V_1$ (UNKNOWN) | $c_{\mu\nu}$ (CPT-even) | $0.873$: consistent with a sensitivity-gap-dominated CPT-even channel |
+| gsgs$\cdot$V1$\cdot$ee | Scalar-scalar | $V_1$ (confirmed; see below) | $c_{\mu\nu}$ (CPT-even) | $0.873$: consistent with a sensitivity-gap-dominated CPT-even channel |
 | gAgA$\cdot$V1$\cdot$ep | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $0.9998$: consistent with a CPT-odd sign flip, but equally consistent with a pure sensitivity gap |
 | gAgA$\cdot$V2$\cdot$ee ($\times 5$) | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $0.954$--$1.000$: same caveat as above |
 
@@ -142,11 +142,11 @@ The table below gives the complete mapping from SME coefficient to NR Hamiltonia
 
 ### Interpretation of the gsgs result
 
-The gsgs$\cdot$UNKNOWN$\cdot$ee pair shows $|A\alpha| = 0.873$ --- lower than all gAgA pairs. Two notes:
+The gsgs$\cdot$V1$\cdot$ee pair shows $|A\alpha| = 0.873$ --- lower than all gAgA pairs. Two notes:
 
 *   **CPT-even coupling:** The scalar--scalar (gsgs) coupling does not appear in the minimal SME at dimension 4. Its primary contribution comes from $c_{\mu\nu}$, a CPT-even coefficient. A value below the gAgA pairs is *consistent with* a CPT-even channel and a sizeable sensitivity gap (Delaunay 2017 matter constraint is 3--4 orders of magnitude tighter than Adkins 2022 positronium constraint) — but, per the correction above, the gAgA pairs' higher values are *equally* explainable by a sensitivity gap alone, so the comparison between rows in this table cannot by itself distinguish "CPT-odd" from "CPT-even, larger sensitivity gap."
 
-*   **UNKNOWN potential:** The potential label UNKNOWN indicates the parser could not match the filename to a $V_n$ token. The likely candidate is $V_1$ (monopole--monopole, scalar exchange) given the gsgs coupling. $V_1$ has no spin structure and would produce $A\alpha = 0$ for a CPT-symmetric world *if* the compared bounds were of comparable sensitivity.
+*   **Potential now confirmed as $V_1$:** this pair's filenames (`Delaunay_2017`, `Adkins_2022_eeplus`) carry no potential-number token, so the parser originally recorded them as `UNKNOWN`. Rather than rely on the plausible-but-unverified guess that gsgs coupling implies $V_1$, both source papers were checked directly: Delaunay, Frugiuele, Fuchs & Soreq (2017), *Phys. Rev. D* 96, 115002, constrain a spin-independent scalar interaction between electrons, and Adkins, Cassidy & Pérez-Ríos (2022), *Phys. Rept.* 975, 1, report a bound on the analogous spin-independent $g_s^eg_s^{e^+}$ coupling from positronium spectroscopy — both a direct match to $V_1$'s monopole--monopole, spin-independent definition. The classification is applied via `FILENAME_POTENTIAL_OVERRIDES` in `spindep/src/parser.py`, not by editing the raw source files. $V_1$ has no spin structure and would produce $A\alpha = 0$ for a CPT-symmetric world *if* the compared bounds were of comparable sensitivity. Note: a further eleven filenames sit under a `# V1 / scalar exchange datasets` comment in the same override table without the potential-side fix applied — see `thesis/05_gap_analysis.tex` §5.4 for the list; these remain genuinely `UNKNOWN` pending the same source-verification step.
 
 *   **Width of 95% CI:** $[0.871, 0.875]$ --- wider than gAgA CIs ($[0.999, 1.000]$). This reflects that the gsgs pair's bootstrap has more relative spread; it is not, by itself, evidence about CPT parity.
 

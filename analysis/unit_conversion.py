@@ -4,21 +4,26 @@ unit_conversion.py
 Standardise units across constraint-database platforms.
 
 This is a thin wrapper around the real implementation in the SPINDEP
-computational framework (`spindep_framework/spindep/src/unit_conversion.py`),
-which is developed as a sibling repository to this one. The logic lives
-there (not duplicated here) so the two repos never drift out of sync;
-this file just exposes it under the name expected by this thesis repo's
-`analysis/` layout and demonstrates it on the real dataset registry.
+computational framework, vendored here as a git submodule at
+`spindep_framework/` (pinned to a specific commit -- see
+`.gitmodules` and `git submodule status`). The logic lives there
+(not duplicated here) so this repo and the framework never drift out
+of sync silently; updating the pinned commit is an explicit
+`git submodule update --remote` + commit.
 
-Requires `spindep_framework` checked out alongside this repo, i.e.:
-    <parent>/spindep_framework/
-    <parent>/exotic-spin-interactions-SME/   <- this repo
+After cloning this repo, initialise the submodule with:
+    git submodule update --init --recursive
 """
 
 import sys
 from pathlib import Path
 
-_SPINDEP_ROOT = Path(__file__).resolve().parents[2] / "spindep_framework"
+_SPINDEP_ROOT = Path(__file__).resolve().parents[1] / "spindep_framework"
+if not _SPINDEP_ROOT.exists():
+    raise ImportError(
+        f"spindep_framework submodule not found at {_SPINDEP_ROOT}.\n"
+        "Run: git submodule update --init --recursive"
+    )
 if str(_SPINDEP_ROOT) not in sys.path:
     sys.path.insert(0, str(_SPINDEP_ROOT))
 

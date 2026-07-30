@@ -1,0 +1,250 @@
+\documentclass[main]{subfiles}
+
+\begin{document}
+
+\chapter{Gap Analysis and Future Experimental Strategies}
+
+\section{Overview}
+
+Chapter~4 showed that only 17 of the 273 compiled datasets involve an
+antimatter sector, and that every matter--antimatter pair currently
+matchable from the database is consistent with, but cannot distinguish
+from, an ordinary sensitivity gap between the two experiments being
+compared. This chapter quantifies exactly where that gap is largest --
+by fermion sector (Section~\ref{sec:sector-gaps}) and by DM potential
+(Section~\ref{sec:potential-gaps}) -- identifies data-quality limitations of
+the current database that compound the physics gap
+(Section~\ref{sec:data-quality}), and proposes where future experimental and
+data-compilation effort would do the most to close it
+(Section~\ref{sec:strategy}). The guiding principle throughout is the one
+established in Chapter~3: because $A_\alpha$ computed from one-sided upper
+bounds cannot separate a real CPT signal from a sensitivity gap, the most
+valuable next experiment is not necessarily the one that pushes an existing
+matter-sector bound tighter, but the one that fills a currently empty
+antimatter-sector cell with a bound of \emph{comparable} precision to its
+matter-sector counterpart.
+
+\section{Coverage by Fermion Sector}
+\label{sec:sector-gaps}
+
+Table~\ref{tab:sector-gaps} compares, for each of the nine canonical
+matter--antimatter sector pairs used by SPINDEP, the number of compiled
+datasets on each side.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}llrrl@{}}
+\toprule
+Matter sector & Antimatter sector & Matter datasets & Antimatter datasets & Status \\
+\midrule
+$e$-$e$     & $e$-$e^+$      & 50 & 5 & Populated (used in Ch.~4) \\
+$e$-$p$     & $e$-$\bar p$   & 12 & 9 & Populated (used in Ch.~4) \\
+$e$-$\mu$   & $e$-$\bar\mu$  & 3  & 3 & Populated, not yet matched \\
+$e$-$n$     & $e$-$\bar n$   & 16 & 0 & \textbf{Gap} \\
+$\mu$-$\mu$ & $\mu$-$\bar\mu$& 1  & 0 & \textbf{Gap} (thin on both sides) \\
+$n$-$p$     & $n$-$\bar p$   & 9  & 0 & \textbf{Gap} \\
+$n$-$n$     & $n$-$\bar n$   & 8  & 0 & \textbf{Gap} \\
+$p$-$p$     & $p$-$\bar p$   & 0  & 0 & No data either side \\
+$e$-$N$     & $e$-$\bar N$   & 58 & 0 & \textbf{Largest gap} \\
+\bottomrule
+\end{tabular}
+\caption{Matter versus antimatter dataset counts per canonical fermion sector pair.}
+\label{tab:sector-gaps}
+\end{table}
+
+The $e$-$N$ sector is the single largest opportunity in the database: 58
+matter-sector datasets exist, more than any other sector, against zero in
+$e$-$\bar N$. The $e$-$n$, $n$-$p$, and $n$-$n$ sectors each have a
+substantial matter-sector base (8--16 datasets) and no antimatter-sector
+counterpart at all. Even the $e$-$\mu$/$e$-$\bar\mu$ pair, nominally
+``populated'' on both sides, has not yet been matched into a pair by
+SPINDEP's pairing logic (Chapter~4, Section~4.2.3), which is itself worth
+investigating: either the compiled $e$-$\bar\mu$ datasets do not share a
+common coupling/potential/interaction-class label with the $e$-$\mu$ ones,
+or their $\lambda$ ranges do not overlap, and either explanation would be
+useful to confirm directly rather than assume.
+
+\section{Coverage by Dobrescu--Mocioiu Potential}
+\label{sec:potential-gaps}
+
+Table~\ref{tab:potential-gaps} breaks the same comparison down by DM
+potential rather than by sector, restricted to the potentials with at least
+one dataset in the database (excluding the 50 \texttt{UNKNOWN}-potential
+entries discussed in Section~\ref{sec:data-quality}).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lrrl@{}}
+\toprule
+Potential & Matter datasets & Antimatter datasets & Status \\
+\midrule
+$V_{4+5}$  & 58 & 3 & Thin antimatter coverage \\
+$V_{9+10}$ & 31 & 0 & \textbf{Gap} \\
+$V_{2+3}$  & 21 & 9 & Best-covered potential (used throughout Ch.~4) \\
+$V_{1a}$   & 29 & 0 & \textbf{Gap} \\
+$V_2$      & 18 & 2 & Thin antimatter coverage \\
+$V_1$      & 18 & 1 & Thin antimatter coverage (2 datasets reclassified from UNKNOWN, Ch.~4) \\
+$V_{12+13}$& 16 & 0 & \textbf{Gap} \\
+$V_{11}$   & 7  & 0 & \textbf{Gap} \\
+$V_8$      & 5  & 1 & Thin antimatter coverage \\
+$V_{15}$   & 2  & 0 & \textbf{Gap} \\
+$V_{16}$   & 2  & 0 & \textbf{Gap} \\
+\bottomrule
+\end{tabular}
+\caption{Matter versus antimatter dataset counts per Dobrescu--Mocioiu potential.}
+\label{tab:potential-gaps}
+\end{table}
+
+Six of the eleven classified potentials -- $V_{11}$, $V_{15}$, $V_{16}$,
+$V_{1a}$, $V_{9+10}$, and $V_{12+13}$ -- have \emph{zero} antimatter-sector
+datasets despite substantial matter-sector coverage, $V_{1a}$ and $V_{9+10}$
+most strikingly, with 29 and 31 matter-sector datasets respectively and
+nothing to compare them against. $V_1$ narrowly escapes this list only
+because of the two-dataset reclassification described in Chapter~4 -- absent
+that fix it would have shown zero antimatter coverage like the other six.
+Only $V_{2+3}$ has antimatter coverage exceeding a handful of datasets,
+which is why nine of the ten matched pairs in Chapter~4 involve $V_2$ or
+$V_{2+3}$ (the tenth, $g_sg_s\cdot V_1\cdot ee$, exists only because of that
+same reclassification): the pairing methodology can only produce a
+comparison where both sides of a channel actually have data, and at present
+that is a narrow slice of the full sixteen-potential catalogue established
+in Chapter~2.
+
+\section{Interaction-Range Coverage}
+
+Figure~\ref{fig:lambda-coverage} shows the $\lambda$ range spanned by the
+compiled datasets for each potential. Coverage is broadly continuous from
+sub-picometre to macroscopic scales for the best-populated potentials
+($V_{4+5}$, $V_{9+10}$, $V_{2+3}$), but a small number of individual
+datasets report $\lambda$ values many orders of magnitude beyond the
+observable universe ($\gtrsim10^{30}$~m for a few entries under $V_{2+3}$
+and $V_{9+10}$), which is physically implausible and almost certainly
+reflects a unit-parsing error in the source CSV rather than a genuine
+reported bound. Section~\ref{sec:data-quality} returns to this as a
+concrete cleanup item rather than a real coverage gap, since including it
+uncritically would visibly distort the true $\lambda$-coverage picture.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{lambda_coverage_by_potential.png}
+\caption{Interaction-range ($\lambda$) coverage by potential across the compiled database.}
+\label{fig:lambda-coverage}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\textwidth]{pair_coverage_matrix.png}
+\caption{Dataset count by potential and sector; antimatter-sector rows are highlighted, visually reproducing the gaps quantified in Tables~\ref{tab:sector-gaps} and~\ref{tab:potential-gaps}.}
+\label{fig:pair-coverage}
+\end{figure}
+
+\section{Data-Quality and Framework Limitations}
+\label{sec:data-quality}
+
+Three limitations of the current database and framework, distinct from the
+physics coverage gaps above, are worth stating plainly rather than working
+around silently.
+
+\textbf{Unresolved potential classification.} 50 datasets -- close to a
+fifth of the database -- carry a filename the parser cannot resolve to a
+specific $V_n$ token, and are recorded as \texttt{UNKNOWN} rather than
+guessed at. Two datasets, \texttt{Delaunay\_2017} and
+\texttt{Adkins\_2022\_eeplus}, were in this category until their source
+publications were checked directly and both confirmed as $V_1$ (Chapter~4,
+Section~4.3.1) -- not inferred from the $g_sg_s$ coupling label, which on
+its own would only make $V_1$ plausible, not confirmed. That same parser
+module contains a further eleven filename entries (\texttt{Hoskins\_1985},
+\texttt{Kapner\_2007}, \texttt{Chen\_2016}, \texttt{Tan\_2020},
+\texttt{Lee\_2020}, \texttt{Bordag\_2001}, \texttt{Alighanbari\_2020},
+\texttt{Colliders}, and others) sitting under a source-code comment reading
+``V1 / scalar exchange datasets'' -- a strong hint that whoever originally
+triaged the sector-parsing overrides for these files already suspected the
+same $V_1$ identification, but never completed the potential-side fix the
+way it now has been for the two entries above. Resolving the remaining
+eleven the same way -- checking each source publication rather than
+trusting the comment -- would meaningfully shrink the 50-dataset
+\texttt{UNKNOWN} category, but has not been done as part of this thesis and
+should not be assumed correct without that check.
+
+\textbf{Two coupling-label parser artifacts.} The \texttt{Code-plot-matlab}
+coupling label affecting 2 datasets (Chapter~4, Section~4.3.1) reflects a
+source directory named for a file format rather than a physics category,
+and should be reclassified or excluded before any coupling-level summary
+statistic is quoted from the database in a publication.
+
+\textbf{Implausible $\lambda$ values in a small number of datasets.} As
+noted in Section 5.3, a handful of entries under $V_{2+3}$ and $V_{9+10}$
+report interaction ranges that are physically nonsensical
+($\lambda\gg10^{26}$~m, larger than the observable universe), almost
+certainly the result of a unit token being mis-detected during compilation
+(Chapter~4, Section~4.2.2). These entries should be individually
+re-verified against their source publications before the database is
+considered final; none of the ten matched pairs in Chapter~4, Table~4.2
+are affected, since their reported $\lambda_{\max}$ values are all
+physically reasonable, but a broader coverage claim drawn from the full
+database without this cleanup would not be reliable.
+
+Separately, Chapter~3 already flagged the $d_{\mu\nu}\to V_2$
+mass-enhancement derivation as unverified pending a dedicated symbolic
+notebook; that limitation is theoretical rather than a database issue, but
+is relisted here because it directly limits how confidently any future
+$d_{i0}$-sector experimental target (Section~\ref{sec:strategy}) can be
+motivated until it is resolved.
+
+\section{Proposed Experimental Strategies}
+\label{sec:strategy}
+
+Three concrete directions follow from the coverage gaps quantified above.
+
+\textbf{Prioritise the $e$-$N$, $n$-$p$, $n$-$n$, and $e$-$n$ sectors for
+new antimatter-sector bounds.} These four sectors together account for 91
+of the 256 matter-sector datasets in the database and zero antimatter-sector
+ones. Precision antiproton experiments such as BASE, and antihydrogen
+spectroscopy such as ALPHA, are the most direct existing platforms capable
+of producing $\bar p$- or $\bar H$-based bounds in these channels; the
+scientific case here is stronger than for further improving already
+well-covered channels like $e$-$e^+$, precisely because no comparison is
+currently possible at all in these four sectors, regardless of precision.
+
+\textbf{Prioritise $V_{1a}$, $V_{9+10}$, $V_1$, and $V_{12+13}$ for new
+antimatter-sector bounds}, for the same reason at the potential level:
+these four potentials have 17--31 matter-sector datasets each and none on
+the antimatter side, so even a modest first antimatter-sector measurement
+would open a channel that currently cannot be compared at all.
+
+\textbf{Reinterpret existing antimatter- and Lorentz/CPT-sensitive datasets
+before commissioning new experiments.} Cong et al.\ (2025) document a
+precedent for this: existing comagnetometer data originally collected to
+search for sidereal Lorentz-violation signals has been reinterpreted, after
+the fact, as bounds on several $V_n$ terms with the Sun, Moon, or Earth as
+an unpolarised source mass. Given that the $g_sg_s\cdot V_1$ pairing in
+Chapter~4 already draws on positronium data (Adkins et al., 2022) not
+originally collected for this framework, a systematic search of existing BASE, ALPHA, and
+comagnetometer publications for data that could be reinterpreted as bounds
+in the gap sectors identified in Section~\ref{sec:sector-gaps} is likely to
+close some of this gap faster, and at lower cost, than commissioning new
+measurements from scratch.
+
+Across all three directions, the standard this thesis applies (Chapter~3)
+is that a new antimatter-sector bound is scientifically useful for a CPT
+test specifically when it approaches the precision of its matter-sector
+counterpart, not merely when it exists: a first antimatter measurement many
+orders of magnitude looser than the matter-sector bound in the same channel
+would simply reproduce the same sensitivity-gap-dominated
+$|A_\alpha|\approx1$ pattern documented throughout Chapter~4, without
+resolving the CPT question it is meant to address.
+
+\section{Chapter Summary}
+
+Of the nine canonical fermion-sector pairs and the eleven classified DM
+potentials in the compiled database, most have no antimatter-sector
+coverage at all: four sectors ($e$-$N$, $e$-$n$, $n$-$p$, $n$-$n$) account
+for 91 matter-sector datasets and zero antimatter-sector ones, and six of
+eleven potentials are in the same position. This -- not a lack of
+matter-sector precision -- is the binding constraint on this thesis's
+ability to distinguish genuine CPT violation from an ordinary sensitivity
+gap, and is where future experimental and data-compilation effort would be
+most valuable. Chapter~6 concludes the thesis and summarises these findings
+alongside those of Chapters~2--4.
+
+\end{document}

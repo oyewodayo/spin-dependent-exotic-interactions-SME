@@ -1,0 +1,278 @@
+\documentclass[main]{subfiles}
+
+\begin{document}
+
+\chapter{Constraint Database Compilation and Matter--Antimatter Comparison}
+
+\section{Overview}
+
+Chapters~2 and~3 established the theoretical machinery connecting SME
+coefficients to Dobrescu--Mocioiu (DM) potentials. This chapter applies that
+machinery to real experimental data. Section~\ref{sec:methodology} describes
+the compilation methodology implemented in the SPINDEP framework built for
+this thesis: dataset discovery and classification, unit standardisation,
+and matter--antimatter pairing. Section~\ref{sec:database} summarises the
+resulting database of 273 experimental constraint datasets. Section~\ref{sec:asymmetry}
+presents the ten matter--antimatter pairs SPINDEP was able to match, the
+full statistical analysis of each (including an autocorrelation-corrected
+effective degrees of freedom and a bootstrap confidence interval on the
+asymmetry parameter), and their interpretation under the sensitivity-gap
+caveat established in Chapter~3.
+
+\section{Database Compilation Methodology}
+\label{sec:methodology}
+
+\subsection{Dataset Discovery and Classification}
+
+Each experimental constraint is stored as a two-column CSV file (interaction
+range $\lambda$ in metres, upper bound on $|g|$) inside a directory tree
+organised by coupling family and interaction class, following the naming
+convention
+\begin{center}
+\texttt{\{V\}\{Author\}\{Year\}\_m\_abs\_\{sector\}.csv}
+\end{center}
+A parser recursively discovers every CSV under the dataset root, extracts
+the potential label, source citation, and fermion sector from the filename
+and directory path, and resolves alternate spellings of antimatter sectors
+(for example \texttt{ebare}, \texttt{ebar}, and \texttt{epbare} are all
+resolved to the canonical labels \texttt{eebar} and \texttt{epbar}). Files
+whose sector token cannot be resolved are still retained, with their
+potential recorded as \texttt{UNKNOWN} rather than being silently dropped,
+so that the size of this classification gap remains visible in the
+database rather than hidden by omission.
+
+\subsection{Unit Standardisation}
+
+Interaction ranges are reported across the literature in a mix of units
+(metres, MeV$^{-1}$, eV$^{-1}$, centimetres, nanometres, femtometres). A
+unit-detection routine inspects each filename for an explicit unit token
+and applies the corresponding conversion factor to metres before any
+dataset is used in downstream analysis, so that every constraint curve in
+the database is directly comparable on a common $\lambda$ axis regardless
+of the units used in its original publication.
+
+\subsection{Matter--Antimatter Pairing}
+
+Two datasets are matched into a matter--antimatter pair when they share the
+same coupling family, the same DM potential label, and the same interaction
+class, and their fermion sectors are physically conjugate (for example
+\texttt{ee} with \texttt{eebar}), with exactly one of the two flagged as an
+antimatter dataset. This pairing logic is deliberately conservative: it
+will not match two datasets that differ in potential classification even
+if their sectors are conjugate, since doing so would conflate constraints
+on physically distinct interactions.
+
+\section{The Compiled Database}
+\label{sec:database}
+
+\subsection{Summary Statistics}
+
+Table~\ref{tab:coupling-breakdown} summarises the 273 datasets compiled for
+this thesis by coupling family. Two entries are classified under a coupling
+label of \texttt{Code-plot-matlab}, which is a parser artifact rather than a
+genuine physical coupling family, arising from a source directory named for
+its file format rather than its physics content; these two entries are
+excluded from the physics analysis in this chapter and flagged in
+Chapter~5 as a data-hygiene item for future cleanup, rather than silently
+corrected or removed from the reported count.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lr@{}}
+\toprule
+Coupling family & Datasets \\
+\midrule
+$g_Ag_A$ & 63 \\
+$g_pg_s$ & 53 \\
+$g_sg_s$ & 49 \\
+$g_Vg_V$ & 43 \\
+$g_Ag_V$ & 37 \\
+$g_pg_p$ & 15 \\
+$V_1$ (unlabelled coupling) & 11 \\
+\texttt{Code-plot-matlab} (parser artifact) & 2 \\
+\midrule
+Total & 273 \\
+\bottomrule
+\end{tabular}
+\caption{Compiled dataset count by coupling family.}
+\label{tab:coupling-breakdown}
+\end{table}
+
+By DM potential, the database is dominated by $V_{4+5}$ (61 datasets),
+followed by potentials that the parser could not resolve to a specific
+$V_n$ token (50 datasets, recorded as \texttt{UNKNOWN}), $V_{9+10}$ (31),
+$V_{2+3}$ (30), $V_{1a}$ (29), $V_2$ (20), $V_1$ (19, including two entries
+reclassified from \texttt{UNKNOWN}; see below), and $V_{12+13}$ (16), with
+the remaining potentials each represented by fewer than ten datasets. The
+50 remaining \texttt{UNKNOWN}-potential datasets are a genuine
+classification gap discussed further in Chapter~5, not an artifact of this
+thesis's own tooling: their filenames simply do not contain a token the
+naming convention can resolve. Two datasets that previously fell into this
+category -- the \texttt{Delaunay\_2017} and \texttt{Adkins\_2022\_eeplus}
+files used in Section~\ref{sec:asymmetry} below -- have since been
+confirmed as $V_1$ (monopole--monopole, spin-independent scalar) by
+checking their source publications directly: Delaunay, Frugiuele, Fuchs and
+Soreq (2017) constrain a spin-independent scalar interaction between
+electrons, and Adkins, Cassidy and P\'{e}rez-R\'{i}os (2022) report a bound
+on the analogous spin-independent $g_s^eg_s^{e^+}$ coupling from
+positronium spectroscopy -- both a direct match to $V_1$'s definition, not
+an inference from the $g_sg_s$ coupling label alone.
+
+\subsection{Antimatter-Sector Coverage}
+
+Of the 273 datasets, only 17 involve an antimatter sector: 9 in the
+$e$-$\bar p$ (\texttt{epbar}) sector, 5 in $e$-$e^+$ (\texttt{eebar}), and 3
+in $e$-$\bar\mu$ (\texttt{emubar}). No dataset in the compiled database
+touches the $n$-$\bar n$, $n$-$\bar p$, $\mu$-$\bar\mu$, $p$-$\bar p$, or
+$e$-$\bar N$ sectors at all. This stark asymmetry -- 17 antimatter datasets
+against 256 matter-sector datasets -- is itself the central empirical fact
+this thesis works with: it is the reason a meaningful CPT comparison is
+currently possible in only a handful of channels, and it directly motivates
+the gap analysis of Chapter~5.
+
+\section{Matter--Antimatter Asymmetry Analysis}
+\label{sec:asymmetry}
+
+\subsection{Statistical Methodology}
+
+For each matched pair, both constraint curves are interpolated (log-linear
+in $\log\lambda$--$\log g$) onto a common log-spaced grid of 300 points
+spanning their overlapping $\lambda$ range, and the asymmetry parameter
+\begin{equation}
+  A_\alpha(\lambda) = \frac{g_m(\lambda) - g_{\bar a}(\lambda)}{g_m(\lambda) + g_{\bar a}(\lambda)}
+\end{equation}
+is evaluated at every grid point. Statistical significance is assessed four
+ways, each addressing a limitation of the one before it. A uniform
+$\chi^2$ test assumes a flat 10\% fractional uncertainty at every point. A
+weighted $\chi^2$ test instead estimates a per-point fractional uncertainty
+from the local curvature of each constraint curve in log-log space, on the
+grounds that a smoothly-varying published bound is better determined than
+one with sharp local features. Both of these treat the 300 grid points as
+independent degrees of freedom, which is not justified: the points are
+interpolated from a much smaller number of real measurements along smooth
+curves, so adjacent points are strongly correlated. An effective degrees of
+freedom is therefore estimated from the autocorrelation length of the
+$\chi^2$ residuals in grid-index space (the lag at which the residual
+autocorrelation first drops below $1/e$), and the weighted $\chi^2$
+significance is recomputed against this corrected, typically much smaller,
+degrees of freedom. Finally, a parametric bootstrap (2000 resamples,
+propagating the estimated per-point uncertainty through to $A_\alpha$
+itself) gives a 95\% confidence interval on the mean $|A_\alpha|$ for each
+pair.
+
+\subsection{The Ten Matched Pairs}
+
+Table~\ref{tab:pairs} gives the full results for every matter--antimatter
+pair SPINDEP was able to match from the compiled database.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}llllrrrr@{}}
+\toprule
+Coupling & Potential & Sector & Matter / antimatter source & $\overline{|A_\alpha|}$ & dof$_{\text{eff}}$ & $p_{\text{eff}}$ & 95\% CI \\
+\midrule
+$g_Ag_A$    & $V_2$    & $e$-$\bar p$ & Karshenboim2011 / Ficek2018     & 0.9998 & 17 & $\approx0$ & [0.9994, 0.9996] \\
+$g_Ag_A$    & $V_2$    & $e$-$e^+$    & Ficek2017 / Karshenboim2011     & 0.9892 & 21 & $\approx0$ & [0.9891, 0.9893] \\
+$g_Ag_A$    & $V_{2+3}$& $e$-$e^+$    & Ficek2017 / Fadeev2022          & 0.9539 & 6  & $\approx0$ & [0.9538, 0.9540] \\
+$g_pg_p$    & $V_{2+3}$& $e$-$e^+$    & Fadeev2022 / Fadeev2022         & 0.9535 & 6  & $\approx0$ & [0.9534, 0.9537] \\
+$g_Vg_V$    & $V_{2+3}$& $e$-$e^+$    & Fadeev2022 / Fadeev2022         & 0.9535 & 6  & $\approx0$ & [0.9534, 0.9537] \\
+$g_sg_s$    & $V_1$     & $e$-$e^+$    & Delaunay2017 / Adkins2022       & 0.8727 & 21 & $\approx0$ & [0.8726, 0.8728] \\
+$g_Ag_A$    & $V_{2+3}$& $e$-$\bar p$ & Fadeev2022 / Ficek2018          & 0.8237 & 6  & $\approx0$ & [0.8235, 0.8237] \\
+$g_Ag_A$    & $V_{2+3}$& $e$-$\bar p$ & Fadeev2022 / Fadeev2022         & 0.8044 & 8  & $\approx0$ & [0.8043, 0.8045] \\
+$g_Vg_V$    & $V_{2+3}$& $e$-$\bar p$ & Fadeev2022 / Ficek2018          & 0.7994 & 7  & $\approx0$ & [0.7993, 0.7995] \\
+$g_Ag_A$    & $V_2$    & $e$-$e^+$    & Jiao2019 / Karshenboim2011      & 0.3336 & 9  & $\approx0$ & [0.3335, 0.3337] \\
+\bottomrule
+\end{tabular}
+\caption{All ten matched matter--antimatter pairs, with the autocorrelation-corrected effective degrees of freedom, the resulting weighted-$\chi^2$ significance, and the 95\% bootstrap confidence interval on the mean asymmetry.}
+\label{tab:pairs}
+\end{table}
+
+Effective degrees of freedom range from 6 to 21 across the ten pairs, a
+factor of 14--50 below the naive 300 grid points, confirming that the
+autocorrelation correction described in Section~\ref{sec:methodology} is not
+a negligible refinement: an analysis quoting significance at $\mathrm{dof}=300$
+throughout would be substantially overstating its own precision. Every pair
+nonetheless remains significant at effectively $p\to0$ even after this
+correction, since the $\chi^2$ values themselves (tens of thousands, in the
+underlying per-pair data) are large enough relative to even the reduced
+degrees of freedom that the correction changes the reported $p$-value by
+many orders of magnitude without changing its qualitative conclusion.
+
+\subsection{Interpretation}
+
+Per the argument developed fully in Chapter~3, Section~3.2.3, an
+asymmetry value $|A_\alpha|$ near 1 in Table~\ref{tab:pairs} is
+\emph{consistent with}, but not \emph{evidence for}, CPT violation in the
+corresponding channel: SPINDEP compares independent, one-sided experimental
+upper bounds, and a large sensitivity gap between the matter- and
+antimatter-sector measurement being compared produces exactly the same
+signature regardless of the true underlying physics. This applies uniformly
+to every row of Table~\ref{tab:pairs}, including the $g_Ag_A\cdot V_2\cdot e$-$\bar p$
+pair at $0.9998$, the highest asymmetry in the database, and the
+$g_sg_s\cdot V_1\cdot e$-$e^+$ pair at $0.8727$, whose scalar-scalar
+coupling is CPT-even at leading order and whose asymmetry is therefore
+attributable entirely to sensitivity gap rather than any sign-flip
+mechanism -- a useful internal check, since applying the \emph{same}
+reasoning uniformly to the CPT-odd $g_Ag_A$ rows means their high asymmetry
+values cannot, by this data alone, be distinguished from the same
+effect. Distinguishing a genuine CPT-violating signal from a sensitivity
+gap requires either bounds of demonstrably comparable precision on both
+sides of a pair, or actual signed central-value measurements rather than
+one-sided limits -- neither of which the currently compiled database
+provides for any pair. This is the central limitation Chapter~5 addresses
+directly.
+
+The lowest asymmetry in the table, $0.334$ for the $g_Ag_A\cdot V_2\cdot e$-$e^+$
+pair (Jiao2019 vs.\ Karshenboim2011), is the pair whose matter- and
+antimatter-sector bounds happen to be closest in sensitivity among the ten;
+it is the single most informative data point currently in the database for
+constraining $b_\mu$ in the $e$-$e^+$ channel precisely because it is
+\emph{not} saturated at $|A_\alpha|\approx1$.
+
+\subsection{Figures}
+
+Figure~\ref{fig:atlas} shows the combined constraint atlas across the
+eleven classified potential labels in the compiled database. These map onto
+13 of the 16 catalogue potentials from Chapter~2 -- several labels such as
+$V_{2+3}$, $V_{4+5}$, $V_{9+10}$, and $V_{12+13}$ each combine two adjacent
+catalogue potentials that the underlying experiments do not distinguish
+individually. $V_6$, $V_7$, and $V_{14}$ have no classified dataset at all,
+distinct from the 50 \texttt{UNKNOWN}-potential entries discussed above,
+which have data but no resolved label. Figure~\ref{fig:matter-antimatter}
+shows an example matter--antimatter comparison plot for the
+highest-asymmetry pair in Table~\ref{tab:pairs}. The complete set of ten
+such comparison plots, one per matched pair, is included in the project
+repository under \texttt{figures/matter\_antimatter/}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{constraint_atlas_all.png}
+\caption{Combined constraint atlas across all compiled potentials.}
+\label{fig:atlas}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\textwidth]{gAgA_V2_ep_Karshenboim2011_vs_Ficek2018.png}
+\caption{Matter--antimatter comparison for the $g_Ag_A\cdot V_2\cdot e$-$\bar p$ pair (Karshenboim2011 vs.\ Ficek2018), the highest asymmetry in the compiled database.}
+\label{fig:matter-antimatter}
+\end{figure}
+
+\section{Chapter Summary}
+
+This chapter compiled 273 experimental constraint datasets into a
+standardised database, of which only 17 involve an antimatter sector,
+concentrated in just three channels ($e$-$\bar p$, $e$-$e^+$, $e$-$\bar\mu$).
+Ten matter--antimatter pairs could be matched from this database and
+analysed with a statistical methodology that corrects for the correlated
+nature of interpolated constraint points. Every pair shows a statistically
+significant asymmetry even after this correction, but -- applying the
+interpretive framework of Chapter~3 uniformly -- none of these results can
+currently be read as evidence of CPT violation rather than an ordinary
+sensitivity gap between the matter- and antimatter-sector experiments being
+compared. Chapter~5 quantifies exactly where the antimatter-sector coverage
+gaps responsible for this limitation are largest, and proposes where future
+experimental effort would do the most to close them.
+
+\end{document}

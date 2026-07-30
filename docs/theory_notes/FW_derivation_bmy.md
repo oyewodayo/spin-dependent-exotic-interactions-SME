@@ -18,10 +18,9 @@ The goal of this derivation is to take the fully relativistic SME Lagrangian ter
 
 > [!NOTE]
 > **Key Result**
-> The b_i (spatial) component generates V₂ at leading order m⁰: H_NR = −b_i σ^i
+> The b_i (spatial) component generates V₂ at leading order m⁰: H_NR = −b_i σ^i (matter), +b_i σ^i (antimatter) — see §4.
 > The b_0 (temporal) component generates V₇, V₈ at subleading order m⁻¹: H_NR = +b_0 (σ·p)/m
-> Sign flips under C: matter gets −bμσ^μ, antimatter gets +bμσ^μ
-> This sign flip is the theoretical basis for |Aα| = 1 in all gAgA pairs
+> This sign flip is the qualitative CPT-odd signature of b_μ. It does **not** by itself predict |Aα| → 1 in SPINDEP's output — that requires the separate sensitivity-gap argument in §4.2, since the framework compares independent one-sided bounds, not signed couplings.
 
 ## 2. The SME Lagrangian Term
 
@@ -84,27 +83,25 @@ H_b = b_μγ^0γ_5γ^μ = b_0γ^0γ_5γ^0 + b_iγ^0γ_5γ^i
 $$
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.3)*
 
-Using the Dirac representation where γ^0 = diag(1,1,−1,−1) and γ_5 = off-diagonal, and the identity γ^0γ_5γ^i = α^iγ_5 = off-diagonal:
+Using the Dirac representation where γ^0 = diag(1,1,−1,−1) and γ_5 = off-diagonal:
 
 #### 3.2a Spatial components b_i
 
-For the spatial components (i = 1,2,3), the term γ^0γ_5γ^i is an 'even' operator (block-diagonal) in the Dirac representation:
+For the spatial components (i = 1,2,3), the term γ^0γ_5γ^i is an 'even' operator (block-diagonal) in the Dirac representation. Verified directly with `dirac_algebra.py` (see `derivations/sympy/`, using this note's own Lagrangian ordering γ_5γ^μ), the operator identity is:
 $$
-γ^0γ_5γ^i = Σ^i = diag(σ^i, σ^i)
+γ^0γ_5γ^i = -Σ^i = -\,\mathrm{diag}(σ^i, σ^i)
 $$
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.4)*
 
-where Σ^i is the 4×4 spin matrix. In the upper 2×2 block:
-$$
-H_{b_i}^{↑} = +b_iσ^i → H_NR(b_i) = -b_iσ^i
-$$
-&nbsp;&nbsp;&nbsp;&nbsp;*(3.5)*
+where Σ^i is the 4×4 spin matrix. This carries a minus sign relative to the naive guess $+Σ^i$ because $γ_5$ and $γ^i$ anticommute; skipping that minus sign and then reinstating it by hand at the next step is a bookkeeping trap this note fell into in an earlier draft — (3.4)-(3.5) below now follow in one direct step with no unexplained sign flip. In the upper 2×2 block:
 $$
 H_NR(b_i) = -b · σ (matter)
 $$
-&nbsp;&nbsp;&nbsp;&nbsp;*(3.6 —- KEY RESULT)*
+&nbsp;&nbsp;&nbsp;&nbsp;*(3.5 — KEY RESULT)*
 
 This is already in the Pauli non-relativistic form and requires no further FW iteration to leading order in 1/m. The b_i term is therefore exact at order m⁰ in the NR expansion.
+
+**On the sign convention:** this result depends on the ordering of $γ_5$ and $γ^μ$ in the Lagrangian bilinear, and the two forms $\bar\psi\gamma_5\gamma^\mu\psi$ and $\bar\psi\gamma^\mu\gamma_5\psi$ are exact negatives of each other (since $\{\gamma_5,\gamma^\mu\}=0$). This note follows $\mathcal L_b=-b_\mu\bar\psi\gamma_5\gamma^\mu\psi$ (§2.1), matching the standard SME mass-operator form $M=m+a_\mu\gamma^\mu+b_\mu\gamma_5\gamma^\mu+\tfrac12H_{\mu\nu}\sigma^{\mu\nu}$ used throughout Kostelecký's papers, including Kostelecký & Lane (1999) as cited here — the same convention used in `thesis/01_introduction.tex` Eq. (2). `derivations/sympy/FW_bmu_term.ipynb` uses the opposite ordering ($\gamma^\mu\gamma_5$) and consequently reports $H_{NR}(b_i)=+b\cdot\sigma$ for matter — an artifact of that convention choice, not a disagreement about the underlying physics or a computational error in either document. Cite the result from this note (§3.2a, §4) rather than the notebook's raw sign when writing up the thesis, or flip the notebook's convention to match before citing it directly.
 
 #### 3.2b Temporal component b_0
 
@@ -164,7 +161,7 @@ Aα = (g_m - g_ā) / (g_m + g_ā) = (g - (-g)) / (g + (-g)) = 2g/0 → ∞
 $$
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.6)*
 
-**Correction (this revision):** this is a genuine divergence — the denominator vanishes identically — not a value that "saturates at 1". (Verified directly with `sympy.limit` in `derivations/sympy/pauli_matrices.py`, which previously asserted the false "→ 1" conclusion in a comment that contradicted its own printed output.) An exact CPT-odd sign flip of a *signed* coupling makes Eq. (4.6) formally undefined, not bounded.
+This is a genuine divergence — the denominator vanishes identically — not a value that "saturates at 1", as an earlier draft of this note claimed. (Verified directly with `sympy.limit` in `derivations/sympy/pauli_matrices.py`.) An exact CPT-odd sign flip of a *signed* coupling makes Eq. (4.6) formally undefined, not bounded.
 
 The resolution is that Eq. (4.6) does not describe what SPINDEP actually computes. SPINDEP's `g_matter`/`g_antimatter` inputs are the `coupling_abs` columns of independent experimental datasets — **always-positive upper bounds** from separate experiments (see `spindep/README.md`), not a signed measurement of one real underlying coupling. For any two independent positive bounds $g_1, g_2$, the ratio $(g_1-g_2)/(g_1+g_2)$ approaches $\pm 1$ whenever one bound is far tighter than the other — **regardless of whether the underlying physics is CPT-odd or CPT-even.** This is a generic property of comparing two positive numbers of very different size (a sensitivity-gap effect), not a signature of the b_μ mechanism specifically. `derivations/sympy/pauli_matrices.py` now demonstrates this explicitly: substituting $g_{\text{tight}} = r\, g_{\text{loose}}$ and taking $r\to 0^+$ gives $A_\alpha \to 1$ with no CPT content at all.
 
@@ -180,7 +177,7 @@ V_2(r) = -g_A^{(1)} g_A^{(2)} \frac{1}{4\pi} (\sigma_1\cdot\sigma_2) \frac{e^{-r
 $$
 &nbsp;&nbsp;&nbsp;&nbsp;*(5.1)*
 
-**Correction (this revision):** Eq. (5.1) previously gave $V_2$ in the monopole--dipole functional form $(\sigma_1\cdot\hat r)[\lambda^{-2}/r+\lambda^{-1}/r^2]e^{-r/\lambda}/r$ — that form belongs to $V_9,V_{10}$ (single spin dotted into $\hat r$), not $V_2$. The correct $V_2$ is spin--spin ($\sigma_1\cdot\sigma_2$), with no $\hat r$ dependence and no $1/r^2$ term; see `potential_match_table.md` for the full corrected $V_1$--$V_{16}$ catalogue transcribed from Cong et al. (2025).
+An earlier draft of Eq. (5.1) gave $V_2$ in the monopole--dipole functional form $(\sigma_1\cdot\hat r)[\lambda^{-2}/r+\lambda^{-1}/r^2]e^{-r/\lambda}/r$ — that form belongs to $V_9,V_{10}$ (single spin dotted into $\hat r$), not $V_2$. The correct $V_2$ is spin--spin ($\sigma_1\cdot\sigma_2$), with no $\hat r$ dependence and no $1/r^2$ term; see `potential_match_table.md` for the full corrected $V_1$--$V_{16}$ catalogue transcribed from Cong et al. (2025).
 
 The coupling constant $g_A$ in eq. (5.1) is identified with the b_μ coefficient through the matching condition $g_A \Leftrightarrow |b_\mu| / m_f$ for the relevant fermion mass $m_f$. The spatial $b_i$ term maps to $V_2$ (spin--spin) at leading order — each fermion contributes one $-b\cdot\sigma$ vertex, and the product of the two single-particle Hamiltonians yields the $\sigma_1\cdot\sigma_2$ structure.
 

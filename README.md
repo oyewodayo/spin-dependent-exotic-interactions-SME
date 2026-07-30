@@ -106,11 +106,14 @@ SME Lagrangian → Modified Dirac Equation → FW Transformation
 ### CPT Symmetry Test
 The asymmetry parameter used in this work is:
 
-$$A_{\alpha} = \frac{g_{\alpha} f - g_{\alpha} \bar{f}}{g_{\alpha} f + g_{\alpha} \bar{f}}$$
+$$A_{\alpha} = \frac{g_{\alpha}^{f} - g_{\alpha}^{\bar{f}}}{g_{\alpha}^{f} + g_{\alpha}^{\bar{f}}}$$
 
-
-A large χ² across experiments indicates CPT violation.  
-A small χ² confirms CPT symmetry within experimental precision.
+A large χ² (relative to dof) flags a statistically significant matter-antimatter
+asymmetry — consistent with, though not on its own proof of, CPT violation (see
+the caveat below: SPINDEP compares one-sided experimental bounds, not signed
+measurements, so a sensitivity gap between experiments produces the same
+signature). A small χ² is consistent with CPT symmetry within current
+experimental precision.
 
 ---
 
@@ -128,10 +131,7 @@ exotic-spin-interactions-SME/
 │   │   ├── FW_derivation_Hmunu.md
 │   │   ├── FW_derivation_dmunu.md   # d_i0 -> V2 claim flagged unverified
 │   │   └── potential_match_table.md
-│   ├── references/            # Annotated bibliography (not yet started)
-│   │   └── bibliography.md
-│   └── timeline/              # Research progress tracking (not yet started)
-│       └── progress_log.md
+│   └── SPINDEP_one_pager.pdf  # one-page project summary for external review
 │
 ├── derivations/               # Symbolic computation notebooks
 │   └── sympy/
@@ -142,12 +142,15 @@ exotic-spin-interactions-SME/
 │       # FW_dmunu_term.ipynb not yet created -- see caveat in
 │       # FW_derivation_dmunu.md before relying on its claims
 │
-├── constraints/               # Experimental constraint database (not yet started here --
-│                              # the compiled registry currently lives in spindep_framework/
-│                              # spindep/results/tables/{dataset_registry,asymmetry_summary}.csv)
+├── spindep_framework/         # Git SUBMODULE (not vendored/duplicated code) -- the actual
+│                              # SPINDEP computational engine: dataset parser, unit
+│                              # conversion, chi-squared statistics, constraint plotting,
+│                              # the compiled dataset registry, and a GUI. Pinned to a
+│                              # specific commit on the spindep_gui branch; update via
+│                              # `git submodule update --remote` when the tool changes.
 │
-├── analysis/                  # Python analysis scripts -- thin wrappers around the real
-│   │                          # implementation in the sibling spindep_framework repo
+├── analysis/                  # Thin wrapper scripts around spindep_framework's real code
+│   │                          # (import from the submodule; see each script's docstring)
 │   ├── requirements.txt       # Python dependencies
 │   ├── constraint_plots.py    # Coupling constant vs range plots (real, executable)
 │   ├── chi_square_tests.py    # CPT consistency tests (real, executable)
@@ -156,22 +159,24 @@ exotic-spin-interactions-SME/
 │   └── notebooks/             # Interactive exploration -- not yet created; the SPINDEP
 │                              # GUI (spindep_framework/gui/) currently serves this role
 │
-├── figures/                   # Generated publication-quality figures -- populated from
-│   │                          # spindep_framework's real pipeline output
-│   ├── constraint_atlas/      # 22 per-potential + combined atlas plots
-│   ├── matter_antimatter/     # 15 comparison plots
+├── figures/                   # Generated publication-quality figures -- reproducible by
+│   │                          # running analysis/constraint_plots.py (needs the submodule
+│   │                          # initialised, see Installation below)
+│   ├── constraint_atlas/      # 11 per-potential + 1 combined atlas plot
+│   ├── matter_antimatter/     # 10 comparison plots (one per matched pair)
 │   └── gap_analysis/          # 3 white-space identification plots
 │
-└── thesis/                    # Thesis writing (LaTeX)
-    ├── main.tex
-    ├── chapters/
-    │   ├── 01_introduction.tex
-    │   ├── 02_theory.tex
-    │   ├── 03_FW_derivations.tex
-    │   ├── 04_constraints.tex
-    │   └── 05_conclusion.tex
-    ├── figures/               # Symlinked from ../figures/
-    └── references.bib
+└── thesis/                    # Flat by design, to match the Overleaf project layout
+    ├── main.tex                 # Master document -- \subfile{}s the 5 chapters below in
+    │                            # order, with correct auto-numbering and one shared,
+    │                            # deduplicated bibliography. Compile THIS for the real thesis.
+    ├── 01_introduction.tex             # Chapter 1
+    ├── 02_theoretical_foundations.tex  # Chapter 2: general SME, DM catalogue, FW method
+    ├── 03_sme_dm_mapping.tex           # Chapter 3: explicit b_mu/H_munu/d_munu -> DM mapping
+    ├── 04_constraint_database.tex      # Chapter 4: 273-dataset compilation + 10 matched pairs
+    └── 05_gap_analysis.tex             # Chapter 5: coverage gaps + experimental strategy
+                                 # Each chapter file also compiles standalone on its own
+                                 # (via the `subfiles` package) for individual review.
 ```
 
 ---
@@ -193,9 +198,12 @@ TeX Live or MiKTeX (full installation recommended)
 
 ### Setting Up the Python Environment
 ```bash
-# Clone the repository
-git clone https://github.com/YourUsername/exotic-spin-interactions-SME.git
+# Clone the repository AND its spindep_framework submodule
+git clone --recurse-submodules https://github.com/oyewodayo/exotic-spin-interactions-SME.git
 cd exotic-spin-interactions-SME
+
+# If you already cloned without --recurse-submodules:
+#   git submodule update --init --recursive
 
 # Create virtual environment
 python -m venv venv
@@ -234,31 +242,31 @@ seaborn>=0.12.0
 
 ### SME → Dobrescu-Mocioiu Translation Table
 
-**Correction (this revision):** the table below previously listed potential targets that didn't match the detailed derivation notes ($b_\mu$ temporal → $V_{9+10}$ instead of $V_7,V_8$; $H_{\mu\nu}$ → $V_{14}$, which is not derived anywhere), and marked the $d_{\mu\nu}$ row "Derived" despite that derivation not verifying against the same Dirac-algebra tooling used for $b_\mu$/$H_{\mu\nu}$ (see `FW_derivation_dmunu.md`). Corrected to match the notes actually in `docs/theory_notes/`:
+The table below matches the notes actually in `docs/theory_notes/`: $b_\mu$ (spatial) maps to $V_2$ (spin-spin, not the monopole-dipole form an earlier pass mislabeled it as), $b_\mu$ (temporal) maps to $V_7,V_8$, and $H_{\mu\nu}$ maps to $V_3$/$V_7$. The $d_{\mu\nu}$ row is marked unverified rather than derived, since that derivation hasn't yet been checked against the same Dirac-algebra tooling used for $b_\mu$ and $H_{\mu\nu}$ (see `FW_derivation_dmunu.md`).
 
 | SME Coefficient | Target Potential | Coupling Relation | Status |
 |----------------|-----------------|-------------------|--------|
-| $b_\mu$ (spatial)  | $V_2$ (spin-spin — corrected; was mislabeled dipole-dipole) | $b_i \leftrightarrow g_A/2$ | ✅ Derived and verified (`FW_bmu_term.ipynb`, executed) |
-| $b_\mu$ (temporal) | $V_7, V_8$ | $b_0 \sim (\sigma\cdot p)/m$ | ✅ Derived and verified |
-| $H_{\mu\nu}$          | $V_3$ (from $H_{ij}$), $V_7$ (from $H_{0i}$) | $H_{ij}\sim g_T$ × tensor | ✅ Derived and verified (`FW_Hmunu_term.ipynb`, executed) |
-| $d_{\mu\nu}$           | $V_2$ (from $d_{i0}$, claimed), $V_7,V_8$ (from $d_{ij}$, claimed) |$d_{ij} \sim g_{s} g_{A} / m$| ⚠️ **Unverified** — no executed notebook yet; the $d_{i0}\to V_2$ mass-enhancement claim did not reproduce under the same numeric check that caught the $b_\mu$ sign error |
+| $b_\mu$ (spatial)  | $V_2$ (spin-spin) | $b_i \leftrightarrow g_A/2$ | Derived and verified (`FW_bmu_term.ipynb`, executed) |
+| $b_\mu$ (temporal) | $V_7, V_8$ | $b_0 \sim (\sigma\cdot p)/m$ | Derived and verified |
+| $H_{\mu\nu}$          | $V_3$ (from $H_{ij}$), $V_7$ (from $H_{0i}$) | $H_{ij}\sim g_T$ × tensor | Derived and verified (`FW_Hmunu_term.ipynb`, executed) |
+| $d_{\mu\nu}$           | $V_2$ (from $d_{i0}$, claimed), $V_7,V_8$ (from $d_{ij}$, claimed) |$d_{ij} \sim g_{s} g_{A} / m$| **Unverified** — no executed notebook yet; the $d_{i0}\to V_2$ mass-enhancement claim did not reproduce under the same numeric check that caught the $b_\mu$ sign error |
 
 ### Matter-Antimatter Comparison Summary
 
-**Correction (this revision):** populated from `spindep_framework/spindep/results/tables/asymmetry_summary.csv` (see `analysis/asymmetry_calc.py`). Numeric coupling-bound magnitudes aren't reproduced here (only $A_\alpha$, which the summary table stores directly) — see the CSV / `dataset_registry.csv` for the underlying bounds.
+Populated from `spindep_framework/spindep/results/tables/asymmetry_summary.csv` (see `analysis/asymmetry_calc.py`, which imports the submodule -- run `git submodule update --init --recursive` first). Numeric coupling-bound magnitudes aren't reproduced here (only $A_\alpha$, which the summary table stores directly) — see the CSV / `dataset_registry.csv` for the underlying bounds.
 
 | Potential | Matter source | Antimatter source | Sector | $A_\alpha$ | Status |
 |-----------|---------------|--------------------|--------|-----------|--------|
-| $V_2$ ($g_Ag_A$)   | Karshenboim2011 | Ficek2018       | e-$\bar p$ | 0.9998 | ✅ Compiled |
-| $V_2$ ($g_Ag_A$)   | Ficek2017       | Karshenboim2011 | e-e        | 0.9892 | ✅ Compiled |
-| $V_{2+3}$ ($g_Ag_A$) | Ficek2017     | Fadeev2022      | e-e        | 0.9539 | ✅ Compiled |
-| $V_{2+3}$ ($g_pg_p$) | Fadeev2022    | Fadeev2022      | e-e        | 0.9535 | ✅ Compiled |
-| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Fadeev2022      | e-e        | 0.9535 | ✅ Compiled |
-| $V_3$        | — | — | — | 📋 Planned (no compiled pair yet) |
-| $V_7$        | — | — | — | 📋 Planned (no compiled pair yet) |
-| $V_8$        | — | — | — | 📋 Planned (no compiled pair yet) |
+| $V_2$ ($g_Ag_A$)   | Karshenboim2011 | Ficek2018       | e-$\bar p$ | 0.9998 | Compiled |
+| $V_2$ ($g_Ag_A$)   | Ficek2017       | Karshenboim2011 | e-e        | 0.9892 | Compiled |
+| $V_{2+3}$ ($g_Ag_A$) | Ficek2017     | Fadeev2022      | e-e        | 0.9539 | Compiled |
+| $V_{2+3}$ ($g_pg_p$) | Fadeev2022    | Fadeev2022      | e-e        | 0.9535 | Compiled |
+| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Fadeev2022      | e-e        | 0.9535 | Compiled |
+| $V_3$        | — | — | — | Planned (no compiled pair yet) |
+| $V_7$        | — | — | — | Planned (no compiled pair yet) |
+| $V_8$        | — | — | — | Planned (no compiled pair yet) |
 
-**Caveat:** per `docs/theory_notes/potential_match_table.md`, a high $A_\alpha$ here is *consistent with* CPT violation but equally explained by a sensitivity gap between the matter- and antimatter-sector experiments — it is not, by itself, evidence of either.
+**Caveat:** per `docs/theory_notes/potential_match_table.md`, a high $A_\alpha$ here is *consistent with* CPT violation but equally explained by a sensitivity gap between the matter- and antimatter-sector experiments — it is not, by itself, evidence of either. This holds even after correcting for the strongest statistical objection to the naive test: treating all 300 interpolated grid points per pair as independent degrees of freedom. `spindep_framework`'s `statistics.py` now estimates an effective dof from the autocorrelation length of the residuals (typically 6–21 per pair, not 300) and recomputes the p-value against it — every pair remains significant at effectively p≈0 even under that correction, which shifts the open question from "is the dof count wrong" to "why does the gap persist after correcting it."
 
 ---
 
@@ -266,13 +274,13 @@ seaborn>=0.12.0
 
 | Phase | Duration | Status | Notes |
 |-------|----------|--------|-------|
-| Literature Review | Weeks 1–4 | 🔄 In Progress | Cong et al. 2025 studied |
-| FW: $b_\mu$ derivation | Week 5 | ✅ Complete | Executed and verified in `FW_bmu_term.ipynb`; a sign error found and fixed in this pass |
-| FW: $H_{\mu\nu}$ derivation | Week 6–7 | ✅ Complete | Executed and verified in `FW_Hmunu_term.ipynb` |
-| FW: $d_{\mu\nu}$ derivation | Week 7–8 | ⚠️ Needs re-verification | Claimed results don't reproduce under the same numeric check that caught the $b_\mu$ error — see `FW_derivation_dmunu.md` |
-| Constraint compilation | Weeks 9–14 | ✅ Substantially complete | 273 datasets, 10 matched pairs, 22+15+3 figures — done via the sibling `spindep_framework` tool; see `analysis/` and `figures/` |
-| Gap analysis | Weeks 15–18 | ✅ Figures compiled | `figures/gap_analysis/` (lambda coverage, matter/antimatter ratio, pair coverage matrix); written analysis not yet drafted |
-| Thesis writing | Weeks 19–24 | 🔄 In Progress | `docs/chapters/01_introduction.tex` started |
+| Literature Review | Weeks 1–4 | In progress | Cong et al. 2025 studied |
+| FW: $b_\mu$ derivation | Week 5 | Complete | Executed and verified in `FW_bmu_term.ipynb`; a Dirac-algebra sign error was caught by running the computation and fixed |
+| FW: $H_{\mu\nu}$ derivation | Week 6–7 | Complete | Executed and verified in `FW_Hmunu_term.ipynb` |
+| FW: $d_{\mu\nu}$ derivation | Week 7–8 | Needs re-verification | Claimed results don't reproduce under the same numeric check that caught the $b_\mu$ error — see `FW_derivation_dmunu.md` |
+| Constraint compilation | Weeks 9–14 | Substantially complete | 273 datasets, 10 matched pairs, 12+10+3 figures; reproducible via the `spindep_framework` submodule — see `analysis/` and `figures/` |
+| Gap analysis | Weeks 15–18 | Figures compiled | `figures/gap_analysis/` (lambda coverage, matter/antimatter ratio, pair coverage matrix); written analysis not yet drafted |
+| Thesis writing | Weeks 19–24 | In progress | Chapters 1–5 drafted (`thesis/`); Chapter 6 (conclusion) not yet started |
 
 ---
 

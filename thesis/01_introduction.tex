@@ -1,18 +1,4 @@
-\documentclass[12pt,a4paper]{report}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{physics}
-\usepackage{slashed}
-\usepackage{hyperref}
-\usepackage{geometry}
-\usepackage{setspace}
-\usepackage{booktabs}
-\usepackage{caption}
-\usepackage{natbib}
-
-\geometry{margin=2.5cm}
-\onehalfspacing
+\documentclass[main]{subfiles}
 
 \begin{document}
 
@@ -210,12 +196,18 @@ arising from SME coefficients. In particular, the $b_{\mu}$ term generates
 Zeeman-like spin couplings, $d_{\mu\nu}$ produces momentum-dependent spin
 anisotropies, and $H_{\mu\nu}$ induces tensor spin couplings.
 
-Crucially, the sign of the leading spin term reverses between the particle and
-antiparticle sectors: for a particle, $H_{\mathrm{spin}} = -\mathbf{b}\cdot
-\boldsymbol{\sigma}$, whereas for its antiparticle,
-$H_{\mathrm{spin}} = +\mathbf{b}\cdot\boldsymbol{\sigma}$ \cite{KosteleckyLane1999}.
-This sign flip is the theoretical linchpin connecting the SME to measurable CPT
-asymmetries. The resulting effective operators can be matched onto corresponding
+Crucially, a genuinely CPT-odd coefficient such as $b_{\mu}$ predicts opposite-sign
+spin couplings for a particle and its antiparticle: $H_{\mathrm{spin}} =
+-\mathbf{b}\cdot\boldsymbol{\sigma}$ for the particle versus
+$+\mathbf{b}\cdot\boldsymbol{\sigma}$ for the antiparticle \cite{KosteleckyLane1999}.
+This sign flip is the qualitative link between the SME and matter--antimatter
+comparisons, but it does not by itself translate into a simple bounded prediction
+for the asymmetry parameter $A_{\alpha}$ defined below: experimental constraints
+are one-sided upper bounds rather than signed measured couplings, so an observed
+$|A_{\alpha}|$ near unity is equally well explained by a sensitivity gap between
+the matter- and antimatter-sector experiments, independent of the true CPT parity
+of the underlying physics (see Chapter~4). The resulting effective operators can
+still be matched onto corresponding
 Dobrescu--Mocioiu potentials by identifying the operator structures in the
 non-relativistic Hamiltonian, establishing a correspondence of the schematic
 form
@@ -249,10 +241,15 @@ parameter}
 where $g_{\alpha}^{f}$ is the effective coupling constant for a given fermion
 species and interaction channel, and $g_{\alpha}^{\bar{f}}$ is the
 corresponding coupling for its antifermion. Under exact CPT symmetry, $A_{\alpha}
-= 0$ for every channel. Non-zero values would constitute direct evidence of CPT
-violation and would have profound implications for fundamental physics.
-Precision antimatter experiments such as BASE and ALPHA at CERN provide some of
-the most stringent existing tests of these quantities \cite{Smorra2017,Ahmadi2017}.
+= 0$ for every channel. In principle, a non-zero value would signal CPT
+violation; in practice, when $g_{\alpha}^{f}$ and $g_{\alpha}^{\bar{f}}$ are
+one-sided experimental upper bounds rather than signed measured couplings --
+as is the case throughout this thesis -- a large $|A_{\alpha}|$ is equally
+well explained by a sensitivity gap between the matter- and antimatter-sector
+experiments being compared, and the two cannot be distinguished from
+$A_{\alpha}$ alone (see Chapter~4). Precision antimatter experiments such as
+BASE and ALPHA at CERN provide some of the most stringent existing tests of
+these quantities \cite{Smorra2017,Ahmadi2017}.
 
 \section{Review of Existing Literature}
 
@@ -446,7 +443,7 @@ using the CPT asymmetry parameter. Chapter~5 analyses the unconstrained
 parameter space and proposes experimental strategies. Chapter~6 concludes the
 thesis and outlines future research directions.
 
-\bibliographystyle{apsrev4-2}
+\ifSubfilesClassLoaded{
 \begin{thebibliography}{99}
 
 \bibitem{Colladay1997}
@@ -536,5 +533,6 @@ L.~Cong \textit{et al.},
 Rev.\ Mod.\ Phys.\ \textbf{97}, 025005 (2025).
 
 \end{thebibliography}
+}{}
 
 \end{document}
