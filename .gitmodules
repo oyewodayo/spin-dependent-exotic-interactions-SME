@@ -1,4 +1,4 @@
 [submodule "spindep_framework"]
 	path = spindep_framework
-	url = https://github.com/oyewodayo/spindep_framework.git
+	url = https://github.com/oyewodayo/spindep-framework.git
 	branch = spindep_gui
