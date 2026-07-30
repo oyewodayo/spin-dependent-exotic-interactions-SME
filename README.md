@@ -142,14 +142,14 @@ exotic-spin-interactions-SME/
 │       # FW_dmunu_term.ipynb not yet created -- see caveat in
 │       # FW_derivation_dmunu.md before relying on its claims
 │
-├── spindep_framework/         # Git SUBMODULE (not vendored/duplicated code) -- the actual
+├── spindep-framework/         # Git SUBMODULE (not vendored/duplicated code) -- the actual
 │                              # SPINDEP computational engine: dataset parser, unit
 │                              # conversion, chi-squared statistics, constraint plotting,
 │                              # the compiled dataset registry, and a GUI. Pinned to a
 │                              # specific commit on the spindep_gui branch; update via
 │                              # `git submodule update --remote` when the tool changes.
 │
-├── analysis/                  # Thin wrapper scripts around spindep_framework's real code
+├── analysis/                  # Thin wrapper scripts around spindep-framework's real code
 │   │                          # (import from the submodule; see each script's docstring)
 │   ├── requirements.txt       # Python dependencies
 │   ├── constraint_plots.py    # Coupling constant vs range plots (real, executable)
@@ -157,7 +157,7 @@ exotic-spin-interactions-SME/
 │   ├── asymmetry_calc.py      # A_α parameter calculation (real, executable)
 │   ├── unit_conversion.py     # Standardise units across platforms (real, executable)
 │   └── notebooks/             # Interactive exploration -- not yet created; the SPINDEP
-│                              # GUI (spindep_framework/gui/) currently serves this role
+│                              # GUI (spindep-framework/gui/) currently serves this role
 │
 ├── figures/                   # Generated publication-quality figures -- reproducible by
 │   │                          # running analysis/constraint_plots.py (needs the submodule
@@ -198,7 +198,7 @@ TeX Live or MiKTeX (full installation recommended)
 
 ### Setting Up the Python Environment
 ```bash
-# Clone the repository AND its spindep_framework submodule
+# Clone the repository AND its spindep-framework submodule
 git clone --recurse-submodules https://github.com/oyewodayo/exotic-spin-interactions-SME.git
 cd exotic-spin-interactions-SME
 
@@ -253,7 +253,7 @@ The table below matches the notes actually in `docs/theory_notes/`: $b_\mu$ (spa
 
 ### Matter-Antimatter Comparison Summary
 
-Populated from `spindep_framework/spindep/results/tables/asymmetry_summary.csv` (see `analysis/asymmetry_calc.py`, which imports the submodule -- run `git submodule update --init --recursive` first). Numeric coupling-bound magnitudes aren't reproduced here (only $A_\alpha$, which the summary table stores directly) — see the CSV / `dataset_registry.csv` for the underlying bounds.
+Populated from `spindep-framework/spindep/results/tables/asymmetry_summary.csv` (see `analysis/asymmetry_calc.py`, which imports the submodule -- run `git submodule update --init --recursive` first). Numeric coupling-bound magnitudes aren't reproduced here (only $A_\alpha$, which the summary table stores directly) — see the CSV / `dataset_registry.csv` for the underlying bounds.
 
 | Potential | Matter source | Antimatter source | Sector | $A_\alpha$ | Status |
 |-----------|---------------|--------------------|--------|-----------|--------|
@@ -266,7 +266,7 @@ Populated from `spindep_framework/spindep/results/tables/asymmetry_summary.csv` 
 | $V_7$        | — | — | — | Planned (no compiled pair yet) |
 | $V_8$        | — | — | — | Planned (no compiled pair yet) |
 
-**Caveat:** per `docs/theory_notes/potential_match_table.md`, a high $A_\alpha$ here is *consistent with* CPT violation but equally explained by a sensitivity gap between the matter- and antimatter-sector experiments — it is not, by itself, evidence of either. This holds even after correcting for the strongest statistical objection to the naive test: treating all 300 interpolated grid points per pair as independent degrees of freedom. `spindep_framework`'s `statistics.py` now estimates an effective dof from the autocorrelation length of the residuals (typically 6–21 per pair, not 300) and recomputes the p-value against it — every pair remains significant at effectively p≈0 even under that correction, which shifts the open question from "is the dof count wrong" to "why does the gap persist after correcting it."
+**Caveat:** per `docs/theory_notes/potential_match_table.md`, a high $A_\alpha$ here is *consistent with* CPT violation but equally explained by a sensitivity gap between the matter- and antimatter-sector experiments — it is not, by itself, evidence of either. This holds even after correcting for the strongest statistical objection to the naive test: treating all 300 interpolated grid points per pair as independent degrees of freedom. `spindep-framework`'s `statistics.py` now estimates an effective dof from the autocorrelation length of the residuals (typically 6–21 per pair, not 300) and recomputes the p-value against it — every pair remains significant at effectively p≈0 even under that correction, which shifts the open question from "is the dof count wrong" to "why does the gap persist after correcting it."
 
 ---
 
@@ -278,7 +278,7 @@ Populated from `spindep_framework/spindep/results/tables/asymmetry_summary.csv` 
 | FW: $b_\mu$ derivation | Week 5 | Complete | Executed and verified in `FW_bmu_term.ipynb`; a Dirac-algebra sign error was caught by running the computation and fixed |
 | FW: $H_{\mu\nu}$ derivation | Week 6–7 | Complete | Executed and verified in `FW_Hmunu_term.ipynb` |
 | FW: $d_{\mu\nu}$ derivation | Week 7–8 | Needs re-verification | Claimed results don't reproduce under the same numeric check that caught the $b_\mu$ error — see `FW_derivation_dmunu.md` |
-| Constraint compilation | Weeks 9–14 | Substantially complete | 273 datasets, 10 matched pairs, 12+10+3 figures; reproducible via the `spindep_framework` submodule — see `analysis/` and `figures/` |
+| Constraint compilation | Weeks 9–14 | Substantially complete | 273 datasets, 10 matched pairs, 12+10+3 figures; reproducible via the `spindep-framework` submodule — see `analysis/` and `figures/` |
 | Gap analysis | Weeks 15–18 | Figures compiled | `figures/gap_analysis/` (lambda coverage, matter/antimatter ratio, pair coverage matrix); written analysis not yet drafted |
 | Thesis writing | Weeks 19–24 | In progress | Chapters 1–5 drafted (`thesis/`); Chapter 6 (conclusion) not yet started |
 

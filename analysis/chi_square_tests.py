@@ -6,7 +6,7 @@ antimatter coupling-constant bounds.
 
 Thin wrapper around the real implementation in the SPINDEP
 computational framework, vendored here as a git submodule at
-`spindep_framework/` (pinned to a specific commit -- see
+`spindep-framework/` (pinned to a specific commit -- see
 `.gitmodules` and `git submodule status`). The chi-squared machinery
 (weighted chi-squared, effective-DOF correction, bootstrap CI on
 |A_alpha|) lives there; updating the pinned commit is an explicit
@@ -20,10 +20,10 @@ After cloning this repo, initialise the submodule with:
 import sys
 from pathlib import Path
 
-_SPINDEP_ROOT = Path(__file__).resolve().parents[1] / "spindep_framework"
+_SPINDEP_ROOT = Path(__file__).resolve().parents[1] / "spindep-framework"
 if not _SPINDEP_ROOT.exists():
     raise ImportError(
-        f"spindep_framework submodule not found at {_SPINDEP_ROOT}.\n"
+        f"spindep-framework submodule not found at {_SPINDEP_ROOT}.\n"
         "Run: git submodule update --init --recursive"
     )
 if str(_SPINDEP_ROOT) not in sys.path:
@@ -77,7 +77,7 @@ if __name__ == "__main__":
           f"95% CI [{result['aalpha_ci_low']:.4f}, {result['aalpha_ci_high']:.4f}]")
     print()
     print("Cross-check against the precomputed summary table "
-          "(spindep_framework/spindep/results/tables/asymmetry_summary.csv):")
+          "(spindep-framework/spindep/results/tables/asymmetry_summary.csv):")
     summary = pd.read_csv(_SPINDEP_ROOT / "spindep" / "results" / "tables" / "asymmetry_summary.csv")
     row = summary[(summary.coupling == "gpgp") & (summary.potential == "V2+3") & (summary.sector == "ee")].iloc[0]
     print(f"  recorded mean |A_alpha| = {row['mean_abs_A']:.4f}, "

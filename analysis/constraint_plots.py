@@ -7,7 +7,7 @@ matter/antimatter comparison figures.
 
 Thin wrapper around the real implementation in the SPINDEP
 computational framework, vendored here as a git submodule at
-`spindep_framework/` (pinned to a specific commit -- see
+`spindep-framework/` (pinned to a specific commit -- see
 `.gitmodules` and `git submodule status`). Regenerates the figures
 already checked into `../figures/` from the live dataset registry (so
 they can be reproduced/verified, not just viewed as static images).
@@ -19,10 +19,10 @@ After cloning this repo, initialise the submodule with:
 import sys
 from pathlib import Path
 
-_SPINDEP_ROOT = Path(__file__).resolve().parents[1] / "spindep_framework"
+_SPINDEP_ROOT = Path(__file__).resolve().parents[1] / "spindep-framework"
 if not _SPINDEP_ROOT.exists():
     raise ImportError(
-        f"spindep_framework submodule not found at {_SPINDEP_ROOT}.\n"
+        f"spindep-framework submodule not found at {_SPINDEP_ROOT}.\n"
         "Run: git submodule update --init --recursive"
     )
 if str(_SPINDEP_ROOT) not in sys.path:
