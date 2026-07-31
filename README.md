@@ -177,6 +177,7 @@ exotic-spin-interactions-SME/
     └── 05_gap_analysis.tex             # Chapter 5: coverage gaps + experimental strategy
                                  # Each chapter file also compiles standalone on its own
                                  # (via the `subfiles` package) for individual review.
+                                 Note that this research work and the documentation here are work in progress. Updating and reviews and consistently been carried out until final satisfactaction. Your feedback is welcome. Thank you
 ```
 
 ---
