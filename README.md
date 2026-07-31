@@ -203,8 +203,8 @@ TeX Live or MiKTeX (full installation recommended)
 ### Setting Up the Python Environment
 ```bash
 # Clone the repository AND its spindep-framework submodule
-git clone --recurse-submodules https://github.com/oyewodayo/exotic-spin-interactions-SME.git
-cd exotic-spin-interactions-SME
+git clone --recurse-submodules https://github.com/oyewodayo/spin-dependent-exotic-interactions-SME.git
+cd spin-dependent-exotic-interactions-SME
 
 # If you already cloned without --recurse-submodules:
 #   git submodule update --init --recursive
