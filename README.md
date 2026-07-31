@@ -23,6 +23,8 @@ in Theoretical Physics at the University of Ibadan, Nigeria.
 **Duration:** March – September 2026  
 **Contact:** oyewodayo@gmail.com
 
+Note that this research work and its documentation are a work in progress. Updates and reviews are ongoing until the results reach a final, satisfactory state. Feedback is welcome — thank you.
+
 ---
 
 ## Research Motivation
