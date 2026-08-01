@@ -207,11 +207,11 @@ $b_i$ term,
 a potential that changes sign relative to the matter--matter case, where
 both factors carry $-\mathbf b\cdot\boldsymbol\sigma$. The coupling constant
 $g$ measured from matter--matter and matter--antimatter experiments
-therefore differ by a sign, yielding $g_m=-g_{\bar a}$ \emph{for a
+therefore differ by a sign, yielding $g_f=-g_{\bar f}$ \emph{for a
 hypothetical, exactly known, signed coupling}. Substituting into the SPINDEP
 asymmetry parameter,
 \begin{equation}
-  A_\alpha = \frac{g_m-g_{\bar a}}{g_m+g_{\bar a}}
+  A_\alpha = \frac{g_f-g_{\bar f}}{g_f+g_{\bar f}}
   = \frac{g-(-g)}{g+(-g)} = \frac{2g}{0} \;\longrightarrow\; \infty.
   \label{eq:Aalpha-divergence}
 \end{equation}
@@ -222,7 +222,7 @@ bounded; this was verified directly with a symbolic limit calculation
 (\texttt{sympy.limit}) in the accompanying derivation notebooks.
 
 The resolution is that Eq.~\eqref{eq:Aalpha-divergence} does not describe
-what SPINDEP actually computes. SPINDEP's $g_m/g_{\bar a}$ inputs are
+what SPINDEP actually computes. SPINDEP's $g_f/g_{\bar f}$ inputs are
 \emph{always-positive experimental upper bounds} from independent
 experiments, not a signed measurement of one real underlying coupling. For
 any two independent positive bounds $g_1,g_2$, the ratio
@@ -705,13 +705,13 @@ This is a statement about a single, hypothetical \emph{signed} coupling and
 its antiparticle counterpart. It does \emph{not}, by itself, imply anything
 about the ratio of two independent experimental upper bounds. For a
 CPT-odd coefficient such as $b_\mu$, an exact signed relation
-$g_{\bar a}=-g_m$ makes the SPINDEP formula
-$A_\alpha=(g_m-g_{\bar a})/(g_m+g_{\bar a})$ undefined or divergent, not a
+$g_{\bar f}=-g_f$ makes the SPINDEP formula
+$A_\alpha=(g_f-g_{\bar f})/(g_f+g_{\bar f})$ undefined or divergent, not a
 bounded $|A_\alpha|=1$; what actually produces $|A_\alpha|\to1$ in real
 SPINDEP output is two independent positive bounds of very different
 tightness, which happens regardless of CPT parity. For a CPT-even
-coefficient ($H_{\mu\nu}$, $d_{\mu\nu}$, $c_{\mu\nu}$), $g_{\bar a}=+g_m$
-gives $A_\alpha=0$ only if $g_m$ and $g_{\bar a}$ are numerically equal --
+coefficient ($H_{\mu\nu}$, $d_{\mu\nu}$, $c_{\mu\nu}$), $g_{\bar f}=+g_f$
+gives $A_\alpha=0$ only if $g_f$ and $g_{\bar f}$ are numerically equal --
 again a statement about a hypothetical signed measurement, not about
 independent one-sided bounds, which will show whatever sensitivity gap
 exists between the two experiments regardless of the true CPT-even

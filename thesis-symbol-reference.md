@@ -106,20 +106,20 @@ Ch. 2 gives the full closed-form $V_1$–$V_{16}$ catalogue (transcribed from Co
 
 ---
 
-## The Asymmetry Parameter $A_\alpha$ — Notation Across Chapters
+## The Asymmetry Parameter $A_\alpha$
 
-This is the thesis's central diagnostic, and it is genuinely defined with different notation in three different places. Know all three:
+Now standardized across the whole thesis on the $f/\bar f$ (fermion/antifermion) convention introduced in Ch. 1, matching the notation already used elsewhere for the general CPT rule ($H_{NR}^{\bar f}$, etc.):
 
-| Chapter | Form | Notes |
-|---|---|---|
-| Ch. 1 | $A_\alpha = \dfrac{g_\alpha^f-g_\alpha^{\bar f}}{g_\alpha^f+g_\alpha^{\bar f}}$, $\alpha\in\{s,p,V,A\}$ | Channel index $\alpha$ carried explicitly as a superscript label on $g$; this is the formal definition |
-| Ch. 3 | $A_\alpha=\dfrac{g_m-g_{\bar a}}{g_m+g_{\bar a}}$ (used in the divergence argument, §"Implication for the Asymmetry Parameter") **and** $A_\alpha=\dfrac{g_f-g_{\bar f}}{g_f+g_{\bar f}}$ (used in the master CPT-rule section) | Both forms appear for the *same* quantity in the same chapter — $g_m/g_{\bar a}$ (matter/antimatter) and $g_f/g_{\bar f}$ (fermion/antifermion) are not distinguished elsewhere in the text. Pick one when citing; note the inconsistency if asked |
-| Ch. 4 | $A_\alpha(\lambda) = \dfrac{g_m(\lambda) - g_{\bar a}(\lambda)}{g_m(\lambda) + g_{\bar a}(\lambda)}$ | Promoted to a function of $\lambda$, evaluated at 300 grid points per matched pair; this is the operational definition actually computed by SPINDEP |
+$$
+A_\alpha = \frac{g_\alpha^f-g_\alpha^{\bar f}}{g_\alpha^f+g_\alpha^{\bar f}}, \qquad \alpha\in\{s,p,V,A\}
+$$
 
-**Physical content, true regardless of which notation is used:**
+The channel index $\alpha$ is dropped when clear from context (Ch. 3's coefficient-by-coefficient sections write just $g_f/g_{\bar f}$), and Ch. 4 promotes the same quantity to a function of $\lambda$, $A_\alpha(\lambda)$, evaluated on a grid for each matched dataset pair. (This replaced an earlier inconsistency where Ch. 3 and Ch. 4 used $g_m/g_{\bar a}$ for the same quantity — now unified to $g_f/g_{\bar f}$ throughout.)
+
+**Physical content, true regardless of which chapter states it:**
 - Under exact CPT symmetry, $A_\alpha=0$ for every channel (Ch. 1).
-- For a genuinely CPT-odd, exactly signed coupling ($g_{\bar a}=-g_m$), the formula's denominator vanishes identically — $A_\alpha$ **diverges**, it does not saturate at 1 (Ch. 3, confirmed with `sympy.limit`).
-- What SPINDEP actually computes uses one-sided experimental **upper bounds**, not signed measurements, for both $g_m$ and $g_{\bar a}$. A ratio of two independent positive bounds of very different tightness approaches $\pm1$ regardless of the true CPT parity of the underlying physics — a sensitivity-gap effect (Ch. 1, 3, 4 all state this).
+- For a genuinely CPT-odd, exactly signed coupling ($g_{\bar f}=-g_f$), the formula's denominator vanishes identically — $A_\alpha$ **diverges**, it does not saturate at 1 (Ch. 3, confirmed with `sympy.limit`).
+- What SPINDEP actually computes uses one-sided experimental **upper bounds**, not signed measurements, for both $g_f$ and $g_{\bar f}$. A ratio of two independent positive bounds of very different tightness approaches $\pm1$ regardless of the true CPT parity of the underlying physics — a sensitivity-gap effect (Ch. 1, 3, 4 all state this).
 - Statistical significance ($p\to0$ after the Ch. 4 autocorrelation correction) is **not** the same claim as evidence for CPT violation — every one of the ten matched pairs in Ch. 4, Table 4.2, is significant, yet none can currently be read as CPT-violation evidence rather than a sensitivity gap (Ch. 4 §"Interpretation").
 
 ---
