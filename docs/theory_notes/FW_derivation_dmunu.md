@@ -8,7 +8,7 @@ June 2026
 **Note:** Theory Note 3
 **Repository:** `exotic-spin-interactions-SME/docs/theory_notes/FW_derivation_dmunu.md`
 
-> * SME coefficient $d_{\mu\nu}$ $\rightarrow$ Non-relativistic Hamiltonian $\rightarrow$ Dobrescu–Mocioiu potentials $V_2$, $V_7$, $V_8$ *
+> *SME coefficient $d_{\mu\nu}$ $\rightarrow$ Non-relativistic Hamiltonian $\rightarrow$ Dobrescu–Mocioiu potentials $V_2$, $V_7$, $V_8$ *
 
 ---
 
