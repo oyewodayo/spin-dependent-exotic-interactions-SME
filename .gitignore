@@ -20,6 +20,9 @@ venv/
 *.nav
 *.snm
 
+# Personal explainer notebooks (scratch work, not part of the formal derivation set)
+*_explainer.ipynb
+
 # Mathematica
 *.nb.bak
 

@@ -131,7 +131,7 @@ exotic-spin-interactions-SME/
 │   ├── theory_notes/
 │   │   ├── FW_derivation_bmy.md
 │   │   ├── FW_derivation_Hmunu.md
-│   │   ├── FW_derivation_dmunu.md   # d_i0 -> V2 claim flagged unverified
+│   │   ├── FW_derivation_dmunu.md   # d_i0 -> V2 verified; d_ij, d_00 sign still open
 │   │   └── potential_match_table.md
 │   └── SPINDEP_one_pager.pdf  # one-page project summary for external review
 │
@@ -139,10 +139,9 @@ exotic-spin-interactions-SME/
 │   └── sympy/
 │       ├── FW_bmu_term.ipynb      # executed; see corrections in cells
 │       ├── FW_Hmunu_term.ipynb    # executed
+│       ├── FW_dmunu_term.ipynb    # executed; d_i0 matches literature, d_ij/d_00 sign open
 │       ├── dirac_algebra.py
 │       └── pauli_matrices.py
-│       # FW_dmunu_term.ipynb not yet created -- see caveat in
-│       # FW_derivation_dmunu.md before relying on its claims
 │
 ├── spindep-framework/         # Git SUBMODULE (not vendored/duplicated code) -- the actual
 │                              # SPINDEP computational engine: dataset parser, unit
@@ -246,14 +245,14 @@ seaborn>=0.12.0
 
 ### SME → Dobrescu-Mocioiu Translation Table
 
-The table below matches the notes actually in `docs/theory_notes/`: $b_\mu$ (spatial) maps to $V_2$ (spin-spin, not the monopole-dipole form an earlier pass mislabeled it as), $b_\mu$ (temporal) maps to $V_7,V_8$, and $H_{\mu\nu}$ maps to $V_3$/$V_7$. The $d_{\mu\nu}$ row is marked unverified rather than derived, since that derivation hasn't yet been checked against the same Dirac-algebra tooling used for $b_\mu$ and $H_{\mu\nu}$ (see `FW_derivation_dmunu.md`).
+The table below matches the notes actually in `docs/theory_notes/`: $b_\mu$ (spatial) maps to $V_2$ (spin-spin, not the monopole-dipole form an earlier pass mislabeled it as), $b_\mu$ (temporal) maps to $V_7,V_8$, and $H_{\mu\nu}$ maps to $V_3$/$V_7$. The $d_{\mu\nu}$ row was originally built from the wrong operator (a mass-sector bilinear copied from $H_{\mu\nu}$'s structure); Kostelecký & Lane (1999) place $d_{\mu\nu}$ in the kinetic sector instead, and `FW_dmunu_term.ipynb` re-derives it from there (see `FW_derivation_dmunu.md`).
 
 | SME Coefficient | Target Potential | Coupling Relation | Status |
 |----------------|-----------------|-------------------|--------|
 | $b_\mu$ (spatial)  | $V_2$ (spin-spin) | $b_i \leftrightarrow g_A/2$ | Derived and verified (`FW_bmu_term.ipynb`, executed) |
 | $b_\mu$ (temporal) | $V_7, V_8$ | $b_0 \sim (\sigma\cdot p)/m$ | Derived and verified |
 | $H_{\mu\nu}$          | $V_3$ (from $H_{ij}$), $V_7$ (from $H_{0i}$) | $H_{ij}\sim g_T$ × tensor | Derived and verified (`FW_Hmunu_term.ipynb`, executed) |
-| $d_{\mu\nu}$           | $V_2$ (from $d_{i0}$, claimed), $V_7,V_8$ (from $d_{ij}$, claimed) |$d_{ij} \sim g_{s} g_{A} / m$| **Unverified** — no executed notebook yet; the $d_{i0}\to V_2$ mass-enhancement claim did not reproduce under the same numeric check that caught the $b_\mu$ sign error |
+| $d_{\mu\nu}$           | $V_2$ (from $d_{i0}$), $V_7,V_8$ (from $d_{ij}$), $V_8$ (from $d_{00}$) |$d_{ij} \sim g_{s} g_{A} / m$| $d_{i0}\to V_2$ **derived and verified** — matches Kostelecký & Lane (1999) Eq. (4) exactly (`FW_dmunu_term.ipynb`, executed). $d_{ij}\to V_7,V_8$ and $d_{00}\to V_8$: correct structure confirmed against the same equation, but overall sign still open (see note) |
 
 ### Matter-Antimatter Comparison Summary
 
@@ -281,7 +280,7 @@ Populated from `spindep-framework/spindep/results/tables/asymmetry_summary.csv` 
 | Literature Review | Weeks 1–4 | In progress | Cong et al. 2025 studied |
 | FW: $b_\mu$ derivation | Week 5 | Complete | Executed and verified in `FW_bmu_term.ipynb`; a Dirac-algebra sign error was caught by running the computation and fixed |
 | FW: $H_{\mu\nu}$ derivation | Week 6–7 | Complete | Executed and verified in `FW_Hmunu_term.ipynb` |
-| FW: $d_{\mu\nu}$ derivation | Week 7–8 | Needs re-verification | Claimed results don't reproduce under the same numeric check that caught the $b_\mu$ error — see `FW_derivation_dmunu.md` |
+| FW: $d_{\mu\nu}$ derivation | Week 7–8 | Mostly complete | Re-derived from the correct kinetic-sector Lagrangian (not the mass-sector Ansatz originally used) and executed in `FW_dmunu_term.ipynb`; $d_{i0}\to V_2$ matches Kostelecký & Lane (1999) exactly, $d_{ij}$/$d_{00}$ match in structure with an open sign — see `FW_derivation_dmunu.md` |
 | Constraint compilation | Weeks 9–14 | Substantially complete | 273 datasets, 10 matched pairs, 12+10+3 figures; reproducible via the `spindep-framework` submodule — see `analysis/` and `figures/` |
 | Gap analysis | Weeks 15–18 | Figures compiled | `figures/gap_analysis/` (lambda coverage, matter/antimatter ratio, pair coverage matrix); written analysis not yet drafted |
 | Thesis writing | Weeks 19–24 | In progress | Chapters 1–5 drafted (`thesis/`); Chapter 6 (conclusion) not yet started |

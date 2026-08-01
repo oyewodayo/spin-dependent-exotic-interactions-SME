@@ -118,11 +118,13 @@ A caveat on the "prediction" column below: it is tempting to substitute an exact
 | $b_0$ | **Odd** | **Odd** | $+b_0(\sigma\cdot p)/m$ | $V_7, V_8$ | $m^{-1}$ | Same caveat as $b_i$ |
 | $H_{ij}$ | **Even** | **Odd** | $-\mathcal{H}_B\cdot\sigma$ | $V_3$ | $m^0$ | $A\alpha \approx 0$ expected if bounds are comparably sensitive; a sensitivity gap can still produce $\|A\alpha\|$ near 1 despite CPT-even physics |
 | $H_{0i}$ | **Even** | **Odd** | $-\frac{1}{m}\sigma\cdot(p\times H_E)$ | $V_7$ | $m^{-1}$ | Same caveat as $H_{ij}$ |
-| $d_{i0}$ | **Even** | **Odd** | $+d_{i0}\, m\, \sigma^i$ | $V_2$ | $m^1$ (!) | Same caveat as $H_{ij}$ |
-| $d_{ij}$ | **Even** | **Odd** | $+d_{ij}\, p^j\, \sigma^i$ | $V_7, V_8$ | $m^0$ (vel.) | Same caveat as $H_{ij}$ |
-| $d_{00}$ | **Even** | **Even** | $= 0$ by antisymmetry | None | --- | No contribution |
+| $d_{i0}$ | **Even** | **Odd** | $+d_{i0}\, m\, \sigma^i$ | $V_2$ | $m^1$ (!) | Same caveat as $H_{ij}$; **derived and verified** against Kostelecký & Lane (1999) Eq. 4 |
+| $d_{ij}$ | **Even** | **Odd** | $+d_{ij}\, p^j\, \sigma^i$ | $V_7, V_8$ | $m^0$ (vel.) | Same caveat as $H_{ij}$; structure confirmed, overall sign open |
+| $d_{00}$ | **Even** | **Odd** | $+d_{00}\,(\sigma\cdot p)$ | $V_8$ | $m^0$ (mom.) | Same caveat as $H_{ij}$; structure confirmed, overall sign open |
 
 </div>
+
+**Correction (post-verification):** $d_{\mu\nu}$ was originally modelled on $H_{\mu\nu}$'s mass-sector bilinear ($\bar\psi\gamma_5\sigma^{\mu\nu}\psi$, antisymmetric, $d_{00}=0$). Kostelecký & Lane (1999) place it in the *kinetic* sector instead (paired with $c_{\mu\nu}$, entering as $\tfrac12i\bar\psi\,d^{\mu\nu}\gamma_5\gamma_\mu\overleftrightarrow\partial_\nu\psi$) and state it is *traceless*, not antisymmetric — so $d_{00}$ need not vanish. Re-deriving from the correct Lagrangian (`derivations/sympy/FW_dmunu_term.ipynb`, executed) gives $d_{i0}\to V_2$ exactly matching Kostelecký & Lane's own nonrelativistic Hamiltonian (their Eq. 4), and $d_{ij}\to V_7,V_8$ / $d_{00}\to V_8$ matching in structure with an overall sign this simplified equation-of-motion derivation doesn't resolve — see `FW_derivation_dmunu.md` for the full account.
 
 **Note on "consistent with" vs. "caused by":** because every SPINDEP $A\alpha$ value is a ratio of two independent one-sided bounds, an observed value near $\pm 1$ can arise either from a genuine CPT-odd signal *or* from nothing more than one experiment being much more sensitive than the other. Distinguishing the two requires independent information about the relative precision of the matter- and antimatter-sector measurements being compared — it cannot be read off $A\alpha$ alone. This applies uniformly to every row above, CPT-odd or CPT-even.
 

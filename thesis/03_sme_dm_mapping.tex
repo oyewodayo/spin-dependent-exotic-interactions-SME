@@ -17,11 +17,13 @@ Chapter~2's catalogue. Section~\ref{sec:bmu} treats $b_\mu$, the CPT-odd
 coefficient responsible for a genuine matter--antimatter sign flip;
 Section~\ref{sec:Hmunu} treats $H_{\mu\nu}$, a CPT-even tensor coupling;
 Section~\ref{sec:dmunu} treats $d_{\mu\nu}$, the CPT-even axial-tensor
-partner of $H_{\mu\nu}$, whose $d_{i0}$ derivation is flagged as unverified
-pending further work. Section~\ref{sec:master} then synthesises all three
-derivations into a master SME$\to$DM matching table and the interpretive
-rule connecting predicted CPT parity to the asymmetry parameter $A_\alpha$
-actually computed by SPINDEP.
+partner of $c_{\mu\nu}$ (not $H_{\mu\nu}$, as an earlier draft of this
+chapter had it), whose $d_{i0}\to V_2$ result is now derived and verified
+against the literature, while $d_{ij}$ and $d_{00}$ are correct in
+structure but carry an open overall sign. Section~\ref{sec:master} then
+synthesises all three derivations into a master SME$\to$DM matching table
+and the interpretive rule connecting predicted CPT parity to the asymmetry
+parameter $A_\alpha$ actually computed by SPINDEP.
 
 A recurring theme in this chapter is worth stating up front: $A_\alpha$, as
 computed from experimental upper bounds, cannot by itself distinguish a
@@ -416,41 +418,61 @@ $H_{0i}$ (electric) & $-\tfrac1m\boldsymbol\sigma\cdot(\mathbf p\times\mathbf H_
 
 \subsection{Overview}
 
-The SME coefficient $d_{\mu\nu}$ is a CPT-even, Lorentz-odd rank-2 tensor
-coupling involving $\gamma_5$: $\mathcal L_d=d_{\mu\nu}\bar\psi\gamma_5\sigma^{\mu\nu}\psi$.
-It is the axial-tensor partner of $H_{\mu\nu}$. Despite being CPT-even (same
-sign for matter and antimatter), it generates a rich phenomenology because
-different components produce NR Hamiltonians at different orders in $1/m$,
-spanning potentials $V_2$, $V_7$, and $V_8$. The term is particularly
-relevant for electron--nucleon scattering experiments: $d_{i0}$ produces a
-large (order $m^1$) but momentum-independent coupling to $\sigma^i$, $d_{ij}$
-produces a velocity-dependent coupling, and $d_{00}=0$ identically by
-antisymmetry.
+The SME coefficient $d_{\mu\nu}$ is a CPT-even, Lorentz-odd rank-2 tensor.
+Unlike an earlier draft of this section, which modelled it on
+$H_{\mu\nu}$'s mass-sector bilinear, $d_{\mu\nu}$ is actually a
+\emph{kinetic-sector} coefficient -- the axial-tensor partner of
+$c_{\mu\nu}$, not of $H_{\mu\nu}$ -- entering the Lagrangian through a
+derivative coupling (Kostelecký and Lane, 1999, Eqs.~1--3):
+\begin{equation}
+  \mathcal L_d = \tfrac12 i\,\bar\psi\,d^{\mu\nu}\gamma_5\gamma_\mu\,
+  \overleftrightarrow\partial_\nu\,\psi. \label{eq:Ld}
+\end{equation}
+$d_{\mu\nu}$ is \emph{traceless}, not antisymmetric like $H_{\mu\nu}$, so
+$d_{00}$ need not vanish. Despite being CPT-even (same sign for matter and
+antimatter), it generates a rich phenomenology because different components
+produce NR Hamiltonians at different orders in $1/m$, spanning potentials
+$V_2$, $V_7$, and $V_8$. The term is particularly relevant for
+electron--nucleon scattering experiments: $d_{i0}$ produces a large (order
+$m^1$) but momentum-independent coupling to $\sigma^i$, while $d_{ij}$ and
+$d_{00}$ produce momentum-dependent couplings.
 
 \begin{quote}
-\textbf{Important caveat -- unresolved as of this writing.} While completing
-the executable symbolic-derivation notebooks for $b_\mu$ and $H_{\mu\nu}$
-(Sections~\ref{sec:bmu} and~\ref{sec:Hmunu}), a genuine Dirac-algebra sign
-error was found in the $b_\mu$ derivation and fixed only after actually
-running the symbolic computation, rather than trusting the hand-derived
-prose. Applying that same numeric check to the electric-axial $d_{i0}$ term
-below gives an \emph{even}, $O(m^0)$, \emph{imaginary}-coefficient operator
--- not the real, $O(m^1)$, mass-enhanced $+d_{i0}\,m\,\sigma^i$ claimed
-below. The claimed order-$m^1$ enhancement does not fall out of the same
-direct $\gamma^0\Gamma$ projection that correctly reproduced the $b_\mu$ and
-$H_{\mu\nu}$ results, and re-deriving it properly needs more careful
-multi-step work than has been completed so far. \textbf{The key results
-below should therefore be treated as unverified} pending a dedicated,
-executed symbolic derivation analogous to the ones already completed for
-$b_\mu$ and $H_{\mu\nu}$; the $d_{i0}\to V_2$ mass-enhancement claim in
-particular should not be relied upon until that verification is done.
+\textbf{Correction, applied after this chapter's first draft.} While
+completing the executable symbolic-derivation notebooks for $b_\mu$ and
+$H_{\mu\nu}$ (Sections~\ref{sec:bmu} and~\ref{sec:Hmunu}), a genuine
+Dirac-algebra sign error was found in the $b_\mu$ derivation and fixed only
+after actually running the symbolic computation, rather than trusting the
+hand-derived prose. Applying that same numeric check to the electric-axial
+$d_{i0}$ term as originally drafted here -- using the mass-sector operator
+$\gamma^0\gamma_5\sigma^{i0}$ -- gave an \emph{even}, $O(m^0)$,
+\emph{imaginary}-coefficient operator, not the real, $O(m^1)$,
+mass-enhanced $+d_{i0}\,m\,\sigma^i$ that draft claimed. Checking the
+primary source (Kostelecký and Lane, 1999, Eqs.~1--3) explained why: the
+draft was testing the wrong operator entirely. $d_{\mu\nu}$ is not a
+mass-sector bilinear like $H_{\mu\nu}$; it is a kinetic-sector coefficient,
+entering as Eq.~\eqref{eq:Ld}. Re-deriving from that corrected Lagrangian
+-- executed in \texttt{FW\_dmunu\_term.ipynb} -- gives the following. The
+$d_{i0}\to V_2$ mass-enhancement result is now genuinely derived and
+matches Kostelecký and Lane's own worked nonrelativistic Hamiltonian
+(their Eq.~4) exactly, including the sign, once the index-lowering
+convention is applied: \textbf{that specific claim is no longer
+unverified}. The $d_{ij}\to V_7,V_8$ and $d_{00}\to V_8$ results below have
+the correct operator structure, confirmed against the same equation, but
+this equation-of-motion derivation does not reproduce their overall sign;
+the mismatch follows a consistent pattern (only momentum-linear terms
+disagree) pointing to a wavefunction-renormalization step for
+kinetic-sector coefficients that Kostelecký and Lane's full derivation
+includes and this simplified treatment omits. \textbf{Treat $d_{i0}\to V_2$
+as an established result; treat the $d_{ij}$ and $d_{00}$ magnitudes as
+structurally confirmed with an open overall sign.}
 \end{quote}
 
-\paragraph{Key results (unverified -- see caveat above).}
+\paragraph{Key results.}
 \begin{align}
-  d_{i0}&: \; H_{NR} = +d_{i0}\,m\,\sigma^i \quad (\text{order } m^1,\text{ large but static}) \;\to V_2 \\
-  d_{ij}&: \; H_{NR} = +d_{ij}\,p^j\,\sigma^i \quad (\text{order } m^0 \text{ in velocity}) \;\to V_7, V_8 \\
-  d_{00}&: \; H_{NR} = +d_{00}\,\boldsymbol\sigma\cdot\mathbf p \quad (\text{order } m^0 \text{ in momentum}) \;\to V_8
+  d_{i0}&: \; H_{NR} = +d_{i0}\,m\,\sigma^i \quad (\text{order } m^1,\text{ large but static}) \;\to V_2 \quad \textbf{(verified)}\\
+  d_{ij}&: \; H_{NR} = +d_{ij}\,p^j\,\sigma^i \quad (\text{order } m^0 \text{ in velocity}) \;\to V_7, V_8 \quad \text{(structure confirmed, sign open)}\\
+  d_{00}&: \; H_{NR} = +d_{00}\,\boldsymbol\sigma\cdot\mathbf p \quad (\text{order } m^0 \text{ in momentum}) \;\to V_8 \quad \text{(structure confirmed, sign open)}
 \end{align}
 $d_{\mu\nu}$ is CPT-even: no sign flip for antimatter is predicted, and
 $A_\alpha$ is expected near $0$ subject to the same sensitivity-gap caveat
@@ -458,73 +480,128 @@ developed in Section~\ref{sec:bmu-asymmetry}.
 
 \subsection{The SME Lagrangian Term}
 
-The $d_{\mu\nu}$ Lagrangian is
+Kostelecký and Lane (1999, Eqs.~1--3) place $d_{\mu\nu}$ in the
+\emph{kinetic}, not the mass, sector of the general SME Dirac Lagrangian
 \begin{equation}
-  \mathcal L_d = d_{\mu\nu}\,\bar\psi\,\gamma_5\,\sigma^{\mu\nu}\,\psi,
-  \qquad \sigma^{\mu\nu}=\frac{i}{2}[\gamma^\mu,\gamma^\nu].
+  \mathcal L = \tfrac12 i\bar\psi\,\Gamma^\nu\overleftrightarrow\partial_\nu\psi
+  - \bar\psi M\psi, \qquad
+  M = m + a_\mu\gamma^\mu + b_\mu\gamma_5\gamma^\mu + \tfrac12H_{\mu\nu}\sigma^{\mu\nu},
+  \qquad
+  \Gamma^\nu = \gamma^\nu + c^{\mu\nu}\gamma_\mu + d^{\mu\nu}\gamma_5\gamma_\mu + \cdots,
 \end{equation}
-$d_{\mu\nu}=-d_{\nu\mu}$ is real and antisymmetric with 6 independent
-components: three $d_{i0}$ (electric-axial) and three $d_{ij}$
-(magnetic-axial); $d_{00}=0$ identically by antisymmetry. (In some SME
-references $d_{\mu\nu}$ absorbs additional factors; this chapter follows the
-convention of Kostelecký and Lane, 1999.)
+so that $d_{\mu\nu}$'s contribution to the Lagrangian is
+Eq.~\eqref{eq:Ld}, not a bare $\bar\psi\gamma_5\sigma^{\mu\nu}\psi$
+bilinear (that structure belongs to $H_{\mu\nu}$, inside $M$). Varying with
+respect to $\bar\psi$ gives the modified Dirac equation
+\begin{equation}
+  \left(i\gamma^\mu\partial_\mu + i\,d^{\mu\nu}\gamma_5\gamma_\mu\partial_\nu - m\right)\psi = 0,
+\end{equation}
+the starting point for the FW reduction below. Kostelecký and Lane state
+explicitly that parameters appearing in $M$ (including $H_{\mu\nu}$) carry
+mass dimension, while those in $\Gamma^\nu$ (including $c_{\mu\nu}$ and
+$d_{\mu\nu}$) are dimensionless, and that $c_{\mu\nu}$ and $d_{\mu\nu}$ are
+\emph{traceless} -- $H_{\mu\nu}$ is the antisymmetric one. $d_{00}$
+therefore need not vanish, unlike an earlier draft of this section, which
+imported $H_{\mu\nu}$'s antisymmetry onto $d_{\mu\nu}$ by analogy and
+concluded $d_{00}=0$.
 
-Under CPT, $\bar\psi\gamma_5\sigma^{\mu\nu}\psi\to+\bar\psi\gamma_5\sigma^{\mu\nu}\psi$
-(the combination $\gamma_5\sigma^{\mu\nu}$ is CPT-even), so $\mathcal L_d$ is
-CPT-even. Under $C$, $\bar\psi^c\gamma_5\sigma^{\mu\nu}\psi^c=+\bar\psi\gamma_5\sigma^{\mu\nu}\psi$
-(same sign): the $d_{\mu\nu}$ contribution to the effective coupling is
-therefore the same for matter and antimatter.
+Kostelecký and Lane also state directly that the field operators for
+$a_\mu, b_\mu, e_\mu, f_\mu, g_{\lambda\mu\nu}$ are CPT-odd and the
+remainder -- including $c_{\mu\nu}$, $d_{\mu\nu}$, and $H_{\mu\nu}$ -- are
+CPT-even: the $d_{\mu\nu}$ contribution to the effective coupling is the
+same for matter and antimatter.
 
 \subsection{FW Derivation by Component}
 
-\paragraph{Electric-axial components $d_{i0}$.} The relevant combination is
-$\gamma^0\gamma_5\sigma^{i0}=\gamma^0\gamma_5\,\tfrac{i}{2}[\gamma^i,\gamma^0]$.
-In the Dirac representation, as claimed (subject to the caveat above),
+Following Eq.~\eqref{eq:Ld}, the Dirac equation in momentum space
+($i\partial_\mu\to p_\mu$, metric $(+,-,-,-)$, so $p_0=E$ and $p_j=-p^j$
+for physical momentum $p^j$) is
 \begin{equation}
-  \gamma^0\gamma_5\sigma^{i0} = +m\Sigma^i = \mathrm{diag}(+m\sigma^i,+m\sigma^i),
+  \left(\gamma^\mu p_\mu + d^{\mu\nu}p_\nu\,\gamma_5\gamma_\mu - m\right)\psi = 0.
 \end{equation}
-an even operator at order $m^1$, giving
-$H_{NR}(d_{i0})=+d_{i0}\,m\,\sigma^i$. This term is large (enhanced by $m$)
-but does not produce a spatial gradient and so does not contribute to a
-force law directly; in a two-body interaction it would contribute to $V_2$
-as a background spin-polarising field, with correspondingly tight
-experimental bounds from torsion-balance experiments.
-
-\paragraph{Magnetic-axial components $d_{ij}$.} For the spatial
-antisymmetric components, the relevant combination is
-$\gamma^0\gamma_5\sigma^{ij}=\tfrac{i}{2}\gamma^0\gamma_5[\gamma^i,\gamma^j]$.
-Expanding in the Dirac representation, one obtains an odd matrix at zeroth
-order that becomes even at order $m^{-1}$ after the FW transformation,
-involving the momentum operator:
+Multiplying by $\gamma^0$ and solving for $E\psi=H\psi$ gives the
+$d_{\mu\nu}$ correction to the free Hamiltonian
+$H_0=\boldsymbol\alpha\cdot\mathbf p+\beta m$:
 \begin{equation}
-  H_{NR}(d_{ij}) = +d_{ij}\,p^j\,\sigma^i \quad (\text{summed over } i,j),
+  H_d = -d^{\mu\nu}p_\nu\,\Gamma_\mu, \qquad
+  \Gamma_\mu \equiv \gamma^0\gamma_5\gamma_\mu \quad (\text{lower-index }\mu).
 \end{equation}
-a velocity-dependent coupling to the spin, generating DM potentials $V_7$
-and $V_8$.
+Direct computation (not assumed by analogy, and checked with
+\texttt{dirac\_algebra.py}) gives
+\begin{equation}
+  \Gamma_0 = -\gamma_5 \quad (\text{odd}), \qquad
+  \Gamma_i = +\Sigma^i \quad (i=1,2,3;\ \text{even}).
+\end{equation}
 
-\paragraph{Pure temporal $d_{00}=0$.} By antisymmetry of $d_{\mu\nu}$,
-$d_{00}=0$ identically, so there is no NR contribution from this component.
+\paragraph{Electric-axial and magnetic-axial components $d_{i0}$, $d_{ij}$.}
+Because $\Gamma_i=+\Sigma^i$ is already even, the $\mu=i$ piece of $H_d$
+contributes directly to $H_{NR}$ with no FW iteration needed -- exactly as
+$b_i$ did in Section~\ref{sec:bmu-application}. Substituting $E\to m$ (the
+leading-order value of the energy eigenvalue; corrections from the exact
+$E=m+p^2/2m+\cdots$ enter at a higher order than kept here) and projecting
+onto the upper block,
+\begin{equation}
+  H_{NR}^{\text{even}} = \sum_i\left(-d^{i0}m + \sum_j d^{ij}p^j\right)\sigma^i.
+\end{equation}
+Converting to Kostelecký and Lane's lower-index convention under the
+$(+,-,-,-)$ metric ($d_{i0}=-d^{i0}$ for one lowered timelike index,
+$d_{ij}=d^{ij}$ for two lowered spacelike indices) gives
+\begin{equation}
+  H_{NR}(d_{i0}) = +d_{i0}\,m\,\sigma^i, \qquad\qquad
+  H_{NR}(d_{ij}) = +d_{ij}\,p^j\,\sigma^i .
+\end{equation}
+The $d_{i0}$ result matches Kostelecký and Lane's own nonrelativistic
+Hamiltonian (their Eq.~4) exactly, including the sign -- this term is large
+(enhanced by $m$) but does not produce a spatial gradient and so does not
+contribute to a force law directly; in a two-body interaction it
+contributes to $V_2$ as a background spin-polarising field, with
+correspondingly tight experimental bounds from torsion-balance experiments.
+The $d_{ij}$ result matches Eq.~4 in structure (a velocity-dependent
+coupling to the spin, generating DM potentials $V_7,V_8$) but this
+equation-of-motion derivation does not reproduce its overall sign relative
+to Eq.~4 -- see the caveat above.
+
+\paragraph{Pure temporal $d_{00}$ (and $d_{0j}$).} $\Gamma_0=-\gamma_5$ is
+odd, so this piece must instead be combined with the leading odd operator
+$\boldsymbol\alpha\cdot\mathbf p$ through the FW reduction of
+Eq.~\eqref{eq:FWexpansion}, exactly as $b_0$ was treated in
+Section~\ref{sec:bmu-application}. At leading order the odd operator is
+$\mathcal O_d = (d^{00}m - d^{0j}p^j)\gamma_5$, and the FW cross term with
+$\boldsymbol\alpha\cdot\mathbf p$ gives, in closed form,
+\begin{equation}
+  H_{NR}^{\text{odd}} = \left(d_{00} - \frac{\mathbf d_0\cdot\mathbf p}{m}\right)
+  (\boldsymbol\sigma\cdot\mathbf p)
+  \;\xrightarrow{\text{leading order}}\;
+  H_{NR}(d_{00}) = +d_{00}\,(\boldsymbol\sigma\cdot\mathbf p).
+\end{equation}
+So $d_{00}$ does \emph{not} vanish -- an earlier draft's claim that it did
+followed from incorrectly treating $d_{\mu\nu}$ as antisymmetric like
+$H_{\mu\nu}$ (see above). This result matches Kostelecký and Lane's Eq.~4
+in structure, again with an open overall sign, generating DM potential
+$V_8$.
 
 \subsection{Two-Body Potentials and Matching}
 
-The large $d_{i0}m\sigma^i$ coupling would contribute to $V_2$ in the
-two-body potential as the spin-polarised vertex. Since $H_{NR}(d_{i0})$ has
-the same $\sigma^i$ (Zeeman-like) structure as the $b_i$ case
-(Section~\ref{sec:bmu-application}), the two-body potential it generates
-would likewise be spin--spin, not monopole--dipole:
+The large $d_{i0}m\sigma^i$ coupling contributes to $V_2$ in the two-body
+potential as the spin-polarised vertex. Since $H_{NR}(d_{i0})$ has the same
+$\sigma^i$ (Zeeman-like) structure as the $b_i$ case
+(Section~\ref{sec:bmu-application}), the two-body potential it generates is
+likewise spin--spin, not monopole--dipole:
 \begin{equation}
   V_2\text{-contribution} \propto (d_{i0}m)^{(1)}(d_{i0}m)^{(2)}\times
-  (\boldsymbol\sigma_1\cdot\boldsymbol\sigma_2)\,\frac{e^{-r/\lambda}}{r},
+  (\boldsymbol\sigma_1\cdot\boldsymbol\sigma_2)\,\frac{e^{-r/\lambda}}{r}.
 \end{equation}
-again subject to the verification caveat above. The large $m$ factor means
-even very small $d_{i0}$ coefficients would produce potentially observable
-effects; current bounds from atomic magnetometry constrain
-$|d_{i0}|<10^{-25}$~GeV (Heckel et al., 2008). The velocity-dependent
-$d_{ij}$ term would generate
+The large $m$ factor means even very small $d_{i0}$ coefficients produce
+potentially observable effects; current bounds from atomic magnetometry
+constrain $|d_{i0}|<10^{-25}$~GeV (Heckel et al., 2008). The
+momentum-dependent $d_{ij}$ and $d_{00}$ terms generate (structure
+confirmed, overall sign open -- see the caveat above)
 \begin{align}
   V_7 &\propto d_{ij}\,\sigma^i\,v^j\,\frac{e^{-r/\lambda}}{r}, \\
   V_8 &\propto d_{ij}\left\{(\boldsymbol\sigma\cdot\mathbf v),\,\frac{e^{-r/\lambda}}{r}\right\}
-  \quad (\text{anticommutator}).
+  \quad (\text{anticommutator}), \\
+  V_8 &\propto d_{00}\,(\boldsymbol\sigma\cdot\mathbf v)\,\frac{e^{-r/\lambda}}{r}
+  \quad \text{(additional contribution from } d_{00}\text{)}.
 \end{align}
 
 \begin{table}[h]
@@ -533,12 +610,12 @@ $d_{ij}$ term would generate
 \toprule
 $d_{\mu\nu}$ component & NR Hamiltonian & DM potential(s) & Order in $1/m$ & Notes \\
 \midrule
-$d_{i0}$ (electric-axial) & $+d_{i0}\,m\,\sigma^i$ & $V_2$ & $m^1$ (large) & Enhanced by fermion mass; unverified \\
-$d_{ij}$ (magnetic-axial) & $+d_{ij}\,p^j\,\sigma^i$ & $V_7, V_8$ & $m^0$ in velocity & Velocity-dependent; needs moving sources \\
-$d_{00}$ & $=0$ by antisymmetry & None & --- & Identically zero \\
+$d_{i0}$ (electric-axial) & $+d_{i0}\,m\,\sigma^i$ & $V_2$ & $m^1$ (large) & Enhanced by fermion mass; \textbf{derived and verified} \\
+$d_{ij}$ (magnetic-axial) & $+d_{ij}\,p^j\,\sigma^i$ & $V_7, V_8$ & $m^0$ in velocity & Velocity-dependent; structure confirmed, sign open \\
+$d_{00}$ & $+d_{00}\,(\boldsymbol\sigma\cdot\mathbf p)$ & $V_8$ & $m^0$ in momentum & Nonzero (traceless, not antisymmetric); structure confirmed, sign open \\
 \bottomrule
 \end{tabular}
-\caption{Summary of $d_{\mu\nu}$ matchings to Dobrescu--Mocioiu potentials (unverified, see caveat above).}
+\caption{Summary of $d_{\mu\nu}$ matchings to Dobrescu--Mocioiu potentials. $d_{i0}\to V_2$ is derived and verified against Kostelecký and Lane (1999) Eq.~4; $d_{ij}$ and $d_{00}$ match in structure with an open overall sign (\texttt{FW\_dmunu\_term.ipynb}).}
 \end{table}
 
 \section{SME Coefficient--Dobrescu--Mocioiu Potential Matching Table (Master Reference)}
@@ -585,9 +662,9 @@ $b_i$ & Odd & Odd & $-\mathbf b\cdot\boldsymbol\sigma$ (matter), $+\mathbf b\cdo
 $b_0$ & Odd & Odd & $+b_0(\boldsymbol\sigma\cdot\mathbf p)/m$ & $V_7, V_8$ & $m^{-1}$ & Same caveat as $b_i$ \\
 $H_{ij}$ & Even & Odd & $-\boldsymbol{\mathcal H}_B\cdot\boldsymbol\sigma$ & $V_3$ & $m^0$ & $A_\alpha\approx0$ if bounds comparably sensitive; sensitivity gap can still give $|A_\alpha|$ near 1 \\
 $H_{0i}$ & Even & Odd & $-\tfrac1m\boldsymbol\sigma\cdot(\mathbf p\times\mathbf H_E)$ & $V_7$ & $m^{-1}$ & Same caveat as $H_{ij}$ \\
-$d_{i0}$ & Even & Odd & $+d_{i0}\,m\,\sigma^i$ & $V_2$ & $m^1$ (!) & Same caveat as $H_{ij}$; unverified (Sec.~\ref{sec:dmunu}) \\
-$d_{ij}$ & Even & Odd & $+d_{ij}\,p^j\,\sigma^i$ & $V_7, V_8$ & $m^0$ (vel.) & Same caveat as $H_{ij}$ \\
-$d_{00}$ & Even & Even & $=0$ by antisymmetry & None & --- & No contribution \\
+$d_{i0}$ & Even & Odd & $+d_{i0}\,m\,\sigma^i$ & $V_2$ & $m^1$ (!) & Same caveat as $H_{ij}$; \textbf{derived and verified} (Sec.~\ref{sec:dmunu}) \\
+$d_{ij}$ & Even & Odd & $+d_{ij}\,p^j\,\sigma^i$ & $V_7, V_8$ & $m^0$ (vel.) & Same caveat as $H_{ij}$; structure confirmed, sign open (Sec.~\ref{sec:dmunu}) \\
+$d_{00}$ & Even & Odd & $+d_{00}\,(\boldsymbol\sigma\cdot\mathbf p)$ & $V_8$ & $m^0$ (mom.) & Same caveat as $H_{ij}$; structure confirmed, sign open (Sec.~\ref{sec:dmunu}) \\
 \bottomrule
 \end{tabular}
 \caption{Master SME$\to$DM matching table.}
@@ -700,10 +777,16 @@ as the $g_Vg_V$ and $g_pg_p$ pairs are analysed with an updated parser.
 
 This chapter derived the non-relativistic Hamiltonians generated by $b_\mu$,
 $H_{\mu\nu}$, and $d_{\mu\nu}$ via the Foldy--Wouthuysen transformation and
-matched each to the Dobrescu--Mocioiu potential catalogue. The $b_\mu$ and
-$H_{\mu\nu}$ derivations were verified by executable symbolic computation;
-the $d_{\mu\nu}$ derivation is flagged as unverified pending further work
-and should not yet be cited as an established result. Throughout, a single
+matched each to the Dobrescu--Mocioiu potential catalogue. All three
+derivations are now backed by executable symbolic computation
+(\texttt{FW\_bmu\_term.ipynb}, \texttt{FW\_Hmunu\_term.ipynb},
+\texttt{FW\_dmunu\_term.ipynb}). For $d_{\mu\nu}$, the $d_{i0}\to V_2$
+mass-enhancement result matches the literature (Kostelecký and Lane, 1999,
+Eq.~4) exactly and can be cited as an established result; the $d_{ij}\to
+V_7,V_8$ and $d_{00}\to V_8$ results are correct in structure but carry an
+overall sign this thesis's derivation does not resolve, traced to a
+wavefunction-renormalization step in the kinetic sector that a fuller
+treatment would need to include. Throughout, a single
 interpretive caveat applies uniformly to every coefficient: because SPINDEP
 compares independent, one-sided experimental upper bounds rather than
 signed measured couplings, an observed asymmetry $|A_\alpha|$ near $1$ is
@@ -737,7 +820,7 @@ Phys.\ Rev.\ D \textbf{39}, 683 (1989).
 
 \bibitem{KosteleckyLane1999}
 V.~A. Kostelek\'{y} and C.~D. Lane,
-\textit{Nonrelativistic quantum Hamiltonian for Lorentz violation},
+\textit{Constraints on Lorentz violation from clock-comparison experiments},
 Phys.\ Rev.\ D \textbf{60}, 116010 (1999).
 
 \bibitem{KosteleckyMewes2001}
