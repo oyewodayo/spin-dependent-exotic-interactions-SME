@@ -31,28 +31,35 @@ The CPT-odd Lorentz-violating modification to the free Dirac Lagrangian in the m
 $$
 L_b = -b_μ ψ̅ γ_5 γ^μ ψ
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(2.1)*
 
 The full equation of motion (Dirac equation modified by the SME term) is:
+
 $$
 (iγ^μ∂_μ - m - b_μγ_5γ^μ)ψ = 0
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(2.2)*
 
 ### 2.2 CPT Properties
 
 Under the CPT transformation, the spinor transforms as ψ → iγ^0γ^2ψ*_CPT (up to a phase). The relevant bilinear transforms as:
+
 $$
 CPT[ψ̅γ_5γ^μψ] = -ψ̅γ_5γ^μψ
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(2.3)*
 
 So L_b → +b_μψ̅γ_5γ^μψ under CPT, which differs from the original −b_μψ̅γ_5γ^μψ by a sign — confirming b_μ is CPT-odd. A non-zero b_μ therefore breaks CPT symmetry.
 
 Under charge conjugation C alone (which maps particles to antiparticles):
+
 $$
 C[ψ̅γ_5γ^μψ] = +ψ̅γ_5γ^μψ (C is even for axial current)
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(2.4a)*
 
 However, the COUPLING changes sign because the antiparticle b_μ coefficient is −b_μ relative to the particle. This is the origin of the matter—antimatter sign flip in the NR Hamiltonian, derived explicitly in §4.
@@ -64,23 +71,29 @@ However, the COUPLING changes sign because the antiparticle b_μ coefficient is 
 The Foldy—Wouthuysen (FW) transformation is a sequence of unitary transformations on the Dirac Hamiltonian that systematically decouples the upper (particle) and lower (antiparticle) two-component spinors in powers of 1/m. At each order, 'odd' operators (those mixing upper and lower) are eliminated, leaving a block-diagonal Hamiltonian in the upper components.
 
 The standard Dirac Hamiltonian in an external perturbation ε is written H = βm + ε_even + ε_odd, where β = γ^0 and ε_even, ε_odd commute and anticommute with β respectively. The FW transformation is:
+
 $$
 U_FW = exp(βε_odd/2m) → H' = U† H U - i U† ∂_t U
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.1)*
 
 Expanding to order 1/m, the transformed Hamiltonian is:
+
 $$
 H' ≈ βm + ε_even + βε_odd²/(2m) - [ε_odd, ε_even]/(4m) + O(m⁻²)
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.2)*
 
 ### 3.2 Application to the b_μ Term
 
 The b_μ Hamiltonian (from L_b, taking the upper-sign convention) is:
+
 $$
 H_b = b_μγ^0γ_5γ^μ = b_0γ^0γ_5γ^0 + b_iγ^0γ_5γ^i
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.3)*
 
 Using the Dirac representation where γ^0 = diag(1,1,−1,−1) and γ_5 = off-diagonal:
@@ -88,15 +101,19 @@ Using the Dirac representation where γ^0 = diag(1,1,−1,−1) and γ_5 = off-d
 #### 3.2a Spatial components b_i
 
 For the spatial components (i = 1,2,3), the term γ^0γ_5γ^i is an 'even' operator (block-diagonal) in the Dirac representation, using this note's Lagrangian ordering γ_5γ^μ (verified directly with `dirac_algebra.py`, see `derivations/sympy/`). The operator identity is:
+
 $$
 γ^0γ_5γ^i = -Σ^i = -\,\mathrm{diag}(σ^i, σ^i)
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.4)*
 
 where Σ^i is the 4×4 spin matrix. The minus sign relative to the naive guess $+Σ^i$ comes directly from $\{γ_5,γ^i\}=0$. In the upper 2×2 block:
+
 $$
 H_NR(b_i) = -b · σ (matter)
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.5 — KEY RESULT)*
 
 This is already in the Pauli non-relativistic form and requires no further FW iteration to leading order in 1/m. The b_i term is therefore exact at order m⁰ in the NR expansion.
@@ -106,15 +123,19 @@ This is already in the Pauli non-relativistic form and requires no further FW it
 #### 3.2b Temporal component b_0
 
 The temporal component produces an 'odd' operator:
+
 $$
 γ^0γ_5γ^0 = γ_5 = off-diagonal
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.7)*
 
 Since this is odd, it does not contribute at m⁰. At order m⁻¹, using the FW expansion (3.2), the odd operator generates:
+
 $$
 H_NR(b_0) = β(γ_5 b_0)²/(2m) + ... → +b_0(σ·p)/m + O(m⁻²)
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.8)*
 
 This is velocity-dependent and matches DM potentials V₇ and V₈.
@@ -124,41 +145,53 @@ This is velocity-dependent and matches DM potentials V₇ and V₈.
 ### 4.1 C-transformation of the Spinor
 
 Under charge conjugation C, the Dirac spinor transforms as:
+
 $$
 ψ → ψ^c = Cγ^0ψ* where C = iγ^2γ^0 (Dirac convention)
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.1)*
 
 The charge-conjugated spinor describes the antiparticle with the same momentum but opposite charge. Crucially, the SME coefficient b_μ is a fixed background field that does NOT transform under C — it is an external source. Therefore the Lagrangian density for the antiparticle becomes:
+
 $$
 L_b(ψ^c) = +b_μψ̅^cγ_5γ^μψ^c = +b_μ (ψ̅γ_5γ^μψ)*
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.2)*
 
 The sign flip from −b_μ (particle) to +b_μ (antiparticle) follows from the anticommutativity of the C matrix with γ_5. Explicitly:
+
 $$
 Cγ_5γ^μ C⁻¹ = −(γ_5γ^μ)* → ψ̅^cγ_5γ^μψ^c = −(ψ̅γ_5γ^μψ)
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.3)*
 
 Combined with the −b_μ in the Lagrangian, the antiparticle coupling has overall +b_μ. Therefore:
+
 $$
 H_NR^antiparticle(b_i) = +b · σ
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.4)*
 
 ### 4.2 Implication for the Asymmetry Parameter
 
 The two-body interaction potential for a matter—antimatter pair is proportional to the product of the single-particle NR Hamiltonians. For the b_i term:
+
 $$
 V_pair ∝ H_NR^matter × H_NR^antimatter ∝ (-b·σ_1)(+b·σ_2)
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.5)*
 
 This gives a potential that changes sign relative to the matter—matter case (where both factors carry −b·σ). The coupling constant g measured from matter—matter experiments and from matter—antimatter experiments therefore differ by a sign, yielding g_matter = −g_antimatter *for a hypothetical, exactly-known, signed coupling*. Substituting into the SPINDEP asymmetry parameter:
+
 $$
 Aα = (g_m - g_ā) / (g_m + g_ā) = (g - (-g)) / (g + (-g)) = 2g/0 → ∞
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.6)*
 
 This is a genuine divergence — the denominator vanishes identically, not saturates at 1 — confirmed with a symbolic limit (`sympy.limit` in `derivations/sympy/pauli_matrices.py`). An exact CPT-odd sign flip of a *signed* coupling makes Eq. (4.6) formally undefined, not bounded.
@@ -172,9 +205,11 @@ Consequently, the observed $|A\alpha| \approx 1.000$ across gAgA pairs in SPINDE
 ### 5.1 From Single-Particle to Two-Body Potential
 
 The DM catalogue describes two-body potentials from boson exchange between particles 1 and 2. The single-particle Hamiltonian H_NR(ψ1) from §3 is the same "$-b\cdot\sigma$" Zeeman-like structure that an axial-vector-boson exchange produces at *each* vertex (cf. axial-vector/axial-vector coupling in Cong et al. 2025, Eq. 47). Promoting to the two-body potential — i.e. matching the exchange of the same axial-vector mediator between *both* fermions — therefore gives the spin-spin form:
+
 $$
 V_2(r) = -g_A^{(1)} g_A^{(2)} \frac{1}{4\pi} (\sigma_1\cdot\sigma_2) \frac{e^{-r/\lambda}}{r} \quad \text{where } \lambda = 1/m_\phi
 $$
+
 &nbsp;&nbsp;&nbsp;&nbsp;*(5.1)*
 
 $V_2$ is spin--spin ($\sigma_1\cdot\sigma_2$), with no $\hat r$ dependence and no $1/r^2$ term — that monopole--dipole radial structure, $(\sigma_1\cdot\hat r)[\lambda^{-2}/r+\lambda^{-1}/r^2]e^{-r/\lambda}/r$, belongs to $V_9,V_{10}$ (single spin dotted into $\hat r$), a distinct structural class. See `potential_match_table.md` for the full $V_1$--$V_{16}$ catalogue transcribed from Cong et al. (2025).

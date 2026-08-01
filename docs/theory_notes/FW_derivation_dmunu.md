@@ -18,9 +18,11 @@ The SME coefficient $d_{\mu\nu}$ is a CPT-even, Lorentz-odd rank-2 tensor. Per
 Kostelecký & Lane (1999), it is a **kinetic/derivative-sector** coefficient —
 the axial-tensor partner of $c_{\mu\nu}$, not of $H_{\mu\nu}$ — entering the
 Lagrangian through
+
 $$
 \mathcal L_d = \tfrac12 i\,\bar\psi\,d^{\mu\nu}\gamma_5\gamma_\mu\,\overleftrightarrow\partial_\nu\,\psi .
 $$
+
 $d_{\mu\nu}$ is **traceless**, not antisymmetric like $H_{\mu\nu}$, so $d_{00}$
 need not vanish. Despite being CPT-even (same sign for matter and antimatter),
 it generates a rich phenomenology because different components produce
@@ -55,11 +57,13 @@ couplings.
 
 Kostelecký & Lane (1999, §II A, Eqs. 1–3) place $d_{\mu\nu}$ in the *kinetic*
 sector of the general SME Dirac Lagrangian,
+
 $$
 \mathcal L = \tfrac12 i\bar\psi\Gamma^\nu\overleftrightarrow\partial_\nu\psi - \bar\psi M\psi,\qquad
 M = m+a_\mu\gamma^\mu+b_\mu\gamma_5\gamma^\mu+\tfrac12 H_{\mu\nu}\sigma^{\mu\nu},\qquad
 \Gamma^\nu = \gamma^\nu+c^{\mu\nu}\gamma_\mu+d^{\mu\nu}\gamma_5\gamma_\mu+\cdots,
 $$
+
 so $d_{\mu\nu}$'s contribution is the derivative-coupling term above, not a
 bare $\bar\psi\gamma_5\sigma^{\mu\nu}\psi$ mass-sector bilinear — that
 structure belongs to $H_{\mu\nu}$, inside $M$. Kostelecký & Lane state
@@ -69,6 +73,7 @@ $\Gamma^\nu$ are dimensionless, and that $c_{\mu\nu}$ and $d_{\mu\nu}$ are
 not vanish.
 
 Varying with respect to $\bar\psi$ gives the modified free Dirac equation
+
 $$
 \big(i\gamma^\mu\partial_\mu + i\,d^{\mu\nu}\gamma_5\gamma_\mu\partial_\nu - m\big)\psi = 0 .
 $$
@@ -90,16 +95,21 @@ CPT-even coefficient).
 
 Going to momentum space ($i\partial_\mu\to p_\mu$, metric $(+,-,-,-)$, so
 $p_0=E$, $p_j=-p^j$ for physical momentum $p^j$):
+
 $$
 \big(\gamma^\mu p_\mu + d^{\mu\nu}p_\nu\,\gamma_5\gamma_\mu - m\big)\psi = 0 .
 $$
+
 Multiplying by $\gamma^0$ and solving for $E\psi=H\psi$ gives the free part
 $H_0=\boldsymbol\alpha\cdot\mathbf p+\beta m$, plus the $d_{\mu\nu}$
 correction
+
 $$
 H_d = -\,d^{\mu\nu}p_\nu\,\Gamma_\mu, \qquad \Gamma_\mu := \gamma^0\gamma_5\gamma_\mu \ \ (\text{lower-index } \mu).
 $$
+
 Direct computation (`dirac_algebra.py`, `derivations/sympy/FW_dmunu_term.ipynb`) gives
+
 $$
 \Gamma_0=-\gamma_5 \ \ (\text{odd}), \qquad \Gamma_i=+\Sigma^i \ \ (i=1,2,3;\ \text{even}).
 $$
@@ -110,12 +120,15 @@ Because $\Gamma_i=+\Sigma^i$ is already even, the $\mu=i$ piece of $H_d$
 contributes directly to $H_{NR}$ with no FW iteration needed — exactly as
 $b_i$ does for $b_\mu$ (`FW_derivation_bmy.md` §3.2a). Substituting $E\to m$
 (the leading-order energy eigenvalue) and projecting onto the upper block,
+
 $$
 H_{NR}^{\text{even}} = \sum_i\Big({-d^{i0}m + \sum_j d^{ij}p^j}\Big)\sigma^i .
 $$
+
 Converting to Kostelecký & Lane's lower-index convention under the
 $(+,-,-,-)$ metric ($d_{i0}=-d^{i0}$ for one lowered timelike index,
 $d_{ij}=d^{ij}$ for two lowered spacelike indices):
+
 $$
 H_{NR}(d_{i0}) = +d_{i0}\,m\,\sigma^i, \qquad\qquad H_{NR}(d_{ij}) = +d_{ij}\,p^j\,\sigma^i .
 $$
@@ -139,16 +152,20 @@ $\Gamma_0=-\gamma_5$ is odd, so this piece must instead be combined with the
 leading odd operator $\boldsymbol\alpha\cdot\mathbf p$ through the standard
 FW $\mathcal O^2/2m$ reduction, exactly as $b_0$ is treated for $b_\mu$. At
 leading order the odd operator is
+
 $$
 \mathcal O_d = \big(d^{00}m - d^{0j}p^j\big)\gamma_5 ,
 $$
+
 and the FW cross term with $\boldsymbol\alpha\cdot\mathbf p$ gives, in closed
 form,
+
 $$
 H_{NR}^{\text{odd}} = \Big(d_{00} - \frac{\mathbf d_0\cdot\mathbf p}{m}\Big)(\boldsymbol\sigma\cdot\mathbf p)
 \;\xrightarrow{\text{leading order}}\;
 H_{NR}(d_{00}) = +d_{00}\,(\boldsymbol\sigma\cdot\mathbf p) .
 $$
+
 $d_{00}$ does not vanish, consistent with $d_{\mu\nu}$ being traceless rather
 than antisymmetric. This result matches Eq. (4) in structure, again with an
 open overall sign, and generates DM potential $V_8$.
@@ -181,19 +198,23 @@ The large $d_{i0}m\sigma^i$ coupling contributes to $V_2$ in the two-body
 potential as the spin-polarised vertex. Since $H_{NR}(d_{i0})$ has the same
 $\sigma^i$ (Zeeman-like) structure as the $b_i$ case, the two-body potential
 it generates is likewise spin–spin, not monopole–dipole:
+
 $$
 V_2 \text{ contribution} \propto (d_{i0}\, m)^{(1)} (d_{i0}\, m)^{(2)} \times (\sigma_1 \cdot \sigma_2) \frac{e^{-r/\lambda}}{r} .
 $$
+
 $V_2$ is spin–spin ($\sigma_1\cdot\sigma_2$) with no $\hat r$ dependence — see
 `potential_match_table.md` for the full $V_1$–$V_{16}$ catalogue.
 
 ### $d_{ij} \rightarrow V_7$ and $V_8$, $d_{00} \rightarrow V_8$
 
 The velocity-dependent $d_{ij}$ term generates
+
 $$
 V_7 \propto d_{ij}\, \sigma^i\, v^j\, e^{-r/\lambda}/r , \qquad
 V_8 \propto d_{ij}\, \{(\sigma \cdot v),\, e^{-r/\lambda}/r\} \quad \text{(anticommutator)},
 $$
+
 and $d_{00}$ contributes an additional $V_8 \propto d_{00}\,(\sigma\cdot v)\, e^{-r/\lambda}/r$ term.
 
 ## Summary Table
