@@ -6,7 +6,7 @@ date: "June 2026"
 note: "Theory Note 1"
 ---
 
-> *SME coefficient b_μ → Non-relativistic Hamiltonian → Dobrescu–Mocioiu potential V₂*
+> *SME coefficient b_μ → Non-relativistic Hamiltonian → Dobrescu–Mocioiu potential V₂* 
 
 ---
 
