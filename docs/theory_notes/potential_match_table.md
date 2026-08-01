@@ -32,9 +32,7 @@ The primary use of this table in the SPINDEP framework is to interpret measured 
 
 ## Complete Dobrescu--Mocioiu Potential Catalogue
 
-An earlier version of this table had several
-potentials transcribed with the wrong spin/vector structure (most critically,
-$V_2$ was written in $V_9$/$V_{10}$'s monopole--dipole form). The forms below
+The forms below
 are transcribed directly from Cong et al. (2025), Eqs. (1)--(12) [equivalent
 to Dobrescu & Mocioiu (2006), Eqs. (3.1)--(3.16)], with $\sigma_X\to\sigma_1$,
 $\sigma_Y'\to\sigma_2$, and $y(r) = e^{-r/\lambda}/(4\pi)$, $\lambda = 1/m_\phi$.
@@ -99,10 +97,10 @@ $$
 V_{16} = -\frac{1}{2mr^2}\Big\{[\sigma_1\cdot(v\times\hat{r})](\sigma_2\cdot v) + (\sigma_1\cdot v)[\sigma_2\cdot(v\times\hat{r})]\Big\}\left(1 - r\frac{d}{dr}\right) y(r)
 $$
 
-**Notes on the corrections:**
-- $V_2$ is spin--spin ($\sigma_1\cdot\sigma_2$), with *no* $\hat{r}$ dependence and *no* $1/r^2$ or $1/(\lambda r)$ terms — it is $V_9,V_{10}$ (monopole--dipole, single spin dotted into $\hat{r}$) that has that radial structure. The previous version of this table had these swapped.
+**Structural notes:**
+- $V_2$ is spin--spin ($\sigma_1\cdot\sigma_2$), with *no* $\hat{r}$ dependence and *no* $1/r^2$ or $1/(\lambda r)$ terms — it is $V_9,V_{10}$ (monopole--dipole, single spin dotted into $\hat{r}$) that has that radial structure, a distinct class.
 - $V_{11}$ is $(\sigma_1\times\sigma_2)\cdot\hat{r}$ — a cross product of the *two* spins with $\hat{r}$ — not an $L\cdot S$ orbital spin-orbit coupling. $V_{12},V_{13}$ are the $\pm$ pair $(\sigma_1\pm\sigma_2)\cdot v$ (single-spin-combination dotted into velocity), not cross products.
-- $V_4,V_5$ and $V_9,V_{10}$ and $V_{12},V_{13}$ are each a $\pm$ **pair of the same structure** (sum vs. difference of the two particles' spins), not two independent structures as previously listed.
+- $V_4,V_5$ and $V_9,V_{10}$ and $V_{12},V_{13}$ are each a $\pm$ **pair of the same structure** (sum vs. difference of the two particles' spins), not independent structures.
 
 ## Main SME $\rightarrow$ DM Potential Matching Table
 
@@ -124,7 +122,7 @@ A caveat on the "prediction" column below: it is tempting to substitute an exact
 
 </div>
 
-**Correction (post-verification):** $d_{\mu\nu}$ was originally modelled on $H_{\mu\nu}$'s mass-sector bilinear ($\bar\psi\gamma_5\sigma^{\mu\nu}\psi$, antisymmetric, $d_{00}=0$). Kostelecký & Lane (1999) place it in the *kinetic* sector instead (paired with $c_{\mu\nu}$, entering as $\tfrac12i\bar\psi\,d^{\mu\nu}\gamma_5\gamma_\mu\overleftrightarrow\partial_\nu\psi$) and state it is *traceless*, not antisymmetric — so $d_{00}$ need not vanish. Re-deriving from the correct Lagrangian (`derivations/sympy/FW_dmunu_term.ipynb`, executed) gives $d_{i0}\to V_2$ exactly matching Kostelecký & Lane's own nonrelativistic Hamiltonian (their Eq. 4), and $d_{ij}\to V_7,V_8$ / $d_{00}\to V_8$ matching in structure with an overall sign this simplified equation-of-motion derivation doesn't resolve — see `FW_derivation_dmunu.md` for the full account.
+**Note on $d_{\mu\nu}$'s Lagrangian sector:** $d_{\mu\nu}$ is a *kinetic*-sector coefficient, paired with $c_{\mu\nu}$ and entering as $\tfrac12i\bar\psi\,d^{\mu\nu}\gamma_5\gamma_\mu\overleftrightarrow\partial_\nu\psi$ (Kostelecký & Lane, 1999) — not a mass-sector bilinear like $H_{\mu\nu}$'s $\bar\psi\gamma_5\sigma^{\mu\nu}\psi$. It is *traceless*, not antisymmetric, so $d_{00}$ need not vanish. Derived from this Lagrangian (`derivations/sympy/FW_dmunu_term.ipynb`), $d_{i0}\to V_2$ matches Kostelecký & Lane's own nonrelativistic Hamiltonian (their Eq. 4) exactly, and $d_{ij}\to V_7,V_8$ / $d_{00}\to V_8$ match in structure with an overall sign this equation-of-motion-level derivation leaves open — see `FW_derivation_dmunu.md` for the full account.
 
 **Note on "consistent with" vs. "caused by":** because every SPINDEP $A\alpha$ value is a ratio of two independent one-sided bounds, an observed value near $\pm 1$ can arise either from a genuine CPT-odd signal *or* from nothing more than one experiment being much more sensitive than the other. Distinguishing the two requires independent information about the relative precision of the matter- and antimatter-sector measurements being compared — it cannot be read off $A\alpha$ alone. This applies uniformly to every row above, CPT-odd or CPT-even.
 
@@ -148,7 +146,7 @@ The gsgs$\cdot$V1$\cdot$ee pair shows $|A\alpha| = 0.873$ --- lower than all gAg
 
 *   **CPT-even coupling:** The scalar--scalar (gsgs) coupling does not appear in the minimal SME at dimension 4. Its primary contribution comes from $c_{\mu\nu}$, a CPT-even coefficient. A value below the gAgA pairs is *consistent with* a CPT-even channel and a sizeable sensitivity gap (Delaunay 2017 matter constraint is 3--4 orders of magnitude tighter than Adkins 2022 positronium constraint) — but, per the correction above, the gAgA pairs' higher values are *equally* explainable by a sensitivity gap alone, so the comparison between rows in this table cannot by itself distinguish "CPT-odd" from "CPT-even, larger sensitivity gap."
 
-*   **Potential now confirmed as $V_1$:** this pair's filenames (`Delaunay_2017`, `Adkins_2022_eeplus`) carry no potential-number token, so the parser originally recorded them as `UNKNOWN`. Rather than rely on the plausible-but-unverified guess that gsgs coupling implies $V_1$, both source papers were checked directly: Delaunay, Frugiuele, Fuchs & Soreq (2017), *Phys. Rev. D* 96, 115002, constrain a spin-independent scalar interaction between electrons, and Adkins, Cassidy & Pérez-Ríos (2022), *Phys. Rept.* 975, 1, report a bound on the analogous spin-independent $g_s^eg_s^{e^+}$ coupling from positronium spectroscopy — both a direct match to $V_1$'s monopole--monopole, spin-independent definition. The classification is applied via `FILENAME_POTENTIAL_OVERRIDES` in `spindep/src/parser.py`, not by editing the raw source files. $V_1$ has no spin structure and would produce $A\alpha = 0$ for a CPT-symmetric world *if* the compared bounds were of comparable sensitivity. Note: a further eleven filenames sit under a `# V1 / scalar exchange datasets` comment in the same override table without the potential-side fix applied — see `thesis/05_gap_analysis.tex` §5.4 for the list; these remain genuinely `UNKNOWN` pending the same source-verification step.
+*   **Potential confirmed as $V_1$:** this pair's filenames (`Delaunay_2017`, `Adkins_2022_eeplus`) carry no potential-number token, so the parser records them as `UNKNOWN` by default. Both source papers were checked directly to resolve this: Delaunay, Frugiuele, Fuchs & Soreq (2017), *Phys. Rev. D* 96, 115002, constrain a spin-independent scalar interaction between electrons, and Adkins, Cassidy & Pérez-Ríos (2022), *Phys. Rept.* 975, 1, report a bound on the analogous spin-independent $g_s^eg_s^{e^+}$ coupling from positronium spectroscopy — both a direct match to $V_1$'s monopole--monopole, spin-independent definition. The classification is applied via `FILENAME_POTENTIAL_OVERRIDES` in `spindep/src/parser.py`, not by editing the raw source files. $V_1$ has no spin structure and would produce $A\alpha = 0$ for a CPT-symmetric world *if* the compared bounds were of comparable sensitivity. A further eleven filenames sit under a `# V1 / scalar exchange datasets` comment in the same override table without the potential-side fix applied — see `thesis/05_gap_analysis.tex` §5.4 for the list; these remain `UNKNOWN` pending the same source-verification step.
 
 *   **Width of 95% CI:** $[0.871, 0.875]$ --- wider than gAgA CIs ($[0.999, 1.000]$). This reflects that the gsgs pair's bootstrap has more relative spread; it is not, by itself, evidence about CPT parity.
 

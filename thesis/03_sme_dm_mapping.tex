@@ -17,9 +17,8 @@ Chapter~2's catalogue. Section~\ref{sec:bmu} treats $b_\mu$, the CPT-odd
 coefficient responsible for a genuine matter--antimatter sign flip;
 Section~\ref{sec:Hmunu} treats $H_{\mu\nu}$, a CPT-even tensor coupling;
 Section~\ref{sec:dmunu} treats $d_{\mu\nu}$, the CPT-even axial-tensor
-partner of $c_{\mu\nu}$ (not $H_{\mu\nu}$, as an earlier draft of this
-chapter had it), whose $d_{i0}\to V_2$ result is now derived and verified
-against the literature, while $d_{ij}$ and $d_{00}$ are correct in
+partner of $c_{\mu\nu}$, whose $d_{i0}\to V_2$ result is derived and
+matches the literature exactly, while $d_{ij}$ and $d_{00}$ are correct in
 structure but carry an open overall sign. Section~\ref{sec:master} then
 synthesises all three derivations into a master SME$\to$DM matching table
 and the interpretive rule connecting predicted CPT parity to the asymmetry
@@ -419,11 +418,9 @@ $H_{0i}$ (electric) & $-\tfrac1m\boldsymbol\sigma\cdot(\mathbf p\times\mathbf H_
 \subsection{Overview}
 
 The SME coefficient $d_{\mu\nu}$ is a CPT-even, Lorentz-odd rank-2 tensor.
-Unlike an earlier draft of this section, which modelled it on
-$H_{\mu\nu}$'s mass-sector bilinear, $d_{\mu\nu}$ is actually a
-\emph{kinetic-sector} coefficient -- the axial-tensor partner of
-$c_{\mu\nu}$, not of $H_{\mu\nu}$ -- entering the Lagrangian through a
-derivative coupling (Kostelecký and Lane, 1999, Eqs.~1--3):
+Per Kostelecký and Lane (1999, Eqs.~1--3), it is a \emph{kinetic-sector}
+coefficient -- the axial-tensor partner of $c_{\mu\nu}$, not of $H_{\mu\nu}$
+-- entering the Lagrangian through a derivative coupling:
 \begin{equation}
   \mathcal L_d = \tfrac12 i\,\bar\psi\,d^{\mu\nu}\gamma_5\gamma_\mu\,
   \overleftrightarrow\partial_\nu\,\psi. \label{eq:Ld}
@@ -437,36 +434,19 @@ electron--nucleon scattering experiments: $d_{i0}$ produces a large (order
 $m^1$) but momentum-independent coupling to $\sigma^i$, while $d_{ij}$ and
 $d_{00}$ produce momentum-dependent couplings.
 
-\begin{quote}
-\textbf{Correction, applied after this chapter's first draft.} While
-completing the executable symbolic-derivation notebooks for $b_\mu$ and
-$H_{\mu\nu}$ (Sections~\ref{sec:bmu} and~\ref{sec:Hmunu}), a genuine
-Dirac-algebra sign error was found in the $b_\mu$ derivation and fixed only
-after actually running the symbolic computation, rather than trusting the
-hand-derived prose. Applying that same numeric check to the electric-axial
-$d_{i0}$ term as originally drafted here -- using the mass-sector operator
-$\gamma^0\gamma_5\sigma^{i0}$ -- gave an \emph{even}, $O(m^0)$,
-\emph{imaginary}-coefficient operator, not the real, $O(m^1)$,
-mass-enhanced $+d_{i0}\,m\,\sigma^i$ that draft claimed. Checking the
-primary source (Kostelecký and Lane, 1999, Eqs.~1--3) explained why: the
-draft was testing the wrong operator entirely. $d_{\mu\nu}$ is not a
-mass-sector bilinear like $H_{\mu\nu}$; it is a kinetic-sector coefficient,
-entering as Eq.~\eqref{eq:Ld}. Re-deriving from that corrected Lagrangian
--- executed in \texttt{FW\_dmunu\_term.ipynb} -- gives the following. The
-$d_{i0}\to V_2$ mass-enhancement result is now genuinely derived and
-matches Kostelecký and Lane's own worked nonrelativistic Hamiltonian
-(their Eq.~4) exactly, including the sign, once the index-lowering
-convention is applied: \textbf{that specific claim is no longer
-unverified}. The $d_{ij}\to V_7,V_8$ and $d_{00}\to V_8$ results below have
-the correct operator structure, confirmed against the same equation, but
-this equation-of-motion derivation does not reproduce their overall sign;
-the mismatch follows a consistent pattern (only momentum-linear terms
-disagree) pointing to a wavefunction-renormalization step for
-kinetic-sector coefficients that Kostelecký and Lane's full derivation
-includes and this simplified treatment omits. \textbf{Treat $d_{i0}\to V_2$
-as an established result; treat the $d_{ij}$ and $d_{00}$ magnitudes as
-structurally confirmed with an open overall sign.}
-\end{quote}
+Deriving the non-relativistic Hamiltonian from Eq.~\eqref{eq:Ld} (executed
+symbolically in \texttt{FW\_dmunu\_term.ipynb}), the $d_{i0}\to V_2$
+mass-enhancement result matches Kostelecký and Lane's own worked
+nonrelativistic Hamiltonian (their Eq.~4) exactly, including the sign,
+once the index-lowering convention is applied. The $d_{ij}\to V_7,V_8$ and
+$d_{00}\to V_8$ results have the correct operator structure, confirmed
+against the same equation, but this equation-of-motion-level derivation
+does not reproduce their overall sign; the mismatch follows a consistent
+pattern (only momentum-linear terms disagree) pointing to a
+wavefunction-renormalization step for kinetic-sector coefficients that
+Kostelecký and Lane's full derivation includes and this treatment omits.
+\textbf{$d_{i0}\to V_2$ is an established result; the $d_{ij}$ and $d_{00}$
+magnitudes are structurally confirmed with an open overall sign.}
 
 \paragraph{Key results.}
 \begin{align}
@@ -501,9 +481,7 @@ explicitly that parameters appearing in $M$ (including $H_{\mu\nu}$) carry
 mass dimension, while those in $\Gamma^\nu$ (including $c_{\mu\nu}$ and
 $d_{\mu\nu}$) are dimensionless, and that $c_{\mu\nu}$ and $d_{\mu\nu}$ are
 \emph{traceless} -- $H_{\mu\nu}$ is the antisymmetric one. $d_{00}$
-therefore need not vanish, unlike an earlier draft of this section, which
-imported $H_{\mu\nu}$'s antisymmetry onto $d_{\mu\nu}$ by analogy and
-concluded $d_{00}=0$.
+therefore need not vanish.
 
 Kostelecký and Lane also state directly that the field operators for
 $a_\mu, b_\mu, e_\mu, f_\mu, g_{\lambda\mu\nu}$ are CPT-odd and the
@@ -574,11 +552,10 @@ $\boldsymbol\alpha\cdot\mathbf p$ gives, in closed form,
   \;\xrightarrow{\text{leading order}}\;
   H_{NR}(d_{00}) = +d_{00}\,(\boldsymbol\sigma\cdot\mathbf p).
 \end{equation}
-So $d_{00}$ does \emph{not} vanish -- an earlier draft's claim that it did
-followed from incorrectly treating $d_{\mu\nu}$ as antisymmetric like
-$H_{\mu\nu}$ (see above). This result matches Kostelecký and Lane's Eq.~4
-in structure, again with an open overall sign, generating DM potential
-$V_8$.
+So $d_{00}$ does \emph{not} vanish, consistent with $d_{\mu\nu}$ being
+traceless rather than antisymmetric (see above). This result matches
+Kostelecký and Lane's Eq.~4 in structure, again with an open overall sign,
+generating DM potential $V_8$.
 
 \subsection{Two-Body Potentials and Matching}
 
