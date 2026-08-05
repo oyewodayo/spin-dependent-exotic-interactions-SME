@@ -168,14 +168,18 @@ exotic-spin-interactions-SME/
 │   └── gap_analysis/          # 3 white-space identification plots
 │
 └── thesis/                    # Flat by design, to match the Overleaf project layout
-    ├── main.tex                 # Master document -- \subfile{}s the 5 chapters below in
-    │                            # order, with correct auto-numbering and one shared,
-    │                            # deduplicated bibliography. Compile THIS for the real thesis.
+    ├── main.tex                 # Master document -- \subfile{}s the 6 chapters + appendix
+    │                            # below in order, with correct auto-numbering and one
+    │                            # shared, deduplicated bibliography. Compile THIS for the
+    │                            # real thesis. Figures must be uploaded flat alongside
+    │                            # this file (see figures/ subfolders above).
     ├── 01_introduction.tex             # Chapter 1
     ├── 02_theoretical_foundations.tex  # Chapter 2: general SME, DM catalogue, FW method
     ├── 03_sme_dm_mapping.tex           # Chapter 3: explicit b_mu/H_munu/d_munu -> DM mapping
     ├── 04_constraint_database.tex      # Chapter 4: 273-dataset compilation + 10 matched pairs
-    └── 05_gap_analysis.tex             # Chapter 5: coverage gaps + experimental strategy
+    ├── 05_gap_analysis.tex             # Chapter 5: coverage gaps + experimental strategy
+    ├── 06_conclusion.tex               # Chapter 6: objectives revisited, findings, future work
+    └── 07_appendix_notation.tex        # Appendix A: notation and symbol reference
                                  # Each chapter file also compiles standalone on its own
                                  # (via the `subfiles` package) for individual review.
 ```
@@ -283,7 +287,7 @@ Populated from `spindep-framework/spindep/results/tables/asymmetry_summary.csv` 
 | FW: $d_{\mu\nu}$ derivation | Week 7–8 | Mostly complete | Re-derived from the correct kinetic-sector Lagrangian (not the mass-sector Ansatz originally used) and executed in `FW_dmunu_term.ipynb`; $d_{i0}\to V_2$ matches Kostelecký & Lane (1999) exactly, $d_{ij}$/$d_{00}$ match in structure with an open sign — see `FW_derivation_dmunu.md` |
 | Constraint compilation | Weeks 9–14 | Substantially complete | 273 datasets, 10 matched pairs, 12+10+3 figures; reproducible via the `spindep-framework` submodule — see `analysis/` and `figures/` |
 | Gap analysis | Weeks 15–18 | Figures compiled | `figures/gap_analysis/` (lambda coverage, matter/antimatter ratio, pair coverage matrix); written analysis not yet drafted |
-| Thesis writing | Weeks 19–24 | In progress | Chapters 1–5 drafted (`thesis/`); Chapter 6 (conclusion) not yet started |
+| Thesis writing | Weeks 19–24 | In progress | Chapters 1–6 and notation appendix drafted (`thesis/`); figures still need uploading alongside `main.tex` for compilation |
 
 ---
 

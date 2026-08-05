@@ -7,8 +7,8 @@
 \section{Overview}
 
 Chapter~1 introduced, at a survey level, the two theoretical frameworks this
-thesis unifies -- the Standard Model Extension (SME) and the
-Dobrescu--Mocioiu (DM) classification of exotic potentials -- along with the
+thesis unifies, the Standard Model Extension (SME) and the
+Dobrescu--Mocioiu (DM) classification of exotic potentials, along with the
 Foldy--Wouthuysen (FW) transformation that bridges them. This chapter
 develops each of the three in full: Section~\ref{sec:sme} presents the
 general minimal SME fermion Lagrangian and classifies all of its
@@ -16,8 +16,8 @@ coefficients by CPT and Lorentz behaviour, not only the three ($b_\mu$,
 $H_{\mu\nu}$, $d_{\mu\nu}$) this thesis derives explicitly. Section~\ref{sec:dm}
 gives the complete, closed-form $V_1$--$V_{16}$ DM potential catalogue used
 throughout the rest of the thesis. Section~\ref{sec:fw} develops the general
-FW transformation machinery -- the generator, the order-by-order expansion,
-and the even/odd operator decomposition -- independent of any particular SME
+FW transformation machinery (the generator, the order-by-order expansion,
+and the even/odd operator decomposition) independent of any particular SME
 coefficient. Chapter~3 then applies this machinery to $b_\mu$, $H_{\mu\nu}$,
 and $d_{\mu\nu}$ specifically, deriving the explicit SME$\to$DM mapping that
 is the central technical contribution of this thesis.
@@ -42,9 +42,9 @@ choice of coordinates, which is never observed. \emph{Particle} Lorentz
 transformations, by contrast, rotate or boost a localised particle or field
 configuration while holding the background coefficients (and hence the
 preferred directions or frames they define) fixed. It is only under particle
-Lorentz transformations that the SME's background coefficients -- $a_\mu$,
+Lorentz transformations that the SME's background coefficients ($a_\mu$,
 $b_\mu$, $c_{\mu\nu}$, $d_{\mu\nu}$, $H_{\mu\nu}$, and so on, in the fermion
-sector -- act as fixed, non-dynamical tensors that break the symmetry. This
+sector) act as fixed, non-dynamical tensors that break the symmetry. This
 distinction is what allows the SME to be a coordinate-independent, internally
 consistent field theory while still describing genuine, in-principle
 observable violations of the Lorentz invariance normally assumed by the
@@ -105,7 +105,7 @@ which is the version this thesis derives from directly. Note the operator
 ordering in the $b_\mu$ term: the coefficient multiplies
 $\gamma_5\gamma^\mu$, not $\gamma^\mu\gamma_5$. Since $\{\gamma_5,\gamma^\mu\}=0$,
 these two orderings differ by an overall sign, so this convention choice is
-not cosmetic -- it fixes the sign of every non-relativistic result derived
+not cosmetic: it fixes the sign of every non-relativistic result derived
 from $b_\mu$ in Chapter~3, and is used consistently throughout this thesis.
 
 \subsection{Classification of SME Coefficients}
@@ -162,7 +162,7 @@ Dirac matrices, the standard bilinear covariants transform under CPT as
 so that a coefficient multiplying a scalar, vector, or tensor bilinear
 ($a_\mu\bar\psi\gamma^\mu\psi$, $H_{\mu\nu}\bar\psi\sigma^{\mu\nu}\psi$) is
 CPT-odd whenever the associated Lagrangian term itself must be CPT-odd to
-be allowed -- and CPT-even whenever the bilinear structure is already
+be allowed, and CPT-even whenever the bilinear structure is already
 CPT-even, as for $c_{\mu\nu}\bar\psi\gamma^\mu D^\nu\psi$ and
 $d_{\mu\nu}\bar\psi\gamma_5\gamma^\mu D^\nu\psi$. This general classification
 underlies every case-by-case CPT argument made explicitly in Chapter~3, and
@@ -198,8 +198,8 @@ sixteen potentials,
   V(\mathbf r) = \sum_{i=1}^{16} V_i(\mathbf r),
 \end{equation}
 each classified by its behaviour under parity ($P$) and time reversal
-($T$), so that any single-boson-exchange interaction -- whatever its
-relativistic origin -- can be written as some linear combination of the
+($T$), so that any single-boson-exchange interaction, whatever its
+relativistic origin, can be written as some linear combination of the
 $V_i$ with model-dependent coefficients $g_s,g_p,g_V,g_A$ (scalar,
 pseudoscalar, vector, axial-vector). This is the language in which nearly
 all spin-dependent exotic-force experiments report their bounds, which is
@@ -235,8 +235,8 @@ $b_\mu, H_{\mu\nu}, d_{\mu\nu}$ & SME coefficients: CPT-odd vector; CPT-even ten
 \label{sec:dm-catalogue}
 
 The forms below are transcribed directly from Cong et al.\ (2025), Eqs.
-(1)--(12) -- equivalent to Dobrescu and Mocioiu (2006), Eqs.\
-(3.1)--(3.16) -- with $y(r)=e^{-r/\lambda}/(4\pi)$, $\lambda=1/m_\phi$;
+(1)--(12), equivalent to Dobrescu and Mocioiu (2006), Eqs.\
+(3.1)--(3.16), with $y(r)=e^{-r/\lambda}/(4\pi)$, $\lambda=1/m_\phi$;
 $\hat{\mathbf r}$ points from particle 2 to particle 1, $\mathbf v$ is their
 relative velocity, and $m$ is the fermion mass relevant to the term. The
 differential operators $(1-r\,d/dr)$ and
@@ -282,7 +282,7 @@ fully evaluated closed forms once specialised to a given coupling channel).
 Three structural notes on this catalogue are worth stating explicitly, since
 each is easy to transcribe incorrectly. First, $V_2$ is spin--spin ($\boldsymbol\sigma_1\cdot\boldsymbol\sigma_2$),
 with \emph{no} $\hat{\mathbf r}$ dependence and no $1/r^2$ or $1/(\lambda r)$
-terms -- it is $V_9,V_{10}$ (monopole--dipole, a single spin dotted into
+terms; it is $V_9,V_{10}$ (monopole--dipole, a single spin dotted into
 $\hat{\mathbf r}$) that has that radial structure, not $V_2$. Second,
 $V_{11}$ is $(\boldsymbol\sigma_1\times\boldsymbol\sigma_2)\cdot\hat{\mathbf r}$,
 a cross product of the \emph{two} particles' spins with $\hat{\mathbf r}$,
@@ -367,7 +367,7 @@ expansion formula used throughout Chapter~3,
 Three features of Eq.~\eqref{eq:FWexpansion-ch2} govern every derivation in
 Chapter~3. First, any even piece of the original perturbation,
 $\varepsilon_{\text{even}}$, survives into the non-relativistic Hamiltonian
-completely unchanged at order $m^0$ -- no FW iteration is required for it.
+completely unchanged at order $m^0$, and no FW iteration is required for it.
 Second, an odd piece $\varepsilon_{\text{odd}}$ does not contribute at order
 $m^0$ at all; its leading contribution appears only at order $1/m$, through
 the $\beta\varepsilon_{\text{odd}}^2/2m$ term, which is why coefficients such
@@ -383,7 +383,7 @@ genuinely charge-conjugating the underlying field-theoretic coupling.
 
 \subsection{Role in This Thesis}
 
-Chapter~3 applies exactly this machinery -- unmodified -- to three SME
+Chapter~3 applies exactly this machinery, unmodified, to three SME
 coefficients in turn: $b_\mu$ (Section 3.2), whose spatial component
 $b_i$ is purely even and therefore contributes at leading order $m^0$;
 $H_{\mu\nu}$ (Section 3.3), whose magnetic-like component $H_{ij}$ is
@@ -429,7 +429,7 @@ J.\ High Energy Phys.\ \textbf{11}, 005 (2006).
 
 \bibitem{KosteleckyLane1999}
 V.~A. Kostelek\'{y} and C.~D. Lane,
-\textit{Nonrelativistic quantum Hamiltonian for Lorentz violation},
+\textit{Constraints on Lorentz violation from clock-comparison experiments},
 Phys.\ Rev.\ D \textbf{60}, 116010 (1999).
 
 \bibitem{KosteleckyMewes2001}

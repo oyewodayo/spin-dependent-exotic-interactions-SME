@@ -132,15 +132,15 @@ $V_{9,10}$ & $-\tfrac{g_pg_s}{8\pi m}(\boldsymbol\sigma\cdot\hat{\mathbf r})\lef
 
 The per-coefficient matching sections in Chapter~3 (and the corresponding
 theory notes in \texttt{docs/theory\_notes/}) also write $V_7$ and $V_8$ in
-an informal, single-vertex form -- for example an anticommutator
-$\{(\boldsymbol\sigma\cdot\mathbf v),\,e^{-r/\lambda}/r\}$ for $V_8$ -- to
+an informal, single-vertex form, for example an anticommutator
+$\{(\boldsymbol\sigma\cdot\mathbf v),\,e^{-r/\lambda}/r\}$ for $V_8$, to
 indicate which coefficient generates which potential class. The closed
 two-body forms in Table~\ref{tab:app-dm-potentials} are the ones to cite
 when the exact functional form is required.
 
 Several further potential labels appear only in the Chapter~4 database, not
 as a direct Chapter~3 derivation: $V_1$ (monopole--monopole), $V_{1a}$,
-$V_{2+3}$, $V_{4+5}$, $V_{9+10}$, and $V_{12+13}$ -- combined labels used
+$V_{2+3}$, $V_{4+5}$, $V_{9+10}$, and $V_{12+13}$, combined labels used
 because the underlying experiments do not distinguish the adjacent
 catalogue potentials individually. $V_6$ and $V_{14}$ have no classified
 dataset in the compiled database at all.
@@ -161,8 +161,8 @@ $H_d$ & $d_{\mu\nu}$ contribution & $-d^{\mu\nu}p_\nu\,\Gamma_\mu$ \\
 $\Gamma_\mu$ & $\gamma^0\gamma_5\gamma_\mu$ & $\Gamma_0=-\gamma_5$ (odd), $\Gamma_i=+\Sigma^i$ (even) \\
 $\varepsilon_{\text{even}}$ & Even operator & Commutes with $\beta$ \\
 $\varepsilon_{\text{odd}}$ & Odd operator & Anticommutes with $\beta$ \\
-$S$ & FW generator & $S=-i\beta\varepsilon_{\text{odd}}/(2m)$ \\
--- & Master $1/m$ FW expansion & $H'\approx\beta m+\varepsilon_{\text{even}}+\dfrac{\beta\varepsilon_{\text{odd}}^2}{2m}-\dfrac{[\varepsilon_{\text{odd}},\varepsilon_{\text{even}}]}{4m}+O(m^{-2})$ \\
+$U_{FW}$ & FW generator & $U_{FW}=\exp\!\left(\beta\varepsilon_{\text{odd}}/(2m)\right)$ \\
+N/A & Master $1/m$ FW expansion & $H'\approx\beta m+\varepsilon_{\text{even}}+\dfrac{\beta\varepsilon_{\text{odd}}^2}{2m}-\dfrac{[\varepsilon_{\text{odd}},\varepsilon_{\text{even}}]}{4m}+O(m^{-2})$ \\
 \bottomrule
 \end{tabular}
 \caption{Operators and Hamiltonians used in the Foldy--Wouthuysen reduction (Ch.~1--3).}
@@ -220,7 +220,7 @@ which coefficient is being discussed:
     signed measured couplings. A ratio of two independent positive bounds
     of very different tightness approaches $\pm1$ whenever one bound is far
     tighter than the other, regardless of the true CPT parity of the
-    underlying physics -- a sensitivity-gap effect, not a signature of any
+    underlying physics, a sensitivity-gap effect, not a signature of any
     particular coefficient (Ch.~1, 3, 4).
 \end{itemize}
 A further, distinct point established in Chapter~4: statistical
@@ -340,13 +340,13 @@ $H_{\mu\nu}$, $d_{\mu\nu}$ (charge conj.) & Current is $C$-even and the coeffici
 \section{Summary of Key Results}
 
 \begin{enumerate}
-  \item \textbf{$b_\mu$ sign flip.} Matter couples as $-\mathbf b\cdot\boldsymbol\sigma$; antimatter as $+\mathbf b\cdot\boldsymbol\sigma$ -- a genuine CPT-odd signature.
+  \item \textbf{$b_\mu$ sign flip.} Matter couples as $-\mathbf b\cdot\boldsymbol\sigma$; antimatter as $+\mathbf b\cdot\boldsymbol\sigma$: a genuine CPT-odd signature.
   \item \textbf{$H_{\mu\nu}$, $d_{\mu\nu}$, $c_{\mu\nu}$ same sign.} Matter and antimatter couple identically (CPT-even). $d_{\mu\nu}$'s evenness follows Kostelecký \& Lane's direct classification rather than the bilinear rule.
-  \item \textbf{$A_\alpha$ ambiguity.} A ratio of one-sided upper bounds gives $|A_\alpha|\to1$ from a sensitivity gap alone, independent of the true CPT parity -- confirmed both formally (Ch.~1, 3) and empirically across every matched pair in the compiled database (Ch.~4), including the CPT-even $g_sg_s$ pair.
+  \item \textbf{$A_\alpha$ ambiguity.} A ratio of one-sided upper bounds gives $|A_\alpha|\to1$ from a sensitivity gap alone, independent of the true CPT parity, confirmed both formally (Ch.~1, 3) and empirically across every matched pair in the compiled database (Ch.~4), including the CPT-even $g_sg_s$ pair.
   \item \textbf{Statistical significance is not CPT evidence.} Every matched pair in Chapter~4 is significant after the autocorrelation correction, but significance establishes that an asymmetry is real, not that it is caused by CPT violation.
   \item \textbf{$d_{i0}$ mass enhancement.} $H_{NR}(d_{i0})=+d_{i0}\,m\,\sigma^i$ matches Kostelecký \& Lane's Eq.~(4) exactly, sign included.
   \item \textbf{$d_{ij}$, $d_{00}$ sign.} Operator structure is correct; the overall sign remains open pending a wavefunction-renormalization treatment of the kinetic sector.
-  \item \textbf{The central empirical limitation.} Of 273 compiled datasets, only 17 touch an antimatter sector, concentrated in the $e$-$\bar p$, $e$-$e^+$, and $e$-$\bar\mu$ channels -- the reason a meaningful matter--antimatter comparison is currently possible in only ten matched pairs.
+  \item \textbf{The central empirical limitation.} Of 273 compiled datasets, only 17 touch an antimatter sector, concentrated in the $e$-$\bar p$, $e$-$e^+$, and $e$-$\bar\mu$ channels, the reason a meaningful matter--antimatter comparison is currently possible in only ten matched pairs.
 \end{enumerate}
 
 \end{document}

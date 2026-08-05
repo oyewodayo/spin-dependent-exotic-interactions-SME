@@ -108,15 +108,16 @@ the remaining potentials each represented by fewer than ten datasets. The
 classification gap discussed further in Chapter~5, not an artifact of this
 thesis's own tooling: their filenames simply do not contain a token the
 naming convention can resolve. Two datasets that previously fell into this
-category -- the \texttt{Delaunay\_2017} and \texttt{Adkins\_2022\_eeplus}
-files used in Section~\ref{sec:asymmetry} below -- have since been
+category, the \texttt{Delaunay\_2017} and \texttt{Adkins\_2022\_eeplus}
+files used in Section~\ref{sec:asymmetry} below, have since been
 confirmed as $V_1$ (monopole--monopole, spin-independent scalar) by
 checking their source publications directly: Delaunay, Frugiuele, Fuchs and
-Soreq (2017) constrain a spin-independent scalar interaction between
-electrons, and Adkins, Cassidy and P\'{e}rez-R\'{i}os (2022) report a bound
-on the analogous spin-independent $g_s^eg_s^{e^+}$ coupling from
-positronium spectroscopy -- both a direct match to $V_1$'s definition, not
-an inference from the $g_sg_s$ coupling label alone.
+Soreq (2017) \cite{Delaunay2017} constrain a spin-independent scalar
+interaction between electrons, and Adkins, Cassidy and P\'{e}rez-R\'{i}os
+(2022) \cite{Adkins2022} report a bound on the analogous spin-independent
+$g_s^eg_s^{e^+}$ coupling from positronium spectroscopy, both a direct
+match to $V_1$'s definition, not an inference from the $g_sg_s$ coupling
+label alone.
 
 \subsection{Antimatter-Sector Coverage}
 
@@ -124,8 +125,8 @@ Of the 273 datasets, only 17 involve an antimatter sector: 9 in the
 $e$-$\bar p$ (\texttt{epbar}) sector, 5 in $e$-$e^+$ (\texttt{eebar}), and 3
 in $e$-$\bar\mu$ (\texttt{emubar}). No dataset in the compiled database
 touches the $n$-$\bar n$, $n$-$\bar p$, $\mu$-$\bar\mu$, $p$-$\bar p$, or
-$e$-$\bar N$ sectors at all. This stark asymmetry -- 17 antimatter datasets
-against 256 matter-sector datasets -- is itself the central empirical fact
+$e$-$\bar N$ sectors at all. This stark asymmetry, 17 antimatter datasets
+against 256 matter-sector datasets, is itself the central empirical fact
 this thesis works with: it is the reason a meaningful CPT comparison is
 currently possible in only a handful of channels, and it directly motivates
 the gap analysis of Chapter~5.
@@ -163,7 +164,13 @@ pair.
 \subsection{The Ten Matched Pairs}
 
 Table~\ref{tab:pairs} gives the full results for every matter--antimatter
-pair SPINDEP was able to match from the compiled database.
+pair SPINDEP was able to match from the compiled database. The matter- and
+antimatter-sector sources are Karshenboim (2011) \cite{Karshenboim2011},
+Ficek et al.\ (2017) \cite{Ficek2017}, Ficek et al.\ (2018)
+\cite{Ficek2018}, Fadeev et al.\ (2022) \cite{Fadeev2022}, Delaunay et al.\
+(2017) \cite{Delaunay2017}, and Adkins et al.\ (2022) \cite{Adkins2022}. The
+\texttt{Jiao2019} source has not yet been traced to a specific publication
+and its bibliography entry remains outstanding (see note below the table).
 
 \begin{table}[h]
 \centering
@@ -187,6 +194,13 @@ $g_Ag_A$    & $V_2$    & $e$-$e^+$    & Jiao2019 / Karshenboim2011      & 0.3336
 \caption{All ten matched matter--antimatter pairs, with the autocorrelation-corrected effective degrees of freedom, the resulting weighted-$\chi^2$ significance, and the 95\% bootstrap confidence interval on the mean asymmetry.}
 \label{tab:pairs}
 \end{table}
+% TODO: Jiao2019 (row 10, e-e+ V2 pair) has not been traced to a specific
+% publication; bibliography entry outstanding -- confirm before submission.
+\emph{Note on sourcing:} nine of the ten sources above are
+\cite{Karshenboim2011,Ficek2017,Ficek2018,Fadeev2022,Delaunay2017,Adkins2022};
+the \texttt{Jiao2019} source remains unverified and is not yet in the
+bibliography: confirm the exact publication before this table is
+finalised.
 
 Effective degrees of freedom range from 6 to 21 across the ten pairs, a
 factor of 14--50 below the naive 300 grid points, confirming that the
@@ -213,13 +227,13 @@ pair at $0.9998$, the highest asymmetry in the database, and the
 $g_sg_s\cdot V_1\cdot e$-$e^+$ pair at $0.8727$, whose scalar-scalar
 coupling is CPT-even at leading order and whose asymmetry is therefore
 attributable entirely to sensitivity gap rather than any sign-flip
-mechanism -- a useful internal check, since applying the \emph{same}
+mechanism, a useful internal check, since applying the \emph{same}
 reasoning uniformly to the CPT-odd $g_Ag_A$ rows means their high asymmetry
 values cannot, by this data alone, be distinguished from the same
 effect. Distinguishing a genuine CPT-violating signal from a sensitivity
 gap requires either bounds of demonstrably comparable precision on both
 sides of a pair, or actual signed central-value measurements rather than
-one-sided limits -- neither of which the currently compiled database
+one-sided limits, neither of which the currently compiled database
 provides for any pair. This is the central limitation Chapter~5 addresses
 directly.
 
@@ -232,30 +246,103 @@ constraining $b_\mu$ in the $e$-$e^+$ channel precisely because it is
 
 \subsection{Figures}
 
-Figure~\ref{fig:atlas} shows the combined constraint atlas across the
-eleven classified potential labels in the compiled database. These map onto
-13 of the 16 catalogue potentials from Chapter~2 -- several labels such as
-$V_{2+3}$, $V_{4+5}$, $V_{9+10}$, and $V_{12+13}$ each combine two adjacent
-catalogue potentials that the underlying experiments do not distinguish
-individually. $V_6$, $V_7$, and $V_{14}$ have no classified dataset at all,
-distinct from the 50 \texttt{UNKNOWN}-potential entries discussed above,
-which have data but no resolved label. Figure~\ref{fig:matter-antimatter}
-shows an example matter--antimatter comparison plot for the
-highest-asymmetry pair in Table~\ref{tab:pairs}. The complete set of ten
-such comparison plots, one per matched pair, is included in the project
-repository under \texttt{figures/matter\_antimatter/}.
+Figures~\ref{fig:atlas-v1}--\ref{fig:atlas-v16} show the constraint atlas
+for each of the eleven classified potential labels in the compiled
+database individually (one figure per potential, rather than a single
+combined image, since eleven panels compressed onto one page are too
+small to read legibly). These map onto 13 of the 16 catalogue potentials
+from Chapter~2; several labels such as $V_{2+3}$, $V_{4+5}$, $V_{9+10}$,
+and $V_{12+13}$ each combine two adjacent catalogue potentials that the
+underlying experiments do not distinguish individually. $V_6$, $V_7$, and
+$V_{14}$ have no classified dataset at all, distinct from the 50
+\texttt{UNKNOWN}-potential entries discussed above, which have data but no
+resolved label. Figure~\ref{fig:matter-antimatter} shows an example
+matter--antimatter comparison plot for the highest-asymmetry pair in
+Table~\ref{tab:pairs}. The complete set of ten such comparison plots, one
+per matched pair, is included in the project repository under
+\texttt{figures/matter\_antimatter/}.
 
-\begin{figure}[h]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.85\textwidth]{constraint_atlas_all.png}
-\caption{Combined constraint atlas across all compiled potentials.}
-\label{fig:atlas}
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V1.png}
+\caption{Constraint atlas for $V_1$.}
+\label{fig:atlas-v1}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V1a.png}
+\caption{Constraint atlas for $V_{1a}$.}
+\label{fig:atlas-v1a}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V2.png}
+\caption{Constraint atlas for $V_2$.}
+\label{fig:atlas-v2}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V2+3.png}
+\caption{Constraint atlas for $V_{2+3}$.}
+\label{fig:atlas-v23}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V4+5.png}
+\caption{Constraint atlas for $V_{4+5}$, the most populated potential in the database (61 datasets).}
+\label{fig:atlas-v45}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V8.png}
+\caption{Constraint atlas for $V_8$.}
+\label{fig:atlas-v8}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V9+10.png}
+\caption{Constraint atlas for $V_{9+10}$.}
+\label{fig:atlas-v910}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V11.png}
+\caption{Constraint atlas for $V_{11}$.}
+\label{fig:atlas-v11}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V12+13.png}
+\caption{Constraint atlas for $V_{12+13}$.}
+\label{fig:atlas-v1213}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V15.png}
+\caption{Constraint atlas for $V_{15}$.}
+\label{fig:atlas-v15}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V16.png}
+\caption{Constraint atlas for $V_{16}$.}
+\label{fig:atlas-v16}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.75\textwidth]{gAgA_V2_ep_Karshenboim2011_vs_Ficek2018.png}
-\caption{Matter--antimatter comparison for the $g_Ag_A\cdot V_2\cdot e$-$\bar p$ pair (Karshenboim2011 vs.\ Ficek2018), the highest asymmetry in the compiled database.}
+\caption{Matter--antimatter comparison for the $g_Ag_A\cdot V_2\cdot e$-$\bar p$ pair (Karshenboim \cite{Karshenboim2011} vs.\ Ficek et al.\ \cite{Ficek2018}), the highest asymmetry in the compiled database.}
 \label{fig:matter-antimatter}
 \end{figure}
 
@@ -267,12 +354,56 @@ concentrated in just three channels ($e$-$\bar p$, $e$-$e^+$, $e$-$\bar\mu$).
 Ten matter--antimatter pairs could be matched from this database and
 analysed with a statistical methodology that corrects for the correlated
 nature of interpolated constraint points. Every pair shows a statistically
-significant asymmetry even after this correction, but -- applying the
-interpretive framework of Chapter~3 uniformly -- none of these results can
+significant asymmetry even after this correction, but, applying the
+interpretive framework of Chapter~3 uniformly, none of these results can
 currently be read as evidence of CPT violation rather than an ordinary
 sensitivity gap between the matter- and antimatter-sector experiments being
 compared. Chapter~5 quantifies exactly where the antimatter-sector coverage
 gaps responsible for this limitation are largest, and proposes where future
 experimental effort would do the most to close them.
+
+\ifSubfilesClassLoaded{
+\begin{thebibliography}{99}
+
+\bibitem{Karshenboim2011}
+S.~G. Karshenboim,
+\textit{Hyperfine structure interval of the 2s state of hydrogenlike atoms
+and a constraint on a pseudovector boson with mass below 1~keV},
+Phys.\ Rev.\ A \textbf{83}, 062119 (2011).
+
+\bibitem{Ficek2017}
+F.~Ficek, D.~F. Jackson Kimball, M.~G. Kozlov, N.~Leefer, S.~Pustelny, and
+D.~Budker,
+\textit{Constraints on exotic spin-dependent interactions between electrons
+from helium fine-structure spectroscopy},
+Phys.\ Rev.\ A \textbf{95}, 032505 (2017).
+
+\bibitem{Ficek2018}
+F.~Ficek, P.~Fadeev, V.~V. Flambaum, D.~F. Jackson Kimball, M.~G. Kozlov,
+Y.~V. Stadnik, and D.~Budker,
+\textit{Constraints on exotic spin-dependent interactions between matter and
+antimatter from antiprotonic helium spectroscopy},
+Phys.\ Rev.\ Lett.\ \textbf{120}, 183002 (2018).
+
+\bibitem{Fadeev2022}
+P.~Fadeev, F.~Ficek, M.~G. Kozlov, D.~Budker, and V.~V. Flambaum,
+\textit{Constraints on exotic spin-dependent interactions between electrons from
+helium fine-structure spectroscopy},
+Phys.\ Rev.\ A \textbf{105}, 022812 (2022).
+
+\bibitem{Delaunay2017}
+C.~Delaunay, C.~Frugiuele, E.~Fuchs, and Y.~Soreq,
+\textit{Probing new spin-independent interactions through precision
+spectroscopy in atoms with few electrons},
+Phys.\ Rev.\ D \textbf{96}, 115002 (2017).
+
+\bibitem{Adkins2022}
+G.~S. Adkins, D.~B. Cassidy, and J.~P\'{e}rez-R\'{i}os,
+\textit{Precision spectroscopy of positronium: Testing bound-state QED
+theory and the search for physics beyond the Standard Model},
+Phys.\ Rep.\ \textbf{975}, 1 (2022).
+
+\end{thebibliography}
+}{}
 
 \end{document}

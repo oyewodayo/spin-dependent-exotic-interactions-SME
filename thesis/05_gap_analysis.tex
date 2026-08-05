@@ -10,9 +10,9 @@ Chapter~4 showed that only 17 of the 273 compiled datasets involve an
 antimatter sector, and that every matter--antimatter pair currently
 matchable from the database is consistent with, but cannot distinguish
 from, an ordinary sensitivity gap between the two experiments being
-compared. This chapter quantifies exactly where that gap is largest --
+compared. This chapter quantifies exactly where that gap is largest,
 by fermion sector (Section~\ref{sec:sector-gaps}) and by DM potential
-(Section~\ref{sec:potential-gaps}) -- identifies data-quality limitations of
+(Section~\ref{sec:potential-gaps}), identifies data-quality limitations of
 the current database that compound the physics gap
 (Section~\ref{sec:data-quality}), and proposes where future experimental and
 data-compilation effort would do the most to close it
@@ -95,12 +95,12 @@ $V_{16}$   & 2  & 0 & \textbf{Gap} \\
 \label{tab:potential-gaps}
 \end{table}
 
-Six of the eleven classified potentials -- $V_{11}$, $V_{15}$, $V_{16}$,
-$V_{1a}$, $V_{9+10}$, and $V_{12+13}$ -- have \emph{zero} antimatter-sector
+Six of the eleven classified potentials ($V_{11}$, $V_{15}$, $V_{16}$,
+$V_{1a}$, $V_{9+10}$, and $V_{12+13}$) have \emph{zero} antimatter-sector
 datasets despite substantial matter-sector coverage, $V_{1a}$ and $V_{9+10}$
 most strikingly, with 29 and 31 matter-sector datasets respectively and
 nothing to compare them against. $V_1$ narrowly escapes this list only
-because of the two-dataset reclassification described in Chapter~4 -- absent
+because of the two-dataset reclassification described in Chapter~4; absent
 that fix it would have shown zero antimatter coverage like the other six.
 Only $V_{2+3}$ has antimatter coverage exceeding a handful of datasets,
 which is why nine of the ten matched pairs in Chapter~4 involve $V_2$ or
@@ -112,23 +112,95 @@ in Chapter~2.
 
 \section{Interaction-Range Coverage}
 
-Figure~\ref{fig:lambda-coverage} shows the $\lambda$ range spanned by the
-compiled datasets for each potential. Coverage is broadly continuous from
-sub-picometre to macroscopic scales for the best-populated potentials
-($V_{4+5}$, $V_{9+10}$, $V_{2+3}$), but a small number of individual
-datasets report $\lambda$ values many orders of magnitude beyond the
-observable universe ($\gtrsim10^{30}$~m for a few entries under $V_{2+3}$
-and $V_{9+10}$), which is physically implausible and almost certainly
-reflects a unit-parsing error in the source CSV rather than a genuine
-reported bound. Section~\ref{sec:data-quality} returns to this as a
+Figures~\ref{fig:lambda-coverage-v1}--\ref{fig:lambda-coverage-v16} show the
+dataset inventory for each potential individually (one figure per
+potential, rather than a single stitched image, since the full 273-dataset
+listing is too tall to render legibly on one page). Coverage is broadly
+continuous from sub-picometre to macroscopic scales for the best-populated
+potentials ($V_{4+5}$, $V_{9+10}$, $V_{2+3}$), but a small number of
+individual datasets report $\lambda$ values many orders of magnitude beyond
+the observable universe ($\gtrsim10^{30}$~m for a few entries under
+$V_{2+3}$ and $V_{9+10}$), which is physically implausible and almost
+certainly reflects a unit-parsing error in the source CSV rather than a
+genuine reported bound. Section~\ref{sec:data-quality} returns to this as a
 concrete cleanup item rather than a real coverage gap, since including it
 uncritically would visibly distort the true $\lambda$-coverage picture.
 
-\begin{figure}[h]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.85\textwidth]{lambda_coverage_by_potential.png}
-\caption{Interaction-range ($\lambda$) coverage by potential across the compiled database.}
-\label{fig:lambda-coverage}
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V1.png}
+\caption{Dataset inventory for $V_1$.}
+\label{fig:lambda-coverage-v1}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V1a.png}
+\caption{Dataset inventory for $V_{1a}$.}
+\label{fig:lambda-coverage-v1a}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V2.png}
+\caption{Dataset inventory for $V_2$.}
+\label{fig:lambda-coverage-v2}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V2p3.png}
+\caption{Dataset inventory for $V_{2+3}$.}
+\label{fig:lambda-coverage-v23}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V4p5.png}
+\caption{Dataset inventory for $V_{4+5}$, the most populated potential in the database (61 datasets).}
+\label{fig:lambda-coverage-v45}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V8.png}
+\caption{Dataset inventory for $V_8$.}
+\label{fig:lambda-coverage-v8}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V9p10.png}
+\caption{Dataset inventory for $V_{9+10}$.}
+\label{fig:lambda-coverage-v910}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V11.png}
+\caption{Dataset inventory for $V_{11}$.}
+\label{fig:lambda-coverage-v11}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V12p13.png}
+\caption{Dataset inventory for $V_{12+13}$.}
+\label{fig:lambda-coverage-v1213}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V15.png}
+\caption{Dataset inventory for $V_{15}$.}
+\label{fig:lambda-coverage-v15}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V16.png}
+\caption{Dataset inventory for $V_{16}$.}
+\label{fig:lambda-coverage-v16}
 \end{figure}
 
 \begin{figure}[h]
@@ -145,24 +217,24 @@ Three limitations of the current database and framework, distinct from the
 physics coverage gaps above, are worth stating plainly rather than working
 around silently.
 
-\textbf{Unresolved potential classification.} 50 datasets -- close to a
-fifth of the database -- carry a filename the parser cannot resolve to a
+\textbf{Unresolved potential classification.} 50 datasets, close to a
+fifth of the database, carry a filename the parser cannot resolve to a
 specific $V_n$ token, and are recorded as \texttt{UNKNOWN} rather than
 guessed at. Two datasets, \texttt{Delaunay\_2017} and
 \texttt{Adkins\_2022\_eeplus}, were in this category until their source
 publications were checked directly and both confirmed as $V_1$ (Chapter~4,
-Section~4.3.1) -- not inferred from the $g_sg_s$ coupling label, which on
+Section~4.3.1), not inferred from the $g_sg_s$ coupling label, which on
 its own would only make $V_1$ plausible, not confirmed. That same parser
 module contains a further eleven filename entries (\texttt{Hoskins\_1985},
 \texttt{Kapner\_2007}, \texttt{Chen\_2016}, \texttt{Tan\_2020},
 \texttt{Lee\_2020}, \texttt{Bordag\_2001}, \texttt{Alighanbari\_2020},
 \texttt{Colliders}, and others) sitting under a source-code comment reading
-``V1 / scalar exchange datasets'' -- a strong hint that whoever originally
+``V1 / scalar exchange datasets'', a strong hint that whoever originally
 triaged the sector-parsing overrides for these files already suspected the
 same $V_1$ identification, but never completed the potential-side fix the
 way it now has been for the two entries above. Resolving the remaining
-eleven the same way -- checking each source publication rather than
-trusting the comment -- would meaningfully shrink the 50-dataset
+eleven the same way, checking each source publication rather than
+trusting the comment, would meaningfully shrink the 50-dataset
 \texttt{UNKNOWN} category, but has not been done as part of this thesis and
 should not be assumed correct without that check.
 
@@ -241,8 +313,8 @@ Of the nine canonical fermion-sector pairs and the eleven classified DM
 potentials in the compiled database, most have no antimatter-sector
 coverage at all: four sectors ($e$-$N$, $e$-$n$, $n$-$p$, $n$-$n$) account
 for 91 matter-sector datasets and zero antimatter-sector ones, and six of
-eleven potentials are in the same position. This -- not a lack of
-matter-sector precision -- is the binding constraint on this thesis's
+eleven potentials are in the same position. This, not a lack of
+matter-sector precision, is the binding constraint on this thesis's
 ability to distinguish genuine CPT violation from an ordinary sensitivity
 gap, and is where future experimental and data-compilation effort would be
 most valuable. Chapter~6 concludes the thesis and summarises these findings

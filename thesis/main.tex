@@ -5,11 +5,18 @@
 \usepackage{physics}
 \usepackage{slashed}
 \usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
 \usepackage{geometry}
 \usepackage{setspace}
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{graphicx}
+\usepackage{grffile}
 \usepackage{array}
 \usepackage{natbib}
 \usepackage{subfiles}
@@ -60,8 +67,17 @@ University of Ibadan, Nigeria\\
 \subfile{03_sme_dm_mapping}
 \subfile{04_constraint_database}
 \subfile{05_gap_analysis}
+\subfile{06_conclusion}
+
+\appendix
+\subfile{07_appendix_notation}
 
 \begin{thebibliography}{99}
+
+\bibitem{Planck2018}
+Planck Collaboration (N.~Aghanim \textit{et al.}),
+\textit{Planck 2018 results.\ VI.\ Cosmological parameters},
+Astron.\ Astrophys.\ \textbf{641}, A6 (2020).
 
 \bibitem{Colladay1997}
 D.~Colladay and V.~A. Kostelek\'{y},
@@ -90,8 +106,40 @@ Phys.\ Rev.\ D \textbf{39}, 683 (1989).
 
 \bibitem{KosteleckyLane1999}
 V.~A. Kostelek\'{y} and C.~D. Lane,
-\textit{Nonrelativistic quantum Hamiltonian for Lorentz violation},
+\textit{Constraints on Lorentz violation from clock-comparison experiments},
 Phys.\ Rev.\ D \textbf{60}, 116010 (1999).
+
+\bibitem{Karshenboim2011}
+S.~G. Karshenboim,
+\textit{Hyperfine structure interval of the 2s state of hydrogenlike atoms
+and a constraint on a pseudovector boson with mass below 1~keV},
+Phys.\ Rev.\ A \textbf{83}, 062119 (2011).
+
+\bibitem{Ficek2017}
+F.~Ficek, D.~F. Jackson Kimball, M.~G. Kozlov, N.~Leefer, S.~Pustelny, and
+D.~Budker,
+\textit{Constraints on exotic spin-dependent interactions between electrons
+from helium fine-structure spectroscopy},
+Phys.\ Rev.\ A \textbf{95}, 032505 (2017).
+
+\bibitem{Ficek2018}
+F.~Ficek, P.~Fadeev, V.~V. Flambaum, D.~F. Jackson Kimball, M.~G. Kozlov,
+Y.~V. Stadnik, and D.~Budker,
+\textit{Constraints on exotic spin-dependent interactions between matter and
+antimatter from antiprotonic helium spectroscopy},
+Phys.\ Rev.\ Lett.\ \textbf{120}, 183002 (2018).
+
+\bibitem{Delaunay2017}
+C.~Delaunay, C.~Frugiuele, E.~Fuchs, and Y.~Soreq,
+\textit{Probing new spin-independent interactions through precision
+spectroscopy in atoms with few electrons},
+Phys.\ Rev.\ D \textbf{96}, 115002 (2017).
+
+\bibitem{Adkins2022}
+G.~S. Adkins, D.~B. Cassidy, and J.~P\'{e}rez-R\'{i}os,
+\textit{Precision spectroscopy of positronium: Testing bound-state QED
+theory and the search for physics beyond the Standard Model},
+Phys.\ Rep.\ \textbf{975}, 1 (2022).
 
 \bibitem{KosteleckyMewes2001}
 V.~A. Kostelek\'{y} and M.~Mewes,
