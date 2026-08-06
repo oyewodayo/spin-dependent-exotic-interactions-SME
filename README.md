@@ -294,7 +294,7 @@ thesis Chapter 5) for exactly where the coverage is missing.
 | Literature Review | Weeks 1–4 | In progress | Cong et al. 2025 studied |
 | FW: $b_\mu$ derivation | Week 5 | Complete | Executed and verified in `FW_bmu_term.ipynb`; a Dirac-algebra sign error was caught by running the computation and fixed |
 | FW: $H_{\mu\nu}$ derivation | Week 6–7 | Complete | Executed and verified in `FW_Hmunu_term.ipynb` |
-| FW: $d_{\mu\nu}$ derivation | Week 7–8 | Mostly complete | Re-derived from the correct kinetic-sector Lagrangian (not the mass-sector Ansatz originally used) and executed in `FW_dmunu_term.ipynb`; $d_{i0}\to V_2$ matches Kostelecký & Lane (1999) exactly, $d_{ij}$/$d_{00}$ match in structure with an open sign — see `FW_derivation_dmunu.md` |
+| FW: $d_{\mu\nu}$ derivation | Week 7–8 | Mostly complete | Re-derived from the correct kinetic-sector Lagrangian (not the mass-sector Ansatz originally used) and executed in `FW_dmunu_term.ipynb`; $d_{i0}\to V_2$ matches Kostelecký & Lane (1999) exactly, $d_{ij}$ / $d_{00}$ match in structure with an open sign — see `FW_derivation_dmunu.md` |
 | Constraint compilation | Weeks 9–14 | Substantially complete | 273 datasets, 10 matched pairs, 12+10+3 figures; reproducible via the `spindep-framework` submodule — see `analysis/` and `figures/` |
 | Gap analysis | Weeks 15–18 | Complete | Figures (`figures/gap_analysis/`: lambda coverage, matter/antimatter ratio, pair coverage matrix) and the written analysis (thesis Chapter 5) both complete |
 | Thesis writing | Weeks 19–24 | Reviewed and finalised | Chapters 1–6 and notation appendix drafted, cross-checked against the compiled database, and reviewed for consistency (`thesis/`); figures still need uploading alongside `main.tex` for compilation |
