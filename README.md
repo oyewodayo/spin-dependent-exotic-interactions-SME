@@ -249,7 +249,7 @@ seaborn>=0.12.0
 
 ### SME → Dobrescu-Mocioiu Translation Table
 
-The table below matches the notes actually in `docs/theory_notes/`: $b_\mu$ (spatial) maps to $V_2$ (spin-spin, not the monopole-dipole form an earlier pass mislabeled it as), $b_\mu$ (temporal) maps to $V_8$ (a plain scalar contraction $\sigma\cdot p$ with no free tensor index, the same structure as $d_{00}$ below, not $V_7$ as an earlier pass claimed by loose analogy with $d_{ij}$), and $H_{\mu\nu}$ maps to $V_3$/$V_7$. The $d_{\mu\nu}$ row was originally built from the wrong operator (a mass-sector bilinear copied from $H_{\mu\nu}$'s structure); Kostelecký & Lane (1999) place $d_{\mu\nu}$ in the kinetic sector instead, and `FW_dmunu_term.ipynb` re-derives it from there (see `FW_derivation_dmunu.md`).
+The table below matches the notes actually in `docs/theory_notes/`: $b_\mu$ (spatial) maps to $V_2$ (spin-spin, not the monopole-dipole form an earlier pass mislabeled it as), $b_\mu$ (temporal) maps to $V_8$ (a plain scalar contraction $\sigma\cdot p$ with no free tensor index, the same structure as $d_{00}$ below, not $V_7$ as an earlier pass claimed by loose analogy with $d_{ij}$), and $H_{\mu\nu}$ maps to $V_3$ / $V_7$. The $d_{\mu\nu}$ row was originally built from the wrong operator (a mass-sector bilinear copied from $H_{\mu\nu}$'s structure); Kostelecký & Lane (1999) place $d_{\mu\nu}$ in the kinetic sector instead, and `FW_dmunu_term.ipynb` re-derives it from there (see `FW_derivation_dmunu.md`).
 
 | SME Coefficient | Target Potential | Coupling Relation | Status |
 |----------------|-----------------|-------------------|--------|
