@@ -245,37 +245,61 @@ contribute the extra $1/(\lambda r)$, $1/(\lambda^2r^2)$ terms seen in $V_3$
 below (worked out in full) and analogously for $V_4$--$V_7$, $V_{15}$,
 $V_{16}$ (left in operator form here; see Cong et al., Sec.~V, for the
 fully evaluated closed forms once specialised to a given coupling channel).
+Table~\ref{tab:dm-names} gives a short name for each potential, for quick
+reference while reading the closed forms below.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{9cm}@{}}
+\toprule
+Potential & Name \\
+\midrule
+$V_1$ & Monopole--monopole (spin-independent) \\
+$V_2$ & Dipole--dipole (spin--spin) \\
+$V_3$ & Tensor dipole--dipole \\
+$V_4, V_5$ & Spin--velocity ($+$ gives $V_4$, $-$ gives $V_5$) \\
+$V_6, V_7$ & Spin--velocity, symmetric/antisymmetric combination ($+$ gives $V_6$, $-$ gives $V_7$) \\
+$V_8$ & Velocity--velocity \\
+$V_9, V_{10}$ & Monopole--dipole ($+$ gives $V_9$, $-$ gives $V_{10}$) \\
+$V_{11}$ & Spin cross-product (not an $L\cdot S$ coupling) \\
+$V_{12}, V_{13}$ & Single-spin--velocity ($+$ gives $V_{12}$, $-$ gives $V_{13}$) \\
+$V_{14}$ & Single-spin--velocity \\
+$V_{15}, V_{16}$ & Higher-order spin--velocity \\
+\bottomrule
+\end{tabular}
+\caption{Short names for each Dobrescu--Mocioiu potential, keyed to the closed forms in Eqs.~\eqref{eq:v1}--\eqref{eq:v16} below.}
+\label{tab:dm-names}
+\end{table}
 
 {\small
 \begin{align}
-  V_1 &= \frac1r\,y(r) &&\text{(monopole--monopole, spin-independent)} \\
-  V_2 &= \frac1r\,(\boldsymbol\sigma_1\cdot\boldsymbol\sigma_2)\,y(r) &&\text{(dipole--dipole / spin--spin)} \\
+  V_1 &= \frac1r\,y(r) \label{eq:v1}\\
+  V_2 &= \frac1r\,(\boldsymbol\sigma_1\cdot\boldsymbol\sigma_2)\,y(r) \label{eq:v2}\\
   V_3 &= \frac{1}{m^2r^3}\left[\boldsymbol\sigma_1\cdot\boldsymbol\sigma_2\left(1-r\frac{d}{dr}\right)
     -3(\boldsymbol\sigma_1\cdot\hat{\mathbf r})(\boldsymbol\sigma_2\cdot\hat{\mathbf r})
     \left(1-r\frac{d}{dr}+\frac{r^2}{3}\frac{d^2}{dr^2}\right)\right]y(r) \notag\\
   &= \frac{e^{-r/\lambda}}{4\pi m^2}\left\{\boldsymbol\sigma_1\cdot\boldsymbol\sigma_2
     \left[\frac1{r^3}+\frac1{\lambda r^2}\right]
     -(\boldsymbol\sigma_1\cdot\hat{\mathbf r})(\boldsymbol\sigma_2\cdot\hat{\mathbf r})
-    \left[\frac3{r^3}+\frac3{\lambda r^2}+\frac1{\lambda^2r}\right]\right\}
-    &&\text{(tensor dipole--dipole)} \\
+    \left[\frac3{r^3}+\frac3{\lambda r^2}+\frac1{\lambda^2r}\right]\right\} \label{eq:v3}\\
   V_{4,5} &= -\frac{1}{2mr^2}(\boldsymbol\sigma_1\pm\boldsymbol\sigma_2)\cdot(\mathbf v\times\hat{\mathbf r})
-    \left(1-r\frac{d}{dr}\right)y(r) &&\text{(spin--velocity; $+$=$V_4$, $-$=$V_5$)} \\
+    \left(1-r\frac{d}{dr}\right)y(r) \label{eq:v45}\\
   V_{6,7} &= -\frac{1}{2mr^2}\Big[(\boldsymbol\sigma_1\cdot\mathbf v)(\boldsymbol\sigma_2\cdot\hat{\mathbf r})
     \pm(\boldsymbol\sigma_1\cdot\hat{\mathbf r})(\boldsymbol\sigma_2\cdot\mathbf v)\Big]
-    \left(1-r\frac{d}{dr}\right)y(r) &&\text{($+$=$V_6$, $-$=$V_7$)} \\
-  V_8 &= \frac1r(\boldsymbol\sigma_1\cdot\mathbf v)(\boldsymbol\sigma_2\cdot\mathbf v)\,y(r) &&\text{(velocity--velocity)} \\
+    \left(1-r\frac{d}{dr}\right)y(r) \label{eq:v67}\\
+  V_8 &= \frac1r(\boldsymbol\sigma_1\cdot\mathbf v)(\boldsymbol\sigma_2\cdot\mathbf v)\,y(r) \label{eq:v8}\\
   V_{9,10} &= -\frac{1}{2mr^2}(\boldsymbol\sigma_1\pm\boldsymbol\sigma_2)\cdot\hat{\mathbf r}
-    \left(1-r\frac{d}{dr}\right)y(r) &&\text{(monopole--dipole; $+$=$V_9$, $-$=$V_{10}$)} \\
+    \left(1-r\frac{d}{dr}\right)y(r) \label{eq:v910}\\
   V_{11} &= -\frac{1}{mr^2}(\boldsymbol\sigma_1\times\boldsymbol\sigma_2)\cdot\hat{\mathbf r}
-    \left(1-r\frac{d}{dr}\right)y(r) &&\text{(spin cross-product; not $L\cdot S$)} \\
-  V_{12,13} &= \frac{1}{2r}(\boldsymbol\sigma_1\pm\boldsymbol\sigma_2)\cdot\mathbf v\,y(r) &&\text{($+$=$V_{12}$, $-$=$V_{13}$)} \\
-  V_{14} &= \frac1r(\boldsymbol\sigma_1\times\boldsymbol\sigma_2)\cdot\mathbf v\,y(r) \\
+    \left(1-r\frac{d}{dr}\right)y(r) \label{eq:v11}\\
+  V_{12,13} &= \frac{1}{2r}(\boldsymbol\sigma_1\pm\boldsymbol\sigma_2)\cdot\mathbf v\,y(r) \label{eq:v1213}\\
+  V_{14} &= \frac1r(\boldsymbol\sigma_1\times\boldsymbol\sigma_2)\cdot\mathbf v\,y(r) \label{eq:v14}\\
   V_{15} &= -\frac{3}{2m^2r^3}\Big\{[\boldsymbol\sigma_1\cdot(\mathbf v\times\hat{\mathbf r})](\boldsymbol\sigma_2\cdot\hat{\mathbf r}) \notag\\
     &\qquad{}+(\boldsymbol\sigma_1\cdot\hat{\mathbf r})[\boldsymbol\sigma_2\cdot(\mathbf v\times\hat{\mathbf r})]\Big\}
-    \left(1-r\frac{d}{dr}+\frac{r^2}{3}\frac{d^2}{dr^2}\right)y(r) \\
+    \left(1-r\frac{d}{dr}+\frac{r^2}{3}\frac{d^2}{dr^2}\right)y(r) \label{eq:v15}\\
   V_{16} &= -\frac{1}{2mr^2}\Big\{[\boldsymbol\sigma_1\cdot(\mathbf v\times\hat{\mathbf r})](\boldsymbol\sigma_2\cdot\mathbf v) \notag\\
     &\qquad{}+(\boldsymbol\sigma_1\cdot\mathbf v)[\boldsymbol\sigma_2\cdot(\mathbf v\times\hat{\mathbf r})]\Big\}
-    \left(1-r\frac{d}{dr}\right)y(r)
+    \left(1-r\frac{d}{dr}\right)y(r) \label{eq:v16}
 \end{align}
 }
 
@@ -290,7 +314,13 @@ not an $L\cdot S$ orbital spin-orbit coupling, while $V_{12},V_{13}$ are the
 $\pm$ pair $(\boldsymbol\sigma_1\pm\boldsymbol\sigma_2)\cdot\mathbf v$.
 Third, $V_4,V_5$, $V_9,V_{10}$, and $V_{12},V_{13}$ are each a $\pm$ pair of
 the \emph{same} structure (sum vs.\ difference of the two particles' spins),
-not independent structures.
+not independent structures, with the $+$ sign giving the lower-numbered
+potential in each pair ($V_4$, $V_9$, $V_{12}$) and the $-$ sign the
+higher-numbered one ($V_5$, $V_{10}$, $V_{13}$). Fourth, $V_6,V_7$ follow the
+analogous convention for the symmetric/antisymmetric combination
+$(\boldsymbol\sigma_1\cdot\mathbf v)(\boldsymbol\sigma_2\cdot\hat{\mathbf r})
+\pm(\boldsymbol\sigma_1\cdot\hat{\mathbf r})(\boldsymbol\sigma_2\cdot\mathbf v)$:
+$+$ gives $V_6$, $-$ gives $V_7$.
 
 \subsection{Classification under Discrete Symmetries}
 

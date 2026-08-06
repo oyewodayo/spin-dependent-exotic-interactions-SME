@@ -275,7 +275,7 @@ structure.
 
 \begin{table}[h]
 \centering
-\begin{tabular}{@{}lllll@{}}
+\begin{tabular}{@{}l l l l >{\raggedright\arraybackslash}p{3cm}@{}}
 \toprule
 $b_\mu$ component & NR Hamiltonian & DM potential & Order in $1/m$ & Notes \\
 \midrule
@@ -410,7 +410,7 @@ relative motion between the test masses.
 
 \begin{table}[h]
 \centering
-\begin{tabular}{@{}lllll@{}}
+\begin{tabular}{@{}l l l l >{\raggedright\arraybackslash}p{3cm}@{}}
 \toprule
 $H_{\mu\nu}$ sector & NR Hamiltonian & DM potential & Order in $1/m$ & Signature \\
 \midrule
@@ -605,7 +605,7 @@ confirmed, overall sign open; see the caveat above)
 
 \begin{table}[h]
 \centering
-\begin{tabular}{@{}lllll@{}}
+\begin{tabular}{@{}l l l l >{\raggedright\arraybackslash}p{4cm}@{}}
 \toprule
 $d_{\mu\nu}$ component & NR Hamiltonian & DM potential(s) & Order in $1/m$ & Notes \\
 \midrule
@@ -653,20 +653,27 @@ the stated CPT parity.
 \begin{table}[h]
 \centering
 \small
-\begin{tabular}{@{}lllllll@{}}
+\begin{tabular}{@{}l l >{\raggedright\arraybackslash}p{3.3cm} l l >{\raggedright\arraybackslash}p{3cm}@{}}
 \toprule
-SME coeff. & CPT & Lorentz & NR Hamiltonian & DM potential(s) & $1/m$ order & SPINDEP $A_\alpha$ prediction \\
+SME coeff. & CPT & NR Hamiltonian & DM potential(s) & $1/m$ order & $A_\alpha$ signature$^\dagger$ \\
 \midrule
-$b_i$ & Odd & Odd & $-\mathbf b\cdot\boldsymbol\sigma$ (matter), $+\mathbf b\cdot\boldsymbol\sigma$ (antimatter) & $V_2$ & $m^0$ & Consistent with $|A_\alpha|$ near 1, but equally consistent with a sensitivity gap \\
-$b_0$ & Odd & Odd & $+b_0(\boldsymbol\sigma\cdot\mathbf p)/m$ & $V_8$ & $m^{-1}$ & Same caveat as $b_i$ \\
-$H_{ij}$ & Even & Odd & $-\boldsymbol{\mathcal H}_B\cdot\boldsymbol\sigma$ & $V_3$ & $m^0$ & $A_\alpha\approx0$ if bounds comparably sensitive; sensitivity gap can still give $|A_\alpha|$ near 1 \\
-$H_{0i}$ & Even & Odd & $-\tfrac1m\boldsymbol\sigma\cdot(\mathbf p\times\mathbf H_E)$ & $V_7$ & $m^{-1}$ & Same caveat as $H_{ij}$ \\
-$d_{i0}$ & Even & Odd & $+d_{i0}\,m\,\sigma^i$ & $V_2$ & $m^1$ (!) & Same caveat as $H_{ij}$; \textbf{derived and verified} (Sec.~\ref{sec:dmunu}) \\
-$d_{ij}$ & Even & Odd & $+d_{ij}\,p^j\,\sigma^i$ & $V_7, V_8$ & $m^0$ (vel.) & Same caveat as $H_{ij}$; structure confirmed, sign open (Sec.~\ref{sec:dmunu}) \\
-$d_{00}$ & Even & Odd & $+d_{00}\,(\boldsymbol\sigma\cdot\mathbf p)$ & $V_8$ & $m^0$ (mom.) & Same caveat as $H_{ij}$; structure confirmed, sign open (Sec.~\ref{sec:dmunu}) \\
+$b_i$ & Odd & $-\mathbf b\cdot\boldsymbol\sigma$ (matter), $+\mathbf b\cdot\boldsymbol\sigma$ (antimatter) & $V_2$ & $m^0$ & $|A_\alpha|\to1$ predicted \\
+$b_0$ & Odd & $+b_0(\boldsymbol\sigma\cdot\mathbf p)/m$ & $V_8$ & $m^{-1}$ & $|A_\alpha|\to1$ predicted \\
+$H_{ij}$ & Even & $-\boldsymbol{\mathcal H}_B\cdot\boldsymbol\sigma$ & $V_3$ & $m^0$ & $A_\alpha\approx0$ if comparably sensitive \\
+$H_{0i}$ & Even & $-\tfrac1m\boldsymbol\sigma\cdot(\mathbf p\times\mathbf H_E)$ & $V_7$ & $m^{-1}$ & $A_\alpha\approx0$ if comparably sensitive \\
+$d_{i0}$ & Even & $+d_{i0}\,m\,\sigma^i$ & $V_2$ & $m^1$ (!) & $A_\alpha\approx0$ if comparably sensitive; \textbf{derived and verified} \\
+$d_{ij}$ & Even & $+d_{ij}\,p^j\,\sigma^i$ & $V_7, V_8$ & $m^0$ (vel.) & $A_\alpha\approx0$ if comparably sensitive; sign open \\
+$d_{00}$ & Even & $+d_{00}\,(\boldsymbol\sigma\cdot\mathbf p)$ & $V_8$ & $m^0$ (mom.) & $A_\alpha\approx0$ if comparably sensitive; sign open \\
 \bottomrule
 \end{tabular}
-\caption{Master SME$\to$DM matching table.}
+\caption{Master SME$\to$DM matching table. A Lorentz-parity column is
+omitted: every coefficient here is Lorentz-odd by construction, the
+property that makes it an SME coefficient in the first place (Chapter~2,
+Section~\ref{sec:sme}), so the column would carry no information across
+these rows. $^\dagger$Every entry in the final column is a naive signature
+only, consistent with, not caused by, the stated CPT parity: a sensitivity
+gap between independent one-sided bounds reproduces the same pattern
+regardless of true CPT status, as discussed immediately below.}
 \label{tab:master}
 \end{table}
 
@@ -683,22 +690,33 @@ CPT-even.
 
 \subsubsection{Validated \texorpdfstring{$g_Ag_A$}{gAgA} Pairs}
 
+All six matched pairs sharing the $g_Ag_A$ (axial-axial) coupling are
+dominated by the CPT-odd coefficient $b_\mu$ (Table~\ref{tab:master}), so
+every $|A_\alpha|$ value below is consistent with, not proof of, a
+CPT-odd sign flip: an independent sensitivity gap between the two bounds
+being compared would produce the identical signature.
+
 \begin{table}[h]
 \centering
 \small
-\begin{tabular}{@{}lllll@{}}
+\begin{tabular}{@{}l l r@{}}
 \toprule
-SPINDEP pair & Coupling & DM potential & Dominant SME coeff. & Observed $|A_\alpha|$ (consistent with, not proof of) \\
+SPINDEP pair & DM potential & Observed $|A_\alpha|$ \\
 \midrule
-$g_Ag_A\cdot V_2\cdot e\bar p$ & Axial-axial & $V_2$ (spin-spin) & $b_\mu$ (CPT-odd) & $0.9998$: consistent with a CPT-odd sign flip, equally consistent with a pure sensitivity gap \\
-$g_Ag_A\cdot V_2\cdot ee^+$ & Axial-axial & $V_2$ (spin-spin) & $b_\mu$ (CPT-odd) & $0.9892$: same caveat \\
-$g_Ag_A\cdot V_{2+3}\cdot ee^+$ & Axial-axial & $V_{2+3}$ (spin-spin + tensor) & $b_\mu$ (CPT-odd) & $0.9539$: same caveat \\
-$g_Ag_A\cdot V_{2+3}\cdot e\bar p$ & Axial-axial & $V_{2+3}$ (spin-spin + tensor) & $b_\mu$ (CPT-odd) & $0.8237$: same caveat \\
-$g_Ag_A\cdot V_{2+3}\cdot e\bar p$ & Axial-axial & $V_{2+3}$ (spin-spin + tensor) & $b_\mu$ (CPT-odd) & $0.8044$: same caveat \\
-$g_Ag_A\cdot V_2\cdot ee^+$ & Axial-axial & $V_2$ (spin-spin) & $b_\mu$ (CPT-odd) & $0.3336$: same caveat, but not saturated near $1$, so this pair is the one place in the database where the two bounds being compared are of genuinely similar precision \\
+$g_Ag_A\cdot V_2\cdot e\bar p$      & $V_2$ (spin-spin)             & $0.9998$ \\
+$g_Ag_A\cdot V_2\cdot ee^+$         & $V_2$ (spin-spin)             & $0.9892$ \\
+$g_Ag_A\cdot V_{2+3}\cdot ee^+$     & $V_{2+3}$ (spin-spin + tensor) & $0.9539$ \\
+$g_Ag_A\cdot V_{2+3}\cdot e\bar p$  & $V_{2+3}$ (spin-spin + tensor) & $0.8237$ \\
+$g_Ag_A\cdot V_{2+3}\cdot e\bar p$  & $V_{2+3}$ (spin-spin + tensor) & $0.8044$ \\
+$g_Ag_A\cdot V_2\cdot ee^+$         & $V_2$ (spin-spin)             & $0.3336$ \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+The last row is worth flagging explicitly: at $0.3336$, it is not
+saturated near $1$ the way the other five are, making it the one place
+in the database where the two bounds being compared are of genuinely
+similar precision.
 
 \subsubsection{Interpretation of the \texorpdfstring{$g_sg_s$}{gsgs} Result}
 
