@@ -249,12 +249,12 @@ seaborn>=0.12.0
 
 ### SME → Dobrescu-Mocioiu Translation Table
 
-The table below matches the notes actually in `docs/theory_notes/`: $b_\mu$ (spatial) maps to $V_2$ (spin-spin, not the monopole-dipole form an earlier pass mislabeled it as), $b_\mu$ (temporal) maps to $V_7,V_8$, and $H_{\mu\nu}$ maps to $V_3$/$V_7$. The $d_{\mu\nu}$ row was originally built from the wrong operator (a mass-sector bilinear copied from $H_{\mu\nu}$'s structure); Kostelecký & Lane (1999) place $d_{\mu\nu}$ in the kinetic sector instead, and `FW_dmunu_term.ipynb` re-derives it from there (see `FW_derivation_dmunu.md`).
+The table below matches the notes actually in `docs/theory_notes/`: $b_\mu$ (spatial) maps to $V_2$ (spin-spin, not the monopole-dipole form an earlier pass mislabeled it as), $b_\mu$ (temporal) maps to $V_8$ (a plain scalar contraction $\sigma\cdot p$ with no free tensor index, the same structure as $d_{00}$ below, not $V_7$ as an earlier pass claimed by loose analogy with $d_{ij}$), and $H_{\mu\nu}$ maps to $V_3$/$V_7$. The $d_{\mu\nu}$ row was originally built from the wrong operator (a mass-sector bilinear copied from $H_{\mu\nu}$'s structure); Kostelecký & Lane (1999) place $d_{\mu\nu}$ in the kinetic sector instead, and `FW_dmunu_term.ipynb` re-derives it from there (see `FW_derivation_dmunu.md`).
 
 | SME Coefficient | Target Potential | Coupling Relation | Status |
 |----------------|-----------------|-------------------|--------|
 | $b_\mu$ (spatial)  | $V_2$ (spin-spin) | $b_i \leftrightarrow g_A/2$ | Derived and verified (`FW_bmu_term.ipynb`, executed) |
-| $b_\mu$ (temporal) | $V_7, V_8$ | $b_0 \sim (\sigma\cdot p)/m$ | Derived and verified |
+| $b_\mu$ (temporal) | $V_8$ | $b_0 \sim (\sigma\cdot p)/m$ | Derived and verified |
 | $H_{\mu\nu}$          | $V_3$ (from $H_{ij}$), $V_7$ (from $H_{0i}$) | $H_{ij}\sim g_T$ × tensor | Derived and verified (`FW_Hmunu_term.ipynb`, executed) |
 | $d_{\mu\nu}$           | $V_2$ (from $d_{i0}$), $V_7,V_8$ (from $d_{ij}$), $V_8$ (from $d_{00}$) |$d_{ij} \sim g_{s} g_{A} / m$| $d_{i0}\to V_2$ **derived and verified** — matches Kostelecký & Lane (1999) Eq. (4) exactly (`FW_dmunu_term.ipynb`, executed). $d_{ij}\to V_7,V_8$ and $d_{00}\to V_8$: correct structure confirmed against the same equation, but overall sign still open (see note) |
 
@@ -262,16 +262,26 @@ The table below matches the notes actually in `docs/theory_notes/`: $b_\mu$ (spa
 
 Populated from `spindep-framework/spindep/results/tables/asymmetry_summary.csv` (see `analysis/asymmetry_calc.py`, which imports the submodule -- run `git submodule update --init --recursive` first). Numeric coupling-bound magnitudes aren't reproduced here (only $A_\alpha$, which the summary table stores directly) — see the CSV / `dataset_registry.csv` for the underlying bounds.
 
+All ten matched pairs the compiled database currently supports:
+
 | Potential | Matter source | Antimatter source | Sector | $A_\alpha$ | Status |
 |-----------|---------------|--------------------|--------|-----------|--------|
 | $V_2$ ($g_Ag_A$)   | Karshenboim2011 | Ficek2018       | e-$\bar p$ | 0.9998 | Compiled |
-| $V_2$ ($g_Ag_A$)   | Ficek2017       | Karshenboim2011 | e-e        | 0.9892 | Compiled |
-| $V_{2+3}$ ($g_Ag_A$) | Ficek2017     | Fadeev2022      | e-e        | 0.9539 | Compiled |
-| $V_{2+3}$ ($g_pg_p$) | Fadeev2022    | Fadeev2022      | e-e        | 0.9535 | Compiled |
-| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Fadeev2022      | e-e        | 0.9535 | Compiled |
-| $V_3$        | — | — | — | Planned (no compiled pair yet) |
-| $V_7$        | — | — | — | Planned (no compiled pair yet) |
-| $V_8$        | — | — | — | Planned (no compiled pair yet) |
+| $V_2$ ($g_Ag_A$)   | Ficek2017       | Karshenboim2011 | e-$e^+$    | 0.9892 | Compiled |
+| $V_{2+3}$ ($g_Ag_A$) | Ficek2017     | Fadeev2022      | e-$e^+$    | 0.9539 | Compiled |
+| $V_{2+3}$ ($g_pg_p$) | Fadeev2022    | Fadeev2022      | e-$e^+$    | 0.9535 | Compiled |
+| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Fadeev2022      | e-$e^+$    | 0.9535 | Compiled |
+| $V_1$ ($g_sg_s$)     | Delaunay2017  | Adkins2022      | e-$e^+$    | 0.8727 | Compiled |
+| $V_{2+3}$ ($g_Ag_A$) | Fadeev2022    | Ficek2018       | e-$\bar p$ | 0.8237 | Compiled |
+| $V_{2+3}$ ($g_Ag_A$) | Fadeev2022    | Fadeev2022      | e-$\bar p$ | 0.8044 | Compiled |
+| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Ficek2018       | e-$\bar p$ | 0.7994 | Compiled |
+| $V_2$ ($g_Ag_A$)   | Jiao2019        | Karshenboim2011 | e-$e^+$    | 0.3336 | Compiled |
+
+$V_3$, $V_7$, and $V_8$ have no matched pair in the current database: matter- and
+antimatter-sector data exist for each of $b_\mu$'s and $H_{\mu\nu}$'s target
+potentials individually, but never both sides at once for the same potential,
+coupling, and conjugate sector — see the gap analysis (`figures/gap_analysis/`,
+thesis Chapter 5) for exactly where the coverage is missing.
 
 **Caveat:** per `docs/theory_notes/potential_match_table.md`, a high $A_\alpha$ here is *consistent with* CPT violation but equally explained by a sensitivity gap between the matter- and antimatter-sector experiments — it is not, by itself, evidence of either. This holds even after correcting for the strongest statistical objection to the naive test: treating all 300 interpolated grid points per pair as independent degrees of freedom. `spindep-framework`'s `statistics.py` now estimates an effective dof from the autocorrelation length of the residuals (typically 6–21 per pair, not 300) and recomputes the p-value against it — every pair remains significant at effectively p≈0 even under that correction, which shifts the open question from "is the dof count wrong" to "why does the gap persist after correcting it."
 
@@ -286,8 +296,8 @@ Populated from `spindep-framework/spindep/results/tables/asymmetry_summary.csv` 
 | FW: $H_{\mu\nu}$ derivation | Week 6–7 | Complete | Executed and verified in `FW_Hmunu_term.ipynb` |
 | FW: $d_{\mu\nu}$ derivation | Week 7–8 | Mostly complete | Re-derived from the correct kinetic-sector Lagrangian (not the mass-sector Ansatz originally used) and executed in `FW_dmunu_term.ipynb`; $d_{i0}\to V_2$ matches Kostelecký & Lane (1999) exactly, $d_{ij}$/$d_{00}$ match in structure with an open sign — see `FW_derivation_dmunu.md` |
 | Constraint compilation | Weeks 9–14 | Substantially complete | 273 datasets, 10 matched pairs, 12+10+3 figures; reproducible via the `spindep-framework` submodule — see `analysis/` and `figures/` |
-| Gap analysis | Weeks 15–18 | Figures compiled | `figures/gap_analysis/` (lambda coverage, matter/antimatter ratio, pair coverage matrix); written analysis not yet drafted |
-| Thesis writing | Weeks 19–24 | In progress | Chapters 1–6 and notation appendix drafted (`thesis/`); figures still need uploading alongside `main.tex` for compilation |
+| Gap analysis | Weeks 15–18 | Complete | Figures (`figures/gap_analysis/`: lambda coverage, matter/antimatter ratio, pair coverage matrix) and the written analysis (thesis Chapter 5) both complete |
+| Thesis writing | Weeks 19–24 | Reviewed and finalised | Chapters 1–6 and notation appendix drafted, cross-checked against the compiled database, and reviewed for consistency (`thesis/`); figures still need uploading alongside `main.tex` for compilation |
 
 ---
 
@@ -385,4 +395,4 @@ and the comprehensive experimental review by Cong et al. (2025).
 
 ---
 
-*Last updated: July 2026*
+*Last updated: August 2026*

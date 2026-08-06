@@ -142,9 +142,10 @@ merely reproducing the generic sensitivity-gap pattern.
 
 \subsection{The Compiled Constraint Database}
 
-Of the 273 datasets compiled, only 17 involve an antimatter sector at all
-(9 in $e$-$\bar p$, 5 in $e$-$e^+$, 3 in $e$-$\bar\mu$), and from these only
-ten matter--antimatter pairs could be matched by SPINDEP's pairing logic.
+Of the 273 datasets compiled, only 19 involve an antimatter sector at all
+(9 in $e$-$\bar p$, 5 in $e$-$e^+$, 3 in $e$-$\bar\mu$, and one each in
+$\bar p$-He and $dd\mu^+$), and from these only ten matter--antimatter
+pairs could be matched by SPINDEP's pairing logic.
 Every one of the ten is statistically significant after the
 autocorrelation correction developed in Chapter~4, with effective degrees
 of freedom of 6--21, a factor of 14--50 below the naive 300 interpolation
@@ -185,20 +186,22 @@ resolved, no experimental target should be motivated from the sign of
 these two components specifically, only from their structure and order in
 $1/m$.
 
-\textbf{Database data quality.} Roughly a fifth of the compiled database
-(50 of 273 datasets) carries a filename the parser could not resolve to a
-specific $V_n$ token and is recorded as \texttt{UNKNOWN} rather than
-guessed at; two datasets in this category were confirmed as $V_1$ by
-checking their source publications directly, and a further eleven are
-flagged by an existing source-code comment as likely $V_1$ candidates but
-have not been individually verified. Two additional datasets carry the
-coupling label \texttt{Code-plot-matlab}, a parser artefact rather than a
-physical category, and a small number of entries under $V_{2+3}$ and
-$V_{9+10}$ report physically implausible interaction ranges
-($\lambda\gtrsim10^{26}$~m) almost certainly caused by a unit-detection
-error. None of these affect the ten matched pairs analysed in Chapter~4,
-but they should be resolved before any broader coverage claim is drawn from
-the full 273-dataset database.
+\textbf{Database data quality.} Roughly a seventh of the compiled database
+(39 of 273 datasets) carries a filename that cannot be resolved to a
+specific $V_n$ token and sits in a directory that does not name the
+potential either, and is recorded as \texttt{UNKNOWN} rather than guessed
+at. A further eleven datasets, all under a single directory whose name
+states the potential unambiguously, are classified as $V_1$ from that
+directory rather than the filename; two more are confirmed as $V_1$ by
+checking their source publications directly rather than inferred from a
+coupling label. Two additional datasets carry the coupling label
+\texttt{Code-plot-matlab}, a parser artefact rather than a physical
+category, and a small number of entries under $V_{2+3}$ and $V_{9+10}$
+report physically implausible interaction ranges ($\lambda\gtrsim10^{26}$~m)
+almost certainly caused by a unit-detection error. None of these affect
+the ten matched pairs analysed in Chapter~4, but they should be resolved
+before any broader coverage claim is drawn from the full 273-dataset
+database.
 
 \textbf{Scope of the SME sector treated.} This thesis derives the
 non-relativistic limit of only three SME coefficients,
@@ -225,12 +228,12 @@ directly relevant to spin-dependent forces.
 
 \subsection{Database and Methodology}
 
-The 50 \texttt{UNKNOWN}-potential datasets and the two
+The remaining 39 \texttt{UNKNOWN} datasets and the two
 \texttt{Code-plot-matlab} entries are a concrete, bounded cleanup task:
-checking the eleven flagged candidate $V_1$ datasets against their source
-publications, in the same way already done for two datasets in this
-thesis, would meaningfully shrink the unresolved category. The
-implausible-$\lambda$ entries under $V_{2+3}$ and $V_{9+10}$ should be
+resolving them requires checking each source publication individually,
+since neither their filenames nor their directory paths carry a
+resolvable signal. The implausible-$\lambda$ entries under $V_{2+3}$ and
+$V_{9+10}$ should be
 individually re-verified against source publications before the database
 is treated as final. Separately, the $e$-$\mu$/$e$-$\bar\mu$ sector is
 populated on both sides (three datasets each) but was not matched into a

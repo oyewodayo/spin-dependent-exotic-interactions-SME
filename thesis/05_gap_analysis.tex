@@ -6,7 +6,7 @@
 
 \section{Overview}
 
-Chapter~4 showed that only 17 of the 273 compiled datasets involve an
+Chapter~4 showed that only 19 of the 273 compiled datasets involve an
 antimatter sector, and that every matter--antimatter pair currently
 matchable from the database is consistent with, but cannot distinguish
 from, an ordinary sensitivity gap between the two experiments being
@@ -52,6 +52,14 @@ $e$-$N$     & $e$-$\bar N$   & 58 & 0 & \textbf{Largest gap} \\
 \label{tab:sector-gaps}
 \end{table}
 
+Table~\ref{tab:sector-gaps}'s nine rows account for 17 of the chapter's 19
+antimatter datasets; the remaining two, $\bar p$-$N$ (from antiprotonic
+helium) and $\mu^+$-$N$ (from the $dd\mu^+$ molecular ion), have no
+matter-side counterpart yet compiled and so fall outside SPINDEP's nine
+canonical pairs entirely -- a gap of a different kind from the ones below,
+since it is not that the antimatter side is thin, but that there is
+currently nothing on the matter side to pair it against at all.
+
 The $e$-$N$ sector is the single largest opportunity in the database: 58
 matter-sector datasets exist, more than any other sector, against zero in
 $e$-$\bar N$. The $e$-$n$, $n$-$p$, and $n$-$n$ sectors each have a
@@ -69,7 +77,7 @@ useful to confirm directly rather than assume.
 
 Table~\ref{tab:potential-gaps} breaks the same comparison down by DM
 potential rather than by sector, restricted to the potentials with at least
-one dataset in the database (excluding the 50 \texttt{UNKNOWN}-potential
+one dataset in the database (excluding the 39 \texttt{UNKNOWN}-potential
 entries discussed in Section~\ref{sec:data-quality}).
 
 \begin{table}[h]
@@ -83,7 +91,7 @@ $V_{9+10}$ & 31 & 0 & \textbf{Gap} \\
 $V_{2+3}$  & 21 & 9 & Best-covered potential (used throughout Ch.~4) \\
 $V_{1a}$   & 29 & 0 & \textbf{Gap} \\
 $V_2$      & 18 & 2 & Thin antimatter coverage \\
-$V_1$      & 18 & 1 & Thin antimatter coverage (2 datasets reclassified from UNKNOWN, Ch.~4) \\
+$V_1$      & 27 & 3 & Thin antimatter coverage (13 datasets classified by directory or source publication, Ch.~4) \\
 $V_{12+13}$& 16 & 0 & \textbf{Gap} \\
 $V_{11}$   & 7  & 0 & \textbf{Gap} \\
 $V_8$      & 5  & 1 & Thin antimatter coverage \\
@@ -99,16 +107,23 @@ Six of the eleven classified potentials ($V_{11}$, $V_{15}$, $V_{16}$,
 $V_{1a}$, $V_{9+10}$, and $V_{12+13}$) have \emph{zero} antimatter-sector
 datasets despite substantial matter-sector coverage, $V_{1a}$ and $V_{9+10}$
 most strikingly, with 29 and 31 matter-sector datasets respectively and
-nothing to compare them against. $V_1$ narrowly escapes this list only
-because of the two-dataset reclassification described in Chapter~4; absent
-that fix it would have shown zero antimatter coverage like the other six.
-Only $V_{2+3}$ has antimatter coverage exceeding a handful of datasets,
-which is why nine of the ten matched pairs in Chapter~4 involve $V_2$ or
-$V_{2+3}$ (the tenth, $g_sg_s\cdot V_1\cdot ee$, exists only because of that
-same reclassification): the pairing methodology can only produce a
-comparison where both sides of a channel actually have data, and at present
-that is a narrow slice of the full sixteen-potential catalogue established
-in Chapter~2.
+nothing to compare them against. $V_1$ is the only potential with thin,
+rather than zero, antimatter coverage at a comparable matter-sector scale.
+Thirteen of its datasets carry no potential token in their filename:
+\texttt{Delaunay\_2017} and \texttt{Adkins\_2022\_eeplus} are confirmed
+against their source publications directly (Chapter~4,
+Section~\ref{sec:database}), and the remaining eleven, including
+\texttt{Salumbides\_antipHe\_2014} and \texttt{Salumbides\_ddmu\_2014},
+which supply $V_1$'s only antimatter-sector coverage beyond
+\texttt{Adkins\_2022\_eeplus}, are resolved from the directory containing
+them. Only $V_{2+3}$ has
+antimatter coverage exceeding a handful of datasets, which is why nine of
+the ten matched pairs in Chapter~4 involve $V_2$ or $V_{2+3}$ (the tenth,
+$g_sg_s\cdot V_1\cdot ee$, exists only because of the same
+\texttt{Delaunay\_2017}/\texttt{Adkins\_2022\_eeplus} reclassification):
+the pairing methodology can only produce a comparison where both sides of
+a channel actually have data, and at present that is a narrow slice of the
+full sixteen-potential catalogue established in Chapter~2.
 
 \section{Interaction-Range Coverage}
 
@@ -217,26 +232,32 @@ Three limitations of the current database and framework, distinct from the
 physics coverage gaps above, are worth stating plainly rather than working
 around silently.
 
-\textbf{Unresolved potential classification.} 50 datasets, close to a
-fifth of the database, carry a filename the parser cannot resolve to a
-specific $V_n$ token, and are recorded as \texttt{UNKNOWN} rather than
-guessed at. Two datasets, \texttt{Delaunay\_2017} and
-\texttt{Adkins\_2022\_eeplus}, were in this category until their source
-publications were checked directly and both confirmed as $V_1$ (Chapter~4,
-Section~4.3.1), not inferred from the $g_sg_s$ coupling label, which on
-its own would only make $V_1$ plausible, not confirmed. That same parser
-module contains a further eleven filename entries (\texttt{Hoskins\_1985},
-\texttt{Kapner\_2007}, \texttt{Chen\_2016}, \texttt{Tan\_2020},
-\texttt{Lee\_2020}, \texttt{Bordag\_2001}, \texttt{Alighanbari\_2020},
-\texttt{Colliders}, and others) sitting under a source-code comment reading
-``V1 / scalar exchange datasets'', a strong hint that whoever originally
-triaged the sector-parsing overrides for these files already suspected the
-same $V_1$ identification, but never completed the potential-side fix the
-way it now has been for the two entries above. Resolving the remaining
-eleven the same way, checking each source publication rather than
-trusting the comment, would meaningfully shrink the 50-dataset
-\texttt{UNKNOWN} category, but has not been done as part of this thesis and
-should not be assumed correct without that check.
+\textbf{Unresolved potential classification.} 39 datasets, roughly a
+seventh of the database, carry a filename that cannot be resolved to a
+specific $V_n$ token and sit in a directory that does not name the
+potential either; these are recorded as \texttt{UNKNOWN} rather than
+guessed at. Potential classification otherwise follows three sources of
+evidence, in order: an explicit token in the filename; failing that, the
+containing directory name, for files whose directory names the potential
+unambiguously even though the filename does not (eleven files, including
+\texttt{Hoskins\_1985}, \texttt{Kapner\_2007}, \texttt{Chen\_2016},
+\texttt{Tan\_2020}, \texttt{Lee\_2020}, \texttt{Bordag\_2001},
+\texttt{Alighanbari\_2020}, and \texttt{Colliders}, all resolved to $V_1$
+this way); and, where neither is available, direct verification against
+the source publication, as for \texttt{Delaunay\_2017} and
+\texttt{Adkins\_2022\_eeplus} (also $V_1$; Chapter~4,
+Section~\ref{sec:database}), confirmed rather than inferred from the
+$g_sg_s$ coupling label alone. Two of the directory-resolved files,
+\texttt{Salumbides\_antipHe\_2014} and \texttt{Salumbides\_ddmu\_2014},
+carry sector tokens (\texttt{antipHe}, \texttt{ddmu}) registered as
+antimatter-sector on the basis of Cong et al.\ (2025)
+\cite{Cong2025} (p.~82), which identifies both as $\bar p$-$N$ and
+$\mu^+$-$N$ bounds respectively, antimatter sectors despite carrying no
+\texttt{bar} suffix in their sector code. The remaining 39 \texttt{UNKNOWN}
+datasets have neither a resolvable filename token nor a directory-level
+signal; resolving them would require checking each source publication
+individually rather than trusting existing metadata, which is left as
+future work.
 
 \textbf{Two coupling-label parser artifacts.} The \texttt{Code-plot-matlab}
 coupling label affecting 2 datasets (Chapter~4, Section~4.3.1) reflects a
@@ -271,7 +292,7 @@ Three concrete directions follow from the coverage gaps quantified above.
 
 \textbf{Prioritise the $e$-$N$, $n$-$p$, $n$-$n$, and $e$-$n$ sectors for
 new antimatter-sector bounds.} These four sectors together account for 91
-of the 256 matter-sector datasets in the database and zero antimatter-sector
+of the 254 matter-sector datasets in the database and zero antimatter-sector
 ones. Precision antiproton experiments such as BASE, and antihydrogen
 spectroscopy such as ALPHA, are the most direct existing platforms capable
 of producing $\bar p$- or $\bar H$-based bounds in these channels; the
@@ -279,11 +300,15 @@ scientific case here is stronger than for further improving already
 well-covered channels like $e$-$e^+$, precisely because no comparison is
 currently possible at all in these four sectors, regardless of precision.
 
-\textbf{Prioritise $V_{1a}$, $V_{9+10}$, $V_1$, and $V_{12+13}$ for new
+\textbf{Prioritise $V_{1a}$, $V_{9+10}$, and $V_{12+13}$ for new
 antimatter-sector bounds}, for the same reason at the potential level:
-these four potentials have 17--31 matter-sector datasets each and none on
+these three potentials have 16--31 matter-sector datasets each and none on
 the antimatter side, so even a modest first antimatter-sector measurement
-would open a channel that currently cannot be compared at all.
+would open a channel that currently cannot be compared at all. $V_1$ has
+thin but nonzero antimatter coverage (Table~\ref{tab:potential-gaps}) and
+so is better placed alongside $V_2$ and $V_8$ as a candidate for
+\emph{improving} existing antimatter-side precision rather than opening a
+channel from zero.
 
 \textbf{Reinterpret existing antimatter- and Lorentz/CPT-sensitive datasets
 before commissioning new experiments.} Cong et al.\ (2025) document a
@@ -319,5 +344,16 @@ ability to distinguish genuine CPT violation from an ordinary sensitivity
 gap, and is where future experimental and data-compilation effort would be
 most valuable. Chapter~6 concludes the thesis and summarises these findings
 alongside those of Chapters~2--4.
+
+\ifSubfilesClassLoaded{
+\begin{thebibliography}{99}
+
+\bibitem{Cong2025}
+L.~Cong \textit{et al.},
+\textit{Spin-dependent exotic interactions},
+Rev.\ Mod.\ Phys.\ \textbf{97}, 025005 (2025).
+
+\end{thebibliography}
+}{}
 
 \end{document}

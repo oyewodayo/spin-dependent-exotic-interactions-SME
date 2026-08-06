@@ -9,9 +9,10 @@
 Chapters~2 and~3 established the theoretical machinery connecting SME
 coefficients to Dobrescu--Mocioiu (DM) potentials. This chapter applies that
 machinery to real experimental data. Section~\ref{sec:methodology} describes
-the compilation methodology implemented in the SPINDEP framework built for
-this thesis: dataset discovery and classification, unit standardisation,
-and matter--antimatter pairing. Section~\ref{sec:database} summarises the
+the compilation methodology implemented in SPINDEP, the Spin-Dependent
+exotic interaction constraint analysis pipeline built for this thesis:
+dataset discovery and classification, unit standardisation, and
+matter--antimatter pairing. Section~\ref{sec:database} summarises the
 resulting database of 273 experimental constraint datasets. Section~\ref{sec:asymmetry}
 presents the ten matter--antimatter pairs SPINDEP was able to match, the
 full statistical analysis of each (including an autocorrelation-corrected
@@ -24,8 +25,9 @@ caveat established in Chapter~3.
 
 \subsection{Dataset Discovery and Classification}
 
-Each experimental constraint is stored as a two-column CSV file (interaction
-range $\lambda$ in metres, upper bound on $|g|$) inside a directory tree
+Each experimental constraint is stored as a two-column comma-separated
+value (CSV) file (interaction range $\lambda$ in metres, upper bound on
+$|g|$) inside a directory tree
 organised by coupling family and interaction class, following the naming
 convention
 \begin{center}
@@ -69,12 +71,12 @@ on physically distinct interactions.
 
 Table~\ref{tab:coupling-breakdown} summarises the 273 datasets compiled for
 this thesis by coupling family. Two entries are classified under a coupling
-label of \texttt{Code-plot-matlab}, which is a parser artifact rather than a
-genuine physical coupling family, arising from a source directory named for
-its file format rather than its physics content; these two entries are
-excluded from the physics analysis in this chapter and flagged in
-Chapter~5 as a data-hygiene item for future cleanup, rather than silently
-corrected or removed from the reported count.
+label of \texttt{Code-plot-matlab}, reflecting a source directory named for
+its file format rather than its physics content, so it is not a genuine
+physical coupling family; these two entries are excluded from the physics
+analysis in this chapter and noted in Chapter~5 as a data-hygiene item for
+future cleanup, rather than silently corrected or removed from the
+reported count.
 
 \begin{table}[h]
 \centering
@@ -99,34 +101,52 @@ Total & 273 \\
 \end{table}
 
 By DM potential, the database is dominated by $V_{4+5}$ (61 datasets),
-followed by potentials that the parser could not resolve to a specific
-$V_n$ token (50 datasets, recorded as \texttt{UNKNOWN}), $V_{9+10}$ (31),
-$V_{2+3}$ (30), $V_{1a}$ (29), $V_2$ (20), $V_1$ (19, including two entries
-reclassified from \texttt{UNKNOWN}; see below), and $V_{12+13}$ (16), with
-the remaining potentials each represented by fewer than ten datasets. The
-50 remaining \texttt{UNKNOWN}-potential datasets are a genuine
-classification gap discussed further in Chapter~5, not an artifact of this
-thesis's own tooling: their filenames simply do not contain a token the
-naming convention can resolve. Two datasets that previously fell into this
-category, the \texttt{Delaunay\_2017} and \texttt{Adkins\_2022\_eeplus}
-files used in Section~\ref{sec:asymmetry} below, have since been
-confirmed as $V_1$ (monopole--monopole, spin-independent scalar) by
-checking their source publications directly: Delaunay, Frugiuele, Fuchs and
-Soreq (2017) \cite{Delaunay2017} constrain a spin-independent scalar
-interaction between electrons, and Adkins, Cassidy and P\'{e}rez-R\'{i}os
-(2022) \cite{Adkins2022} report a bound on the analogous spin-independent
+followed by potentials that cannot be resolved to a specific $V_n$ token
+(39 datasets, recorded as \texttt{UNKNOWN}), $V_{9+10}$ (31), $V_1$ and
+$V_{2+3}$ (30 each), $V_{1a}$ (29), $V_2$ (20), and $V_{12+13}$ (16), with
+the remaining potentials each represented by fewer than ten datasets.
+Potential classification is resolved from the filename where possible and,
+failing that, from the containing directory name: eleven datasets under
+the \texttt{V1\_alpha\_data} directory carry no potential token in their
+filename but are classified as $V_1$ on this basis. All eleven
+correspond to named curves in Cong et al.'s Fig.~15 and are cited
+accordingly: Hoskins et al.\ (1985) \cite{Hoskins1985}, Kapner et al.\
+(2007) \cite{Kapner2007}, Bordag et al.\ (2001) \cite{Bordag2001}, Chen et
+al.\ (2016) \cite{Chen2016}, Lee et al.\ (2020) \cite{Lee2020}, Tan et
+al.\ (2020) \cite{Tan2020}, Alighanbari et al.\ (2020)
+\cite{Alighanbari2020}, Murata and Tanaka (2015) \cite{Murata2015} (for
+the aggregate \texttt{Colliders} dataset), Salumbides, Ubachs and
+Korobov (2014) \cite{Salumbides2014}, whose single paper covers both the
+\texttt{Salumbides\_antipHe\_2014} and \texttt{Salumbides\_ddmu\_2014}
+datasets (antiprotonic-helium and $dd\mu^+$ bounds respectively), and
+Kamiya et al.\ (2021) \cite{Kamiya2021} for the \texttt{neutron\_scattering}
+dataset, the only neutron-scattering result Fig.~15 labels. Two further
+$V_1$ datasets, the
+\texttt{Delaunay\_2017} and \texttt{Adkins\_2022\_eeplus} files used in
+Section~\ref{sec:asymmetry} below, were confirmed directly against their
+source publications: Delaunay, Frugiuele, Fuchs and Soreq (2017)
+\cite{Delaunay2017} constrain a spin-independent scalar interaction
+between electrons, and Adkins, Cassidy and P\'{e}rez-R\'{i}os (2022)
+\cite{Adkins2022} report a bound on the analogous spin-independent
 $g_s^eg_s^{e^+}$ coupling from positronium spectroscopy, both a direct
 match to $V_1$'s definition, not an inference from the $g_sg_s$ coupling
-label alone.
+label alone. The 39 datasets recorded as \texttt{UNKNOWN} genuinely lack
+any resolvable signal in either their filename or their directory path,
+and remain a real classification gap, discussed further in Chapter~5.
 
 \subsection{Antimatter-Sector Coverage}
 
-Of the 273 datasets, only 17 involve an antimatter sector: 9 in the
-$e$-$\bar p$ (\texttt{epbar}) sector, 5 in $e$-$e^+$ (\texttt{eebar}), and 3
-in $e$-$\bar\mu$ (\texttt{emubar}). No dataset in the compiled database
-touches the $n$-$\bar n$, $n$-$\bar p$, $\mu$-$\bar\mu$, $p$-$\bar p$, or
-$e$-$\bar N$ sectors at all. This stark asymmetry, 17 antimatter datasets
-against 256 matter-sector datasets, is itself the central empirical fact
+Of the 273 datasets, only 19 involve an antimatter sector: 9 in the
+$e$-$\bar p$ (\texttt{epbar}) sector, 5 in $e$-$e^+$ (\texttt{eebar}), 3
+in $e$-$\bar\mu$ (\texttt{emubar}), and one each in $\bar p$-He
+(\texttt{antipHe}) and the $dd\mu^+$ molecular ion (\texttt{ddmu}) --
+both, per Cong et al.\ (2025) \cite{Cong2025}, laboratory bounds on
+$\bar p$-$N$ and $\mu^+$-$N$ couplings respectively, and therefore genuine
+antimatter-sector data despite carrying no \texttt{bar} suffix in their
+sector code. No dataset in the compiled database touches the $e$-$\bar n$,
+$n$-$\bar n$, $n$-$\bar p$, $\mu$-$\bar\mu$, $p$-$\bar p$, or $e$-$\bar N$
+sectors at all. This stark asymmetry, 19 antimatter datasets
+against 254 matter-sector datasets, is itself the central empirical fact
 this thesis works with: it is the reason a meaningful CPT comparison is
 currently possible in only a handful of channels, and it directly motivates
 the gap analysis of Chapter~5.
@@ -168,9 +188,8 @@ pair SPINDEP was able to match from the compiled database. The matter- and
 antimatter-sector sources are Karshenboim (2011) \cite{Karshenboim2011},
 Ficek et al.\ (2017) \cite{Ficek2017}, Ficek et al.\ (2018)
 \cite{Ficek2018}, Fadeev et al.\ (2022) \cite{Fadeev2022}, Delaunay et al.\
-(2017) \cite{Delaunay2017}, and Adkins et al.\ (2022) \cite{Adkins2022}. The
-\texttt{Jiao2019} source has not yet been traced to a specific publication
-and its bibliography entry remains outstanding (see note below the table).
+(2017) \cite{Delaunay2017}, Adkins et al.\ (2022) \cite{Adkins2022}, and
+Jiao et al.\ (2020) \cite{Jiao2019}.
 
 \begin{table}[h]
 \centering
@@ -194,14 +213,6 @@ $g_Ag_A$    & $V_2$    & $e$-$e^+$    & Jiao2019 / Karshenboim2011      & 0.3336
 \caption{All ten matched matter--antimatter pairs, with the autocorrelation-corrected effective degrees of freedom, the resulting weighted-$\chi^2$ significance, and the 95\% bootstrap confidence interval on the mean asymmetry.}
 \label{tab:pairs}
 \end{table}
-% TODO: Jiao2019 (row 10, e-e+ V2 pair) has not been traced to a specific
-% publication; bibliography entry outstanding -- confirm before submission.
-\emph{Note on sourcing:} nine of the ten sources above are
-\cite{Karshenboim2011,Ficek2017,Ficek2018,Fadeev2022,Delaunay2017,Adkins2022};
-the \texttt{Jiao2019} source remains unverified and is not yet in the
-bibliography: confirm the exact publication before this table is
-finalised.
-
 Effective degrees of freedom range from 6 to 21 across the ten pairs, a
 factor of 14--50 below the naive 300 grid points, confirming that the
 autocorrelation correction described in Section~\ref{sec:methodology} is not
@@ -254,7 +265,7 @@ small to read legibly). These map onto 13 of the 16 catalogue potentials
 from Chapter~2; several labels such as $V_{2+3}$, $V_{4+5}$, $V_{9+10}$,
 and $V_{12+13}$ each combine two adjacent catalogue potentials that the
 underlying experiments do not distinguish individually. $V_6$, $V_7$, and
-$V_{14}$ have no classified dataset at all, distinct from the 50
+$V_{14}$ have no classified dataset at all, distinct from the 39
 \texttt{UNKNOWN}-potential entries discussed above, which have data but no
 resolved label. Figure~\ref{fig:matter-antimatter} shows an example
 matter--antimatter comparison plot for the highest-asymmetry pair in
@@ -349,8 +360,9 @@ per matched pair, is included in the project repository under
 \section{Chapter Summary}
 
 This chapter compiled 273 experimental constraint datasets into a
-standardised database, of which only 17 involve an antimatter sector,
-concentrated in just three channels ($e$-$\bar p$, $e$-$e^+$, $e$-$\bar\mu$).
+standardised database, of which only 19 involve an antimatter sector,
+concentrated overwhelmingly in three channels ($e$-$\bar p$, $e$-$e^+$,
+$e$-$\bar\mu$), with a single dataset each in $\bar p$-He and $dd\mu^+$.
 Ten matter--antimatter pairs could be matched from this database and
 analysed with a statistical methodology that corrects for the correlated
 nature of interpolated constraint points. Every pair shows a statistically
@@ -402,6 +414,78 @@ G.~S. Adkins, D.~B. Cassidy, and J.~P\'{e}rez-R\'{i}os,
 \textit{Precision spectroscopy of positronium: Testing bound-state QED
 theory and the search for physics beyond the Standard Model},
 Phys.\ Rep.\ \textbf{975}, 1 (2022).
+
+\bibitem{Hoskins1985}
+J.~K. Hoskins, R.~D. Newman, R.~Spero, and J.~Schultz,
+\textit{Experimental tests of the gravitational inverse-square law for
+mass separations from 2 to 105~cm},
+Phys.\ Rev.\ D \textbf{32}, 3084 (1985).
+
+\bibitem{Kapner2007}
+D.~J. Kapner, T.~S. Cook, E.~G. Adelberger, J.~H. Gundlach, B.~R. Heckel,
+C.~D. Hoyle, and H.~E. Swanson,
+\textit{Tests of the gravitational inverse-square law below the
+dark-energy length scale},
+Phys.\ Rev.\ Lett.\ \textbf{98}, 021101 (2007).
+
+\bibitem{Bordag2001}
+M.~Bordag, U.~Mohideen, and V.~M. Mostepanenko,
+\textit{New developments in the Casimir effect},
+Phys.\ Rep.\ \textbf{353}, 1 (2001).
+
+\bibitem{Chen2016}
+Y.-J. Chen, W.~K. Tham, D.~E. Krause, D.~L\'{o}pez, E.~Fischbach, and
+R.~S. Decca,
+\textit{Stronger limits on hypothetical Yukawa interactions in the
+30--8000~nm range},
+Phys.\ Rev.\ Lett.\ \textbf{116}, 221102 (2016).
+
+\bibitem{Lee2020}
+J.~G. Lee, E.~G. Adelberger, T.~S. Cook, S.~M. Fleischer, and B.~R. Heckel,
+\textit{New test of the gravitational $1/r^2$ law at separations down to
+52~$\mu$m},
+Phys.\ Rev.\ Lett.\ \textbf{124}, 101101 (2020).
+
+\bibitem{Tan2020}
+W.-H. Tan, A.-B. Du, W.-C. Dong, S.-Q. Yang, C.-G. Shao, S.-G. Guan,
+Q.-L. Wang, B.-F. Zhan, P.-S. Luo, L.-C. Tu, and J.~Luo,
+\textit{Improvement for testing the gravitational inverse-square law at
+the submillimeter range},
+Phys.\ Rev.\ Lett.\ \textbf{124}, 051301 (2020).
+
+\bibitem{Salumbides2014}
+E.~J. Salumbides, W.~Ubachs, and V.~I. Korobov,
+\textit{Bounds on fifth forces at the sub-\AA ngstrom length scale},
+J.\ Mol.\ Spectrosc.\ \textbf{300}, 65 (2014).
+
+\bibitem{Alighanbari2020}
+S.~Alighanbari, G.~S. Giri, F.~L. Constantin, V.~I. Korobov, and
+S.~Schiller,
+\textit{Precise test of quantum electrodynamics and determination of
+fundamental constants with HD$^+$ ions},
+Nature \textbf{581}, 152 (2020).
+
+\bibitem{Murata2015}
+J.~Murata and S.~Tanaka,
+\textit{A review of short-range gravity experiments in the LHC era},
+Class.\ Quantum Grav.\ \textbf{32}, 033001 (2015).
+
+\bibitem{Cong2025}
+L.~Cong \textit{et al.},
+\textit{Spin-dependent exotic interactions},
+Rev.\ Mod.\ Phys.\ \textbf{97}, 025005 (2025).
+
+\bibitem{Jiao2019}
+M.~Jiao, X.~Rong, H.~Liang, Y.-F. Cai, and J.~Du,
+\textit{Searching for an exotic spin-dependent interaction between
+electrons at the nanometer scale with molecular rulers},
+Phys.\ Rev.\ D \textbf{101}, 115011 (2020).
+
+\bibitem{Kamiya2021}
+Y.~Kamiya, R.~Cubitt, L.~Porcar, O.~Zimmer, G.~N. Kim, and S.~Komamiya,
+\textit{Experimental search for non-Newtonian forces in the nanometer
+scale with slow neutrons},
+AIP Conf.\ Proc.\ \textbf{2319}, 040017 (2021).
 
 \end{thebibliography}
 }{}
