@@ -266,16 +266,16 @@ All ten matched pairs the compiled database currently supports:
 
 | Potential | Matter source | Antimatter source | Sector | $A_\alpha$ | Status |
 |-----------|---------------|--------------------|--------|-----------|--------|
-| $V_2$ ($g_Ag_A$)   | Karshenboim2011 | Ficek2018       | e-$\bar p$ | 0.9998 | Compiled |
-| $V_2$ ($g_Ag_A$)   | Ficek2017       | Karshenboim2011 | e-$e^+$    | 0.9892 | Compiled |
-| $V_{2+3}$ ($g_Ag_A$) | Ficek2017     | Fadeev2022      | e-$e^+$    | 0.9539 | Compiled |
-| $V_{2+3}$ ($g_pg_p$) | Fadeev2022    | Fadeev2022      | e-$e^+$    | 0.9535 | Compiled |
-| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Fadeev2022      | e-$e^+$    | 0.9535 | Compiled |
-| $V_1$ ($g_sg_s$)     | Delaunay2017  | Adkins2022      | e-$e^+$    | 0.8727 | Compiled |
-| $V_{2+3}$ ($g_Ag_A$) | Fadeev2022    | Ficek2018       | e-$\bar p$ | 0.8237 | Compiled |
-| $V_{2+3}$ ($g_Ag_A$) | Fadeev2022    | Fadeev2022      | e-$\bar p$ | 0.8044 | Compiled |
-| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Ficek2018       | e-$\bar p$ | 0.7994 | Compiled |
-| $V_2$ ($g_Ag_A$)   | Jiao2019        | Karshenboim2011 | e-$e^+$    | 0.3336 | Compiled |
+| $V_2$ ($g_Ag_A$)   | Karshenboim2011 | Ficek2018       | e- $\bar p$ | 0.9998 | Compiled |
+| $V_2$ ($g_Ag_A$)   | Ficek2017       | Karshenboim2011 | e- $e^+$    | 0.9892 | Compiled |
+| $V_{2+3}$ ($g_Ag_A$) | Ficek2017     | Fadeev2022      | e- $e^+$    | 0.9539 | Compiled |
+| $V_{2+3}$ ($g_pg_p$) | Fadeev2022    | Fadeev2022      | e- $e^+$    | 0.9535 | Compiled |
+| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Fadeev2022      | e- $e^+$    | 0.9535 | Compiled |
+| $V_1$ ($g_sg_s$)     | Delaunay2017  | Adkins2022      | e- $e^+$    | 0.8727 | Compiled |
+| $V_{2+3}$ ($g_Ag_A$) | Fadeev2022    | Ficek2018       | e- $\bar p$ | 0.8237 | Compiled |
+| $V_{2+3}$ ($g_Ag_A$) | Fadeev2022    | Fadeev2022      | e- $\bar p$ | 0.8044 | Compiled |
+| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Ficek2018       | e- $\bar p$ | 0.7994 | Compiled |
+| $V_2$ ($g_Ag_A$)   | Jiao2019        | Karshenboim2011 | e- $e^+$    | 0.3336 | Compiled |
 
 $V_3$, $V_7$, and $V_8$ have no matched pair in the current database: matter- and
 antimatter-sector data exist for each of $b_\mu$'s and $H_{\mu\nu}$'s target
