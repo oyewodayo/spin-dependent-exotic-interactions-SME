@@ -1,0 +1,136 @@
+\chapter{Introduction}
+\label{ch:introduction}
+
+\section{Background to the Research}
+
+The Standard Model has been tested to extraordinary precision, yet it is
+not considered a complete theory because it says nothing about gravity at the quantum level,
+it has no dark matter candidate despite dark matter making up roughly a
+quarter of the universe's energy budget (Planck Collaboration, 2020), and
+it cannot explain why the universe is full of matter and almost no
+antimatter. These gaps motivate the search for physics beyond the Standard
+Model (BSM), one well-motivated form of which is a class of light, weakly
+coupled bosonic fields, such as axions, axion-like particles, and dark
+photons, that mediate feeble, long-range \emph{fifth forces}.
+
+This thesis is concerned with a specific subset of fifth forces: those that
+couple to fermion spin rather than to charge or mass alone. Spin has no
+classical analogue, which makes \emph{exotic spin-dependent interactions}
+an unusually clean channel for probing symmetry violation. Two languages
+are used to describe such interactions. The Standard Model Extension (SME)
+of Colladay and Kostelecký (1997, 1998) is a relativistic effective field
+theory that systematically parametrises Lorentz and CPT violation through
+fixed background coefficients such as $b_\mu$, $H_{\mu\nu}$, and
+$d_{\mu\nu}$. The Dobrescu--Mocioiu (DM) classification (Dobrescu and
+Mocioiu, 2006) is a complete, non-relativistic basis of sixteen potentials,
+$V_1$--$V_{16}$, in which nearly all laboratory searches for exotic forces
+report their bounds. Connecting the two requires the Foldy--Wouthuysen (FW)
+transformation (Foldy and Wouthuysen, 1950), the standard technique for
+extracting the non-relativistic limit of a relativistic Dirac Hamiltonian.
+
+Separately, antimatter physics has become one of the sharpest available
+tools for testing fundamental symmetries. Experiments at CERN, such as BASE
+and ALPHA, compare matter and antimatter magnetic moments and spectral
+lines at a precision that directly tests charge-parity-time (CPT)
+invariance (Smorra \textit{et al.}, 2017; Ahmadi \textit{et al.}, 2017).
+Combining these two threads, exotic spin-dependent interaction searches and
+antimatter precision physics, opens a regime in which a CPT-violating
+interaction would appear as a measurable asymmetry between the coupling
+constants measured for matter and for antimatter.
+
+\section{Research Problem and Hypotheses}
+
+Despite over a hundred experiments compiled through 2024 (Cong \textit{et
+al.}, 2025), no unified framework systematically translates between the
+SME and DM formalisms, and no framework exists for comparing matter-sector
+and antimatter-sector constraints on exotic spin-dependent interactions
+within a single, quantitative measure of CPT consistency. The SME describes
+Lorentz- and CPT-violating physics through operator coefficients that are
+not directly expressed as measurable potentials; the DM basis is
+experimentally convenient but does not make its relativistic origin
+explicit. Prior attempts at a mapping between the two are partial,
+restricted to subsets of coefficients or potentials, and no compiled
+constraint database exists in a form that allows a direct, standardised
+comparison of matter- and antimatter-sector bounds across particle species,
+interaction types, and experimental platforms.
+
+This research problem yields two working hypotheses examined in this
+thesis. First, that a complete Foldy--Wouthuysen reduction of the
+CPT-odd coefficient $b_\mu$ and the CPT-even coefficients $H_{\mu\nu}$ and
+$d_{\mu\nu}$ can be matched, coefficient by coefficient, onto the DM
+potential basis, reproducing a genuine matter--antimatter sign flip for the
+CPT-odd case and no such flip for the CPT-even cases. Second, that a
+dimensionless asymmetry parameter $A_\alpha$, computed from currently
+published experimental bounds, can be used to test this prediction
+quantitatively once matter- and antimatter-sector datasets are compiled
+and standardised. As developed in Chapters~3 and~4, the second hypothesis
+requires an important qualification: because published bounds are
+one-sided upper limits rather than signed measurements, $A_\alpha$ alone
+cannot always separate a genuine CPT-violating signal from an ordinary gap
+in experimental sensitivity, a limitation this thesis treats as a central
+finding rather than an incidental caveat.
+
+\section{Justification for the Research}
+
+A unified SME--DM mapping gives experimentalists a direct way to translate
+a measured or constrained potential into a bound on a relativistic,
+symmetry-classified coefficient, and vice versa, rather than relying on
+partial, coefficient-specific translations scattered across the
+literature. A standardised, cross-platform constraint database removes the
+unit and convention inconsistencies that currently make it difficult to
+compare bounds from nitrogen-vacancy-centre magnetometry, torsion balances,
+atomic co-magnetometers, positronium spectroscopy, and antimatter
+spectroscopy on equal footing. Together, these tools enable the first
+systematic matter--antimatter comparison of spin-dependent forces and
+provide a reusable, extensible pipeline (SPINDEP) rather than a one-off
+calculation, one that automatically incorporates future antimatter-sector
+measurements as they are published. The results are relevant to ongoing
+experimental programmes at CERN (BASE, ALPHA), to precision quantum sensing
+laboratories, and to the SME data tables maintained by Kostelecký and
+Russell (2011), which this work is intended to complement.
+
+\section{Aims and Objectives}
+
+The primary objective of this research is to develop a unified theoretical
+and computational framework that connects Standard Model Extension
+coefficients to Dobrescu--Mocioiu spin-dependent potentials and enables
+systematic comparison of matter- and antimatter-sector constraints to test
+CPT symmetry. The specific objectives are:
+
+\begin{enumerate}
+  \item to derive explicit mappings between the SME fermion-sector
+    coefficients $b_\mu$, $H_{\mu\nu}$, and $d_{\mu\nu}$ and the
+    Dobrescu--Mocioiu coupling structures $g_s$, $g_p$, $g_V$, and $g_A$
+    using the Foldy--Wouthuysen transformation;
+  \item to construct a unified, standardised database of experimental
+    constraints from nitrogen-vacancy-centre magnetometry, torsion
+    balances, atomic co-magnetometers, positronium spectroscopy, and
+    antimatter experiments;
+  \item to define and compute the CPT asymmetry parameter $A_\alpha$ across
+    every matter--antimatter pair the compiled database can support;
+  \item to perform a global coverage analysis identifying unconstrained or
+    weakly constrained regions of the parameter space, particularly in the
+    antimatter sector; and
+  \item to propose concrete experimental and data-compilation strategies
+    for closing the identified gaps.
+\end{enumerate}
+
+\section{Outline of the Thesis}
+
+\begin{itemize}
+  \item Chapter~1 introduces the motivation, research questions, and
+    objectives of the thesis.
+  \item Chapter~2 reviews the theoretical background, the experimental
+    literature, and the specific inadequacies in existing knowledge that
+    this thesis addresses.
+  \item Chapter~3 describes the materials and methods: the
+    Foldy--Wouthuysen procedure used to derive the SME--DM mapping, and
+    the database compilation and statistical methodology used to compute
+    the CPT asymmetry parameter.
+  \item Chapter~4 presents the results, the derived coefficient-to-potential
+    mapping, the compiled 273-dataset constraint database, the
+    matter--antimatter asymmetry analysis, and the coverage gap analysis,
+    together with their discussion.
+  \item Chapter~5 presents the conclusions of the thesis and outlines its
+    principal limitations and directions for future work.
+\end{itemize}

@@ -1,0 +1,362 @@
+\chapter{Literature Review}
+\label{ch:litreview}
+
+\section{Theoretical Background}
+\label{sec:theory-background}
+
+\subsection{The Standard Model Extension}
+\label{sec:sme}
+
+The Standard Model Extension (SME) is constructed as the most general
+effective field theory Lagrangian obtainable by adding to the Standard
+Model (and General Relativity) every observer-scalar term formed by
+contracting Standard Model field operators with coefficients carrying free
+Lorentz indices (Colladay and Kostelecký, 1997, 1998). A distinction
+central to the framework is between two kinds of Lorentz transformation.
+\emph{Observer} transformations rotate or boost the coordinate frame used
+to describe a system without touching the system itself; the SME is
+constructed to respect observer Lorentz invariance exactly. \emph{Particle}
+transformations rotate or boost a localised particle or field
+configuration while holding the background coefficients fixed, and it is
+only under this class of transformation that the SME's background
+coefficients act as fixed, non-dynamical tensors that break the symmetry.
+This distinction is what allows the SME to remain a coordinate-independent,
+internally consistent field theory while still describing genuine,
+in-principle observable violations of Lorentz invariance.
+
+The SME Lagrangian is written schematically as
+\begin{equation}
+  \mathcal{L}_{\mathrm{SME}} = \mathcal{L}_{\mathrm{SM}} + \delta\mathcal{L}_{\mathrm{LV}},
+\end{equation}
+where $\mathcal L_{\mathrm{SM}}$ is the ordinary Standard Model Lagrangian
+and $\delta\mathcal L_{\mathrm{LV}}$ collects every observer-Lorentz-scalar,
+particle-Lorentz-violating operator that can be built from Standard Model
+fields. This thesis works within the \emph{minimal} SME, the subset of
+$\delta\mathcal L_{\mathrm{LV}}$ of renormalisable mass dimension
+($\leq4$) in the fermion sector, where existing spin-dependent
+exotic-interaction experiments place their bounds.
+
+For a single Dirac fermion $\psi$ of mass $m$, the general minimal SME
+fermion-sector Lagrangian is
+\begin{equation}
+  \mathcal L_{\mathrm{fermion}}
+  = \frac{i}{2}\bar\psi\,\Gamma^\nu\overleftrightarrow{D}_\nu\,\psi
+  - \bar\psi\,M\,\psi, \label{eq:sme-general}
+\end{equation}
+where $D_\nu$ is the gauge-covariant derivative,
+$\overleftrightarrow{D}_\nu \equiv D_\nu - \overleftarrow{D}_\nu$, and the
+Lorentz-violating physics is packaged entirely into two composite
+matrix-valued objects,
+\begin{align}
+  \Gamma^\nu &= \gamma^\nu + c^{\mu\nu}\gamma_\mu + d^{\mu\nu}\gamma_5\gamma_\mu
+               + e^\nu + if^\nu\gamma_5 + \tfrac12 g^{\lambda\mu\nu}\sigma_{\lambda\mu},
+               \label{eq:Gamma-general} \\
+  M &= m + a_\mu\gamma^\mu + b_\mu\gamma_5\gamma^\mu + \tfrac12 H_{\mu\nu}\sigma^{\mu\nu}.
+      \label{eq:M-general}
+\end{align}
+$\Gamma^\nu$ modifies the kinetic (derivative-coupling) sector, while $M$
+modifies the mass sector. Every coefficient in Eqs.~\eqref{eq:Gamma-general}
+and \eqref{eq:M-general} is a fixed background tensor, not a dynamical
+field, and each is in principle independent for every Standard Model fermion
+species. Setting all coefficients to zero except $m$ recovers the ordinary
+Dirac Lagrangian. For the leading-order (dimension $\leq4$) subset used
+throughout this thesis, Eq.~\eqref{eq:sme-general} reduces to the compact
+form
+\begin{multline}
+  \mathcal L_{\mathrm{fermion}}
+  = \bar\psi\left(i\gamma^\mu D_\mu - m\right)\psi
+  - a_\mu\,\bar\psi\gamma^\mu\psi
+  - b_\mu\,\bar\psi\gamma_5\gamma^\mu\psi \\
+  - \tfrac12 H_{\mu\nu}\,\bar\psi\sigma^{\mu\nu}\psi
+  - c_{\mu\nu}\,\bar\psi\gamma^\mu D^\nu\psi
+  - d_{\mu\nu}\,\bar\psi\gamma_5\gamma^\mu D^\nu\psi,
+  \label{eq:sme-minimal}
+\end{multline}
+where $D_\mu$ is the gauge-covariant derivative and
+$\sigma^{\mu\nu}=\tfrac{i}{2}[\gamma^\mu,\gamma^\nu]$. Note the operator
+ordering in the $b_\mu$ term, $\gamma_5\gamma^\mu$ rather than
+$\gamma^\mu\gamma_5$: since $\{\gamma_5,\gamma^\mu\}=0$, the two orderings
+differ by an overall sign, so this convention fixes the sign of every
+non-relativistic result derived from $b_\mu$ later in this thesis. Table
+\ref{tab:sme-classification} classifies every coefficient in
+Eq.~\eqref{eq:sme-minimal}, together with the dimension-5 coefficients
+$e_\mu,f_\mu$, by CPT parity and leading spin-dependent role.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{6.5cm}@{}}
+\toprule
+Coefficient & CPT & Mass dim.\ & Leading spin-dependent role \\
+\midrule
+$a_\mu$        & Odd  & 4 & None at leading order; velocity-dependent at $O(1/m)$ \\
+$b_\mu$        & Odd  & 4 & Zeeman-like spin coupling, $V_2$ \\
+$c_{\mu\nu}$   & Even & 4 & Direction-dependent kinetic modification; subleading $V_2$-type \\
+$d_{\mu\nu}$   & Even & 4 & Spin-velocity and mass-enhanced couplings, $V_2,V_7,V_8$ \\
+$e_\mu$        & Odd  & 5 & Velocity-dependent, contributes to $V_8$ and higher \\
+$f_\mu$        & Odd  & 5 & Velocity-dependent, contributes to $V_8$ and higher \\
+$g_{\lambda\mu\nu}$ & Odd & 5 & Not treated in this thesis \\
+$H_{\mu\nu}$   & Even & 4 & Anisotropic spin coupling, $V_3,V_7$ \\
+\bottomrule
+\end{tabular}
+\caption{Classification of minimal (and near-minimal) SME fermion-sector
+coefficients (Colladay and Kostelecký, 1998; Kostelecký and Lane, 1999).}
+\label{tab:sme-classification}
+\end{table}
+
+The CPT parity of a coefficient follows from how its associated fermion
+bilinear $\bar\psi\Gamma\psi$ transforms under the combined charge
+conjugation, parity, and time-reversal operation,
+\begin{equation}
+  \mathrm{CPT}\!\left[\bar\psi\,\Gamma\,\psi\right]
+  = \eta_\Gamma\,\bar\psi\,\Gamma\,\psi,
+  \qquad
+  \eta_\Gamma = \begin{cases}
+    +1 & \Gamma \in \{\mathbb 1,\; \gamma^\mu,\; \sigma^{\mu\nu}\} \\
+    -1 & \Gamma \in \{\gamma_5,\; \gamma_5\gamma^\mu\}
+  \end{cases},
+\end{equation}
+and the corresponding non-relativistic Hamiltonians obey the general rule
+\begin{equation}
+  H_{NR}^{\bar f}\!\left(X^{\text{CPT-odd}}\right)  = -H_{NR}^{f}\!\left(X^{\text{CPT-odd}}\right),
+  \qquad
+  H_{NR}^{\bar f}\!\left(X^{\text{CPT-even}}\right) = +H_{NR}^{f}\!\left(X^{\text{CPT-even}}\right).
+  \label{eq:cpt-rule-general}
+\end{equation}
+
+\subsection{The Dobrescu--Mocioiu Classification of Exotic Potentials}
+\label{sec:dm}
+
+Experimental searches for new long-range forces are conducted in the
+non-relativistic laboratory frame, not in the relativistic language of the
+SME. Dobrescu and Mocioiu (2006) closed this gap by enumerating, from first
+principles, every non-relativistic potential that can arise from the
+exchange of a single boson of arbitrary spin and parity between two
+spin-$\tfrac12$ fermions. The result is a complete basis of sixteen
+potentials,
+\begin{equation}
+  V(\mathbf r) = \sum_{i=1}^{16} V_i(\mathbf r),
+\end{equation}
+parametrised by coupling constants $g_s,g_p,g_V,g_A$ (scalar, pseudoscalar,
+vector, axial-vector). With $y(r)=e^{-r/\lambda}/(4\pi)$,
+$\lambda=1/m_\phi$ the mediator's Compton wavelength, $\hat{\mathbf r}$
+pointing from particle 2 to particle 1, and $\mathbf v$ the relative
+velocity of the pair, the sixteen potentials are (Cong \textit{et al.},
+2025; Dobrescu and Mocioiu, 2006):
+
+{\small
+\begin{align}
+  V_1 &= \frac1r\,y(r) \label{eq:v1}\\
+  V_2 &= \frac1r\,(\boldsymbol\sigma_1\cdot\boldsymbol\sigma_2)\,y(r) \label{eq:v2}\\
+  V_3 &= \frac{e^{-r/\lambda}}{4\pi m^2}\left\{\boldsymbol\sigma_1\cdot\boldsymbol\sigma_2
+    \left[\frac1{r^3}+\frac1{\lambda r^2}\right]
+    -(\boldsymbol\sigma_1\cdot\hat{\mathbf r})(\boldsymbol\sigma_2\cdot\hat{\mathbf r})
+    \left[\frac3{r^3}+\frac3{\lambda r^2}+\frac1{\lambda^2r}\right]\right\} \label{eq:v3}\\
+  V_{4,5} &= -\frac{1}{2mr^2}(\boldsymbol\sigma_1\pm\boldsymbol\sigma_2)\cdot(\mathbf v\times\hat{\mathbf r})
+    \left(1-r\frac{d}{dr}\right)y(r) \label{eq:v45}\\
+  V_{6,7} &= -\frac{1}{2mr^2}\Big[(\boldsymbol\sigma_1\cdot\mathbf v)(\boldsymbol\sigma_2\cdot\hat{\mathbf r})
+    \pm(\boldsymbol\sigma_1\cdot\hat{\mathbf r})(\boldsymbol\sigma_2\cdot\mathbf v)\Big]
+    \left(1-r\frac{d}{dr}\right)y(r) \label{eq:v67}\\
+  V_8 &= \frac1r(\boldsymbol\sigma_1\cdot\mathbf v)(\boldsymbol\sigma_2\cdot\mathbf v)\,y(r) \label{eq:v8}\\
+  V_{9,10} &= -\frac{1}{2mr^2}(\boldsymbol\sigma_1\pm\boldsymbol\sigma_2)\cdot\hat{\mathbf r}
+    \left(1-r\frac{d}{dr}\right)y(r) \label{eq:v910}\\
+  V_{11} &= -\frac{1}{mr^2}(\boldsymbol\sigma_1\times\boldsymbol\sigma_2)\cdot\hat{\mathbf r}
+    \left(1-r\frac{d}{dr}\right)y(r) \label{eq:v11}\\
+  V_{12,13} &= \frac{1}{2r}(\boldsymbol\sigma_1\pm\boldsymbol\sigma_2)\cdot\mathbf v\,y(r) \label{eq:v1213}\\
+  V_{14} &= \frac1r(\boldsymbol\sigma_1\times\boldsymbol\sigma_2)\cdot\mathbf v\,y(r) \label{eq:v14}\\
+  V_{15} &= -\frac{3}{2m^2r^3}\Big\{[\boldsymbol\sigma_1\cdot(\mathbf v\times\hat{\mathbf r})](\boldsymbol\sigma_2\cdot\hat{\mathbf r})
+    +(\boldsymbol\sigma_1\cdot\hat{\mathbf r})[\boldsymbol\sigma_2\cdot(\mathbf v\times\hat{\mathbf r})]\Big\}
+    \left(1-r\frac{d}{dr}+\frac{r^2}{3}\frac{d^2}{dr^2}\right)y(r) \label{eq:v15}\\
+  V_{16} &= -\frac{1}{2mr^2}\Big\{[\boldsymbol\sigma_1\cdot(\mathbf v\times\hat{\mathbf r})](\boldsymbol\sigma_2\cdot\mathbf v)
+    +(\boldsymbol\sigma_1\cdot\mathbf v)[\boldsymbol\sigma_2\cdot(\mathbf v\times\hat{\mathbf r})]\Big\}
+    \left(1-r\frac{d}{dr}\right)y(r) \label{eq:v16}
+\end{align}
+}
+
+Table~\ref{tab:dm-classification} groups the sixteen potentials by
+structural class, the organising principle Dobrescu and Mocioiu use to
+enumerate them exhaustively, and the property that determines which SME
+coefficient(s) can generate a given $V_i$ (Chapter~4).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+Structural class & Potentials \\
+\midrule
+Monopole--monopole (spin-independent) & $V_1$ \\
+Monopole--dipole & $V_9, V_{10}$ \\
+Dipole--dipole (spin--spin) & $V_2, V_3$ \\
+Spin--velocity & $V_4, V_5, V_6, V_7$ \\
+Velocity--velocity & $V_8$ \\
+Spin cross-product & $V_{11}$ \\
+Single-spin--velocity & $V_{12}, V_{13}, V_{14}$ \\
+Higher-order spin--velocity & $V_{15}, V_{16}$ \\
+\bottomrule
+\end{tabular}
+\caption{Structural classification of the Dobrescu--Mocioiu potentials.}
+\label{tab:dm-classification}
+\end{table}
+
+\subsection{The Foldy--Wouthuysen Transformation}
+\label{sec:fw}
+
+The Foldy--Wouthuysen transformation is selected over alternative
+non-relativistic reduction methods for two reasons specific to this thesis.
+The Klein--Gordon equation is excluded outright: it describes spin-0 fields
+and carries no spinor structure, making it incapable of generating the
+spin-operator combinations $\bm\sigma_1\cdot\bm\sigma_2$,
+$\bm\sigma\cdot\hat r$, and $\bm\sigma\cdot\mathbf v$ that define the
+$V_1$--$V_{16}$ basis. Working directly with the full Dirac equation, while
+formally correct, leaves the result in a relativistic form incompatible
+with the non-relativistic experimental observables the DM potentials are
+written for; the FW transformation resolves this by producing a
+block-diagonal Hamiltonian in which the upper block is immediately readable
+as a non-relativistic Pauli-operator expression, order by order in $1/m$,
+ready for direct matching against $V_i$.
+
+The Foldy--Wouthuysen (FW) transformation (Foldy and Wouthuysen, 1950) is
+the standard technique for systematically extracting the non-relativistic
+limit of a relativistic Dirac Hamiltonian, order by order in $1/m$, while
+keeping every step exact and unitary. It decouples the upper (particle) and
+lower (antiparticle) blocks of the Dirac spinor by eliminating, order by
+order, the operators that mix the two blocks. Writing
+$H = \beta m + \varepsilon_{\text{even}} + \varepsilon_{\text{odd}}$, where
+$\varepsilon_{\text{even}}$ commutes with $\beta=\gamma^0$ and
+$\varepsilon_{\text{odd}}$ anticommutes with it, the transformed Hamiltonian
+expands to order $1/m$ as
+\begin{equation}
+  H' \approx \beta m + \varepsilon_{\text{even}}
+  + \frac{\beta\varepsilon_{\text{odd}}^2}{2m}
+  - \frac{[\varepsilon_{\text{odd}},\varepsilon_{\text{even}}]}{4m}
+  + O(m^{-2}). \label{eq:FWexpansion}
+\end{equation}
+An even piece of the original perturbation survives into the
+non-relativistic Hamiltonian unchanged at order $m^0$; an odd piece
+contributes only at order $1/m$, through the $\beta\varepsilon_{\text{odd}}^2/2m$
+term. This is why coefficients coupling through odd operators (such as
+$b_0$ and $H_{0i}$) are systematically subleading relative to those
+coupling through even operators (such as $b_i$ and $H_{ij}$). Projecting
+the block-diagonal result onto the upper block gives the matter-sector
+Hamiltonian directly; the antiparticle sector requires the separate
+hole-theory reinterpretation of the lower (negative-energy) block, not a
+direct charge-conjugation transformation of the field-theoretic coupling
+itself, since the relevant bilinear $\bar\psi\gamma_5\gamma^\mu\psi$ is
+even under charge conjugation for every $\mu$ and so cannot alone account
+for the sign difference between the two sectors (Chapter~4).
+
+\subsection{CPT Symmetry and the Asymmetry Parameter}
+\label{sec:asymmetry-def}
+
+CPT symmetry, invariance under the combined transformation of charge
+conjugation, parity, and time reversal, is a theorem of local,
+Lorentz-invariant quantum field theory (Colladay and Kostelecký, 1997). To
+quantify possible CPT asymmetries in exotic interactions, this thesis
+defines the dimensionless asymmetry parameter
+\begin{equation}
+  A_{\alpha}
+  = \frac{g_{\alpha}^{f} - g_{\alpha}^{\bar{f}}}
+         {g_{\alpha}^{f} + g_{\alpha}^{\bar{f}}},
+  \qquad \alpha\in\{s,\,p,\,V,\,A\},
+  \label{eq:asymmetry}
+\end{equation}
+where $g_{\alpha}^{f}$ and $g_{\alpha}^{\bar f}$ are the effective coupling
+constants for a fermion species and its antifermion in interaction channel
+$\alpha$. Under exact CPT symmetry, $A_\alpha=0$ for every channel. As
+Chapter~4 derives in detail, $g_\alpha^f$ and $g_\alpha^{\bar f}$ as
+actually reported in the literature are one-sided experimental upper
+bounds rather than signed measured couplings, which limits how directly a
+non-zero $A_\alpha$ can be read as evidence of CPT violation.
+
+\section{Review of Existing Knowledge}
+\label{sec:review}
+
+\subsection{Experimental Platforms for Exotic Spin-Dependent Interactions}
+
+The search for exotic spin-dependent interactions spans a diverse range of
+experimental platforms, each optimised for a different length scale,
+particle species, and sensitivity regime. Nitrogen-vacancy (NV) centres in
+diamond are sensitive solid-state quantum sensors for weak spin-dependent
+fields at sub-micrometre scales, owing to long coherence times and optical
+spin readout (Rong \textit{et al.}, 2018a, 2018b), and are effective for
+short-range Yukawa-type potentials from $0.1\,\mu\mathrm{m}$ to
+$50\,\mu\mathrm{m}$. Torsion-pendulum experiments provide macroscopic
+sensitivity to weak spin-dependent and spin-independent forces over
+mesoscopic distances, typically $10\,\mu\mathrm{m}$ to $10\,\mathrm{cm}$,
+using polarised test masses against unpolarised attractors (Heckel
+\textit{et al.}, 2008). Atomic magnetometers operating in the
+spin-exchange relaxation-free regime achieve sub-femtotesla sensitivity to
+exotic spin couplings and are especially relevant for constraining $b_\mu$
+and $d_{\mu\nu}$ (Vasilakis \textit{et al.}, 2009). Antimatter experiments
+at CERN provide a direct test of CPT symmetry: BASE measures the antiproton
+magnetic moment to parts-per-billion precision (Smorra \textit{et al.},
+2017), and ALPHA performs precision spectroscopy on trapped antihydrogen
+(Ahmadi \textit{et al.}, 2017). Positronium, a purely leptonic bound
+system free of hadronic uncertainties, provides sensitivity to
+electron--positron spin couplings at atomic scales, with recent
+improvements from hyperfine and fine-structure spectroscopy (Fadeev
+\textit{et al.}, 2022; Adkins, Cassidy and Pérez-Ríos, 2022).
+
+\subsection{Theoretical Development History}
+
+Moody and Wilczek (1984) gave the first systematic treatment of long-range
+spin-dependent forces mediated by axion-like particles, establishing the
+Yukawa-type potential structure and the $g_sg_p$ coupling dependence that
+remains standard today. Colladay and Kostelecký (1997, 1998) constructed
+the SME as the most general effective field theory allowing Lorentz and CPT
+violation, and Kostelecký and Lane (1999) derived the non-relativistic
+limit of SME fermion-sector terms, providing the first formal bridge
+toward experimentally accessible observables. Dobrescu and Mocioiu (2006)
+then provided the complete classification of non-relativistic potentials
+described in Section~\ref{sec:dm}. More recently, Fadeev \textit{et al.}
+(2019, 2022) unified exotic spin-dependent interactions under a common
+effective field theory language and extended the analysis to observables in
+simple atomic systems, while Cong \textit{et al.} (2025) compiled the most
+complete modern survey of experimental constraints and exotic interaction
+classifications through 2024, without, however, constructing a systematic
+SME--Dobrescu--Mocioiu mapping or a matter--antimatter comparison
+framework.
+
+\section{Problems and Inadequacies in Existing Knowledge}
+\label{sec:gap}
+
+Despite these theoretical and experimental advances, the field remains
+fragmented across multiple formalisms and experimental reporting
+conventions, which limits cross-platform comparability and prevents a
+coherent programme of CPT tests using exotic interactions. The SME
+provides a fully relativistic description through well-defined operator
+coefficients, but these coefficients are not directly expressed in terms
+of experimentally measurable potentials. The Dobrescu--Mocioiu framework
+provides an experimentally convenient basis, but is phenomenological and
+does not make its connection to relativistic coefficients explicit. Prior
+attempts at bridging the two via Foldy--Wouthuysen reduction are
+incomplete, typically restricted to a subset of SME coefficients or a
+limited class of potentials; a fully general mapping between the complete
+SME fermion sector and the full $V_1$--$V_{16}$ basis has not previously
+been established. Existing experimental compilations, including the recent
+and extensive one of Cong \textit{et al.} (2025), are not expressed within
+a unified parameter space that allows direct comparison across particle
+species, interaction types, and experimental platforms. Most critically, no
+existing framework defines a universal CPT asymmetry parameter across all
+exotic spin-dependent interaction channels, nor has such a parameter been
+systematically evaluated against compiled experimental data. This prevents
+a quantitative, model-independent assessment of CPT violation in
+spin-dependent forces, and is the gap this thesis addresses.
+
+\section{Limitations of Existing Approaches}
+\label{sec:existing-limitations}
+
+Three specific limitations of the existing literature bear directly on the
+work of this thesis. First, published compilations report constraints as
+one-sided upper bounds, not signed central values with symmetric
+uncertainties; any CPT-comparison framework built on such data inherits
+this limitation and must, as shown in Chapter~4, treat it explicitly rather
+than assume it away. Second, antimatter-sector measurements are far rarer
+and far less standardised in units and reporting convention than
+matter-sector measurements, which existing compilations do not
+systematically quantify sector by sector or potential by potential. Third,
+the SME--Dobrescu--Mocioiu correspondence has, prior to this work, only
+been worked out piecemeal, coefficient by coefficient, in different papers
+using different conventions for signs, index placement, and normalisation,
+which makes an independent, internally consistent re-derivation, of the
+kind undertaken in Chapters~3 and~4 of this thesis, necessary before a
+reliable matching table can be trusted for quantitative use.

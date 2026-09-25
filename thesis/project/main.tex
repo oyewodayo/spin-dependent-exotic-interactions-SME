@@ -1,0 +1,160 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\onehalfspacing
+
+% Figures are not duplicated into this folder; they are picked up directly
+% from main_figures/, a regenerated copy dedicated to this expanded
+% project so that refreshing figures here can never affect the original
+% project/ directory's compiled output.
+% Full-page figures ([p]) sit vertically centred on their own page: equal
+% stretchable glue above and below the float. These are the standard-class
+% values, set explicitly so the layout does not depend on class defaults.
+\makeatletter
+\setlength{\@fptop}{0pt plus 1fil}
+\setlength{\@fpsep}{8pt plus 2fil}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+
+\graphicspath{%
+  {../main_figures/constraint_atlas/}%
+  {../main_figures/gap_analysis/}%
+  {../main_figures/matter_antimatter/}%
+}
+
+% Hanging-indent reference entries, per the University of Ibadan citation
+% format: first line fully justified, run-over lines indented one tab.
+\newcommand{\refitem}[1]{\par\noindent\hangindent=1.27cm\hangafter=1 #1\par\vspace{6pt}}
+
+\title{Unified Constraint Framework for Exotic Spin-Dependent Interactions:\\
+Matter--Antimatter Sector Comparison}
+\author{Oyewo Temidayo Solomon}
+\date{2026}
+
+\begin{document}
+
+% ------------------------------------------------------------------
+% TITLE PAGE
+% ------------------------------------------------------------------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\LARGE \bfseries Unified Constraint Framework for Exotic\\[0.3em]
+Spin-Dependent Interactions:\\[0.3em]
+Matter--Antimatter Sector Comparison\par}
+
+\vspace{2.5cm}
+
+{\large By\par}
+
+\vspace{0.4cm}
+
+{\Large Oyewo Temidayo Solomon\par}
+{\large Matriculation Number: 254010\par}
+
+\vspace{1.5cm}
+
+{\large A thesis submitted to the Department of Physics,\\
+Faculty of Science, University of Ibadan,\\
+in partial fulfilment of the requirements\\
+for the award of the degree of Master of Science in Theoretical Physics\\
+of the University of Ibadan\par}
+
+\vspace{2cm}
+
+{\large Supervisor: Professor O.~E. Oyewande\\
+Department of Physics\\
+University of Ibadan, Nigeria\par}
+
+\vfill
+
+{\large University of Ibadan, Nigeria\\
+2026\par}
+
+\end{titlepage}
+
+% ------------------------------------------------------------------
+% FRONT MATTER: roman-numeral page numbering (i, ii, iii, ...)
+% ------------------------------------------------------------------
+\pagenumbering{roman}
+
+% ------------------------------------------------------------------
+% DEDICATION
+% ------------------------------------------------------------------
+\input{00_dedication}
+
+% ------------------------------------------------------------------
+% ABSTRACT
+% ------------------------------------------------------------------
+\input{00_abstract}
+
+% ------------------------------------------------------------------
+% LIST OF FIGURES / LIST OF TABLES
+% ------------------------------------------------------------------
+\listoffigures
+\listoftables
+
+% ------------------------------------------------------------------
+% ACKNOWLEDGEMENTS
+% ------------------------------------------------------------------
+\input{00_acknowledgements}
+
+% ------------------------------------------------------------------
+% TABLE OF CONTENTS
+% ------------------------------------------------------------------
+\tableofcontents
+
+% ------------------------------------------------------------------
+% CERTIFICATION
+% ------------------------------------------------------------------
+\input{00_certification}
+
+% ------------------------------------------------------------------
+% MAIN MATTER: normal (arabic) page numbering restarts at 1 here
+% ------------------------------------------------------------------
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% ------------------------------------------------------------------
+% CHAPTERS
+% ------------------------------------------------------------------
+\input{01_introduction}
+\input{02_literature_review}
+\input{03_materials_and_methods}
+\input{04_results_and_discussion}
+\input{05_conclusions}
+
+% ------------------------------------------------------------------
+% REFERENCES
+% ------------------------------------------------------------------
+\input{06_references}
+
+% ------------------------------------------------------------------
+% APPENDICES
+% ------------------------------------------------------------------
+\appendix
+\input{07_appendices}
+
+\end{document}

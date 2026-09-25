@@ -192,7 +192,7 @@ Dimension-4+ operators $e_\mu$ and $f_\mu$ are CPT-odd but velocity-dependent (o
 
 3. Kostelecký, V.A. & Lane, C.D. (1999). Nonrelativistic quantum Hamiltonian for Lorentz violation. *J. Math. Phys.* 40, 6245.
 
-4. Kostelecký, V.A. & Mewes, M. (2001). CPT violation and the standard model. *Phys. Rev. D* 66, 056005.
+4. Kostelecký, V.A. & Mewes, M. (2002). Signals for Lorentz violation in electrodynamics. *Phys. Rev. D* 66, 056005.
 
 5. Foldy, L.L. & Wouthuysen, S.A. (1950). On the Dirac theory of spin-1/2 particles. *Phys. Rev.* 78, 29.
 

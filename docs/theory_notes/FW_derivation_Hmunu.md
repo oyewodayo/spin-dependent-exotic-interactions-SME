@@ -36,7 +36,7 @@ $H_{\mu\nu}$ has two distinct sectors: the magnetic-like spatial components $H_{
 * $H_{ij}$ (magnetic-like):
 
 $$
-H_{NR} = -\mathcal{H}^k \sigma^k
+H_{NR} = +\mathcal{H}^k \sigma^k
 $$
 
   where
@@ -50,7 +50,7 @@ $$
 * $H_{0i}$ (electric-like):
 
 $$
-H_{NR} = -\frac{1}{m}\sigma \cdot (p \times H_E)
+H_{NR} = +\frac{1}{m}\sigma \cdot (p \times H_E)
 $$
 
   $\rightarrow V_7$ (spin-velocity)
@@ -125,17 +125,31 @@ where
 
 $$ \sigma^{ij} = \frac{i}{2}[\gamma^i,\gamma^j]. $$
 
-In the Dirac representation:
+**Correction, 2026-09:** an earlier version of this subsection claimed
+$\gamma^0\sigma^{ij}=\varepsilon^{ijk}\Sigma^k$ as a full $4\times4$
+identity (equal blocks) and, from it, $H_{NR}(H_{ij})=-\mathcal H_B\cdot\sigma$.
+Verified directly with `dirac_algebra.py`, $\gamma^0\sigma^{ij}$ is
+block-diagonal (even) but its two blocks are *not* equal: it is
+$\mathrm{diag}(\varepsilon^{ijk}\sigma^k,\,-\varepsilon^{ijk}\sigma^k)=\beta\Sigma^k\varepsilon^{ijk}$,
+not $\Sigma^k\varepsilon^{ijk}$. Propagating the correct upper-block value
+through flips the final sign.
 
-$$ \gamma^0\sigma^{ij} = \varepsilon^{ijk}\Sigma^k = \mathrm{diag} \left( \varepsilon^{ijk}\sigma^k, \varepsilon^{ijk}\sigma^k \right) $$
+In the Dirac representation, computed directly for each independent
+spatial pair (verified numerically, not asserted):
 
-This is an even operator (block-diagonal).
+$$ \gamma^0\sigma^{ij}\Big|_{\text{upper block}} = \varepsilon^{ijk}\sigma^k, \qquad
+   \gamma^0\sigma^{ij}\Big|_{\text{lower block}} = -\varepsilon^{ijk}\sigma^k. $$
 
-In the upper components, contracting with $H_{ij}$:
+This is an even operator (block-diagonal, so both blocks are non-zero and
+independently well-defined, unlike an odd operator).
 
-$$ H_{H_{ij}}^{\uparrow} = -\frac{1}{2} H_{ij} \varepsilon^{ijk}\sigma^k = -\mathcal{H}_B^k \sigma^k $$
+In the upper (matter) components, contracting with $H_{ij}$ and summing
+over the antisymmetric pair as $\tfrac12(H_{ij}\sigma^{ij}+H_{ji}\sigma^{ji})=H_{ij}\sigma^{ij}$
+(no double counting, since both factors in the product are antisymmetric):
 
-$$ H_{NR}(H_{ij}) = -\mathcal{H}_B \cdot \sigma $$
+$$ H_{H_{ij}}^{\uparrow} = \frac{1}{2} H_{ij} \varepsilon^{ijk}\sigma^k = +\mathcal{H}_B^k \sigma^k $$
+
+$$ H_{NR}(H_{ij}) = +\mathcal{H}_B \cdot \sigma $$
 
 This is the standard spin--magnetic field coupling, here with the SME background $\mathcal{H}_B$ playing the role of a magnetic field.
 
@@ -143,25 +157,41 @@ It generates the dipole--dipole potential $V_3$ in the two-body interaction via 
 
 ### Electric-like Components $H_{0i}$
 
+**Correction, 2026-09:** an earlier version of this subsection claimed
+$\gamma^0\sigma^{0i}=-\alpha^i$ and, from it,
+$H_{NR}(H_{0i})=-\frac1m\sigma\cdot(p\times H_E)$. The intermediate
+identity is wrong (verified directly with `dirac_algebra.py`: it doesn't
+match $-\alpha^i$, nor $\pm i\alpha^i$ — a first guess that also turned out
+wrong). The correct identity, and the corrected final result derived from
+it below, both come out with the opposite overall sign.
+
 The mixed components $H_{0i}$ contribute through
 
 $$ \gamma^0\sigma^{0i} = \gamma^0 \times \frac{i}{2} [\gamma^0,\gamma^i]. $$
 
-In the Dirac representation:
+In the Dirac representation, computed directly (not guessed):
 
-$$ \gamma^0\sigma^{0i} = \frac{1}{2}\gamma^0[\gamma^0,\gamma^i] = -\alpha^i \quad (\text{off-diagonal}) $$
+$$ \gamma^0\sigma^{0i} = i\,\gamma^i \quad (\text{off-diagonal}). $$
 
 This is an **odd operator**; it mixes upper and lower spinor components.
 
-At order $m^0$ it vanishes; the FW procedure generates a contribution at order $m^{-1}$:
+At order $m^0$ it vanishes; the FW procedure generates a contribution at
+order $m^{-1}$ through the same cross-term machinery used for $b_0$
+(`FW_derivation_bmy.md` §3.2b): with the perturbing odd operator
+$\mathcal O_{H_E}=i\sum_k H_{0k}\gamma^k$,
 
-$$ H_{NR}(H_{0i}) = -\frac{1}{m} \sigma \cdot (p \times H_E) $$
+$$ H_{NR}(H_{0i}) = \frac{\beta}{2m}\{\boldsymbol\alpha\cdot\mathbf p,\ \mathcal O_{H_E}\}\Big|_{\text{upper}} = +\frac{1}{m} \sigma \cdot (p \times H_E) $$
 
 where
 
 $$ H_E^i = H_{0i}. $$
 
-This is a spin--orbit-type coupling that generates DM potential $V_7$.
+This is a spin--orbit-type coupling that generates DM potential $V_7$. The
+result is Hermitian (checked explicitly) and matches the expected
+$\boldsymbol\sigma\cdot(\mathbf p\times\mathbf H_E)$ structure exactly —
+unlike an earlier attempt at this same cross-term using the wrong
+$i\alpha^i$ operator, which gave a non-Hermitian, non-spin-structured
+result and was correctly left flagged as open rather than used.
 
 ---
 
@@ -191,8 +221,8 @@ This is velocity-dependent and requires experimental setups sensitive to relativ
 
 | **$H_{\mu\nu}$ sector** | **NR Hamiltonian**                     | **DM Potential** | **Order in $1/m$** | **Experimental signature**            |
 | ----------------------- | -------------------------------------- | ---------------- | ------------------ | ------------------------------------- |
-| $H_{ij}$ (magnetic)     | $-\mathcal{H}_B\cdot\sigma$            | $V_3$            | $m^0$ (leading)    | Sidereal variation in spin precession |
-| $H_{0i}$ (electric)     | $-\frac{1}{m}\sigma\cdot(p\times H_E)$ | $V_7$            | $m^{-1}$           | Velocity/direction-dependent force    |
+| $H_{ij}$ (magnetic)     | $+\mathcal{H}_B\cdot\sigma$            | $V_3$            | $m^0$ (leading)    | Sidereal variation in spin precession |
+| $H_{0i}$ (electric)     | $+\frac{1}{m}\sigma\cdot(p\times H_E)$ | $V_7$            | $m^{-1}$           | Velocity/direction-dependent force    |
 
 ---
 

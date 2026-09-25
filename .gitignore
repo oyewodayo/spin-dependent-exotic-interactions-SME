@@ -23,6 +23,10 @@ venv/
 # Personal explainer notebooks (scratch work, not part of the formal derivation set)
 *_explainer.ipynb
 
+# Personal by-hand derivation backup (defence-prep proof of work, not a citable thesis resource)
+docs/theory_notes/FW_Derivation_Note.md
+docs/theory_notes/FW_Derivation_Note.ipynb
+
 # Mathematica
 *.nb.bak
 

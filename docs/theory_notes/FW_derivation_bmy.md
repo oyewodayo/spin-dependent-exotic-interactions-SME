@@ -19,7 +19,7 @@ The goal of this derivation is to take the fully relativistic SME Lagrangian ter
 > [!NOTE]
 > **Key Result**
 > The b_i (spatial) component generates V₂ at leading order m⁰: H_NR = −b_i σ^i (matter), +b_i σ^i (antimatter) — see §4.
-> The b_0 (temporal) component generates V₇, V₈ at subleading order m⁻¹: H_NR = +b_0 (σ·p)/m
+> The b_0 (temporal) component generates V₇, V₈ at subleading order m⁻¹: H_NR = −b_0 (σ·p)/m
 > This sign flip is the qualitative CPT-odd signature of b_μ. It does **not** by itself predict |Aα| → 1 in SPINDEP's output — that requires the separate sensitivity-gap argument in §4.2, since the framework compares independent one-sided bounds, not signed couplings.
 
 ## 2. The SME Lagrangian Term
@@ -122,59 +122,93 @@ This is already in the Pauli non-relativistic form and requires no further FW it
 
 #### 3.2b Temporal component b_0
 
+**Correction, 2026-09:** an earlier version of this subsection claimed
+$\gamma^0\gamma_5\gamma^0=+\gamma_5$ and, from it, $H_{NR}(b_0)=+b_0(\sigma\cdot
+p)/m$. Both are wrong. $\{\gamma_5,\gamma^0\}=0$ and $(\gamma^0)^2=I$ together
+give $\gamma^0\gamma_5\gamma^0=-\gamma^0\gamma^0\gamma_5=-\gamma_5$ (verified
+both algebraically and by explicit $4\times4$ matrix multiplication with
+`dirac_algebra.py`), and correctly propagating that sign through the FW
+cross-term below flips the final result too. This is independently
+cross-checked against `derivations/sympy/FW_bmu_term.ipynb`, which works in
+the opposite ($\gamma^\mu\gamma_5$) Lagrangian ordering and finds
+$H_{NR}(b_i)=+\mathbf b\cdot\sigma$, $H_{NR}(b_0)=+b_0(\sigma\cdot p)/m$ (both
+plus, self-consistent in that convention); flipping every sign to translate
+into this note's $\gamma_5\gamma^\mu$ convention correctly reproduces
+$H_{NR}(b_i)=-\mathbf b\cdot\sigma$ (already matches §3.2a) and predicts
+$H_{NR}(b_0)=-b_0(\sigma\cdot p)/m$ — agreeing with the corrected derivation
+below, not the old one.
+
 The temporal component produces an 'odd' operator:
 
 $$
-γ^0γ_5γ^0 = γ_5 = off-diagonal
+γ^0γ_5γ^0 = -γ_5 \quad \text{(off-diagonal)}
 $$
 
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.7)*
 
-Since this is odd, it does not contribute at m⁰. At order m⁻¹, using the FW expansion (3.2), the odd operator generates:
+Since this is odd, it does not contribute at $m^0$. At order $1/m$, the
+relevant term in the general FW expansion (3.2) is $\beta\varepsilon_{odd}^2/2m$
+with the *full* odd operator $\varepsilon_{odd}=\boldsymbol\alpha\cdot\mathbf
+p+\mathcal O_{b_0}$, $\mathcal O_{b_0}=b_0\gamma^0\gamma_5\gamma^0=-b_0\gamma_5$.
+Expanding $\varepsilon_{odd}^2=(\boldsymbol\alpha\cdot\mathbf
+p)^2+\{\boldsymbol\alpha\cdot\mathbf p,\mathcal O_{b_0}\}+\mathcal O_{b_0}^2$
+and keeping only the piece linear in $b_0$ (the $\mathcal O_{b_0}^2$ term is
+$O(b_0^2)$ and dropped),
 
 $$
-H_NR(b_0) = β(γ_5 b_0)²/(2m) + ... → +b_0(σ·p)/m + O(m⁻²)
+H_{NR}(b_0) = \frac{\beta}{2m}\{\boldsymbol\alpha\cdot\mathbf p,\,-b_0\gamma_5\}
+\Big|_{\text{upper block}} = -\frac{b_0}{m}(\boldsymbol\sigma\cdot\mathbf p) + O(m^{-2}).
 $$
 
 &nbsp;&nbsp;&nbsp;&nbsp;*(3.8)*
 
 This is velocity-dependent and matches DM potentials V₇ and V₈.
 
-## 4. Charge Conjugation and the Antimatter Sign Flip
+## 4. The Antimatter Sign Flip
 
-### 4.1 C-transformation of the Spinor
+### 4.1 Hole-Theory Argument
 
-Under charge conjugation C, the Dirac spinor transforms as:
+**Correction, 2026-09:** an earlier version of this section derived the sign
+flip from the charge-conjugation identity $C\gamma_5\gamma^\mu
+C^{-1}=-(\gamma_5\gamma^\mu)^*$ with $C=i\gamma^2\gamma^0$. Checked directly
+with `dirac_algebra.py`, this identity only holds for $\mu=0$; for the
+spatial $\mu=i$ components actually used below it comes out with the
+opposite sign, $C\gamma_5\gamma^i C^{-1}=+(\gamma_5\gamma^i)^*$, and is
+inconsistent with §2.4a's own (correct) statement that the axial current
+$\bar\psi\gamma_5\gamma^\mu\psi$ is C-even for every $\mu$. The argument
+below reaches the same result, Eq. (4.4), without relying on that identity.
+
+The sign flip is read directly off the block structure of
+$H_b(b_i)=b_i\,\gamma^0\gamma_5\gamma^i$ already computed in §3.2a. Since
+$\gamma^0\gamma_5\gamma^i=-\Sigma^i=-\mathrm{diag}(\sigma^i,\sigma^i)$ is
+block-diagonal with the *same* operator $-\sigma^i$ repeated in the upper
+($\beta=+1$, particle) and lower ($\beta=-1$, negative-energy) blocks,
 
 $$
-ψ → ψ^c = Cγ^0ψ* where C = iγ^2γ^0 (Dirac convention)
+\langle\text{upper}|H_b(b_i)|\text{upper}\rangle =
+\langle\text{lower}|H_b(b_i)|\text{lower}\rangle = -b_i\,\sigma^i.
 $$
 
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.1)*
 
-The charge-conjugated spinor describes the antiparticle with the same momentum but opposite charge. Crucially, the SME coefficient b_μ is a fixed background field that does NOT transform under C — it is an external source. Therefore the Lagrangian density for the antiparticle becomes:
+By the standard hole-theory prescription (Bjorken & Drell, Ch. 5), a
+negative-energy solution $\phi_-$ of $H\phi_-=-|E|\phi_-$ is reinterpreted
+as a positive-energy antiparticle state via an overall sign flip of the
+Hamiltonian, since $(-H)\phi_-=+|E|\phi_-$: the antiparticle sees every
+perturbation term with the opposite sign to the value it takes on the
+lower block of the original, unconjugated $H$. Applying this to Eq. (4.1),
 
 $$
-L_b(ψ^c) = +b_μψ̅^cγ_5γ^μψ^c = +b_μ (ψ̅γ_5γ^μψ)*
-$$
-
-&nbsp;&nbsp;&nbsp;&nbsp;*(4.2)*
-
-The sign flip from −b_μ (particle) to +b_μ (antiparticle) follows from the anticommutativity of the C matrix with γ_5. Explicitly:
-
-$$
-Cγ_5γ^μ C⁻¹ = −(γ_5γ^μ)* → ψ̅^cγ_5γ^μψ^c = −(ψ̅γ_5γ^μψ)
-$$
-
-&nbsp;&nbsp;&nbsp;&nbsp;*(4.3)*
-
-Combined with the −b_μ in the Lagrangian, the antiparticle coupling has overall +b_μ. Therefore:
-
-$$
-H_NR^antiparticle(b_i) = +b · σ
+H_{NR}^{\bar f}(b_i) = -\left(-b_i\,\sigma^i\right) = +b_i\,\sigma^i.
 $$
 
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.4)*
+
+This reproduces the antiparticle result used throughout §4.2 and
+Chapter 4, now via a route verified computationally against
+`dirac_algebra.py`'s already-trusted `upper`/`lower` block projections
+(the same utilities used elsewhere in this note) rather than an
+index-dependent charge-conjugation identity.
 
 ### 4.2 Implication for the Asymmetry Parameter
 
@@ -222,7 +256,7 @@ The coupling constant $g_A$ in eq. (5.1) is identified with the b_μ coefficient
 > | **b_μ component** | **NR Hamiltonian** | **DM Potential** | **Order in 1/m** | **Notes** |
 > | --- | --- | --- | --- | --- |
 > | **b_i (spatial)** | -b·σ | **V₂** | m⁰ (leading) | Spin--spin ($\sigma_1\cdot\sigma_2$); both particles' spins couple |
-> | **b_0 (temporal)** | +b₀(σ·p)/m | **V₇, V₈** | m⁻¹ | Velocity-dependent spin coupling |
+> | **b_0 (temporal)** | −b₀(σ·p)/m | **V₇, V₈** | m⁻¹ | Velocity-dependent spin coupling |
 
 ## 6. Physical Consequences and SPINDEP Implications
 
@@ -238,7 +272,7 @@ The coupling constant $g_A$ in eq. (5.1) is identified with the b_μ coefficient
 
 - Foldy, L.L. & Wouthuysen, S.A. (1950). On the Dirac theory of spin-1/2 particles and its non-relativistic limit. Phys. Rev. 78, 29.
 
-- Kostelecký, V.A. & Mewes, M. (2001). CPT violation and the standard model. Phys. Rev. D 66, 056005.
+- Kostelecký, V.A. & Mewes, M. (2002). Signals for Lorentz violation in electrodynamics. Phys. Rev. D 66, 056005.
 
 - Bailey, Q.G. & Kostelecký, V.A. (2006). Signals for Lorentz violation in post-Newtonian gravity. Phys. Rev. D 74, 045001.
 

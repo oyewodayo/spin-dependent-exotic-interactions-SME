@@ -1,0 +1,249 @@
+\chapter{Notation and Symbol Reference}
+\label{app:notation}
+
+This appendix collects, in one place, every symbol, operator, and sign
+convention used across Chapters~1--5.
+
+\section{Dirac Algebra}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ll>{\raggedright\arraybackslash}p{6cm}@{}}
+\toprule
+Symbol & Meaning & Context \\
+\midrule
+$\gamma^\mu$ & Dirac gamma matrices ($\mu=0,1,2,3$) & Relativistic fermion field theory \\
+$\gamma^0$ & Time-like gamma matrix & Block-diagonal: $\mathrm{diag}(1,1,-1,-1)$ in the Dirac representation \\
+$\gamma_5$ & $i\gamma^0\gamma^1\gamma^2\gamma^3$ & Chiral matrix; off-diagonal in the Dirac representation \\
+$\beta$ & $\gamma^0$ & Used throughout the Foldy--Wouthuysen expansion \\
+$\alpha^i$ & $\gamma^0\gamma^i$ ($i=1,2,3$) & Velocity operator; off-diagonal in the Dirac representation \\
+$\Sigma^i$ & $\mathrm{diag}(\sigma^i,\sigma^i)$ & $4\times4$ spin matrix \\
+$\sigma^i$ & Pauli matrices ($i=1,2,3$) & $2\times2$ spin operators, non-relativistic limit \\
+$\boldsymbol\sigma$ & $(\sigma^1,\sigma^2,\sigma^3)$ & Pauli vector \\
+$D_\mu$ & Gauge-covariant derivative & Appears in the general SME Lagrangian (Ch.~2) \\
+$\eta_\Gamma$ & CPT parity of a bilinear $\bar\psi\Gamma\psi$ & $+1$ for $\Gamma\in\{\mathbb 1,\gamma^\mu,\sigma^{\mu\nu}\}$, $-1$ for $\Gamma\in\{\gamma_5,\gamma_5\gamma^\mu\}$ (Ch.~2) \\
+\bottomrule
+\end{tabular}
+\caption{Dirac algebra notation used in Chapters~2--4.}
+\label{tab:app-dirac}
+\end{table}
+
+\section{SME Coefficients}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}llcc>{\raggedright\arraybackslash}p{5.5cm}@{}}
+\toprule
+Symbol & Type & CPT & Lorentz & Definition / leading role \\
+\midrule
+$a_\mu$ & Vector & Odd & Odd & $\mathcal L_a=-a_\mu\bar\psi\gamma^\mu\psi$; no spin-dependent leading term \\
+$b_\mu$ & Vector & Odd & Odd & $\mathcal L_b=-b_\mu\,\bar\psi\,\gamma_5\gamma^\mu\,\psi$ \\
+$b_i$ & Spatial part of $b_\mu$ & Odd & Odd & Generates $-\mathbf b\cdot\boldsymbol\sigma$ (matter) \\
+$b_0$ & Temporal part of $b_\mu$ & Odd & Odd & Generates $-b_0(\boldsymbol\sigma\cdot\mathbf p)/m$ \\
+$c_{\mu\nu}$ & Tensor, kinetic sector & Even & Odd & Direction-dependent kinetic modification \\
+$H_{\mu\nu}$ & Antisymmetric tensor & Even & Odd & $\mathcal L_H=-\tfrac12 H_{\mu\nu}\,\bar\psi\,\sigma^{\mu\nu}\,\psi$ \\
+$H_{ij}$ & Spatial part of $H_{\mu\nu}$ & Even & Odd & Magnetic-like; generates $+\boldsymbol{\mathcal H}_B\cdot\boldsymbol\sigma$ \\
+$H_{0i}$ & Mixed part of $H_{\mu\nu}$ & Even & Odd & Electric-like; generates $+\tfrac1m\boldsymbol\sigma\cdot(\mathbf p\times\mathbf H_E)$ \\
+$d_{\mu\nu}$ & Traceless tensor, kinetic sector & Even & Odd & $\mathcal L_d=\tfrac12 i\,\bar\psi\,d^{\mu\nu}\gamma_5\gamma_\mu\,\overleftrightarrow\partial_\nu\,\psi$ \\
+$d_{i0}$ & Mixed part of $d_{\mu\nu}$ & Even & Odd & Generates $+d_{i0}\,m\,\sigma^i$ ($m^1$ enhancement) \\
+$d_{ij}$ & Spatial part of $d_{\mu\nu}$ & Even & Odd & Generates $+d_{ij}\,p^j\,\sigma^i$ (velocity-dependent) \\
+$d_{00}$ & Temporal part of $d_{\mu\nu}$ & Even & Odd & Generates $+d_{00}\,(\boldsymbol\sigma\cdot\mathbf p)$ \\
+$e_\mu,\,f_\mu$ & Dimension-5 vectors & Odd & Odd & Velocity-dependent; contribute to $V_8$ and higher \\
+$g_{\lambda\mu\nu}$ & Dimension-5 tensor & Odd & Odd & Listed for completeness; not treated further \\
+\bottomrule
+\end{tabular}
+\caption{SME fermion-sector coefficients used in this thesis.}
+\label{tab:app-sme}
+\end{table}
+
+\section{Dobrescu--Mocioiu Coupling Constants}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+Symbol & Meaning \\
+\midrule
+$g_s$ & Scalar coupling constant \\
+$g_p$ & Pseudoscalar coupling constant \\
+$g_V$ & Vector coupling constant \\
+$g_A$ & Axial-vector coupling constant \\
+\bottomrule
+\end{tabular}
+\caption{Dobrescu--Mocioiu coupling constants.}
+\label{tab:app-dm-couplings}
+\end{table}
+
+\section{The Asymmetry Parameter}
+\label{app:asymmetry}
+
+The CPT asymmetry parameter is defined, for interaction channel
+$\alpha\in\{s,p,V,A\}$, as
+\begin{equation}
+  A_\alpha = \frac{g_\alpha^f-g_\alpha^{\bar f}}{g_\alpha^f+g_\alpha^{\bar f}},
+\end{equation}
+where $g_\alpha^f$ is the effective coupling constant for fermion $f$ in
+channel $\alpha$ and $g_\alpha^{\bar f}$ is the corresponding coupling for
+its antifermion. Under exact CPT symmetry, $A_\alpha=0$ for every channel.
+For a genuinely CPT-odd, exactly signed coupling
+($g_\alpha^{\bar f}=-g_\alpha^f$), the denominator vanishes identically, so
+$A_\alpha$ diverges rather than saturating at $1$ (Chapter~4). SPINDEP's
+actual inputs, $g_\alpha^f$ and $g_\alpha^{\bar f}$, are independent,
+always-positive experimental upper bounds, not signed measured couplings; a
+ratio of two independent positive bounds of very different tightness
+approaches $\pm1$ whenever one bound is far tighter than the other,
+regardless of the true CPT parity of the underlying physics.
+
+\section{Statistical and Database Notation}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{8.5cm}@{}}
+\toprule
+Symbol & Meaning \\
+\midrule
+\texttt{\{V\}\{Author\}\{Year\}}\allowbreak\texttt{\_m\_abs\_}\allowbreak\texttt{\{sector\}.csv} & Filename convention for a compiled constraint dataset \\
+\texttt{ee}, \texttt{eebar}, \texttt{ep}, \texttt{epbar}, \texttt{emu}, \texttt{emubar}, \ldots & Fermion-sector labels; \texttt{bar}-suffixed sectors are antimatter \\
+\texttt{UNKNOWN} & Potential label the parser could not resolve from a filename; such datasets are compiled into the registry but held out of the analysis \\
+$g_Ag_A$, $g_pg_s$, $g_sg_s$, $g_Vg_V$, $g_Ag_V$, $g_pg_p$ & Coupling-family classification tags for a dataset \\
+$\chi^2$ & Chi-squared statistic \\
+$\mathrm{dof}_{\text{eff}}$ & Effective degrees of freedom, corrected for autocorrelation among interpolated grid points \\
+$p_{\text{eff}}$ & Significance recomputed against $\mathrm{dof}_{\text{eff}}$ \\
+$\overline{|A_\alpha|}$ & Mean absolute asymmetry across the grid for one matched pair \\
+95\% CI & Bootstrap (2000 resamples) confidence interval on $\overline{|A_\alpha|}$ \\
+\bottomrule
+\end{tabular}
+\caption{Statistical and database notation used in Chapter~4.}
+\label{tab:app-stats}
+\end{table}
+
+\chapter{Computational Resources}
+\label{app:code}
+
+The symbolic and numerical work underlying Chapters~3 and~4 is implemented
+as executable code rather than reproduced in full here, following the
+convention that large or actively maintained programs are referenced by
+location rather than transcribed into a printed appendix. The principal
+resources are:
+
+\begin{itemize}
+  \item \textbf{SPINDEP} -- the dataset parser, unit-conversion routines,
+    matter--antimatter pairing logic, $\chi^2$/bootstrap statistical
+    pipeline, constraint-atlas and gap-analysis plotting code, and the
+    compiled 273-dataset registry described in Chapter~3 (258 of which enter
+    the analysis), maintained as a
+    version-controlled Python package. The full analysis in Chapter~4 is
+    reproducible from a single command, \texttt{spin run --data
+    ./datasets}, part of a ten-command command-line interface
+    (\texttt{spin run}, \texttt{test}, \texttt{validate}, \texttt{import},
+    \texttt{gaps}, \texttt{atlas}, \texttt{config}, \texttt{batch},
+    \texttt{info}, \texttt{start}) that wraps the pipeline for use without
+    editing any code; \texttt{spin start} additionally launches a
+    browser-based interface for interactive exploration of the compiled
+    database and per-pair results. The core parsing, matching, and
+    statistical modules are covered by an automated test suite (130+
+    tests, run with \texttt{pytest}), added to guard the numerical results
+    in Chapter~4 against silent regression as the codebase and the
+    compiled dataset continue to be extended after this thesis.
+  \item \textbf{Foldy--Wouthuysen derivation notebooks} -- executable
+    SymPy notebooks (\texttt{FW\_bmu}\allowbreak\texttt{\_term.ipynb},
+    \texttt{FW\_Hmunu}\allowbreak\texttt{\_term.ipynb},
+    \texttt{FW\_dmunu}\allowbreak\texttt{\_term.ipynb})
+    reproducing, symbolically, every non-relativistic Hamiltonian derived
+    in Chapter~4, together with supporting modules for Dirac algebra and
+    Pauli-matrix manipulation, and the symbolic limit calculation used to
+    establish the divergence of the asymmetry parameter
+    (Eq.~\eqref{eq:Aalpha-divergence}) under an exact signed CPT-odd
+    substitution.
+  \item \textbf{Theory notes} -- worked derivations in prose form for the
+    $b_\mu$, $H_{\mu\nu}$, and $d_{\mu\nu}$ terms and the resulting
+    potential-matching table, cross-referenced against the notebooks above.
+  \item \textbf{Constraint datasets} -- the underlying two-column CSV files
+    for all 273 compiled datasets, of which 258 enter the analysis, organised by coupling family and
+    interaction class as described in Chapter~3, Section~3.2.1.
+\end{itemize}
+
+The constraint-atlas figures (Figures~\ref{fig:atlas-v1}--\ref{fig:atlas-v16}),
+the matter--antimatter comparison plot (Figure~\ref{fig:matter-antimatter}),
+and the coverage figures (Figures~\ref{fig:lambda-coverage-v1}--\ref{fig:matter-antimatter-ratio})
+in Chapter~4 are generated directly from this codebase and are reproducible
+by re-running the corresponding SPINDEP plotting routines against the
+compiled dataset registry.
+
+\chapter{Supplementary Coverage Figures}
+\label{app:supp-figures}
+
+Section~\ref{sec:results-gap} presents the per-potential dataset-inventory
+figure for three representative potentials, $V_1$, $V_{4+5}$, and
+$V_{9+10}$, chosen to illustrate the thin-coverage, dense-coverage, and
+zero-antimatter-coverage cases respectively. The same figure exists for
+every other classified potential and is included here in full for
+completeness, without repeating the discussion already given in
+Section~\ref{sec:results-gap}; the counts underlying each panel are also
+already tabulated in Table~\ref{tab:potential-gaps}.
+
+\clearpage
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V1a.png}
+\caption{Dataset inventory for $V_{1a}$.}
+\label{fig:lambda-coverage-v1a}
+\end{figure}
+\clearpage
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V2.png}
+\caption{Dataset inventory for $V_2$.}
+\label{fig:lambda-coverage-v2}
+\end{figure}
+\clearpage
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V2p3.png}
+\caption{Dataset inventory for $V_{2+3}$.}
+\label{fig:lambda-coverage-v2p3}
+\end{figure}
+\clearpage
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V8.png}
+\caption{Dataset inventory for $V_8$.}
+\label{fig:lambda-coverage-v8}
+\end{figure}
+\clearpage
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V11.png}
+\caption{Dataset inventory for $V_{11}$.}
+\label{fig:lambda-coverage-v11}
+\end{figure}
+\clearpage
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{lambda_coverage_V12p13.png}
+\caption{Dataset inventory for $V_{12+13}$.}
+\label{fig:lambda-coverage-v12p13}
+\end{figure}
+\clearpage
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.7\textwidth]{lambda_coverage_V15.png}
+\caption{Dataset inventory for $V_{15}$.}
+\label{fig:lambda-coverage-v15}
+\end{figure}
+\clearpage
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.7\textwidth]{lambda_coverage_V16.png}
+\caption{Dataset inventory for $V_{16}$.}
+\label{fig:lambda-coverage-v16}
+\end{figure}
+\clearpage

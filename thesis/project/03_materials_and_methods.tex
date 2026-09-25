@@ -1,0 +1,185 @@
+\chapter{Materials and Methods}
+\label{ch:methods}
+
+This is a theoretical and computational thesis: its "materials" are the
+published SME and Dobrescu--Mocioiu (DM) formalisms reviewed in Chapter~2
+and the compiled experimental constraint literature, and its principal
+research tool is SPINDEP, a purpose-built analysis pipeline (Python,
+NumPy/SciPy, and symbolic computation in SymPy) developed for this thesis.
+This chapter describes the research procedures used to derive the
+SME$\to$DM coefficient mapping (Section~\ref{sec:procedure}) and the
+methods of analysis used to compile and statistically compare experimental
+constraints (Section~\ref{sec:analysis-methods}). The results these
+procedures produce are presented and discussed in Chapter~4.
+
+\section{Research Procedures: Foldy--Wouthuysen Reduction of SME Coefficients}
+\label{sec:procedure}
+
+Each SME fermion-sector coefficient of interest, $b_\mu$, $H_{\mu\nu}$, and
+$d_{\mu\nu}$, was reduced to its non-relativistic Hamiltonian and matched
+onto the Dobrescu--Mocioiu potential catalogue by the same five-step
+procedure.
+
+\begin{enumerate}
+  \item \textbf{Write the covariant Lagrangian term.} The relevant term is
+    isolated from the general minimal SME Lagrangian
+    (Eq.~\ref{eq:sme-minimal}), and its CPT and Lorentz transformation
+    properties are checked directly from the transformation of the
+    corresponding fermion bilinear (or, for the derivative-coupled
+    coefficient $d_{\mu\nu}$, stated following Kostelecký and Lane, 1999,
+    since the bilinear rule alone does not apply to a derivative-coupled
+    operator).
+  \item \textbf{Derive the correction to the Dirac Hamiltonian.} Varying the
+    modified Lagrangian and solving the resulting modified Dirac equation
+    for $H\psi=E\psi$ gives the coefficient's contribution to the free Dirac
+    Hamiltonian $H_0=\boldsymbol\alpha\cdot\mathbf p+\beta m$, in the Dirac
+    representation of the gamma matrices ($\gamma^0=\mathrm{diag}(1,1,-1,-1)$,
+    $\gamma_5$ off-diagonal).
+  \item \textbf{Classify each contribution as even or odd.} Using standard
+    Dirac-algebra identities ($\{\gamma_5,\gamma^\mu\}=0$ and the explicit
+    $4\times4$ matrix forms of $\gamma^0\gamma_5\gamma^i$,
+    $\gamma^0\sigma^{ij}$, and related combinations, verified symbolically
+    with a purpose-written Dirac-algebra module), each component of the
+    correction is classified as block-diagonal (\emph{even}, commuting with
+    $\beta$) or block-off-diagonal (\emph{odd}, anticommuting with $\beta$).
+  \item \textbf{Apply the Foldy--Wouthuysen expansion.} An even component
+    contributes to the non-relativistic Hamiltonian unchanged at order
+    $m^0$, requiring no further transformation. An odd component is
+    combined with the leading odd operator $\boldsymbol\alpha\cdot\mathbf p$
+    through the general order-$1/m$ FW expansion (Eq.~\ref{eq:FWexpansion}),
+    producing a subleading, momentum-dependent contribution. This procedure
+    is preferred over a direct equation-of-motion expansion in the full
+    four-component spinor because it delivers the particle-sector
+    Hamiltonian as an explicit $2\times2$ Pauli expression whose operator
+    structure can be matched term-by-term against the closed-form $V_i$
+    potentials of Eqs.~\ref{eq:v1}--\ref{eq:v16}. For $b_\mu$,
+    this step is additionally cross-checked against the antiparticle
+    sector directly from the block structure identified in step 3: since
+    the even/odd classification already block-diagonalises the operator,
+    the negative-energy (lower) block gives the antiparticle's matrix
+    element in the original, unconjugated Hamiltonian, and the standard
+    hole-theory sign flip ($H\to-H$ on reinterpreting a negative-energy
+    solution as a positive-energy antiparticle) converts it into the
+    antiparticle's non-relativistic Hamiltonian. This route was adopted in
+    preference to a direct charge-conjugation argument on the bilinear
+    $\bar\psi\gamma_5\gamma^\mu\psi$ after that bilinear was verified, with
+    the same Dirac-algebra tooling, to be even under $C$ for every $\mu$
+    and therefore unable by itself to produce the required sign
+    difference; the resulting sign flip (or its absence) is nonetheless
+    the mechanism responsible for a genuine matter--antimatter asymmetry.
+  \item \textbf{Match to the Dobrescu--Mocioiu catalogue.} The resulting
+    single-particle non-relativistic Hamiltonian is promoted to a two-body
+    potential by pairing the same vertex structure on both interacting
+    fermions, and the resulting operator structure (in $\boldsymbol\sigma_1$,
+    $\boldsymbol\sigma_2$, $\hat{\mathbf r}$, and $\mathbf v$) is compared
+    directly against the closed forms of $V_1$--$V_{16}$
+    (Eqs.~\ref{eq:v1}--\ref{eq:v16}) to identify which potential(s) the
+    coefficient generates and at what order in $1/m$.
+\end{enumerate}
+
+Every derivation obtained by this procedure was additionally verified by an
+independent, executable symbolic computation (SymPy notebooks
+\texttt{FW\_bmu}\allowbreak\texttt{\_term.ipynb},
+\texttt{FW\_Hmunu}\allowbreak\texttt{\_term.ipynb}, and
+\texttt{FW\_dmunu}\allowbreak\texttt{\_term.ipynb}), including, for the CPT asymmetry parameter
+specifically, a symbolic limit calculation used to check the behaviour of
+Eq.~\eqref{eq:asymmetry} under an exact signed CPT-odd substitution
+(Chapter~4, Section~4.1.3). Where a derived result could be checked against
+an independently published non-relativistic Hamiltonian (Kostelecký and
+Lane, 1999, Eq.~4), this comparison was carried out component by component
+rather than only at the level of overall structure, which is how the open
+sign in the $d_{ij}$ and $d_{00}$ components (Chapter~4) was identified
+rather than overlooked.
+
+\section{Methods of Analysis}
+\label{sec:analysis-methods}
+
+\subsection{Constraint Database Compilation}
+\label{sec:db-methods}
+
+Each experimental constraint used in this thesis is stored as a
+two-column comma-separated value (CSV) file (interaction range $\lambda$ in
+metres, upper bound on the coupling $|g|$), organised in a directory tree
+by coupling family and interaction class, following the naming convention
+\texttt{\{V\}\{Author\}\{Year\}}\allowbreak\texttt{\_m\_abs\_}\allowbreak\texttt{\{sector\}.csv}. A parser
+recursively discovers every CSV file under the dataset root and extracts
+the potential label, source citation, and fermion sector from the filename
+and directory path, resolving alternate spellings of antimatter sectors
+(for example \texttt{ebare}, \texttt{ebar}, and \texttt{epbare} all resolve
+to the canonical labels \texttt{eebar} and \texttt{epbar}). Files whose
+sector or potential token cannot be resolved are retained in the compiled
+registry with the corresponding field recorded as \texttt{UNKNOWN} rather
+than being silently dropped, so that any classification gap remains visible
+rather than hidden by omission. Such files are then held out of the physics
+analysis by an explicit, per-file exclusion list that records a stated
+reason for each, rather than by a blanket rule on the \texttt{UNKNOWN}
+label; the registry therefore reports both what was compiled and what was
+analysed, and the difference is auditable. Interaction ranges
+reported in the literature in a mix of units (metres, MeV$^{-1}$,
+eV$^{-1}$, centimetres, nanometres, femtometres) are converted to a common
+metre scale by a unit-detection routine that inspects each filename for an
+explicit unit token before the dataset is used in any downstream analysis.
+Two datasets are matched into a matter--antimatter pair only when they
+share the same coupling family, the same DM potential label, and the same
+interaction class, and their fermion sectors are physically conjugate (for
+example \texttt{ee} with \texttt{eebar}), with exactly one of the two
+flagged as an antimatter dataset; this pairing logic is deliberately
+conservative and will not match two datasets differing in potential
+classification even where their sectors are conjugate.
+
+\subsection{Statistical Methodology for the Asymmetry Analysis}
+\label{sec:stat-methods}
+
+For each matched matter--antimatter pair, both constraint curves are
+interpolated (log-linear in $\log\lambda$--$\log g$) onto a common
+log-spaced grid of 300 points spanning their overlapping $\lambda$ range,
+and the asymmetry parameter $A_\alpha(\lambda)$ of Eq.~\eqref{eq:asymmetry}
+is evaluated at every grid point. Statistical significance is assessed in
+four stages, each addressing a limitation of the one before it.
+
+\begin{enumerate}
+  \item A \emph{uniform $\chi^2$ test} assumes a flat 10\% fractional
+    uncertainty at every grid point.
+  \item A \emph{weighted $\chi^2$ test} instead estimates a per-point
+    fractional uncertainty from the local curvature of each constraint
+    curve in log-log space, on the grounds that a smoothly varying
+    published bound is better determined than one with sharp local
+    features.
+  \item Both tests above treat the 300 grid points as independent degrees
+    of freedom, which is not justified, since the points are interpolated
+    from a much smaller number of real measurements along smooth curves and
+    adjacent points are strongly correlated. An \emph{effective degrees of
+    freedom} is therefore estimated from the autocorrelation length of the
+    $\chi^2$ residuals in grid-index space (the lag at which the residual
+    autocorrelation first drops below $1/e$), and the weighted-$\chi^2$
+    significance is recomputed against this corrected, typically much
+    smaller, degrees of freedom.
+  \item A \emph{parametric bootstrap} (2000 resamples, propagating the
+    estimated per-point uncertainty through to $A_\alpha$ itself) gives a
+    95\% confidence interval on the mean $|A_\alpha|$ for each pair.
+\end{enumerate}
+
+Two properties of this bootstrap step are worth stating explicitly rather
+than leaving implicit in the word ``parametric'' above. First, it is a
+delta-method approximation, not a resampling of the underlying raw
+matter/antimatter coupling values: by the point the bootstrap runs, each
+pair has already been reduced to $A_\alpha(\lambda)$ and its estimated
+combined uncertainty, so the per-point perturbation used to generate each
+resample is obtained by linearising $A_\alpha=(g_m-g_a)/(g_m+g_a)$ about
+$g_m\approx g_a$ and propagating the known uncertainty through that
+linearisation, rather than by redrawing $(g_m,g_a)$ pairs with
+replacement. Second, because the confidence interval is computed on
+$|A_\alpha|$ rather than the signed asymmetry, it is systematically
+biased away from zero even for a pair with no true asymmetry: folding a
+distribution centred at zero through an absolute value can only push
+resampled values upward, never down, so a bootstrap confidence interval
+that excludes zero should not, on its own, be read as evidence of a
+non-zero asymmetry.
+
+This methodology is applied uniformly to every matched pair in the
+compiled database (Chapter~4), and its results are interpreted throughout
+in light of the analytic sensitivity-gap argument developed in
+Section~\ref{sec:asymmetry-def} and Chapter~4: statistical significance of
+an asymmetry is a separate claim from evidence of CPT violation, and the
+methodology above establishes the former without, on its own, establishing
+the latter.
