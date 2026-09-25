@@ -208,17 +208,23 @@ bounds reproduces the same pattern regardless of true CPT status.}
 \label{sec:results-db}
 
 Applying the compilation methodology of Section~\ref{sec:db-methods}
-produced a database of 273 experimental constraint datasets, of which 258
-enter the physics analysis. Fifteen are compiled into the registry but held
-out of it, for three separately stated reasons. Twelve are $g_Ag_V$
-\texttt{Combined} curves: envelopes over several experiments, which the
-source database itself labels \texttt{combined} and marks
-\texttt{review\_only}, so that no single $V_n$ applies to them by
-construction. One is a $g_pg_p$ astrophysical $e$-$N$ bound that carries no
+produced a database of 283 experimental constraint datasets, of which 247
+enter the physics analysis. Thirty-six are compiled into the registry but
+held out of it, for five separately stated reasons. Twenty-eight are \texttt{Combined} envelope curves, twelve in $g_Ag_V$
+and sixteen in $g_pg_s$: aggregates over several experiments, which the
+source database labels \texttt{combined} and marks \texttt{review\_only},
+so that no single $V_n$ applies to them by construction. One is a $g_pg_p$ astrophysical $e$-$N$ bound that carries no
 potential assignment and for which none can be established from the source
 database. Two are \texttt{Code-plot-matlab} contributor-template
 placeholders, whose coupling label is a source directory named for its file
-format rather than its physics content. Table~\ref{tab:coupling-breakdown}
+format rather than its physics content. Five are the 90\% confidence-level
+variants of the Cong \textit{et al.} (2025) hydrogen-spectroscopy bounds,
+which the source database ships alongside the 95\% CL curves; the two sets
+are the same measurement reported at two confidence levels, so counting
+both would double-count the experiment and pair each twice against the same
+antimatter curve. The 95\% CL set is retained as the more conservative
+limit and the only one the source database carries a curation record for.
+Table~\ref{tab:coupling-breakdown}
 gives both counts by coupling family; every count reported in the remainder
 of this chapter is an analysed count unless stated otherwise.
 
@@ -228,16 +234,16 @@ of this chapter is an analysed count unless stated otherwise.
 \toprule
 Coupling family & Compiled & Analysed \\
 \midrule
-$g_Ag_A$ & 63 & 63 \\
-$g_pg_s$ & 53 & 53 \\
+$g_Ag_A$ & 69 & 66 \\
+$g_pg_s$ & 53 & 37 \\
 $g_sg_s$ & 49 & 49 \\
-$g_Vg_V$ & 43 & 43 \\
+$g_Vg_V$ & 45 & 44 \\
 $g_Ag_V$ & 37 & 25 \\
-$g_pg_p$ & 15 & 14 \\
+$g_pg_p$ & 17 & 15 \\
 $V_1$ (unlabelled coupling) & 11 & 11 \\
 \texttt{Code-plot-matlab} (template placeholder) & 2 & 0 \\
 \midrule
-Total & 273 & 258 \\
+Total & 283 & 247 \\
 \bottomrule
 \end{tabular}
 \caption{Dataset count by coupling family, as compiled into the registry
@@ -246,26 +252,32 @@ and as admitted to the physics analysis.}
 \end{table}
 
 By DM potential, the analysed database is dominated by $V_{4+5}$ (61
-datasets), followed by $V_1$ (47), $V_{2+3}$ (37), $V_{9+10}$ (31),
-$V_{1a}$ (30), $V_2$ (19), and $V_{12+13}$ (16), with $V_{11}$ (7), $V_8$
-(6), $V_{16}$ (2), and $V_{15}$ (2) making up the remainder. Two successive
+datasets), followed by $V_1$ (47), $V_3$ (39), $V_{9+10}$ (31), $V_2$
+(20), and $V_{12+13}$ (16), with $V_{1a}$ (14), $V_{11}$ (7), $V_8$ (6),
+$V_{2+3}$ (2), $V_{16}$ (2), and $V_{15}$ (2) making up the remainder.
+A bare numeric prefix in the source filenames denotes the potential
+number itself, so that a \texttt{3}-prefixed file is a bound on $V_3$
+alone and only the \texttt{23} prefix denotes the $V_2+V_3$ combination;
+every assignment in this table has been validated against the source
+database's own curation records, with no disagreement among the 194
+datasets those records cover. Two successive
 filename-convention passes resolved 26 of the 39 files that initially
 carried no recoverable potential token, by giving each an explicit
 potential-number prefix the parser could read; the 13 that remained are
-among the 15 datasets held out of the analysis above. Of the 258 analysed
+among the 36 datasets held out of the analysis above. Of the 247 analysed
 datasets, only 19 involve an antimatter sector: 9 in $e$-$\bar p$, 5 in
 $e$-$e^+$, 3 in $e$-$\bar\mu$, and one each in $\bar p$-He and the
 $dd\mu^+$ molecular ion (both, per Cong \textit{et al.}, 2025, laboratory
 bounds on $\bar p$-$N$ and $\mu^+$-$N$ respectively). This stark asymmetry,
-19 antimatter datasets against 239 matter-sector datasets, is the central
+19 antimatter datasets against 228 matter-sector datasets, is the central
 empirical fact the remainder of this chapter works with.
 
 \section{Matter--Antimatter Asymmetry Analysis}
 \label{sec:results-asym}
 
-\subsection{The Eleven Matched Pairs}
+\subsection{The Fifteen Matched Pairs}
 
-SPINDEP's pairing logic (Section~\ref{sec:db-methods}) matched eleven
+SPINDEP's pairing logic (Section~\ref{sec:db-methods}) matched fifteen
 matter--antimatter pairs from the analysed database. Table~\ref{tab:pairs}
 gives, for each, the mean absolute asymmetry, the autocorrelation-corrected
 effective degrees of freedom, the resulting significance, and the 95\%
@@ -278,27 +290,31 @@ bootstrap confidence interval.
 \toprule
 Coupling & Potential & Sector & Matter / antimatter source & $\overline{|A_\alpha|}$ & dof$_{\text{eff}}$ & $p_{\text{eff}}$ & 95\% CI \\
 \midrule
-$g_Ag_A$    & $V_2$    & $e$-$\bar p$ & Karshenboim (2011) / Ficek \textit{et al.} (2018)     & 0.9998 & 17 & $\approx0$ & [0.9994, 0.9996] \\
-$g_Ag_A$    & $V_2$    & $e$-$e^+$    & Ficek \textit{et al.} (2017) / Karshenboim (2011)     & 0.9892 & 21 & $\approx0$ & [0.9891, 0.9893] \\
-$g_Ag_A$    & $V_{2+3}$& $e$-$e^+$    & Ficek \textit{et al.} (2017) / Fadeev \textit{et al.} (2022)          & 0.9539 & 6  & $\approx0$ & [0.9538, 0.9540] \\
-$g_pg_p$    & $V_{2+3}$& $e$-$e^+$    & Fadeev \textit{et al.} (2022) / Fadeev \textit{et al.} (2022)         & 0.9535 & 6  & $\approx0$ & [0.9534, 0.9537] \\
-$g_Vg_V$    & $V_{2+3}$& $e$-$e^+$    & Fadeev \textit{et al.} (2022) / Fadeev \textit{et al.} (2022)         & 0.9535 & 6  & $\approx0$ & [0.9534, 0.9537] \\
-$g_sg_s$    & $V_1$     & $e$-$e^+$    & Delaunay \textit{et al.} (2017) / Adkins \textit{et al.} (2022)       & 0.8727 & 21 & $\approx0$ & [0.8726, 0.8728] \\
-$g_Ag_A$    & $V_{2+3}$& $e$-$\bar p$ & Fadeev \textit{et al.} (2022) / Ficek \textit{et al.} (2018)          & 0.8236 & 6  & $\approx0$ & [0.8235, 0.8237] \\
-$g_Ag_A$    & $V_{2+3}$& $e$-$\bar p$ & Fadeev \textit{et al.} (2022) / Fadeev \textit{et al.} (2022)         & 0.8044 & 8  & $\approx0$ & [0.8043, 0.8045] \\
-$g_pg_p$    & $V_{2+3}$& $e$-$\bar p$ & Fadeev \textit{et al.} (2022) / Ficek \textit{et al.} (2018)          & 0.7994 & 7  & $\approx0$ & [0.7993, 0.7995] \\
-$g_Vg_V$    & $V_{2+3}$& $e$-$\bar p$ & Fadeev \textit{et al.} (2022) / Ficek \textit{et al.} (2018)          & 0.7994 & 7  & $\approx0$ & [0.7993, 0.7995] \\
-$g_Ag_A$    & $V_2$    & $e$-$e^+$    & Jiao \textit{et al.} (2020) / Karshenboim (2011)      & 0.3336 & 9  & $\approx0$ & [0.3335, 0.3337] \\
+$g_Ag_A$    & $V_3$    & $e$-$\bar p$ & Cong \textit{et al.} (2025) / Fadeev \textit{et al.} (2022) & 1.0000 & 8  & $\approx0$ & [0.9995, 0.9997] \\
+$g_Ag_A$    & $V_2$    & $e$-$\bar p$ & Cong \textit{et al.} (2025) / Ficek \textit{et al.} (2018) & 0.9999 & 21  & $\approx0$ & [0.9995, 0.9996] \\
+$g_Ag_A$    & $V_2$    & $e$-$\bar p$ & Karshenboim (2011) / Ficek \textit{et al.} (2018) & 0.9998 & 17  & $\approx0$ & [0.9994, 0.9996] \\
+$g_Ag_A$    & $V_2$    & $e$-$e^+$    & Ficek \textit{et al.} (2017) / Karshenboim (2011) & 0.9892 & 21  & $\approx0$ & [0.9891, 0.9893] \\
+$g_Ag_A$    & $V_3$    & $e$-$e^+$    & Ficek \textit{et al.} (2017) / Fadeev \textit{et al.} (2022) & 0.9539 & 6  & $\approx0$ & [0.9538, 0.9540] \\
+$g_Vg_V$    & $V_3$    & $e$-$e^+$    & Fadeev \textit{et al.} (2022) / Fadeev \textit{et al.} (2022) & 0.9535 & 6  & $\approx0$ & [0.9534, 0.9537] \\
+$g_pg_p$    & $V_3$    & $e$-$e^+$    & Fadeev \textit{et al.} (2022) / Fadeev \textit{et al.} (2022) & 0.9535 & 6  & $\approx0$ & [0.9534, 0.9537] \\
+$g_pg_p$    & $V_3$    & $e$-$\bar p$ & Cong \textit{et al.} (2025) / Ficek \textit{et al.} (2018) & 0.9304 & 6  & $\approx0$ & [0.9302, 0.9304] \\
+$g_Ag_A$    & $V_3$    & $e$-$\bar p$ & Cong \textit{et al.} (2025) / Ficek \textit{et al.} (2018) & 0.9303 & 6  & $\approx0$ & [0.9301, 0.9303] \\
+$g_sg_s$    & $V_1$    & $e$-$e^+$    & Delaunay \textit{et al.} (2017) / Adkins \textit{et al.} (2022) & 0.8727 & 21  & $\approx0$ & [0.8726, 0.8728] \\
+$g_Ag_A$    & $V_3$    & $e$-$\bar p$ & Fadeev \textit{et al.} (2022) / Ficek \textit{et al.} (2018) & 0.8236 & 6  & $\approx0$ & [0.8235, 0.8237] \\
+$g_Ag_A$    & $V_3$    & $e$-$\bar p$ & Fadeev \textit{et al.} (2022) / Fadeev \textit{et al.} (2022) & 0.8044 & 8  & $\approx0$ & [0.8043, 0.8045] \\
+$g_Vg_V$    & $V_3$    & $e$-$\bar p$ & Fadeev \textit{et al.} (2022) / Ficek \textit{et al.} (2018) & 0.7994 & 7  & $\approx0$ & [0.7993, 0.7995] \\
+$g_pg_p$    & $V_3$    & $e$-$\bar p$ & Fadeev \textit{et al.} (2022) / Ficek \textit{et al.} (2018) & 0.7994 & 7  & $\approx0$ & [0.7993, 0.7995] \\
+$g_Ag_A$    & $V_2$    & $e$-$e^+$    & Jiao \textit{et al.} (2020) / Karshenboim (2011) & 0.3336 & 9  & $\approx0$ & [0.3335, 0.3337] \\
 \bottomrule
 \end{tabular}
-\caption{All eleven matched matter--antimatter pairs, with the
+\caption{All fifteen matched matter--antimatter pairs, with the
 autocorrelation-corrected effective degrees of freedom, the resulting
 weighted-$\chi^2$ significance, and the 95\% bootstrap confidence interval
 on the mean asymmetry.}
 \label{tab:pairs}
 \end{table}
 
-Effective degrees of freedom range from 6 to 21 across the eleven pairs, a
+Effective degrees of freedom range from 6 to 21 across the fifteen pairs, a
 factor of 14--50 below the naive 300 grid points, confirming that the
 autocorrelation correction of Section~\ref{sec:stat-methods} is not a
 negligible refinement. Every pair remains significant at effectively
@@ -311,8 +327,8 @@ Per Section~\ref{sec:results-fw-bmu}, an asymmetry value near 1 in Table
 violation: a large sensitivity gap between the matter- and
 antimatter-sector measurement being compared produces exactly the same
 signature regardless of the true underlying physics. This applies
-uniformly to every row, including the $g_Ag_A\cdot V_2\cdot e$-$\bar p$
-pair at $0.9998$, the highest asymmetry in the database, and the
+uniformly to every row, including the $g_Ag_A\cdot V_3\cdot e$-$\bar p$
+pair at $1.0000$, the highest asymmetry in the database, and the
 $g_sg_s\cdot V_1\cdot e$-$e^+$ pair at $0.8727$, whose scalar--scalar
 coupling is CPT-even at leading order (its dominant contribution comes
 from $c_{\mu\nu}$) and whose asymmetry is therefore attributable entirely
@@ -323,22 +339,37 @@ CPT-odd from CPT-even-with-a-large-sensitivity-gap. The lowest asymmetry in
 the table, $0.334$ for the $g_Ag_A\cdot V_2\cdot e$-$e^+$ pair (Jiao
 \textit{et al.}, 2020, versus Karshenboim, 2011), is the pair whose
 matter- and antimatter-sector bounds are closest in sensitivity among the
-ten, and is therefore the single most informative data point currently in
-the database for constraining $b_\mu$ in the $e$-$e^+$ channel, precisely
+fifteen, and is therefore the single most informative data point currently
+in the database for constraining $b_\mu$ in the $e$-$e^+$ channel, precisely
 because it is \emph{not} saturated near $|A_\alpha|\approx1$.
+
+The four pairs added by the Cong \textit{et al.} (2025) hydrogen bounds
+illustrate the same point from the opposite direction. Those bounds are
+substantially tighter on the matter side than any previously available
+$e$-$p$ constraint, and every pair they enter sits at the top of
+Table~\ref{tab:pairs}, the $g_Ag_A\cdot V_3$ pair reaching $1.0000$ to
+four decimal places. Improving the matter-sector measurement, with no
+change whatever to the antimatter sector or to the underlying physics,
+drove the asymmetry \emph{up}. This is the clearest available demonstration
+that $A_\alpha$ built from one-sided bounds tracks the sensitivity ratio
+rather than CPT status, and it is a direct empirical confirmation of the
+analytic argument of Section~\ref{sec:results-fw-bmu}.
 
 \subsection{Figures}
 
 Figures~\ref{fig:atlas-v1}--\ref{fig:atlas-v16} show the constraint atlas
-for each of the eleven classified potential labels in the compiled
+for each of the twelve classified potential labels in the compiled
 database. $V_1$ carries two panels: the bounds catalogued as a coupling
 $|g|$ (Figure~\ref{fig:atlas-v1}) and those catalogued as the
 gravity-normalised Yukawa strength $|\alpha|$
 (Figure~\ref{fig:atlas-v1-alpha}), plotted separately because the two
 conventions differ by roughly 37 decades and cannot share a y-axis. Several labels, $V_{2+3}$, $V_{4+5}$, $V_{9+10}$, and
 $V_{12+13}$, each combine two adjacent catalogue potentials that the
-underlying experiments do not distinguish individually; $V_6$, $V_7$, and
-$V_{14}$ have no classified dataset at all. Figures~\ref{fig:matter-antimatter}--\ref{fig:matter-antimatter-lowest}
+underlying experiments do not distinguish individually. $V_{2+3}$ is the
+sparsest of these, with only two datasets: a bound is filed under it only
+where the source explicitly reports the $V_2+V_3$ combination, while a
+bound on $V_3$ alone is filed under $V_3$. $V_6$, $V_7$, and $V_{14}$ have
+no classified dataset at all. Figures~\ref{fig:matter-antimatter}--\ref{fig:matter-antimatter-lowest}
 show the matter--antimatter comparison for the highest- and
 lowest-asymmetry pairs in Table~\ref{tab:pairs}, and
 Figure~\ref{fig:matter-antimatter-v1} shows the $V_1$ pair, included
@@ -384,8 +415,20 @@ conventions differ by roughly 37 decades.}
 
 \begin{figure}[p]
 \centering
+\includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V3.png}
+\caption{Constraint atlas for $V_3$, the best-covered potential in the
+antimatter sector (39 datasets, 10 of them antimatter).}
+\label{fig:atlas-v3}
+\end{figure}
+\clearpage
+
+\begin{figure}[p]
+\centering
 \includegraphics[width=0.85\textwidth,height=0.9\textheight,keepaspectratio]{constraint_V2+3.png}
-\caption{Constraint atlas for $V_{2+3}$.}
+\caption{Constraint atlas for $V_{2+3}$. Only two datasets carry this
+combination label, both matter-sector; the great majority of what earlier
+drafts filed under $V_{2+3}$ are $V_3$-only bounds and appear in
+Figure~\ref{fig:atlas-v3}.}
 \label{fig:atlas-v23}
 \end{figure}
 \clearpage
@@ -487,17 +530,17 @@ coincide at eleven by coincidence.
 \toprule
 Matter sector & Antimatter sector & Matter & Antimatter & Status \\
 \midrule
-$e$-$e$     & $e$-$e^+$      & 44 & 5 & Populated (used above) \\
-$e$-$p$     & $e$-$\bar p$   & 12 & 9 & Populated (used above) \\
+$e$-$e$     & $e$-$e^+$      & 40 & 5 & Populated (used above) \\
+$e$-$p$     & $e$-$\bar p$   & 17 & 9 & Populated (used above) \\
 $e$-$\mu$   & $e$-$\bar\mu$  & 3  & 3 & Populated, not yet matched \\
 $e$-$n$     & $e$-$\bar n$   & 16 & 0 & \textbf{Gap} \\
 $\mu$-$\mu$ & $\mu$-$\bar\mu$& 1  & 0 & \textbf{Gap} (thin on both sides) \\
 $n$-$p$     & $n$-$\bar p$   & 9  & 0 & \textbf{Gap} \\
 $n$-$n$     & $n$-$\bar n$   & 8  & 0 & \textbf{Gap} \\
 $p$-$p$     & $p$-$\bar p$   & 0  & 0 & No data either side \\
-$e$-$N$     & $e$-$\bar N$   & 54 & 0 & \textbf{Largest gap} \\
-$n$-$N$     & $n$-$\bar N$   & 52 & 0 & \textbf{Gap} (second largest) \\
-$p$-$N$     & $p$-$\bar N$   & 23 & 0$^\dagger$ & \textbf{Gap} in comparable units \\
+$e$-$N$     & $e$-$\bar N$   & 50 & 0 & \textbf{Largest gap} \\
+$n$-$N$     & $n$-$\bar N$   & 49 & 0 & \textbf{Gap} (second largest) \\
+$p$-$N$     & $p$-$\bar N$   & 18 & 0$^\dagger$ & \textbf{Gap} in comparable units \\
 \bottomrule
 \end{tabular}
 \caption{Matter versus antimatter dataset counts per canonical fermion
@@ -512,9 +555,9 @@ rather than an absence of measurement.}
 \end{table}
 
 The three nucleus sectors dominate the gap. $e$-$N$ is the single largest
-opportunity in the database, with 54 matter-sector datasets against zero in
-$e$-$\bar N$, but $n$-$N$ is barely behind it at 52, and $p$-$N$ adds a
-further 23; between them these three account for 129 of the 239
+opportunity in the database, with 50 matter-sector datasets against zero in
+$e$-$\bar N$, but $n$-$N$ is barely behind it at 49, and $p$-$N$ adds a
+further 18; between them these three account for 117 of the 228
 matter-sector datasets and carry no antimatter-sector counterpart at all.
 The $e$-$n$, $n$-$p$, and $n$-$n$ sectors each have a smaller but still
 substantial matter-sector base (8--16 datasets), again with no
@@ -522,8 +565,8 @@ antimatter-sector counterpart. Even the $e$-$\mu$/$e$-$\bar\mu$ pair, populated 
 both sides, has not yet been matched into a pair by SPINDEP's pairing
 logic, which is worth investigating directly rather than assuming a cause.
 
-The eleven sector pairs in Table~\ref{tab:sector-gaps} account for 222
-matter-sector and 17 antimatter-sector datasets, 239 in all, of the 258
+The eleven sector pairs in Table~\ref{tab:sector-gaps} account for 211
+matter-sector and 17 antimatter-sector datasets, 228 in all, of the 247
 analysed. (The two antimatter datasets not shown are the $\bar p$-He and
 $dd\mu^+$ entries, whose sectors have no counterpart row; this is why the
 table's antimatter column totals 17 rather than the 19 quoted in
@@ -546,33 +589,33 @@ Potential & Matter datasets & Antimatter datasets & Status \\
 \midrule
 $V_{4+5}$  & 58 & 3 & Thin antimatter coverage \\
 $V_{9+10}$ & 31 & 0 & \textbf{Gap} \\
-$V_{2+3}$  & 27 & 10 & Best-covered potential (used throughout Section~\ref{sec:results-asym}) \\
-$V_{1a}$   & 30 & 0 & \textbf{Gap} \\
-$V_2$      & 17 & 2 & Thin antimatter coverage \\
+$V_3$      & 29 & 10 & Best-covered potential (used throughout Section~\ref{sec:results-asym}) \\
+$V_{1a}$   & 14 & 0 & \textbf{Gap} \\
+$V_2$      & 18 & 2 & Thin antimatter coverage \\
 $V_1$      & 44 & 3 & Thin antimatter coverage \\
 $V_{12+13}$& 16 & 0 & \textbf{Gap} \\
 $V_{11}$   & 7  & 0 & \textbf{Gap} \\
 $V_8$      & 5  & 1 & Thin antimatter coverage \\
 $V_{15}$   & 2  & 0 & \textbf{Gap} \\
 $V_{16}$   & 2  & 0 & \textbf{Gap} \\
+$V_{2+3}$  & 2  & 0 & \textbf{Gap} (combination label) \\
 \bottomrule
 \end{tabular}
 \caption{Matter versus antimatter dataset counts per Dobrescu--Mocioiu potential.}
 \label{tab:potential-gaps}
 \end{table}
 
-Six of the eleven classified potentials, $V_{11}$, $V_{15}$, $V_{16}$,
-$V_{1a}$, $V_{9+10}$, and $V_{12+13}$, have \emph{zero} antimatter-sector
-datasets despite substantial matter-sector coverage. Only $V_{2+3}$ has
-antimatter coverage exceeding a handful of datasets, which is why ten of
-the eleven matched pairs in Section~\ref{sec:results-asym} involve $V_2$
-or $V_{2+3}$.
+Seven of the twelve classified potentials, $V_{11}$, $V_{15}$, $V_{16}$,
+$V_{1a}$, $V_{9+10}$, $V_{12+13}$, and $V_{2+3}$, have \emph{zero}
+antimatter-sector datasets. Only $V_3$ has antimatter coverage exceeding a
+handful of datasets, which is why fourteen of the fifteen matched pairs in
+Section~\ref{sec:results-asym} involve $V_2$ or $V_3$.
 
 Figures~\ref{fig:lambda-coverage-v1}--\ref{fig:matter-antimatter-ratio} show
 the dataset inventory and coverage matrix for the same database. They count
-\emph{independent bounds} rather than dataset files: 48 of the 258 analysed
+\emph{independent bounds} rather than dataset files: 48 of the 247 analysed
 datasets are the same measured bound filed under more than one coupling
-family, and are collapsed to a single curve before plotting, leaving 210
+family, and are collapsed to a single curve before plotting, leaving 199
 independent bounds. Row and column totals read off those figures are
 therefore systematically smaller than the counts in Tables
 \ref{tab:sector-gaps} and~\ref{tab:potential-gaps}, which count files as the
@@ -627,14 +670,19 @@ and~\ref{tab:potential-gaps}; the gaps identified are the same.}
 
 Two limitations of the current database and framework are distinct from
 the physics coverage gaps above and are stated here rather than worked
-around silently. First, the 15 datasets held out of the analysis
+around silently. First, the 36 datasets held out of the analysis
 (Section~\ref{sec:results-db}) are excluded rather than reclassified, and
-the reasons differ in kind. Twelve are $g_Ag_V$ \texttt{Combined} envelope
-curves that the source database marks \texttt{review\_only} and assigns no
-potential; these are not a parsing gap that any filename convention could
-close, because no single $V_n$ describes an envelope over several
-experiments, and they would have to be decomposed into their constituent
-bounds before they could enter a per-potential analysis. Two are
+the reasons differ in kind. Twenty-eight are \texttt{Combined} envelope
+curves, twelve in $g_Ag_V$ and sixteen in $g_pg_s$, which the source
+database marks \texttt{review\_only} and assigns no potential; these are
+not a parsing gap that any filename convention could close, because no
+single $V_n$ describes an envelope over several experiments, and they
+would have to be decomposed into their constituent bounds before they
+could enter a per-potential analysis. The sixteen $g_pg_s$ curves were
+identified only when every potential assignment in the database was
+validated against the source database's curation records: a local
+filename prefix had caused them to be read as $V_{1a}$, which those
+records contradict. Two are
 contributor-template placeholders, and were previously being read as $V_1$
 and $V_2$ datasets on the strength of a trailing digit in their filenames,
 which inflated those two potentials by one dataset each. The remaining one
@@ -643,14 +691,17 @@ potential is unassigned upstream, and assigning it $V_{1a}$ from the
 filenames of its siblings in other coupling families would be an inference
 rather than evidence. It is held out until the source publication settles
 it, and is the one exclusion that a single documentary check could reverse.
-Second, six entries under $V_{2+3}$, $V_{9+10}$ and $V_{15}$ report
+The last five are the 90\% CL Cong \textit{et al.} (2025) curves, excluded
+as duplicates of the 95\% CL set rather than as defective data; retaining
+both would count one experiment twice.
+Second, six entries under $V_3$, $V_{9+10}$ and $V_{15}$ report
 interaction ranges that are physically implausible, reaching
 $\lambda\sim10^{52}$~m against an observable universe of order
 $10^{26}$~m, almost certainly the result of a unit token being mis-detected
-during compilation. Two of the eleven matched pairs in
+during compilation. Two of the fifteen matched pairs in
 Table~\ref{tab:pairs} draw on an affected dataset: the $g_Ag_A\cdot
-V_{2+3}\cdot e$-$e^+$ pair on the matter side and the $g_Ag_A\cdot
-V_{2+3}\cdot e$-$\bar p$ pair on the antimatter side. Neither result is
+V_3\cdot e$-$e^+$ pair on the matter side and the $g_Ag_A\cdot
+V_3\cdot e$-$\bar p$ pair on the antimatter side. Neither result is
 compromised, because the asymmetry is evaluated only on the overlapping
 range of the two curves, and in both cases the implausible tail lies
 outside that overlap: the ranges used are
@@ -668,7 +719,7 @@ experimental target can be motivated until it is resolved.
 Three concrete directions follow from the coverage gaps above. First,
 future antimatter-sector measurement effort is best prioritised in the
 $e$-$N$, $n$-$N$, $p$-$N$, $e$-$n$, $n$-$p$, and $n$-$n$ sectors, which
-together account for 162 of the 239 matter-sector datasets in the analysed
+together account for 150 of the 228 matter-sector datasets in the analysed
 database and zero antimatter-sector ones; precision antiproton experiments such as BASE, and
 antihydrogen spectroscopy such as ALPHA, are the most direct existing
 platforms capable of producing bounds in these channels. Second, the same
