@@ -40,11 +40,11 @@ couplings.
   $\to V_2$ — matches Kostelecký & Lane (1999) Eq. (4) exactly, sign included
   (`FW_dmunu_term.ipynb`).
 * $d_{ij}$: $H_{NR} = +d_{ij}\,p^j\,\sigma^i$ (order $m^0$ in velocity)
-  $\to V_7, V_8$ — structure matches Eq. (4); overall sign not yet reproduced
-  by this level of derivation (see "Open point" below).
+  $\to V_7, V_8$ — matches Eq. (4) exactly, sign included (see
+  "Momentum convention" below).
 * $d_{00}$: $H_{NR} = +d_{00}\,(\boldsymbol\sigma\cdot\mathbf p)$ (order $m^0$
   in momentum) $\to V_8$, via the FW $\mathcal O^2/2m$ expansion — structure
-  matches Eq. (4); sign likewise open.
+  matches Eq. (4) exactly, sign included.
 * CPT-even: no sign flip for antimatter; $A_\alpha$ is predicted near $0$,
   subject to the same sensitivity-gap caveat discussed in
   `FW_derivation_bmy.md` §4.2.
@@ -143,8 +143,8 @@ $|d_{i0}| < 10^{-25}$ GeV (Heckel et al. 2008).
 
 The $d_{ij}$ result matches Eq. (4) in structure — a velocity-dependent
 coupling to the spin, generating DM potentials $V_7,V_8$ — but this
-derivation does not reproduce its overall sign relative to Eq. (4). See
-"Open point" below.
+reproduces Eq. (4) exactly once that equation's momentum convention is
+applied. See "Momentum convention" below.
 
 ### Pure temporal $d_{00}$ (and $d_{0j}$)
 
@@ -168,27 +168,51 @@ $$
 
 $d_{00}$ does not vanish, consistent with $d_{\mu\nu}$ being traceless rather
 than antisymmetric. This result matches Eq. (4) in structure, again with an
-open overall sign, and generates DM potential $V_8$.
+and generates DM potential $V_8$.
 
-### Open point: the sign of the momentum-dependent terms
+### Momentum convention: why the momentum-linear terms first looked wrong
 
-The $d_{i0}$ mass-enhancement term matches Kostelecký & Lane's Eq. (4)
-exactly, sign included. The two momentum-dependent pieces, $d_{ij}$ and
-$d_{00}$, match in operator structure but not in overall sign. The mismatch
-is systematic — only the momentum-linear terms disagree, while the pure
-mass-enhancement term is exact — which points to a specific missing
-ingredient rather than a random error: Kostelecký & Lane's full derivation of
-Eq. (4) includes a wavefunction-renormalization step for kinetic-sector
-coefficients ($c_{\mu\nu}$, $d_{\mu\nu}$), since the modified kinetic term
-shifts the canonical normalization of the plane-wave states. The plain
-"substitute $i\partial_\nu\to p_\nu$ into the equation of motion" derivation
-used here does not include that step. Repeating the derivation with
-wavefunction renormalization included is the natural next piece of work on
-this coefficient; until then, $d_{ij}\to V_7,V_8$ and $d_{00}\to V_8$ should
-be cited with their magnitude and operator structure established, but their
-overall sign noted as open.
+All three components — $d_{i0}$, $d_{ij}$ and $d_{00}$ — reproduce
+Kostelecky & Lane's Eq. (4) exactly, signs included. An earlier version of
+this note recorded the two momentum-linear terms as having an open overall
+sign and attributed it to a missing wavefunction-renormalization step. Both
+claims were wrong, and the record is corrected here.
 
----
+**The renormalization hypothesis was tested and refuted.** Kostelecky &
+Lane's own derivation (*Nonrelativistic Quantum Hamiltonian for Lorentz
+Violation*, J. Math. Phys. **40**, 6245 (1999)) does use a field
+redefinition, $A = 1 - \tfrac12\gamma^0(\Gamma_0-\gamma_0)$, and their
+remark that the naive route "results in a non-hermitian hamiltonian" is
+correct and reproduced symbolically here. But implementing their exact
+procedure leaves the non-relativistic particle-sector result unchanged for
+$d_{ij}$ and $d_{00}$: $\Gamma^0$ contains only the $\nu=0$ column
+$\{d^{00},d^{10},d^{20},d^{30}\}$, so $d^{ij}$ is structurally unreachable,
+and for $d^{00}$ the corrections cancel after the FW reduction. The
+field redefinition is necessary for hermiticity but does not move either
+disputed term.
+
+**The actual cause is a momentum-index convention in Eq. (4).** The text
+beside Eq. (4) describes $p_j$ as "the three-momentum of the particle",
+which reads as the physical momentum $p^j$. It is not. The same authors'
+intermediate relativistic Hamiltonian defines the free kinetic term as
+
+$$m\mathcal{P}_0 := -p_j\,\gamma^0\gamma^j ,$$
+
+and direct computation gives $-p_j\gamma^0\gamma^j = -\boldsymbol\alpha\cdot\mathbf p$.
+Recovering the required free Dirac Hamiltonian
+$+\boldsymbol\alpha\cdot\mathbf p + \beta m$ therefore forces their lower-index
+$p_j$ to be the **covariant** component $p_j = -p^j$, the same convention
+used throughout this note.
+
+Read that way, Eq. (4) and the derivation above agree term by term. Read as
+physical momentum, the two momentum-linear terms appear to flip while the
+mass-enhanced term still agrees — which is the signature of a
+momentum-index mismatch, not of a derivation error, since the mass term
+carries no factor of $p$.
+
+The comparison, the refutation of the renormalization hypothesis, and an
+independent implementation of the $A$ transform are all carried out in
+`derivations/sympy/FW_dmunu_sign_explainer.ipynb`.
 
 ## Two-Body Potentials and Matching
 
@@ -222,8 +246,8 @@ and $d_{00}$ contributes an additional $V_8 \propto d_{00}\,(\sigma\cdot v)\, e^
 | **$d_{\mu\nu}$ component** | **NR Hamiltonian** | **DM Potential(s)** | **Order in $1/m$** | **Notes** |
 | :--- | :--- | :--- | :--- | :--- |
 | $d_{i0}$ (electric-axial) | $+d_{i0}\, m\, \sigma^i$ | $V_2$ | $m^1$ (large!) | Enhanced by fermion mass; matches Eq. (4) exactly, including sign; tight bounds |
-| $d_{ij}$ (magnetic-axial) | $+d_{ij}\, p^j\, \sigma^i$ | $V_7, V_8$ | $m^0$ in velocity | Velocity-dependent; structure confirmed, overall sign open |
-| $d_{00}$ | $+d_{00}\, (\sigma\cdot p)$ | $V_8$ | $m^0$ in momentum | Nonzero because $d_{\mu\nu}$ is traceless, not antisymmetric; structure confirmed, sign open |
+| $d_{ij}$ (magnetic-axial) | $+d_{ij}\, p^j\, \sigma^i$ | $V_7, V_8$ | $m^0$ in velocity | Velocity-dependent; derived and verified against Eq. (4) |
+| $d_{00}$ | $+d_{00}\, (\sigma\cdot p)$ | $V_8$ | $m^0$ in momentum | Nonzero because $d_{\mu\nu}$ is traceless, not antisymmetric; derived and verified against Eq. (4) |
 
 ## References
 

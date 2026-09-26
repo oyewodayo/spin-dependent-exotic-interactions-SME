@@ -164,7 +164,9 @@ def bcf_expansion(S, H, order=4):
         prefactor = (I ** n) * sp.Rational(1, factorial)
         terms.append(prefactor * current)
 
-    total = sum(terms)
+    # sum() starts from the integer 0, and `0 + Matrix` raises TypeError, so the
+    # accumulator must be an explicit zero matrix of the right shape.
+    total = sum(terms, zeros(*H.shape))
     return terms, simplify(total)
 
 
@@ -234,6 +236,18 @@ def _run_checks():
         e = eps.get((i, j, k), 0)
         expected = e * Sigma[k]
         assert simplify(sij - expected) == Z4, f"sigma^{{{i+1}{j+1}}} mismatch"
+
+    # bcf_expansion must work on Matrix input (its only intended use). This
+    # guards the `sum(terms, zeros(...))` accumulator: a bare sum() starts from
+    # the integer 0 and raises TypeError on any Matrix.
+    S_test = Rational(1, 2) * Sigma[2]
+    terms, total = bcf_expansion(S_test, beta, order=2)
+    assert total.shape == (4, 4), "bcf_expansion returned wrong shape"
+    # [S, beta] = 0 for S = Sigma^3 (even), so the series must collapse to beta
+    assert simplify(total - beta) == Z4, "bcf_expansion: even S must leave beta unchanged"
+    # and a genuinely non-commuting S must produce a non-trivial series
+    _, total2 = bcf_expansion(alpha[0], beta, order=2)
+    assert simplify(total2 - beta) != Z4, "bcf_expansion: odd S should alter beta"
 
     print("All checks passed.")
 

@@ -63,11 +63,11 @@ experiments report their bounds. We construct a systematic dictionary
 between the two by applying the Foldy--Wouthuysen transformation to three
 SME fermion-sector coefficients---the CPT-odd vector $b_\mu$ and the
 CPT-even tensors $H_{\mu\nu}$ and $d_{\mu\nu}$---and matching the
-resulting non-relativistic Hamiltonians onto the DM basis. The $b_\mu$ and
-$H_{\mu\nu}$ reductions are obtained in full; for $d_{\mu\nu}$ the
-mass-enhanced $d_{i0}\to V_2$ result reproduces the literature exactly,
-while the momentum-linear $d_{ij}$ and $d_{00}$ components are correct in
-structure but carry an unresolved overall sign. We then define a
+resulting non-relativistic Hamiltonians onto the DM basis. All three reductions are
+obtained in full and agree with the literature, including the
+momentum-linear $d_{ij}$ and $d_{00}$ components, whose apparent sign
+discrepancy we trace to a momentum-index convention in the reference
+result rather than to the derivation. We then define a
 dimensionless CPT asymmetry parameter
 $\Aalpha=(g_\alpha^{f}-g_\alpha^{\bar f})/(g_\alpha^{f}+g_\alpha^{\bar
 f})$ and evaluate it against a compiled database of 247 experimental
@@ -268,16 +268,23 @@ $\Gamma_\mu\equiv\gamma^0\gamma_5\gamma_\mu$ one finds $\Gamma_0=-\gamma_5$
   H_{\rm NR}(d_{ij}) &= +d_{ij}\,p^j\sigma^i          &&\to V_7,V_8,\\
   H_{\rm NR}(d_{00}) &= +d_{00}(\sig\cdot\mathbf{p})  &&\to V_8 .
 \end{align}
-The mass-enhanced $d_{i0}\to V_2$ result reproduces the non-relativistic
-Hamiltonian of Ref.~\cite{KosteleckyLane1999} exactly, including sign, and
-we treat it as established. The $d_{ij}$ and $d_{00}$ results reproduce
-the correct operator structure but not the overall sign. The discrepancy
-follows a consistent pattern---only momentum-linear terms disagree---which
-points to a wavefunction-renormalization step in the kinetic sector that
-the present equation-of-motion-level treatment omits. We therefore regard
-these two as open rather than incorrect: their structure and order in
-$1/m$ are used below, but no experimental target is motivated from the
-sign of $d_{ij}$ or $d_{00}$ specifically.
+All three results reproduce the non-relativistic Hamiltonian of
+Ref.~\cite{KosteleckyLane1999} exactly, including signs, once that
+reference's momentum convention is applied. The convention is not stated
+explicitly alongside their Eq.~(4), which describes $p_j$ as the
+three-momentum of the particle, but it is fixed unambiguously by the
+free-particle term of the same authors' intermediate relativistic
+Hamiltonian \cite{KosteleckyLane1999b}, $m\mathcal{P}_0 :=
+-p_j\gamma^0\gamma^j$. That expression equals $-\bm\alpha\cdot\mathbf p$,
+so recovering the free Dirac Hamiltonian $+\bm\alpha\cdot\mathbf p+\beta m$
+requires their lower-index $p_j$ to be the covariant component
+$p_j=-p^j$. Read as the physical three-momentum instead, the two
+momentum-linear terms appear to differ by an overall sign while the
+mass-enhanced term still agrees---the signature of a momentum-index
+mismatch rather than of a derivation error. We have verified the
+correspondence symbolically, including an independent implementation of
+the kinetic-sector field redefinition $A=1-\tfrac12\gamma^0(\Gamma_0-\gamma_0)$
+of Ref.~\cite{KosteleckyLane1999b}.
 
 \subsection{Master matching table}
 
@@ -303,8 +310,8 @@ $b_0$      & Odd  & $-b_0(\sig\cdot\mathbf{p})/m$                               
 $H_{ij}$   & Even & $+\bm{\mathcal{H}}_B\cdot\sig$                                       & $V_3$      & $m^{0}$        & $\Aalpha\approx0$ if comparably sensitive \\
 $H_{0i}$   & Even & $+\frac{1}{m}\sig\cdot(\mathbf{p}\times\mathbf{H}_E)$                & $V_7$      & $m^{-1}$       & $\Aalpha\approx0$ if comparably sensitive \\
 $d_{i0}$   & Even & $+d_{i0}\,m\,\sigma^i$                                               & $V_2$      & $m^{+1}$       & $\Aalpha\approx0$; derived and verified \\
-$d_{ij}$   & Even & $+d_{ij}\,p^j\sigma^i$                                               & $V_7,V_8$  & $m^{0}$ (vel.) & $\Aalpha\approx0$; overall sign open \\
-$d_{00}$   & Even & $+d_{00}(\sig\cdot\mathbf{p})$                                       & $V_8$      & $m^{0}$ (mom.) & $\Aalpha\approx0$; overall sign open \\
+$d_{ij}$   & Even & $+d_{ij}\,p^j\sigma^i$                                               & $V_7,V_8$  & $m^{0}$ (vel.) & $\Aalpha\approx0$; derived and verified \\
+$d_{00}$   & Even & $+d_{00}(\sig\cdot\mathbf{p})$                                       & $V_8$      & $m^{0}$ (mom.) & $\Aalpha\approx0$; derived and verified \\
 \end{tabular}
 \end{ruledtabular}
 \end{table*}
@@ -758,11 +765,6 @@ $[2.0\times10^{-11},1.3\times10^{-8}]$~m respectively. A broader coverage
 claim drawn from the full database without this cleanup would nonetheless
 not be reliable.
 
-Separately, the unresolved overall sign of the $d_{ij}$ and $d_{00}$
-components (Sec.~\ref{sec:mapping}) is a theoretical rather than a
-database limitation, but it constrains how confidently any future
-$d_{ij}$- or $d_{00}$-sector experimental target can be motivated.
-
 % ======================================================================
 \section{Conclusions}
 \label{sec:conclusions}
@@ -770,12 +772,13 @@ $d_{ij}$- or $d_{00}$-sector experimental target can be motivated.
 We have constructed a systematic dictionary between the SME fermion-sector
 coefficients $b_\mu$, $H_{\mu\nu}$ and $d_{\mu\nu}$ and the
 Dobrescu--Mocioiu potential basis by explicit Foldy--Wouthuysen reduction,
-summarized in Table~\ref{tab:master}. The $b_\mu$ and $H_{\mu\nu}$
-reductions are complete and agree with established results; the
-mass-enhanced $d_{i0}\to V_2$ result reproduces the literature exactly,
-while the momentum-linear $d_{ij}$ and $d_{00}$ components carry an
-unresolved overall sign that we attribute to an omitted
-wavefunction-renormalization step.
+summarized in Table~\ref{tab:master}. All three reductions are complete
+and agree with established results. The apparent sign discrepancy in the
+momentum-linear $d_{ij}$ and $d_{00}$ components against
+Ref.~\cite{KosteleckyLane1999} is traced to the momentum-index convention
+of that reference, fixed by the free-particle term of the corresponding
+derivation \cite{KosteleckyLane1999b}, and is not a feature of the
+reduction.
 
 Using this dictionary we defined a CPT asymmetry parameter and evaluated
 it against 247 standardized experimental constraint datasets. Fifteen
@@ -838,6 +841,11 @@ V.~A. Kostelecký and C.~D. Lane,
 \textit{Constraints on Lorentz violation from clock-comparison
 experiments},
 Phys. Rev. D \textbf{60}, 116010 (1999).
+
+\bibitem{KosteleckyLane1999b}
+V.~A. Kostelecký and C.~D. Lane,
+\textit{Nonrelativistic quantum Hamiltonian for Lorentz violation},
+J. Math. Phys. \textbf{40}, 6245 (1999).
 
 \bibitem{KosteleckyRussell2011}
 V.~A. Kostelecký and N.~Russell,

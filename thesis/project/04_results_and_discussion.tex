@@ -159,18 +159,24 @@ $\Gamma_\mu\equiv\gamma^0\gamma_5\gamma_\mu$, from which
   H_{NR}(d_{ij}) &= +d_{ij}\,p^j\,\sigma^i \quad (\text{order } m^0 \text{ in velocity}) \;\to V_7, V_8, \\
   H_{NR}(d_{00}) &= +d_{00}\,(\boldsymbol\sigma\cdot\mathbf p) \quad (\text{order } m^0 \text{ in momentum}) \;\to V_8.
 \end{align}
-The $d_{i0}\to V_2$ result matches Kostelecký and Lane's own
-non-relativistic Hamiltonian (their Eq.~4) exactly, including the sign, and
-is treated in this thesis as an established result. The $d_{ij}$ and
-$d_{00}$ results reproduce the correct operator structure against the same
-equation but not its overall sign; the discrepancy follows a consistent
-pattern (only momentum-linear terms disagree), pointing to a
-wavefunction-renormalisation step in the kinetic sector that this
-equation-of-motion-level treatment omits. This is treated as an open
-result, not a wrong one: the structure and order in $1/m$ are used with
-confidence in the gap analysis below, but no experimental target is
-motivated from the sign of $d_{ij}$ or $d_{00}$ specifically until this is
-resolved.
+All three results match Kostelecký and Lane's own non-relativistic
+Hamiltonian (their Eq.~4) exactly, including the signs, once that equation
+is read in its own momentum convention. That convention is not stated
+explicitly in the text of Eq.~4, which describes $p_j$ as the
+three-momentum of the particle, but it is fixed unambiguously by the
+free-particle term of the same authors' intermediate relativistic
+Hamiltonian, $m\mathcal{P}_0:=-p_j\gamma^0\gamma^j$. That expression equals
+$-\boldsymbol\alpha\cdot\mathbf p$, so reproducing the required free Dirac
+Hamiltonian $+\boldsymbol\alpha\cdot\mathbf p+\beta m$ forces their
+lower-index $p_j$ to be the covariant component $p_j=-p^j$ rather than the
+physical three-momentum. Read that way, the mass-enhanced $d_{i0}$ term and
+both momentum-linear terms agree with Eq.~4 term by term; read as physical
+momentum, the two momentum-linear terms appear to differ by an overall
+sign while the mass term still agrees, which is the signature of a
+momentum-index mismatch rather than of a derivation error. The full
+comparison, together with an independent implementation of Kostelecký and
+Lane's field-redefinition procedure, is carried out symbolically in the
+supporting notebooks.
 
 \subsection{Master SME\texorpdfstring{$\to$}{->}DM Matching Table}
 \label{sec:master}
@@ -193,8 +199,8 @@ $b_0$ & Odd & $-b_0(\boldsymbol\sigma\cdot\mathbf p)/m$ & $V_8$ & $m^{-1}$ & $|A
 $H_{ij}$ & Even & $+\boldsymbol{\mathcal H}_B\cdot\boldsymbol\sigma$ & $V_3$ & $m^0$ & $A_\alpha\approx0$ if comparably sensitive \\
 $H_{0i}$ & Even & $+\tfrac1m\boldsymbol\sigma\cdot(\mathbf p\times\mathbf H_E)$ & $V_7$ & $m^{-1}$ & $A_\alpha\approx0$ if comparably sensitive \\
 $d_{i0}$ & Even & $+d_{i0}\,m\,\sigma^i$ & $V_2$ & $m^1$ (!) & $A_\alpha\approx0$ if comparably sensitive; \textbf{derived and verified} \\
-$d_{ij}$ & Even & $+d_{ij}\,p^j\,\sigma^i$ & $V_7, V_8$ & $m^0$ (vel.) & $A_\alpha\approx0$ if comparably sensitive; sign open \\
-$d_{00}$ & Even & $+d_{00}\,(\boldsymbol\sigma\cdot\mathbf p)$ & $V_8$ & $m^0$ (mom.) & $A_\alpha\approx0$ if comparably sensitive; sign open \\
+$d_{ij}$ & Even & $+d_{ij}\,p^j\,\sigma^i$ & $V_7, V_8$ & $m^0$ (vel.) & $A_\alpha\approx0$ if comparably sensitive; \textbf{derived and verified} \\
+$d_{00}$ & Even & $+d_{00}\,(\boldsymbol\sigma\cdot\mathbf p)$ & $V_8$ & $m^0$ (mom.) & $A_\alpha\approx0$ if comparably sensitive; \textbf{derived and verified} \\
 \bottomrule
 \end{tabular}
 \caption{Master SME$\to$DM matching table. $^\dagger$Every entry in the
@@ -708,11 +714,7 @@ outside that overlap: the ranges used are
 $[2.5\times10^{-12},1.6\times10^{-5}]$~m and
 $[2.0\times10^{-11},1.3\times10^{-8}]$~m respectively. A broader coverage
 claim drawn from the full database without this cleanup would nonetheless
-not be reliable. Separately, the
-open overall sign of the $d_{ij}$ and $d_{00}$ components
-(Section~\ref{sec:results-fw}) is a theoretical, not a database, limitation,
-but it constrains how confidently any future $d_{ij}$- or $d_{00}$-sector
-experimental target can be motivated until it is resolved.
+not be reliable.
 
 \subsection{Proposed Experimental Strategies}
 
