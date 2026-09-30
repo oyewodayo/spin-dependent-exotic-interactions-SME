@@ -8,114 +8,117 @@
 
 ## Overview
 
-This repository documents the theoretical derivations, computational 
-tools, constraint compilations, and analysis code for my MSc thesis 
-in Theoretical Physics at the University of Ibadan, Nigeria.
+This repository holds the derivations, notes, thesis source and analysis
+wrappers for my MSc thesis in Theoretical Physics at the University of
+Ibadan, Nigeria. The computational pipeline (SPINDEP) and the compiled
+constraint database live in a separate repository,
+[spindep-framework](https://github.com/oyewodayo/spindep-framework), which is
+included here as a git submodule.
 
-**Thesis Title:**
+**Thesis title:**
 > *Unified Constraint Framework for Exotic Spin-Dependent Interactions:
 > Matter–Antimatter Sector Comparison*
 
 **Student:** Oyewo Temidayo Solomon  
-**Supervisor:** Professor O.E. Oyewande  
-**Program:** MSc Theoretical Physics  
+**Supervisor:** Professor O. E. Oyewande  
+**Programme:** MSc Theoretical Physics  
 **Institution:** University of Ibadan, Nigeria  
 **Duration:** March – September 2026  
 **Contact:** oyewodayo@gmail.com
-
-Note that this research work and its documentation are a work in progress. Updates and reviews are ongoing until the results reach a final, satisfactory state. Feedback is welcome — thank you.
 
 ---
 
 ## Research Motivation
 
-Exotic spin-dependent interactions mediated by ultralight bosons 
-(axions, dark photons, Z′ bosons) represent a frontier in testing 
-physics beyond the Standard Model (BSM). These interactions are 
-motivated by fundamental open questions including:
+Light bosons predicted in many extensions of the Standard Model (axion-like
+particles, dark photons, Z′ bosons) produce spin-dependent forces between
+fermions. These forces bear on several open questions:
 
-- The strong-CP problem
-- The nature of dark matter
-- CPT symmetry violation
-- Quantum theories of gravity
+- the strong-CP problem
+- the nature of dark matter
+- CPT symmetry
+- quantum theories of gravity
 
-Despite over 100 experiments compiled through 2024 (Cong et al., 
-Rev. Mod. Phys. 97, 025005, 2025), **no unified framework** 
-systematically translates between different theoretical formalisms 
-or compares matter-sector versus antimatter-sector constraints.
-
-This project addresses that gap.
+Cong et al. (Rev. Mod. Phys. 97, 025005, 2025) review more than a hundred
+experiments that bound these forces. Two formalisms are in use: the Standard
+Model Extension (SME), which describes Lorentz and CPT violation through
+background coefficients, and the Dobrescu–Mocioiu (DM) potentials, the basis
+in which most experiments report their limits. There has been no systematic
+translation between the two, and matter-sector and antimatter-sector bounds
+have not been compared side by side. This project does both.
 
 ---
 
 ## Research Objectives
 
-### Primary Objective
-Develop a unified constraint framework that translates between the 
-Standard Model Extension (SME) and the Dobrescu–Mocioiu exotic 
-potential formulations, enabling systematic comparison of 
-matter-sector and antimatter-sector bounds to test CPT symmetry.
+### Main objective
+Build a framework that translates between the SME and the Dobrescu–Mocioiu
+potentials, and use it to compare matter-sector and antimatter-sector bounds
+as a test of CPT symmetry.
 
-### Specific Aims
+### Specific aims
 
-**Aim 1 — Theoretical Derivation: SME → Exotic Potential Mapping**
-- Apply Foldy–Wouthuysen transformation to the SME-modified fermion 
-  Lagrangian
-- Extract non-relativistic Hamiltonian including CPT-odd operators
-- Match resulting potentials to the Dobrescu–Mocioiu basis ($$V_1–V_{16}$$)
-- Derive closed-form translation formulas for $b_\mu$, $H_{\mu\nu}$, $d_{\mu\nu}$
+**Aim 1 — SME → DM mapping**
+- Apply the Foldy–Wouthuysen reduction to the SME fermion Lagrangian.
+- Extract the non-relativistic Hamiltonian, including the CPT-odd terms.
+- Match each spin-dependent term to a DM potential.
+- Cover every minimal-SME coefficient with a spin-dependent term:
+  $b_\mu$, $d_{\mu\nu}$, $g_{\lambda\mu\nu}$ and $H_{\mu\nu}$.
 
-Focus potentials: $V_2$, $V_3$, $V_7$, $V_8$ (matching what `docs/theory_notes/` actually derives; $V_{14}$ previously listed here does not appear in any derivation and was removed — no SME coefficient among $b_\mu, H_{\mu\nu}, d_{\mu\nu}$ has been shown to map to it)
+**Aim 2 — Constraint compilation and matter–antimatter comparison**
+- Compile published constraint curves into one database.
+- Put every curve on common units (coupling against range $\lambda$ in metres).
+- Separate matter-sector from antimatter-sector bounds and match them in pairs.
+- Test each pair with an asymmetry parameter and a χ² comparison.
 
-
-**Aim 2 — Constraint Compilation and Cross-Platform Analysis**
-- Build a comprehensive database of published constraints (2006–2024)
-- Standardise all platforms to common units and coordinate systems
-- Separate matter-sector vs antimatter-sector bounds
-- Perform statistical CPT consistency tests via χ² analysis
-
-**Aim 3 — Gap Analysis and Experimental Roadmap**
-- Map constraint coverage across (potential, range, particle species)
-- Identify unexplored parameter space in the antimatter sector
-- Calculate precision requirements for detecting CPT-violating 
-  asymmetries at naturalness scale
+**Aim 3 — Gap analysis**
+- Map coverage across potential, interaction range and fermion sector.
+- Identify where antimatter data are missing.
+- Say which measurements would turn the comparison into a real CPT test.
 
 ---
 
 ## Theoretical Framework
 
-### Standard Model Extension (SME)
-The SME is an effective field theory framework for Lorentz and CPT 
-violation. The CPT-odd fermion sector Lagrangian includes:
-$\mathcal{L}_{\mathrm{SME}} \supset b_{\mu}\,\bar{\psi}\gamma^{\mu}\gamma^{5}\psi$
+### Standard Model Extension
+The SME is an effective field theory for Lorentz and CPT violation. Its
+minimal fermion sector adds background coefficients to the Dirac Lagrangian
+through two matrices,
 
-where $b_\mu$ is a fixed CPT-violating background 4-vector.
+$$M = m + a_\mu\gamma^\mu + b_\mu\gamma_5\gamma^\mu + \tfrac12 H_{\mu\nu}\sigma^{\mu\nu},$$
 
-### Dobrescu–Mocioiu Classification
-The complete set of 16 non-relativistic potentials ($$V_{1}–V_{16}$$) 
-categorises all single-boson-mediated spin-dependent interactions 
-between spin-1/2 fermions, organised by discrete symmetry 
-properties (C, P, T).
+$$\Gamma^\nu = \gamma^\nu + c_{\mu}{}^{\nu}\gamma^\mu + d_{\mu}{}^{\nu}\gamma_5\gamma^\mu + e^\nu + i f^\nu\gamma_5 + \tfrac12 g^{\lambda\mu\nu}\sigma_{\lambda\mu}.$$
 
-### Foldy–Wouthuysen Transformation
-The standard technique for extracting the non-relativistic limit 
-of relativistic quantum field theories. The derivation pipeline is:
+### Dobrescu–Mocioiu potentials
+Sixteen non-relativistic potentials, $V_1$–$V_{16}$, cover every
+spin-dependent interaction between two spin-½ fermions from single-boson
+exchange, sorted by their C, P and T properties.
+
+### Foldy–Wouthuysen reduction
 ```
-SME Lagrangian → Modified Dirac Equation → FW Transformation 
-→ H_NR (non-relativistic) → Matching → Dobrescu–Mocioiu Vi
+SME Lagrangian → modified Dirac equation → FW reduction
+→ non-relativistic Hamiltonian → match to DM potentials
 ```
+The reduction follows Kostelecký & Lane (J. Math. Phys. 40, 6245, 1999). Their
+Hamiltonian writes momenta with lower indices, $p_j = -p^j$; reading it that
+way is what makes every term agree with the derivations here.
 
-### CPT Symmetry Test
-The asymmetry parameter used in this work is:
+### Matter–antimatter comparison
+For each matched pair of bounds on the same coupling and potential, SPINDEP
+interpolates both curves onto a common grid in $\lambda$ and evaluates
 
-$$A_{\alpha} = \frac{g_{\alpha}^{f} - g_{\alpha}^{\bar{f}}}{g_{\alpha}^{f} + g_{\alpha}^{\bar{f}}}$$
+$$A_{\alpha}(\lambda) = \frac{g_{\alpha}^{f}(\lambda) - g_{\alpha}^{\bar{f}}(\lambda)}{g_{\alpha}^{f}(\lambda) + g_{\alpha}^{\bar{f}}(\lambda)}.$$
 
-A large χ² (relative to dof) flags a statistically significant matter-antimatter
-asymmetry — consistent with, though not on its own proof of, CPT violation (see
-the caveat below: SPINDEP compares one-sided experimental bounds, not signed
-measurements, so a sensitivity gap between experiments produces the same
-signature). A small χ² is consistent with CPT symmetry within current
-experimental precision.
+Both inputs are one-sided upper limits, not signed measurements. If each
+limit is a sensitivity times a common coupling, $U = s\,g_\star$, the coupling
+cancels:
+
+$$A_U = \frac{s_f - s_{\bar f}}{s_f + s_{\bar f}}.$$
+
+A large $|A_\alpha|$ therefore measures how much tighter one experiment is
+than the other. On its own it cannot separate CPT violation from a
+sensitivity gap. A genuine test needs signed shifts or likelihoods from the
+antimatter experiments.
 
 ---
 
@@ -123,181 +126,208 @@ experimental precision.
 ```
 exotic-spin-interactions-SME/
 │
-├── README.md                  # This file
-├── LICENSE                    # MIT License
-├── .gitignore                 # Python, LaTeX, Mathematica ignores
+├── README.md
+├── LICENSE                        # MIT
+├── .gitignore
 │
-├── docs/                      # Documentation and notes
+├── docs/
 │   ├── theory_notes/
-│   │   ├── FW_derivation_bmy.md
-│   │   ├── FW_derivation_Hmunu.md
-│   │   ├── FW_derivation_dmunu.md   # d_i0 -> V2 verified; d_ij, d_00 sign still open
-│   │   └── potential_match_table.md
-│   └── SPINDEP_one_pager.pdf  # one-page project summary for external review
+│   │   ├── FW_derivation_bmy.md       # b_mu
+│   │   ├── FW_derivation_Hmunu.md     # H_munu
+│   │   ├── FW_derivation_dmunu.md     # d_munu, including the covariant-momentum reading
+│   │   ├── FW_derivation_gmunu.md     # g_lambdamunu
+│   │   └── potential_match_table.md   # full SME -> DM table and the matched pairs
+│   ├── SPINDEP_one_pager.tex          # one-page project summary
+│   └── SPINDEP_one_pager.pdf
 │
-├── derivations/               # Symbolic computation notebooks
-│   └── sympy/
-│       ├── FW_bmu_term.ipynb      # executed; see corrections in cells
-│       ├── FW_Hmunu_term.ipynb    # executed
-│       ├── FW_dmunu_term.ipynb    # executed; d_i0 matches literature, d_ij/d_00 sign open
-│       ├── dirac_algebra.py
-│       └── pauli_matrices.py
+├── derivations/sympy/                 # executed SymPy notebooks behind every mapping
+│   ├── FW_bmu_term.ipynb
+│   ├── FW_Hmunu_term.ipynb
+│   ├── FW_dmunu_term.ipynb
+│   ├── FW_gmunu_term.ipynb
+│   ├── FW_antiparticle_all_coefficients.ipynb   # particle vs antiparticle, all 16 families
+│   ├── FW_bmu_asymmetry.pdf, FW_Hmunu_CPT_comparison.pdf, FW_dmunu_term.pdf
+│   ├── dirac_algebra.py
+│   └── pauli_matrices.py
 │
-├── spindep-framework/         # Git SUBMODULE (not vendored/duplicated code) -- the actual
-│                              # SPINDEP computational engine: dataset parser, unit
-│                              # conversion, chi-squared statistics, constraint plotting,
-│                              # the compiled dataset registry, and a GUI. Pinned to a
-│                              # specific commit on the spindep_gui branch; update via
-│                              # `git submodule update --remote` when the tool changes.
+├── spindep-framework/             # git submodule: the SPINDEP pipeline, the compiled
+│                                  # dataset registry and the GUI
 │
-├── analysis/                  # Thin wrapper scripts around spindep-framework's real code
-│   │                          # (import from the submodule; see each script's docstring)
-│   ├── requirements.txt       # Python dependencies
-│   ├── constraint_plots.py    # Coupling constant vs range plots (real, executable)
-│   ├── chi_square_tests.py    # CPT consistency tests (real, executable)
-│   ├── asymmetry_calc.py      # A_α parameter calculation (real, executable)
-│   ├── unit_conversion.py     # Standardise units across platforms (real, executable)
-│   └── notebooks/             # Interactive exploration -- not yet created; the SPINDEP
-│                              # GUI (spindep-framework/gui/) currently serves this role
+├── analysis/                      # small scripts that call the submodule
+│   ├── requirements.txt       # what these scripts and the SymPy notebooks need
+│   ├── constraint_plots.py        # regenerates the figures below
+│   ├── chi_square_tests.py        # worked χ² example for one pair, checked against the summary table
+│   ├── asymmetry_calc.py          # prints A_alpha, its interval and Z for all 15 pairs
+│   └── unit_conversion.py         # audits the range units of every dataset
 │
-├── figures/                   # Generated publication-quality figures -- reproducible by
-│   │                          # running analysis/constraint_plots.py (needs the submodule
-│   │                          # initialised, see Installation below)
-│   ├── constraint_atlas/      # 11 per-potential + 1 combined atlas plot
-│   ├── matter_antimatter/     # 10 comparison plots (one per matched pair)
-│   └── gap_analysis/          # 3 white-space identification plots
+├── figures/                       # PNG copies of the pipeline figures
+│   ├── constraint_atlas/          # one panel per potential plus the combined atlas
+│   ├── matter_antimatter/         # one comparison plot per matched pair (15)
+│   └── gap_analysis/              # coverage by range, sector and potential
 │
-└── thesis/                    # Flat by design, to match the Overleaf project layout
-    ├── main.tex                 # Master document -- \subfile{}s the 6 chapters + appendix
-    │                            # below in order, with correct auto-numbering and one
-    │                            # shared, deduplicated bibliography. Compile THIS for the
-    │                            # real thesis. Figures must be uploaded flat alongside
-    │                            # this file (see figures/ subfolders above).
-    ├── 01_introduction.tex             # Chapter 1
-    ├── 02_theoretical_foundations.tex  # Chapter 2: general SME, DM catalogue, FW method
-    ├── 03_sme_dm_mapping.tex           # Chapter 3: explicit b_mu/H_munu/d_munu -> DM mapping
-    ├── 04_constraint_database.tex      # Chapter 4: 273-dataset compilation + 10 matched pairs
-    ├── 05_gap_analysis.tex             # Chapter 5: coverage gaps + experimental strategy
-    ├── 06_conclusion.tex               # Chapter 6: objectives revisited, findings, future work
-    └── 07_appendix_notation.tex        # Appendix A: notation and symbol reference
-                                 # Each chapter file also compiles standalone on its own
-                                 # (via the `subfiles` package) for individual review.
+└── thesis/
+    ├── project/                   # the thesis (report class)
+    │   ├── main.tex
+    │   ├── 00_abstract.tex, 00_acknowledgements.tex, 00_certification.tex, 00_dedication.tex
+    │   ├── 01_introduction.tex
+    │   ├── 02_literature_review.tex
+    │   ├── 03_materials_and_methods.tex
+    │   ├── 04_results_and_discussion.tex
+    │   ├── 05_conclusions.tex
+    │   ├── 06_references.tex
+    │   └── 07_appendices.tex      # notation, computational resources, extra coverage figures
+    ├── aps-draft/                 # journal version for Physical Review D (REVTeX)
+    │   ├── main.tex
+    │   └── README.md
+    └── main_figures/              # figures used by both the thesis and the APS draft
 ```
-
-Note that this research work and its documentation are a work in progress. Updates and reviews are ongoing until the results reach a final, satisfactory state. Feedback is welcome — thank you.
 
 ---
 
 ## Installation and Usage
 
 ### Prerequisites
+- Python 3.9 or later
+- A LaTeX distribution (TeX Live or MiKTeX) with `revtex4-2` for the APS draft
+
+### Setting up
 ```bash
-# Python environment
-python >= 3.9
-pip install -r analysis/requirements.txt
-
-# For Mathematica notebooks
-Wolfram Mathematica >= 12.0
-
-# For LaTeX compilation
-TeX Live or MiKTeX (full installation recommended)
-```
-
-### Setting Up the Python Environment
-```bash
-# Clone the repository AND its spindep-framework submodule
+# Clone this repository together with the spindep-framework submodule
 git clone --recurse-submodules https://github.com/oyewodayo/spin-dependent-exotic-interactions-SME.git
 cd spin-dependent-exotic-interactions-SME
 
-# If you already cloned without --recurse-submodules:
+# If you cloned without --recurse-submodules:
 #   git submodule update --init --recursive
 
-# Create virtual environment
 python -m venv venv
 source venv/bin/activate        # On Windows: venv\Scripts\activate
 
-# Install dependencies
-pip install -r analysis/requirements.txt
+pip install -r analysis/requirements.txt   # the scripts below and the SymPy notebooks
 ```
 
-### Running the Analysis
+### Running the analysis
 ```bash
-# Generate constraint plots
-python analysis/constraint_plots.py
-
-# Run CPT chi-square tests
-python analysis/chi_square_tests.py
-
-# Calculate asymmetry parameters
-python analysis/asymmetry_calc.py
+python analysis/asymmetry_calc.py      # A_alpha, interval and Z for every pair
+python analysis/chi_square_tests.py    # one pair from raw curves, compared with the table
+python analysis/unit_conversion.py     # range-unit audit
+python analysis/constraint_plots.py    # regenerates the figures into figures/_regenerated/
 ```
 
-### Python Dependencies
-```
-numpy>=1.24.0
-scipy>=1.10.0
-matplotlib>=3.7.0
-pandas>=2.0.0
-sympy>=1.12
-jupyter>=1.0.0
-seaborn>=0.12.0
+To rerun the full pipeline and rebuild the registry and summary table, see the
+README in `spindep-framework/`.
+
+### Building the documents
+```bash
+(cd thesis/project   && pdflatex main && pdflatex main)
+(cd thesis/aps-draft && pdflatex main && pdflatex main)
+(cd docs             && pdflatex SPINDEP_one_pager)
 ```
 
 ---
 
-## Key Results (Updated as Research Progresses)
+## Key Results
 
-### SME → Dobrescu-Mocioiu Translation Table
+### SME → Dobrescu–Mocioiu dictionary
 
-The table below matches the notes actually in `docs/theory_notes/`: $b_\mu$ (spatial) maps to $V_2$ (spin-spin, not the monopole-dipole form an earlier pass mislabeled it as), $b_\mu$ (temporal) maps to $V_8$ (a plain scalar contraction $\sigma\cdot p$ with no free tensor index, the same structure as $d_{00}$ below, not $V_7$ as an earlier pass claimed by loose analogy with $d_{ij}$), and $H_{\mu\nu}$ maps to $V_3$ / $V_7$. The $d_{\mu\nu}$ row was originally built from the wrong operator (a mass-sector bilinear copied from $H_{\mu\nu}$'s structure); Kostelecký & Lane (1999) place $d_{\mu\nu}$ in the kinetic sector instead, and `FW_dmunu_term.ipynb` re-derives it from there (see `FW_derivation_dmunu.md`).
+$b_\mu$, $d_{\mu\nu}$, $g_{\lambda\mu\nu}$ and $H_{\mu\nu}$ are the only
+minimal-SME fermion coefficients with spin-dependent terms through third
+order in $1/m$. $a_\mu$, $c_{\mu\nu}$ and $e_\mu$ give spin-independent terms
+only, and $f_\mu$ does not enter at linear order (Kostelecký & Lane 1999,
+J. Math. Phys. 40, 6245, Eq. 26). All four reductions below agree with that
+paper term by term; `docs/theory_notes/potential_match_table.md` gives the
+explicit Hamiltonian for each row.
 
-| SME Coefficient | Target Potential | Coupling Relation | Status |
-|----------------|-----------------|-------------------|--------|
-| $b_\mu$ (spatial)  | $V_2$ (spin-spin) | $b_i \leftrightarrow g_A/2$ | Derived and verified (`FW_bmu_term.ipynb`, executed) |
-| $b_\mu$ (temporal) | $V_8$ | $b_0 \sim (\sigma\cdot p)/m$ | Derived and verified |
-| $H_{\mu\nu}$          | $V_3$ (from $H_{ij}$), $V_7$ (from $H_{0i}$) | $H_{ij}\sim g_T$ × tensor | Derived and verified (`FW_Hmunu_term.ipynb`, executed) |
-| $d_{\mu\nu}$           | $V_2$ (from $d_{i0}$), $V_7,V_8$ (from $d_{ij}$), $V_8$ (from $d_{00}$) |$d_{ij} \sim g_{s} g_{A} / m$| $d_{i0}\to V_2$ **derived and verified** — matches Kostelecký & Lane (1999) Eq. (4) exactly (`FW_dmunu_term.ipynb`, executed). $d_{ij}\to V_7,V_8$ and $d_{00}\to V_8$: correct structure confirmed against the same equation, but overall sign still open (see note) |
+| SME coefficient | CPT | DM potential | Order in $1/m$ | Notebook |
+|-----------------|-----|--------------|----------------|----------|
+| $b_i$ | odd | $V_2$ | $m^0$ | `FW_bmu_term.ipynb` |
+| $b_0$ | odd | $V_7$, $V_8$ | $m^{-1}$ | `FW_bmu_term.ipynb` |
+| $H_{ij}$ | even | $V_3$ | $m^0$ | `FW_Hmunu_term.ipynb` |
+| $H_{0i}$ | even | $V_7$ | $m^{-1}$ | `FW_Hmunu_term.ipynb` |
+| $d_{i0}$ | even | $V_2$ | $m^{+1}$ | `FW_dmunu_term.ipynb` |
+| $d_{ij}$ | even | $V_7$, $V_8$ | $m^0$ (momentum) | `FW_dmunu_term.ipynb` |
+| $d_{00}$ | even | $V_8$ | $m^0$ (momentum) | `FW_dmunu_term.ipynb` |
+| $g_{[kl]0}$ | odd | $V_2$ | $m^{+1}$ | `FW_gmunu_term.ipynb` |
+| $g_{[0k]0}$ | odd | $V_7$ | $m^0$ (momentum) | `FW_gmunu_term.ipynb` |
+| $g_{[kl]j}$ | odd | $V_7$, $V_8$ | $m^0$ (momentum) | `FW_gmunu_term.ipynb` |
 
-### Matter-Antimatter Comparison Summary
+$e_\mu$, $f_\mu$ and $g_{\lambda\mu\nu}$ lie outside the renormalisable SME
+proper (Colladay & Kostelecký 1998). They are kept because they can be
+appreciable for composite particles such as nucleons (Kostelecký & Lane 1999,
+Phys. Rev. D 60, 116010).
 
-Populated from `spindep-framework/spindep/results/tables/asymmetry_summary.csv` (see `analysis/asymmetry_calc.py`, which imports the submodule -- run `git submodule update --init --recursive` first). Numeric coupling-bound magnitudes aren't reproduced here (only $A_\alpha$, which the summary table stores directly) — see the CSV / `dataset_registry.csv` for the underlying bounds.
+**Particle and antiparticle.** Compared between CPT-conjugate states (same
+momentum, reversed spin), the CPT-odd $b_\mu$ and $g_{\lambda\mu\nu}$ terms
+change sign and the CPT-even $d_{\mu\nu}$ and $H_{\mu\nu}$ terms do not.
+Compared at the same physical spin, every one of these relations reverses.
+`FW_antiparticle_all_coefficients.ipynb` checks both statements for all 16
+coefficient families.
 
-All ten matched pairs the compiled database currently supports:
+### Constraint database
 
-| Potential | Matter source | Antimatter source | Sector | $A_\alpha$ | Status |
-|-----------|---------------|--------------------|--------|-----------|--------|
-| $V_2$ ($g_Ag_A$)   | Karshenboim2011 | Ficek2018       | e- $\bar p$ | 0.9998 | Compiled |
-| $V_2$ ($g_Ag_A$)   | Ficek2017       | Karshenboim2011 | e- $e^+$    | 0.9892 | Compiled |
-| $V_{2+3}$ ($g_Ag_A$) | Ficek2017     | Fadeev2022      | e- $e^+$    | 0.9539 | Compiled |
-| $V_{2+3}$ ($g_pg_p$) | Fadeev2022    | Fadeev2022      | e- $e^+$    | 0.9535 | Compiled |
-| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Fadeev2022      | e- $e^+$    | 0.9535 | Compiled |
-| $V_1$ ($g_sg_s$)     | Delaunay2017  | Adkins2022      | e- $e^+$    | 0.8727 | Compiled |
-| $V_{2+3}$ ($g_Ag_A$) | Fadeev2022    | Ficek2018       | e- $\bar p$ | 0.8237 | Compiled |
-| $V_{2+3}$ ($g_Ag_A$) | Fadeev2022    | Fadeev2022      | e- $\bar p$ | 0.8044 | Compiled |
-| $V_{2+3}$ ($g_Vg_V$) | Fadeev2022    | Ficek2018       | e- $\bar p$ | 0.7994 | Compiled |
-| $V_2$ ($g_Ag_A$)   | Jiao2019        | Karshenboim2011 | e- $e^+$    | 0.3336 | Compiled |
+| Quantity | Count |
+|----------|-------|
+| Datasets compiled | 283 |
+| Datasets analysed | 247 (36 held out, each with a recorded reason) |
+| Antimatter-sector datasets | 22 (9 $e$–$\bar p$, 6 muonium, 5 positronium, 1 $\bar p$He, 1 $dd\mu^+$) |
+| Matter-sector datasets | 225 |
+| Matched matter–antimatter pairs | 15 (13 independent) |
 
-$V_3$, $V_7$, and $V_8$ have no matched pair in the current database: matter- and
-antimatter-sector data exist for each of $b_\mu$'s and $H_{\mu\nu}$'s target
-potentials individually, but never both sides at once for the same potential,
-coupling, and conjugate sector — see the gap analysis (`figures/gap_analysis/`,
-thesis Chapter 5) for exactly where the coverage is missing.
+Seven of the twelve potentials and six of the eleven fermion-sector pairs have
+no antimatter data at all. The $e$–$N$, $n$–$N$ and $p$–$N$ sectors hold 117
+matter datasets between them and no antimatter counterpart.
 
-**Caveat:** per `docs/theory_notes/potential_match_table.md`, a high $A_\alpha$ here is *consistent with* CPT violation but equally explained by a sensitivity gap between the matter- and antimatter-sector experiments — it is not, by itself, evidence of either. This holds even after correcting for the strongest statistical objection to the naive test: treating all 300 interpolated grid points per pair as independent degrees of freedom. `spindep-framework`'s `statistics.py` now estimates an effective dof from the autocorrelation length of the residuals (typically 6–21 per pair, not 300) and recomputes the p-value against it — every pair remains significant at effectively p≈0 even under that correction, which shifts the open question from "is the dof count wrong" to "why does the gap persist after correcting it."
+### Matched pairs
+
+From `spindep-framework/results/tables/asymmetry_summary.csv`. "ee" compares
+$e$–$e$ with $e$–$e^+$; "ep" compares $e$–$p$ with $e$–$\bar p$. The interval
+is the 95% bootstrap interval on the mean $|A_\alpha|$, and $Z$ is the
+one-sided Gaussian significance after the χ² is rescaled to the effective
+degrees of freedom.
+
+| Coupling | Potential | Sector | Matter source | Antimatter source | Mean $\|A_\alpha\|$ | 95% interval | dof$_\text{eff}$ | $Z$ |
+|---|---|---|---|---|---|---|---|---|
+| $g_Ag_A$ | $V_3$ | ep | Cong2025 | Fadeev2022 | 1.0000 | [1.0000, 1.0000] | 8 | 51.1 |
+| $g_Ag_A$ | $V_2$ | ep | Cong2025 | Ficek2018 | 0.9999 | [0.9999, 0.9999] | 21 | 34.4 |
+| $g_Ag_A$ | $V_2$ | ep | Karshenboim2011 | Ficek2018 | 0.9998 | [0.9998, 0.9998] | 17 | 38.8 |
+| $g_Ag_A$ | $V_2$ | ee | Ficek2017 | Karshenboim2011 | 0.9892 | [0.9886, 0.9896] | 21 | 48.2 |
+| $g_Ag_A$ | $V_3$ | ee | Ficek2017 | Fadeev2022 | 0.9539 | [0.9518, 0.9557] | 6 | 38.5 |
+| $g_pg_p$ | $V_3$ | ee | Fadeev2022 | Fadeev2022 | 0.9535 | [0.9516, 0.9552] | 6 | 37.1 |
+| $g_Vg_V$ | $V_3$ | ee | Fadeev2022 | Fadeev2022 | 0.9535 | [0.9516, 0.9552] | 6 | 37.1 |
+| $g_pg_p$ | $V_3$ | ep | Cong2025 | Ficek2018 | 0.9304 | [0.9293, 0.9314] | 6 | 34.3 |
+| $g_Ag_A$ | $V_3$ | ep | Cong2025 | Ficek2018 | 0.9303 | [0.9292, 0.9313] | 6 | 34.3 |
+| $g_sg_s$ | $V_1$ | ee | Delaunay2017 | Adkins2022 | 0.8727 | [0.8686, 0.8770] | 21 | 25.7 |
+| $g_Ag_A$ | $V_3$ | ep | Fadeev2022 | Ficek2018 | 0.8237 | [0.8168, 0.8299] | 6 | 37.3 |
+| $g_Ag_A$ | $V_3$ | ep | Fadeev2022 | Fadeev2022 | 0.8044 | [0.8024, 0.8063] | 8 | 43.8 |
+| $g_Vg_V$ | $V_3$ | ep | Fadeev2022 | Ficek2018 | 0.7994 | [0.7971, 0.8015] | 7 | 31.8 |
+| $g_pg_p$ | $V_3$ | ep | Fadeev2022 | Ficek2018 | 0.7994 | [0.7971, 0.8015] | 7 | 31.8 |
+| $g_Ag_A$ | $V_2$ | ee | Jiao2019 | Karshenboim2011 | 0.3336 | [0.3197, 0.3474] | 9 | 5.1 |
+
+The two $g_pg_p$/$g_Vg_V$ rows that repeat exactly use the same pair of
+source curves, which is why 15 pairs give 13 independent comparisons.
+
+Every pair is significant ($Z$ from 5.1 to 51) even after the autocorrelation
+correction, which cuts the 300 grid points per pair down to 6–21 effective
+degrees of freedom. That significance is about the size of the sensitivity
+gap, not about CPT. The data show this directly: each of the four pairs built
+on the 2025 hydrogen bounds (Cong2025) has a twin that uses an older matter
+bound for the same antimatter curve, and in every case the tighter matter
+bound gives the larger asymmetry.
 
 ---
 
 ## Progress Log
 
-| Phase | Duration | Status | Notes |
-|-------|----------|--------|-------|
-| Literature Review | Weeks 1–4 | In progress | Cong et al. 2025 studied |
-| FW: $b_\mu$ derivation | Week 5 | Complete | Executed and verified in `FW_bmu_term.ipynb`; a Dirac-algebra sign error was caught by running the computation and fixed |
-| FW: $H_{\mu\nu}$ derivation | Week 6–7 | Complete | Executed and verified in `FW_Hmunu_term.ipynb` |
-| FW: $d_{\mu\nu}$ derivation | Week 7–8 | Mostly complete | Re-derived from the correct kinetic-sector Lagrangian (not the mass-sector Ansatz originally used) and executed in `FW_dmunu_term.ipynb`; $d_{i0}\to V_2$ matches Kostelecký & Lane (1999) exactly, $d_{ij}$ / $d_{00}$ match in structure with an open sign — see `FW_derivation_dmunu.md` |
-| Constraint compilation | Weeks 9–14 | Substantially complete | 273 datasets, 10 matched pairs, 12+10+3 figures; reproducible via the `spindep-framework` submodule — see `analysis/` and `figures/` |
-| Gap analysis | Weeks 15–18 | Complete | Figures (`figures/gap_analysis/`: lambda coverage, matter/antimatter ratio, pair coverage matrix) and the written analysis (thesis Chapter 5) both complete |
-| Thesis writing | Weeks 19–24 | Reviewed and finalised | Chapters 1–6 and notation appendix drafted, cross-checked against the compiled database, and reviewed for consistency (`thesis/`); figures still need uploading alongside `main.tex` for compilation |
+| Phase | Period | Status | Notes |
+|-------|--------|--------|-------|
+| Literature review | Weeks 1–4 | Complete | Built on Cong et al. (2025) and the primary SME and DM papers |
+| FW reduction: $b_\mu$ | Week 5 | Complete | `FW_bmu_term.ipynb` |
+| FW reduction: $H_{\mu\nu}$ | Weeks 6–7 | Complete | `FW_Hmunu_term.ipynb` |
+| FW reduction: $d_{\mu\nu}$ | Weeks 7–8 | Complete | `FW_dmunu_term.ipynb`; agrees with Kostelecký & Lane once $p_j = -p^j$ |
+| FW reduction: $g_{\lambda\mu\nu}$ | Weeks 8–9 | Complete | `FW_gmunu_term.ipynb` |
+| Particle–antiparticle check | Week 9 | Complete | `FW_antiparticle_all_coefficients.ipynb`, all 16 families |
+| Constraint compilation | Weeks 9–14 | Complete | 283 datasets, 247 analysed, 15 matched pairs (`spindep-framework`) |
+| Gap analysis | Weeks 15–18 | Complete | `figures/gap_analysis/`; thesis Chapter 4 |
+| Thesis and journal draft | Weeks 19–26 | Complete, under review | `thesis/project/`, `thesis/aps-draft/` |
 
 ---
 
@@ -313,26 +343,46 @@ thesis Chapter 5) for exactly where the coverage is missing.
 }
 
 @article{Dobrescu2006,
-  author  = {Dobrescu, B.A. and Mocioiu, I.},
+  author  = {Dobrescu, B. A. and Mocioiu, I.},
   title   = {Spin-dependent macroscopic forces from new particle exchange},
   journal = {JHEP},
-  volume  = {0811},
+  volume  = {11},
   pages   = {005},
   year    = {2006}
 }
 
-@article{Kostelecky1999,
-  author  = {Kosteleck\'{y}, V.A. and Lane, C.},
+@article{KosteleckyLane1999JMP,
+  author  = {Kosteleck\'{y}, V. A. and Lane, C. D.},
   title   = {Nonrelativistic quantum Hamiltonian for Lorentz violation},
+  journal = {J. Math. Phys.},
+  volume  = {40},
+  pages   = {6245},
+  year    = {1999}
+}
+
+@article{KosteleckyLane1999PRD,
+  author  = {Kosteleck\'{y}, V. A. and Lane, C. D.},
+  title   = {Constraints on Lorentz violation from clock-comparison experiments},
   journal = {Phys. Rev. D},
   volume  = {60},
   pages   = {116010},
   year    = {1999}
 }
 
+@article{Colladay1998,
+  author  = {Colladay, D. and Kosteleck\'{y}, V. A.},
+  title   = {Lorentz-violating extension of the standard model},
+  journal = {Phys. Rev. D},
+  volume  = {58},
+  pages   = {116002},
+  year    = {1998}
+}
+
 @article{Fadeev2019,
   author  = {Fadeev, P. and others},
-  title   = {Revisiting spin-dependent forces mediated by new bosons},
+  title   = {Revisiting spin-dependent forces mediated by new bosons:
+             Potentials in the coordinate-space representation for
+             macroscopic- and atomic-scale experiments},
   journal = {Phys. Rev. A},
   volume  = {99},
   pages   = {022113},
@@ -341,7 +391,7 @@ thesis Chapter 5) for exactly where the coverage is missing.
 
 @article{Smorra2017,
   author  = {Smorra, C. and others},
-  title   = {A parts-per-billion measurement of the antiproton 
+  title   = {A parts-per-billion measurement of the antiproton
              magnetic moment},
   journal = {Nature},
   volume  = {550},
@@ -351,7 +401,7 @@ thesis Chapter 5) for exactly where the coverage is missing.
 
 @article{Ahmadi2017,
   author  = {Ahmadi, M. and others},
-  title   = {Observation of the 1S-2S transition in trapped 
+  title   = {Observation of the 1S-2S transition in trapped
              antihydrogen},
   journal = {Nature},
   volume  = {541},
@@ -364,18 +414,18 @@ thesis Chapter 5) for exactly where the coverage is missing.
 
 ## License
 
-This project is licensed under the MIT License — see the 
-[LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE)
+file for details.
 
 ---
 
 ## Citation
 
-If you use any part of this work in your research, please cite:
+If you use any part of this work, please cite:
 ```bibtex
 @mastersthesis{Oyewo2026,
-  author  = {Oyewo Temidayo Solomon},
-  title   = {Unified Constraint Framework for Exotic Spin-Dependent 
+  author  = {Oyewo, Temidayo Solomon},
+  title   = {Unified Constraint Framework for Exotic Spin-Dependent
              Interactions: Matter-Antimatter Sector Comparison},
   school  = {University of Ibadan},
   year    = {2026},
@@ -387,12 +437,8 @@ If you use any part of this work in your research, please cite:
 
 ## Acknowledgements
 
-I am grateful to my supervisor **Professor O.E. Oyewande** for 
-guidance and support throughout this research. This work draws 
-heavily on the theoretical frameworks established by Kostelecký 
-& Lane (1999), Dobrescu & Mocioiu (2006), and Fadeev et al. (2019), 
-and the comprehensive experimental review by Cong et al. (2025).
-
----
-
-*Last updated: August 2026*
+I am grateful to my supervisor, **Professor O. E. Oyewande**, for guidance and
+support throughout this research. The work builds on the frameworks of
+Colladay & Kostelecký (1998), Kostelecký & Lane (1999), Dobrescu & Mocioiu
+(2006) and Fadeev et al. (2019), and on the experimental review by Cong et al.
+(2025).

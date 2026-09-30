@@ -6,7 +6,7 @@ per-potential atlas panels, the combined 16-panel constraint atlas, and
 matter/antimatter comparison figures.
 
 Thin wrapper around the real implementation in the SPINDEP
-computational framework, vendored here as a git submodule at
+computational framework, included here as a git submodule at
 `spindep-framework/` (pinned to a specific commit -- see
 `.gitmodules` and `git submodule status`). Regenerates the figures
 already checked into `../figures/` from the live dataset registry (so
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     datasets = discover_datasets(dataset_root)
     print(f"Discovered {len(datasets)} datasets from {dataset_root}")
 
-    summary = pd.read_csv(_SPINDEP_ROOT / "spindep" / "results" / "tables" / "asymmetry_summary.csv")
+    summary = pd.read_csv(_SPINDEP_ROOT / "results" / "tables" / "asymmetry_summary.csv")
     summary_rows = summary.to_dict("records")
 
     out_dir = THIS_REPO_FIGURES / "_regenerated"
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     run_constraint_plots(
         datasets=datasets,
         summary_rows=summary_rows,
-        plots_dir=_SPINDEP_ROOT / "spindep" / "results" / "plots",
+        plots_dir=_SPINDEP_ROOT / "results" / "plots",
         figures_dir=out_dir,
     )
     print(f"\nRegenerated into {out_dir} -- compare against the checked-in")

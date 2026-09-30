@@ -25,11 +25,11 @@ in `\documentclass`. Nothing else needs to change.
 
 Figures are read from `../main_figures/` via `\graphicspath`; nothing is
 duplicated into this directory, so regenerating the thesis figures updates
-this draft automatically. Five of the thesis's twenty figures are used:
+this draft automatically. Five of the thesis's twenty-nine figures are used:
 
 | Figure | File |
 |---|---|
-| 1 | `constraint_atlas/constraint_V2+3.png` |
+| 1 | `constraint_atlas/constraint_V3.png` |
 | 2 | `matter_antimatter/gAgA_V2_ep_Karshenboim2011_vs_Ficek2018.png` |
 | 3 | `matter_antimatter/gAgA_V2_ee_Jiao2019_vs_Karshenboim2011.png` |
 | 4 | `gap_analysis/pair_coverage_matrix.png` |
@@ -39,13 +39,13 @@ this draft automatically. Five of the thesis's twenty figures are used:
 
 This is a condensation, not a reformatting. Five thesis chapters become
 eight article sections; the literature review is folded into the
-introduction, the per-potential constraint atlas (twelve figures) is
+introduction, the per-potential constraint atlas (thirteen figures) is
 reduced to one representative panel, and the methods chapter is compressed
 to what is needed to reproduce the result.
 
 All numbers are taken from the same `results/tables/dataset_registry.csv`
-that the thesis uses, and were verified against it: 273 compiled, 15
-excluded, 258 analysed, 19 antimatter, eleven matched pairs.
+that the thesis uses, and were checked against it: 283 compiled, 36
+held out, 247 analysed, 22 antimatter, 15 matched pairs (13 independent).
 
 Content in the thesis but **not** carried into the article: the full
 derivation intermediate steps, the per-potential figure set, the

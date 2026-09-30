@@ -26,8 +26,17 @@ venv/
 # Personal by-hand derivation backup (defence-prep proof of work, not a citable thesis resource)
 docs/theory_notes/FW_Derivation_Note.md
 docs/theory_notes/FW_Derivation_Note.ipynb
-# //ignore files here
+# Private material: defence notes, drafts exchanged with my supervisor, and
+# personal notes. Kept locally, never pushed.
 docs/defence/
+thesis/supervisor-VS3/
+personal-note.md
+
+# Earlier drafts and figure backups. Kept locally for reference; the thesis
+# in thesis/project and the figures in thesis/main_figures are the versions
+# that count.
+thesis/old-draft/
+thesis/main_figures_backup_*/
 
 # Mathematica
 *.nb.bak

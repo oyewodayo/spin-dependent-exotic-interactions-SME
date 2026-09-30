@@ -1,0 +1,130 @@
+% SPINDEP_one_pager.tex
+% One-page summary of the project, sent ahead of meetings and applications.
+%
+% Build:  pdflatex SPINDEP_one_pager.tex   (or: tectonic SPINDEP_one_pager.tex)
+%
+% The numbers below come from results/tables/ in the spindep-framework
+% repository (dataset_registry.csv and asymmetry_summary.csv). If the
+% pipeline is rerun and they move, update the "Status and current results"
+% list and rebuild.
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,left=17mm,right=17mm,top=13mm,bottom=12mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[helvet]{sfmath}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{7A1F1F}
+\definecolor{muted}{HTML}{555555}
+
+\titleformat{\section}{\color{accent}\bfseries\large}{}{0pt}{}
+\titlespacing*{\section}{0pt}{7pt}{3pt}
+\setlist[itemize]{leftmargin=12pt,itemsep=2pt,topsep=2pt,parsep=0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\pagestyle{empty}
+\linespread{1.05}
+
+\newcommand{\fbar}{\bar f}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries A Unified SME $\leftrightarrow$ Exotic-Potential Framework
+  for CPT Symmetry Tests\par}
+  \vspace{3pt}
+  {\small\color{muted} Oyewo Temidayo Solomon \,$\cdot$\, MSc Theoretical
+  Physics, University of Ibadan \,$\cdot$\, Supervisor: Prof.\ O.\ E.\
+  Oyewande\par}
+\end{center}
+
+\section*{Research Question}
+Light bosons predicted in many extensions of the Standard Model (axion-like
+particles, dark-sector mediators, Lorentz- and CPT-violating fields) produce
+spin-dependent forces between fermions. Hundreds of published bounds, from
+NV-centre magnetometry, torsion balances, co-magnetometers and precision
+spectroscopy, constrain their couplings. Matter-sector and antimatter-sector
+results had not been compared systematically, although that comparison is a
+natural test of CPT symmetry. Can it be done with the data that exist?
+
+\section*{Framework}
+The Standard Model Extension (SME) describes Lorentz and CPT violation through
+fixed background coefficients in the fermion Lagrangian. A canonical
+Foldy--Wouthuysen reduction maps these onto the non-relativistic
+Dobrescu--Mocioiu potentials $V_1$--$V_{16}$, the basis in which experiments
+report their limits. SPINDEP, the pipeline I built, compiles the published
+constraint curves, matches each matter dataset to its antimatter counterpart
+(for example $e$--$e$ with $e$--$e^+$), interpolates both onto a common
+interaction-range grid $\lambda$, and evaluates
+\[
+  A_\alpha(\lambda)
+  = \frac{g^{f}_\alpha(\lambda) - g^{\fbar}_\alpha(\lambda)}
+         {g^{f}_\alpha(\lambda) + g^{\fbar}_\alpha(\lambda)} .
+\]
+
+\section*{Status and Current Results}
+\begin{itemize}
+  \item \textbf{Complete spin-dependent dictionary.} $b_\mu$, $d_{\mu\nu}$,
+    $g_{\lambda\mu\nu}$ and $H_{\mu\nu}$ are the only minimal-SME fermion
+    coefficients with spin-dependent terms through third order in $1/m$;
+    $a_\mu$, $c_{\mu\nu}$ and $e_\mu$ give spin-independent terms only, and
+    $f_\mu$ is absent. All four reductions agree with Kosteleck\'y and Lane
+    term by term.
+  \item \textbf{Matter versus antimatter.} Between CPT-conjugate states, the
+    CPT-odd $b_\mu$ and $g_{\lambda\mu\nu}$ change sign and the CPT-even
+    $d_{\mu\nu}$ and $H_{\mu\nu}$ do not. Checked symbolically for all 16
+    coefficient families.
+  \item \textbf{Database.} 283 constraint datasets compiled, 247 analysed;
+    only 22 involve an antimatter sector (antiprotonic helium, positronium,
+    muonium, $dd\mu^+$).
+  \item \textbf{Matched pairs.} 15 matter--antimatter pairs (13
+    independent). Mean $|A_\alpha|$ ranges from 0.33 to 1.00, and every pair
+    is significant after correcting for correlated grid points
+    ($Z = 5.1$ to $51$).
+  \item \textbf{What that significance means.} For two one-sided upper limits
+    $U_f = s_f\,g_\star$ and $U_{\fbar} = s_{\fbar}\,g_\star$,
+    \[
+      A_U = \frac{U_f - U_{\fbar}}{U_f + U_{\fbar}}
+          = \frac{s_f - s_{\fbar}}{s_f + s_{\fbar}} ,
+    \]
+    so the coupling cancels and only the sensitivity ratio is left. The data
+    agree: each of the four pairs built on the 2025 hydrogen bounds has a twin
+    with an older matter-side bound, and in every case the tighter matter
+    bound gave the larger asymmetry. The asymmetry measures a sensitivity gap,
+    not CPT violation.
+  \item \textbf{Where the gap is.} 7 of 12 potentials and 6 of 11
+    fermion-sector pairs have no antimatter data. The $e$--$N$, $n$--$N$ and
+    $p$--$N$ sectors hold 117 matter-sector datasets and none for antimatter.
+\end{itemize}
+
+\section*{What I Would Value Feedback On}
+\begin{itemize}
+  \item \textbf{Experimental grounding:} are the dataset pairings faithful to
+    the experiments, and are there antimatter results I have missed,
+    especially in the nucleon sectors?
+  \item \textbf{Signed observables:} which antimatter platforms (BASE, ALPHA,
+    positronium, antiprotonic helium) could report signed shifts or
+    likelihoods, so that a genuine CPT test replaces the comparison of upper
+    limits?
+  \item \textbf{Two-body matching:} the dictionary is exact at the level of
+    one-body operators. What is the best route to matching explicit mediator
+    amplitudes?
+\end{itemize}
+
+\vfill
+\begin{center}
+  {\footnotesize\color{muted}
+  \href{mailto:oyewodayo@gmail.com}{oyewodayo@gmail.com} \,$\cdot$\,
+  Derivations and thesis:
+  \href{https://github.com/oyewodayo/spin-dependent-exotic-interactions-SME}{github.com/oyewodayo/spin-dependent-exotic-interactions-SME}\\[1pt]
+  Pipeline and data:
+  \href{https://github.com/oyewodayo/spindep-framework}{github.com/oyewodayo/spindep-framework}\par}
+\end{center}
+
+\end{document}

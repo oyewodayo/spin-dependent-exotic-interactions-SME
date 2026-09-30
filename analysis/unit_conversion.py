@@ -4,7 +4,7 @@ unit_conversion.py
 Standardise units across constraint-database platforms.
 
 This is a thin wrapper around the real implementation in the SPINDEP
-computational framework, vendored here as a git submodule at
+computational framework, included here as a git submodule at
 `spindep-framework/` (pinned to a specific commit -- see
 `.gitmodules` and `git submodule status`). The logic lives there
 (not duplicated here) so this repo and the framework never drift out
@@ -39,7 +39,7 @@ __all__ = ["detect_unit_factor", "convert_lambda_to_metres", "audit_units"]
 if __name__ == "__main__":
     import pandas as pd
 
-    registry_path = _SPINDEP_ROOT / "spindep" / "results" / "tables" / "dataset_registry.csv"
+    registry_path = _SPINDEP_ROOT / "results" / "tables" / "dataset_registry.csv"
     registry = pd.read_csv(registry_path)
 
     print(f"Loaded {len(registry)} datasets from {registry_path.name}\n")

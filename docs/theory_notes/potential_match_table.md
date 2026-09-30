@@ -133,27 +133,29 @@ A caveat on the "prediction" column below: it is tempting to substitute an exact
 
 ## Connecting to SPINDEP Results
 
-### Validated gAgA Pairs
+### Matched Pairs by Potential
+
+The 15 matched pairs in `spindep-framework/results/tables/asymmetry_summary.csv`, grouped by the potential they test. "ee" pairs compare $e$--$e$ with $e$--$e^+$; "ep" pairs compare $e$--$p$ with $e$--$\bar p$.
 
 <div style="overflow-x: auto;">
 
-| **SPINDEP Pair** | **Coupling** | **DM Potential** | **Dominant SME coeff.** | **Observed $\|A\alpha\|$ — consistent with, not proof of** |
+| **Pairs** | **Coupling** | **DM Potential** | **SME coefficients that feed it** | **Observed mean $\|A\alpha\|$ — consistent with, not proof of** |
 | :--- | :--- | :--- | :--- | :--- |
-| gsgs$\cdot$V1$\cdot$ee | Scalar-scalar | $V_1$ (confirmed; see below) | spin-independent: $a_\mu$, $c_{\mu\nu}$, $e_\mu$ | $0.873$: comparable to the spin-dependent pairs; a sensitivity gap explains it |
-| gAgA$\cdot$V1$\cdot$ep | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $0.9998$: consistent with a CPT-odd sign flip, but equally consistent with a pure sensitivity gap |
-| gAgA$\cdot$V2$\cdot$ee ($\times 5$) | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $0.954$--$1.000$: same caveat as above |
+| gsgs$\cdot$V1$\cdot$ee (1 pair) | Scalar--scalar | $V_1$ | spin-independent only: $a_\mu$, $c_{\mu\nu}$, $e_\mu$ | $0.873$; a sensitivity gap explains it |
+| gAgA$\cdot$V2 (4 pairs: 2 ee, 2 ep) | Axial--axial | $V_2$ (spin--spin) | $b_i$, $g_{[kl]0}$ (CPT-odd); $d_{i0}$ (CPT-even) | $0.334$--$1.000$; the spread follows the gap between the two bounds, not the CPT parity |
+| V3 (10 pairs: gAgA, gVgV, gpgp; 3 ee, 7 ep) | Axial, vector, pseudoscalar | $V_3$ (dipole--dipole) | $H_{ij}$ (CPT-even) | $0.799$--$1.000$; same caveat |
 
 </div>
 
 ### Interpretation of the gsgs result
 
-The gsgs$\cdot$V1$\cdot$ee pair shows $|A\alpha| = 0.873$ --- lower than all gAgA pairs. Two notes:
+The gsgs$\cdot$V1$\cdot$ee pair shows $|A\alpha| = 0.873$. Three notes:
 
 *   **Spin-independent channel:** $V_1$ has no spin dependence, so none of $b_\mu$, $d_{\mu\nu}$, $g_{\lambda\mu\nu}$, $H_{\mu\nu}$ feeds it; only $a_\mu$, $c_{\mu\nu}$ (CPT-even) and $e_\mu$ (CPT-odd) enter spin-independent terms (Kostelecký & Lane, J. Math. Phys. 40, 6245, Eq. 26). Its asymmetry (Delaunay 2017 matter bound 3--4 orders of magnitude tighter than the Adkins 2022 positronium bound) sits inside the range of the $g_Ag_A$ pairs, which is what a sensitivity gap produces whatever the channel.
 
-*   **Potential confirmed as $V_1$:** this pair's filenames (`Delaunay_2017`, `Adkins_2022_eeplus`) carry no potential-number token, so the parser records them as `UNKNOWN` by default. Both source papers were checked directly to resolve this: Delaunay, Frugiuele, Fuchs & Soreq (2017), *Phys. Rev. D* 96, 115002, constrain a spin-independent scalar interaction between electrons, and Adkins, Cassidy & Pérez-Ríos (2022), *Phys. Rept.* 975, 1, report a bound on the analogous spin-independent $g_s^eg_s^{e^+}$ coupling from positronium spectroscopy — both a direct match to $V_1$'s monopole--monopole, spin-independent definition. The classification is applied via `FILENAME_POTENTIAL_OVERRIDES` in `spindep/src/parser.py`, not by editing the raw source files. $V_1$ has no spin structure and would produce $A\alpha = 0$ for a CPT-symmetric world *if* the compared bounds were of comparable sensitivity. A further eleven filenames sit under a `# V1 / scalar exchange datasets` comment in the same override table without the potential-side fix applied — see `thesis/05_gap_analysis.tex` §5.4 for the list; these remain `UNKNOWN` pending the same source-verification step.
+*   **Potential confirmed as $V_1$:** this pair's filenames (`Delaunay_2017`, `Adkins_2022_eeplus`) carry no potential-number token, so the parser records them as `UNKNOWN` by default. Both source papers were checked directly to resolve this: Delaunay, Frugiuele, Fuchs & Soreq (2017), *Phys. Rev. D* 96, 115002, constrain a spin-independent scalar interaction between electrons, and Adkins, Cassidy & Pérez-Ríos (2022), *Phys. Rept.* 975, 1, report a bound on the analogous spin-independent $g_s^eg_s^{e^+}$ coupling from positronium spectroscopy — both a direct match to $V_1$'s monopole--monopole, spin-independent definition. The classification is applied via `FILENAME_POTENTIAL_OVERRIDES` in `spindep/src/parser.py`, not by editing the raw source files. $V_1$ has no spin structure and would produce $A\alpha = 0$ for a CPT-symmetric world *if* the compared bounds were of comparable sensitivity. The other scalar-exchange bounds listed beside it in that table (Alighanbari 2020, Hoskins 1985, Kapner 2007, Chen 2016, Tan 2020, Lee 2020, Bordag 2001, the collider bound and the two Salumbides 2014 bounds) are classified as $V_1$ in the same way.
 
-*   **Width of 95% CI:** $[0.871, 0.875]$ --- wider than gAgA CIs ($[0.999, 1.000]$). This reflects that the gsgs pair's bootstrap has more relative spread; it is not, by itself, evidence about CPT parity.
+*   **Width of 95% CI:** $[0.869, 0.877]$, wider than the $V_2$ pairs built on hydrogen bounds ($[0.9998, 0.9999]$). The gsgs bounds carry larger fractional uncertainties, so the bootstrap spreads further; the width says nothing about CPT parity.
 
 ### CPT Rule for All SME Coefficients
 
