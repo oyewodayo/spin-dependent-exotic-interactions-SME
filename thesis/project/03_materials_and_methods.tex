@@ -15,8 +15,8 @@ procedures produce are presented and discussed in Chapter~4.
 \section{Research Procedures: Foldy--Wouthuysen Reduction of SME Coefficients}
 \label{sec:procedure}
 
-Each SME fermion-sector coefficient of interest, $b_\mu$, $H_{\mu\nu}$, and
-$d_{\mu\nu}$, was reduced to its non-relativistic Hamiltonian and matched
+Each SME fermion-sector coefficient of interest, $b_\mu$, $H_{\mu\nu}$,
+$d_{\mu\nu}$, and $g_{\lambda\mu\nu}$, was reduced to its non-relativistic Hamiltonian and matched
 onto the Dobrescu--Mocioiu potential catalogue by the same five-step
 procedure.
 
@@ -26,7 +26,7 @@ procedure.
     (Eq.~\ref{eq:sme-minimal}), and its CPT and Lorentz transformation
     properties are checked directly from the transformation of the
     corresponding fermion bilinear (or, for the derivative-coupled
-    coefficient $d_{\mu\nu}$, stated following Kostelecký and Lane, 1999,
+    coefficient $d_{\mu\nu}$, stated following Kostelecký and Lane, 1999a,
     since the bilinear rule alone does not apply to a derivative-coupled
     operator).
   \item \textbf{Derive the correction to the Dirac Hamiltonian.} Varying the
@@ -52,21 +52,22 @@ procedure.
     four-component spinor because it delivers the particle-sector
     Hamiltonian as an explicit $2\times2$ Pauli expression whose operator
     structure can be matched term-by-term against the closed-form $V_i$
-    potentials of Eqs.~\ref{eq:v1}--\ref{eq:v16}. For $b_\mu$,
-    this step is additionally cross-checked against the antiparticle
-    sector directly from the block structure identified in step 3: since
-    the even/odd classification already block-diagonalises the operator,
-    the negative-energy (lower) block gives the antiparticle's matrix
-    element in the original, unconjugated Hamiltonian, and the standard
-    hole-theory sign flip ($H\to-H$ on reinterpreting a negative-energy
-    solution as a positive-energy antiparticle) converts it into the
-    antiparticle's non-relativistic Hamiltonian. This route was adopted in
-    preference to a direct charge-conjugation argument on the bilinear
+    potentials of Eqs.~\ref{eq:v1}--\ref{eq:v16}. The antiparticle
+    Hamiltonian is then obtained from the negative-energy (lower) block by
+    the hole-theory reinterpretation: an antiparticle of momentum
+    $\mathbf p$ and spin $\mathbf s$ is the absence of a negative-energy
+    solution of momentum $-\mathbf p$ and spin $-\mathbf s$, with the
+    opposite energy. The particle is compared with its CPT-conjugate
+    antiparticle, of the same momentum and reversed spin, which gives
+    $H^{\bar f}_{NR}(\mathbf p,\boldsymbol\sigma)=-H_{\rm lower}(-\mathbf p,
+    \boldsymbol\sigma)$. This route was adopted in preference to a
+    charge-conjugation argument on the bilinear
     $\bar\psi\gamma_5\gamma^\mu\psi$ after that bilinear was verified, with
     the same Dirac-algebra tooling, to be even under $C$ for every $\mu$
-    and therefore unable by itself to produce the required sign
-    difference; the resulting sign flip (or its absence) is nonetheless
-    the mechanism responsible for a genuine matter--antimatter asymmetry.
+    and therefore unable by itself to produce a sign difference. The
+    comparison was verified for every coefficient family against each
+    coefficient's CPT parity and against Kostelecký and Lane's (1999b)
+    antiparticle rule at fixed spin.
   \item \textbf{Match to the Dobrescu--Mocioiu catalogue.} The resulting
     single-particle non-relativistic Hamiltonian is promoted to a two-body
     potential by pairing the same vertex structure on both interacting
@@ -86,7 +87,7 @@ specifically, a symbolic limit calculation used to check the behaviour of
 Eq.~\eqref{eq:asymmetry} under an exact signed CPT-odd substitution
 (Chapter~4, Section~4.1.3). Where a derived result could be checked against
 an independently published non-relativistic Hamiltonian (Kostelecký and
-Lane, 1999, Eq.~4), this comparison was carried out component by component
+Lane, 1999a, Eq.~4), this comparison was carried out component by component
 rather than only at the level of overall structure. That is how an apparent
 sign discrepancy in the $d_{ij}$ and $d_{00}$ components (Chapter~4) was
 first identified, and subsequently traced to the momentum-index convention
@@ -150,32 +151,30 @@ four stages, each addressing a limitation of the one before it.
     of freedom, which is not justified, since the points are interpolated
     from a much smaller number of real measurements along smooth curves and
     adjacent points are strongly correlated. An \emph{effective degrees of
-    freedom} is therefore estimated from the autocorrelation length of the
-    $\chi^2$ residuals in grid-index space (the lag at which the residual
-    autocorrelation first drops below $1/e$), and the weighted-$\chi^2$
-    significance is recomputed against this corrected, typically much
-    smaller, degrees of freedom.
+    freedom} is therefore estimated from the autocorrelation length $\tau$
+    of the $\chi^2$ residuals in grid-index space (the lag at which the
+    residual autocorrelation first drops below $1/e$), as
+    $n_{\text{eff}}=n/\tau$. The weighted $\chi^2$ is scaled down by the
+    same factor, $\chi^2_{\text{eff}}=\chi^2 n_{\text{eff}}/n$, and compared
+    with a $\chi^2$ distribution on $n_{\text{eff}}$ degrees of freedom.
+    Since most of the resulting $p$-values lie far below double precision,
+    the significance is quoted as the equivalent one-sided Gaussian
+    $Z_{\text{eff}}$.
   \item A \emph{parametric bootstrap} (2000 resamples, propagating the
     estimated per-point uncertainty through to $A_\alpha$ itself) gives a
     95\% confidence interval on the mean $|A_\alpha|$ for each pair.
 \end{enumerate}
 
-Two properties of this bootstrap step are worth stating explicitly rather
-than leaving implicit in the word ``parametric'' above. First, it is a
-delta-method approximation, not a resampling of the underlying raw
-matter/antimatter coupling values: by the point the bootstrap runs, each
-pair has already been reduced to $A_\alpha(\lambda)$ and its estimated
-combined uncertainty, so the per-point perturbation used to generate each
-resample is obtained by linearising $A_\alpha=(g_m-g_a)/(g_m+g_a)$ about
-$g_m\approx g_a$ and propagating the known uncertainty through that
-linearisation, rather than by redrawing $(g_m,g_a)$ pairs with
-replacement. Second, because the confidence interval is computed on
-$|A_\alpha|$ rather than the signed asymmetry, it is systematically
-biased away from zero even for a pair with no true asymmetry: folding a
-distribution centred at zero through an absolute value can only push
-resampled values upward, never down, so a bootstrap confidence interval
-that excludes zero should not, on its own, be read as evidence of a
-non-zero asymmetry.
+Two points about this bootstrap step matter for how its intervals are
+read. First, each resample perturbs both interpolated couplings by their
+estimated fractional uncertainties (log-normally, so they stay positive)
+and recomputes $A_\alpha$ exactly. Because $|A_\alpha|$ is nonlinear in the
+couplings, folded at zero and saturating at one, the resampled means sit
+slightly off the point estimate even when the perturbations are symmetric,
+and that offset, estimated as the median bootstrap bias, is removed before
+the interval is quoted. Second, the interval only reflects the spread
+implied by the assumed curve uncertainties; for $|A_\alpha|$ an interval
+that excludes zero is not, on its own, evidence of a non-zero asymmetry.
 
 This methodology is applied uniformly to every matched pair in the
 compiled database (Chapter~4), and its results are interpreted throughout

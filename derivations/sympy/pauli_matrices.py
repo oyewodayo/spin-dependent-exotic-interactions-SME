@@ -250,6 +250,13 @@ def cpt_conjugate(H_NR, cpt_sign):
     """
     Apply CPT conjugation to a 2x2 NR Hamiltonian.
 
+    Returns the Hamiltonian of the CPT-conjugate antiparticle state (same
+    momentum, reversed spin), written with the particle's spin operator.
+    At the same physical spin the relation for spin-linear terms is the
+    opposite (Kostelecky & Lane, J. Math. Phys. 40, 6245, 1999: b -> +b,
+    g -> +g, d -> -d, H -> -H). Verified for every coefficient family in
+    FW_antiparticle_all_coefficients.ipynb.
+
     For CPT-odd coefficients (cpt_sign = -1):
         H^NR_antiparticle = -H^NR_particle
 

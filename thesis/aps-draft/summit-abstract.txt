@@ -1,5 +1,29 @@
-Exotic spin-dependent interactions are constrained by many experiments, but those bounds are reported in the Dobrescu-Mocioiu potential basis while the theory is written in the Standard Model Extension, with no dictionary between them. We derive one by Foldy-Wouthuysen reduction of the SME coefficients b_mu, H_mu-nu and d_mu-nu onto their non-relativistic potentials.
+TITLE
+Mapping the Standard Model Extension onto spin-dependent potentials: what
+matter-antimatter bounds can and cannot test
 
-Using this mapping we define a CPT asymmetry parameter A = (g_f - g_fbar)/(g_f + g_fbar) and evaluate it against 247 standardized constraint datasets, every potential assignment validated against the source compilation's records. Fifteen matter-antimatter pairs can be compared; all show significant asymmetry. We show A A built from one-sided upper bounds saturates whenever the two experiments differ in sensitivity, whatever the CPT status. Adding 2025 hydrogen bounds, which tighten only the matter side, drove it to 1.0000; a CPT-even channel gives an asymmetry as large as the CPT-odd ones. These are not evidence of new physics.
+ABSTRACT (wrapped for reading)
+Laboratory bounds on exotic spin-dependent interactions are reported in the
+Dobrescu-Mocioiu potential basis, while Lorentz and CPT violation is
+parametrized by the Standard Model Extension (SME). We connect the two by
+Foldy-Wouthuysen reduction of $b_\mu$, $d_{\mu\nu}$, $g_{\lambda\mu\nu}$ and
+$H_{\mu\nu}$, the complete set of SME fermion coefficients that produce
+spin-dependent terms. Between CPT-conjugate states, $b_\mu$ and
+$g_{\lambda\mu\nu}$ change sign from matter to antimatter while $d_{\mu\nu}$
+and $H_{\mu\nu}$ do not. We define an asymmetry
+$A=(g_f-g_{\bar f})/(g_f+g_{\bar f})$ and evaluate it on 247 standardized
+constraint datasets. Fifteen matter-antimatter pairs can be compared and all
+show significant asymmetry, but $A$ built from one-sided upper bounds tracks
+the sensitivity ratio of the two experiments, not CPT status: 2025 hydrogen
+bounds, which tighten only the matter side, raised it in every pair they
+enter. Only 22 of the 247 datasets involve antimatter, and seven of twelve
+potentials have none. A useful antimatter bound is one matched in
+sensitivity to its matter counterpart; the $e$-$N$, $n$-$N$ and $p$-$N$
+sectors offer the most room.
 
-This yields a design criterion: an antimatter-sector bound is useful for a CPT test in proportion to how closely it matches its matter-sector counterpart in sensitivity, not how tight it is. Only 19 of 247 datasets involve antimatter; the e-N, n-N and p-N sectors are the highest-value targets.
+----------------------------------------------------------------------------
+PASTE INTO THE APS FORM (one paragraph, no line breaks):
+
+Mapping the Standard Model Extension onto spin-dependent potentials: what matter-antimatter bounds can and cannot test
+
+Laboratory bounds on exotic spin-dependent interactions are reported in the Dobrescu-Mocioiu potential basis, while Lorentz and CPT violation is parametrized by the Standard Model Extension (SME). We connect the two by Foldy-Wouthuysen reduction of $b_\mu$, $d_{\mu\nu}$, $g_{\lambda\mu\nu}$ and $H_{\mu\nu}$, the complete set of SME fermion coefficients that produce spin-dependent terms. Between CPT-conjugate states, $b_\mu$ and $g_{\lambda\mu\nu}$ change sign from matter to antimatter while $d_{\mu\nu}$ and $H_{\mu\nu}$ do not. We define an asymmetry $A=(g_f-g_{\bar f})/(g_f+g_{\bar f})$ and evaluate it on 247 standardized constraint datasets. Fifteen matter-antimatter pairs can be compared and all show significant asymmetry, but $A$ built from one-sided upper bounds tracks the sensitivity ratio of the two experiments, not CPT status: 2025 hydrogen bounds, which tighten only the matter side, raised it in every pair they enter. Only 22 of the 247 datasets involve antimatter, and seven of twelve potentials have none. A useful antimatter bound is one matched in sensitivity to its matter counterpart; the $e$-$N$, $n$-$N$ and $p$-$N$ sectors offer the most room.

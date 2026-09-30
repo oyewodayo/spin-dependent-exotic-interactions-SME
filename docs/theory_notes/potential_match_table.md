@@ -112,17 +112,22 @@ A caveat on the "prediction" column below: it is tempting to substitute an exact
 
 | **SME Coeff.** | **CPT** | **Lorentz** | **NR Hamiltonian** | **DM Potential(s)** | **1/m Order** | **SPINDEP $A\alpha$ prediction** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| $b_i$ | **Odd** | **Odd** | $-b\cdot\sigma$ (matter) $+b\cdot\sigma$ (antimatter) | $V_2$ | $m^0$ | Consistent with $\|A\alpha\|$ near 1, but equally consistent with a sensitivity gap (no sign-flip evidence from $A\alpha$ alone) |
+| $b_i$ | **Odd** | **Odd** | $-b\cdot\sigma$ (matter) $+b\cdot\sigma$ (CPT-conjugate antimatter) | $V_2$ | $m^0$ | Consistent with $\|A\alpha\|$ near 1, but equally consistent with a sensitivity gap (no sign-flip evidence from $A\alpha$ alone) |
 | $b_0$ | **Odd** | **Odd** | $+b_0(\sigma\cdot p)/m$ | $V_7, V_8$ | $m^{-1}$ | Same caveat as $b_i$ |
 | $H_{ij}$ | **Even** | **Odd** | $-\mathcal{H}_B\cdot\sigma$ | $V_3$ | $m^0$ | $A\alpha \approx 0$ expected if bounds are comparably sensitive; a sensitivity gap can still produce $\|A\alpha\|$ near 1 despite CPT-even physics |
 | $H_{0i}$ | **Even** | **Odd** | $-\frac{1}{m}\sigma\cdot(p\times H_E)$ | $V_7$ | $m^{-1}$ | Same caveat as $H_{ij}$ |
 | $d_{i0}$ | **Even** | **Odd** | $+d_{i0}\, m\, \sigma^i$ | $V_2$ | $m^1$ (!) | Same caveat as $H_{ij}$; **derived and verified** against Kostelecký & Lane (1999) Eq. 4 |
 | $d_{ij}$ | **Even** | **Odd** | $+d_{ij}\, p^j\, \sigma^i$ | $V_7, V_8$ | $m^0$ (vel.) | Same caveat as $H_{ij}$; derived and verified against Eq. (4) |
 | $d_{00}$ | **Even** | **Odd** | $+d_{00}\,(\sigma\cdot p)$ | $V_8$ | $m^0$ (mom.) | Same caveat as $H_{ij}$; derived and verified against Eq. (4) |
+| $g_{[kl]0}$ | **Odd** | — | $-m\,\tilde{\mathbf g}\cdot\sigma$ | $V_2$ | $m^{+1}$ | Flips between CPT-conjugate states ($g^{\bar f}=-g^f$); same caveat as $b_i$ |
+| $g_{[0k]0}$ | **Odd** | — | $+\sigma\cdot(\mathbf p\times\mathbf g_{00})$ | $V_7$ | $m^0$ | Flips between CPT-conjugate states ($g^{\bar f}=-g^f$); same caveat as $b_i$ |
+| $g_{[kl]j}$ | **Odd** | — | $+\tfrac12\varepsilon_{klm}g_{mlj}p^j\sigma^k$ | $V_7,V_8$ | $m^0$ (vel.) | Flips between CPT-conjugate states ($g^{\bar f}=-g^f$); same caveat as $b_i$ |
 
 </div>
 
 **Note on $d_{\mu\nu}$'s Lagrangian sector:** $d_{\mu\nu}$ is a *kinetic*-sector coefficient, paired with $c_{\mu\nu}$ and entering as $\tfrac12i\bar\psi\,d^{\mu\nu}\gamma_5\gamma_\mu\overleftrightarrow\partial_\nu\psi$ (Kostelecký & Lane, 1999) — not a mass-sector bilinear like $H_{\mu\nu}$'s $\bar\psi\gamma_5\sigma^{\mu\nu}\psi$. It is *traceless*, not antisymmetric, so $d_{00}$ need not vanish. Derived from this Lagrangian (`derivations/sympy/FW_dmunu_term.ipynb`), $d_{i0}\to V_2$ matches Kostelecký & Lane's own nonrelativistic Hamiltonian (their Eq. 4) exactly, and $d_{ij}\to V_7,V_8$ / $d_{00}\to V_8$ likewise match exactly once Eq. (4)'s lower-index $p_j$ is read as the covariant component $-p^j$, as that paper's own free-particle term requires — see `FW_derivation_dmunu.md` for the full account.
+
+**Note on the matter–antimatter relation:** every "flip" or "same" statement above compares CPT-conjugate states: an antiparticle of the same momentum and reversed spin, $H^{\bar f}_{NR}(\mathbf p,\boldsymbol\sigma)=-H_{\rm lower}(-\mathbf p,\boldsymbol\sigma)$. With this comparison, every row follows its coefficient's CPT parity. At the same physical spin every spin-dependent row reverses (Kostelecký & Lane, J. Math. Phys. 40, 6245: $b\to+b$, $g\to+g$, $d\to-d$, $H\to-H$). Both are verified for every family in `derivations/sympy/FW_antiparticle_all_coefficients.ipynb`.
 
 **Note on "consistent with" vs. "caused by":** because every SPINDEP $A\alpha$ value is a ratio of two independent one-sided bounds, an observed value near $\pm 1$ can arise either from a genuine CPT-odd signal *or* from nothing more than one experiment being much more sensitive than the other. Distinguishing the two requires independent information about the relative precision of the matter- and antimatter-sector measurements being compared — it cannot be read off $A\alpha$ alone. This applies uniformly to every row above, CPT-odd or CPT-even.
 
@@ -134,7 +139,7 @@ A caveat on the "prediction" column below: it is tempting to substitute an exact
 
 | **SPINDEP Pair** | **Coupling** | **DM Potential** | **Dominant SME coeff.** | **Observed $\|A\alpha\|$ — consistent with, not proof of** |
 | :--- | :--- | :--- | :--- | :--- |
-| gsgs$\cdot$V1$\cdot$ee | Scalar-scalar | $V_1$ (confirmed; see below) | $c_{\mu\nu}$ (CPT-even) | $0.873$: consistent with a sensitivity-gap-dominated CPT-even channel |
+| gsgs$\cdot$V1$\cdot$ee | Scalar-scalar | $V_1$ (confirmed; see below) | spin-independent: $a_\mu$, $c_{\mu\nu}$, $e_\mu$ | $0.873$: comparable to the spin-dependent pairs; a sensitivity gap explains it |
 | gAgA$\cdot$V1$\cdot$ep | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $0.9998$: consistent with a CPT-odd sign flip, but equally consistent with a pure sensitivity gap |
 | gAgA$\cdot$V2$\cdot$ee ($\times 5$) | Axial-axial | $V_2$ (spin-spin) | $b_\mu$ (CPT-odd) | $0.954$--$1.000$: same caveat as above |
 
@@ -144,7 +149,7 @@ A caveat on the "prediction" column below: it is tempting to substitute an exact
 
 The gsgs$\cdot$V1$\cdot$ee pair shows $|A\alpha| = 0.873$ --- lower than all gAgA pairs. Two notes:
 
-*   **CPT-even coupling:** The scalar--scalar (gsgs) coupling does not appear in the minimal SME at dimension 4. Its primary contribution comes from $c_{\mu\nu}$, a CPT-even coefficient. A value below the gAgA pairs is *consistent with* a CPT-even channel and a sizeable sensitivity gap (Delaunay 2017 matter constraint is 3--4 orders of magnitude tighter than Adkins 2022 positronium constraint) — but, per the correction above, the gAgA pairs' higher values are *equally* explainable by a sensitivity gap alone, so the comparison between rows in this table cannot by itself distinguish "CPT-odd" from "CPT-even, larger sensitivity gap."
+*   **Spin-independent channel:** $V_1$ has no spin dependence, so none of $b_\mu$, $d_{\mu\nu}$, $g_{\lambda\mu\nu}$, $H_{\mu\nu}$ feeds it; only $a_\mu$, $c_{\mu\nu}$ (CPT-even) and $e_\mu$ (CPT-odd) enter spin-independent terms (Kostelecký & Lane, J. Math. Phys. 40, 6245, Eq. 26). Its asymmetry (Delaunay 2017 matter bound 3--4 orders of magnitude tighter than the Adkins 2022 positronium bound) sits inside the range of the $g_Ag_A$ pairs, which is what a sensitivity gap produces whatever the channel.
 
 *   **Potential confirmed as $V_1$:** this pair's filenames (`Delaunay_2017`, `Adkins_2022_eeplus`) carry no potential-number token, so the parser records them as `UNKNOWN` by default. Both source papers were checked directly to resolve this: Delaunay, Frugiuele, Fuchs & Soreq (2017), *Phys. Rev. D* 96, 115002, constrain a spin-independent scalar interaction between electrons, and Adkins, Cassidy & Pérez-Ríos (2022), *Phys. Rept.* 975, 1, report a bound on the analogous spin-independent $g_s^eg_s^{e^+}$ coupling from positronium spectroscopy — both a direct match to $V_1$'s monopole--monopole, spin-independent definition. The classification is applied via `FILENAME_POTENTIAL_OVERRIDES` in `spindep/src/parser.py`, not by editing the raw source files. $V_1$ has no spin structure and would produce $A\alpha = 0$ for a CPT-symmetric world *if* the compared bounds were of comparable sensitivity. A further eleven filenames sit under a `# V1 / scalar exchange datasets` comment in the same override table without the potential-side fix applied — see `thesis/05_gap_analysis.tex` §5.4 for the list; these remain `UNKNOWN` pending the same source-verification step.
 
@@ -152,7 +157,7 @@ The gsgs$\cdot$V1$\cdot$ee pair shows $|A\alpha| = 0.873$ --- lower than all gAg
 
 ### CPT Rule for All SME Coefficients
 
-The general rule, derived from the Foldy--Wouthuysen analysis, is:
+The general rule, derived from the Foldy--Wouthuysen analysis and verified for every coefficient family in `derivations/sympy/FW_antiparticle_all_coefficients.ipynb`, is (antiparticle in the CPT-conjugate state, same momentum and reversed spin; at the same physical spin every spin-linear term has the opposite relation):
 
 $$
 H_{NR}^{\text{antiparticle}}(X^{\text{CPT-odd}}) = -H_{NR}^{\text{particle}}(X^{\text{CPT-odd}})
@@ -178,11 +183,11 @@ The $a_\mu$ term $L_a = a_\mu\bar{\psi}\gamma^\mu\psi$ produces $H_{NR} = -a_0$ 
 
 ### $c_{\mu\nu}$ (CPT-even, Lorentz-odd)
 
-The $c_{\mu\nu}$ term $L_c = c_{\mu\nu}\bar{\psi}\gamma^\mu i\partial^\nu\psi$ generates momentum-dependent (direction-dependent) energy shifts. It is CPT-even. In the NR limit it contributes a direction-dependent kinetic energy modification that mimics a preferred-frame effect. For spin-dependent interactions it generates $V_2$-type couplings at subleading order. The gsgs sector may be sensitive to $c_{\mu\nu}$ if the mediator couples through the scalar current.
+The $c_{\mu\nu}$ term $L_c = c_{\mu\nu}\bar{\psi}\gamma^\mu i\partial^\nu\psi$ generates momentum-dependent (direction-dependent) energy shifts. It is CPT-even. In the NR limit it contributes a direction-dependent kinetic energy modification that mimics a preferred-frame effect. It produces no spin-dependent term through third order in $1/m$ (Kostelecký & Lane 1999, J. Math. Phys. 40, 6245, Eq. 26). The gsgs sector may be sensitive to $c_{\mu\nu}$ if the mediator couples through the scalar current.
 
-### $e_\mu, f_\mu$ (CPT-odd, higher dimension)
+### $e_\mu, f_\mu$ (CPT-odd, dimensionless)
 
-Dimension-4+ operators $e_\mu$ and $f_\mu$ are CPT-odd but velocity-dependent (odd under C but even under P). They contribute to $V_8$ and higher DM potentials. They are not yet constrained by SPINDEP pairs but will become accessible when gVgV and gpgp pairs are analysed with the v2.0 parser.
+$e_\mu$ and $f_\mu$ are CPT-odd, dimensionless kinetic-sector coefficients. Like $g_{\lambda\mu\nu}$, they are excluded from the standard-model extension proper by gauge invariance and renormalisability (Colladay & Kostelecký 1998, Eq. 29). Neither produces a spin-dependent term: $e_\mu$ enters the non-relativistic Hamiltonian only through spin-independent terms, and $f_\mu$ does not enter it at linear order (Kostelecký & Lane 1999, J. Math. Phys. 40, 6245, Eq. 26). $f_\mu$ can be removed entirely by a field redefinition (Altschul 2006, J. Phys. A 39, 13757). Neither maps onto a spin-dependent DM potential.
 
 ## References
 
@@ -201,3 +206,16 @@ Dimension-4+ operators $e_\mu$ and $f_\mu$ are CPT-odd but velocity-dependent (o
 7. Fadeev, P. et al. (2022). Revisiting spin-dependent forces mediated by new bosons. *Phys. Rev. A* 99, 022113.
 
 8. Heckel, B.R. et al. (2008). Preferred-frame and CP-violation tests with polarized electrons. *Phys. Rev. D* 78, 092006.
+
+**Note on $g_{\lambda\mu\nu}$ and completeness.** With $g_{\lambda\mu\nu}$ derived
+(`FW_derivation_gmunu.md`), the mapping covers every SME coefficient that generates a
+spin-dependent non-relativistic potential. Splitting Kostelecky & Lane's $h$ into top-level terms,
+each $\sigma$-carrying term contains only $b_\mu$, $d_{\mu\nu}$, $g_{\lambda\mu\nu}$, $H_{\mu\nu}$;
+$a_\mu$, $c_{\mu\nu}$, $e_\mu$ appear only in spin-independent terms and $f_\mu$ not at all through
+third order in $1/m$. Since the Dobrescu-Mocioiu basis is spin-dependent apart from $V_1$, the
+excluded coefficients have no image in it, and the dictionary is closed rather than partial.
+
+**Note on the asymmetry signature.** All three contributing $g_{\lambda\mu\nu}$ families flip between
+CPT-conjugate states, as its CPT-odd character requires. An earlier version of this table reported
+that only $g_{[kl]0}$ flips. That came from comparing the lower block at the same momentum; for the
+two families linear in $\mathbf p$, the momentum reversal of hole theory changes the answer.

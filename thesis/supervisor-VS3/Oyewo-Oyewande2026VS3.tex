@@ -1,0 +1,1487 @@
+\documentclass[aps,prd,reprint,superscriptaddress,nofootinbib]{revtex4-2}
+
+% ============================================================
+% Packages
+% ============================================================
+\usepackage{amsmath,amssymb,amsfonts,mathtools,bm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=blue
+}
+
+% ============================================================
+% Useful commands
+% ============================================================
+\newcommand{\SME}{\mathrm{SME}}
+\newcommand{\DM}{\mathrm{DM}}
+\newcommand{\FW}{\mathrm{FW}}
+\newcommand{\CPT}{\mathrm{CPT}}
+\newcommand{\ACF}{\mathrm{ACF}}
+\newcommand{\NR}{\mathrm{NR}}
+\newcommand{\mbf}{\mathbf}
+\newcommand{\msf}{\mathsf}
+
+% ============================================================
+% Document
+% ============================================================
+\begin{document}
+	
+	\title{%
+		Relativistic--Nonrelativistic Matching and Matter--Antimatter
+		Constraints for Exotic Spin-Dependent Interactions:
+		A Unified Framework and the Limits of One-Sided Bounds as CPT Tests
+	}
+	
+	\author{Temidayo Solomon Oyewo}
+	\author{Oluwole Emmanuel Oyewande}
+	\email{oe.oyewande@ui.edu.ng}
+	\affiliation{Department of Physics, University of Ibadan, Ibadan, Nigeria}
+	
+	\date{\today}
+	
+	% ============================================================
+	% Abstract
+	% ============================================================
+	\begin{abstract}
+		
+		Light, weakly coupled bosons can mediate exotic spin-dependent
+		interactions over a wide range of distances. Experimental constraints on
+		such interactions are commonly reported using the nonrelativistic
+		potential basis originating with Dobrescu and Mocioiu (DM), whereas
+		Lorentz- and CPT-violating effects are naturally formulated within the
+		Standard-Model Extension (SME). We establish a controlled correspondence
+		between selected coefficients in the minimal SME fermion sector and
+		nonrelativistic operator structures by applying the field normalisation
+		and Foldy--Wouthuysen (FW) procedure appropriate to derivative
+		kinetic terms. The analysis is restricted to $b_\mu$, $H_{\mu\nu}$, and
+		$d_{\mu\nu}$ and does not claim a complete SME--DM dictionary. The
+		canonical nonrelativistic Hamiltonian reproduces the established
+		spin and spin--momentum structures, including the mass-enhanced
+		$d_{i0}$ contribution and the momentum-linear combination
+		$d_{ij}+d_{00}\delta_{ij}$.
+		
+		We then investigate whether published matter and antimatter upper limits
+		can be converted into a quantitative CPT asymmetry. A signed quantity
+		such as
+		$A=(g_f-g_{\bar f})/(g_f+g_{\bar f})$
+		is meaningful only when $g_f$ and $g_{\bar f}$ are signed observables or
+		well-defined estimators. Experimental exclusion results are instead
+		usually one-sided bounds on positive quantities such as $|g|$. If
+		$U_f=s_f g_\star$ and $U_{\bar f}=s_{\bar f}g_\star$ describe two such
+		limits on the same underlying coupling magnitude, their apparent
+		asymmetry is exactly
+		\[
+		A_U=\frac{U_f-U_{\bar f}}{U_f+U_{\bar f}}
+		=\frac{s_f-s_{\bar f}}{s_f+s_{\bar f}},
+		\]
+		which contains no CPT parameter. We therefore interpret this quantity
+		as a sensitivity-gap diagnostic rather than as a CPT observable.
+		
+		A compiled registry contains 273 constraint records, of which 258 are
+		admitted to the present analysis. Nineteen analysed records involve
+		antimatter, and eleven matter--antimatter pairs satisfy the adopted
+		matching requirements in coupling convention, operator label, fermion
+		sector, and interaction range. The resulting bound-based asymmetries
+		span approximately $0.33$--$1$ in magnitude, but their size is not
+		evidence for CPT violation. The present coverage is strongly
+		matter-dominated, with substantial deficits in electron--nucleus,
+		neutron--nucleus, and proton--nucleus sectors. We formulate a practical
+		two-stage programme in which balanced sensitivity regions are first
+		identified through a sensitivity-ratio function and genuine CPT
+		tests are subsequently performed using signed observables or full
+		likelihood functions.
+		
+	\end{abstract}
+	
+	\maketitle
+	
+	% ============================================================
+	\section{Introduction}
+	% ============================================================
+	
+	Searches for weakly coupled new interactions at low energies provide a
+	complementary route to high-energy searches for physics beyond the
+	Standard Model (BSM). Light bosons, including axionlike particles and
+	new spin-1 states, can mediate long-range forces whose effects may be
+	probed through precision spectroscopy, atomic and molecular systems,
+	torsion balances, comagnetometers, spin sensors, and antimatter
+	experiments \cite{MoodyWilczek1984,DobrescuMocioiu2006,
+		Cong2025,WuYan2026}.
+	
+	A standard phenomenological language for such interactions is provided
+	by the sixteen rotationally invariant nonrelativistic structures
+	introduced by Dobrescu and Mocioiu \cite{DobrescuMocioiu2006}.
+	Modern treatments have clarified the relation between different
+	historical potential conventions, reduced coupling constants, and
+	experimental applications \cite{Cong2025}. The DM classification is,
+	however, a nonrelativistic phenomenological framework rather than a
+	complete relativistic effective field theory. In particular, the label
+	of a DM potential does not by itself determine the Lorentz or CPT
+	properties of an underlying interaction.
+	
+	The SME provides a systematic effective-field-theory description of
+	Lorentz and CPT violation \cite{ColladayKostelecky1997,
+		ColladayKostelecky1998}. In its minimal fermion sector, coefficients
+	such as $b_\mu$, $H_{\mu\nu}$, and $d_{\mu\nu}$ modify the Dirac
+	Lagrangian and produce observable nonrelativistic effects. The
+	Foldy--Wouthuysen transformation provides the standard route from the
+	relativistic Dirac description to a two-component nonrelativistic
+	Hamiltonian \cite{FoldyWouthuysen1950,KosteleckyLane1999}.
+	
+	The relationship between these descriptions is useful but must be
+	formulated carefully. An SME coefficient is a one-fermion background
+	quantity, whereas a DM coupling such as $g_A^e g_A^N$ is a product of
+	couplings at two interaction vertices. Consequently, an SME coefficient
+	cannot in general be identified numerically with a DM coupling.
+	A legitimate connection must proceed through the nonrelativistic
+	operator structure and, where required, through an explicit
+	two-fermion scattering amplitude.
+	
+	This distinction is especially important for matter--antimatter
+	comparisons. Antiprotonic helium spectroscopy has already constrained
+	exotic spin-dependent interactions involving antiprotons
+	\cite{Ficek2018}, while positronium provides a theoretically clean
+	leptonic matter--antimatter system for precision tests
+	\cite{Adkins2022}. At the same time, spin-based quantum sensors and
+	NV-diamond techniques continue to improve constraints on exotic
+	interactions in ordinary matter \cite{Jiao2021,Liang2023,Jiang2024}.
+	These developments make a systematic comparison of matter and
+	antimatter constraints timely.
+	
+	A natural dimensionless quantity for signed couplings is
+	\begin{equation}
+		A_\alpha =
+		\frac{g_\alpha^f-g_\alpha^{\bar f}}
+		{g_\alpha^f+g_\alpha^{\bar f}},
+		\label{eq:Adef}
+	\end{equation}
+	where $f$ and $\bar f$ denote the corresponding matter and antimatter
+	sectors. Equation~\eqref{eq:Adef} is meaningful when the two quantities
+	are signed measurements or estimators with well-defined probability
+	distributions. Most searches for weak exotic interactions instead
+	publish one-sided exclusion limits on positive quantities such as
+	$|g_\alpha|$. Applying Eq.~\eqref{eq:Adef} directly to such limits
+	therefore changes its interpretation.
+	
+	The central statistical result of this work is that the resulting
+	quantity measures relative experimental sensitivity rather than
+	CPT violation. This follows algebraically and does not depend on the
+	details of the experimental data set.
+	
+	The work has three objectives. First, we establish a controlled
+	relativistic--nonrelativistic correspondence for selected SME fermion
+	coefficients. Second, we distinguish genuine signed matter--antimatter
+	tests from comparisons of one-sided exclusion limits. Third, we use a
+	compiled constraint registry to quantify present matter--antimatter
+	coverage and identify experimental sectors in which matched
+	measurements would be particularly informative.
+	
+	We deliberately do not claim a complete mapping of the SME fermion
+	sector onto all sixteen DM potentials. Such a mapping requires additional
+	coefficients and, for a true two-body correspondence, explicit matching
+	of relativistic amplitudes. Similarly, the numerical asymmetries
+	obtained from one-sided upper limits are not interpreted as evidence for
+	new physics.
+	
+	% ============================================================
+	\section{Relativistic and nonrelativistic descriptions}
+	% ============================================================
+	
+	\subsection{The SME fermion sector}
+	
+	Unless otherwise stated, the field-theory equations in this section use
+	natural units $\hbar=c=1$ and metric signature $(+,-,-,-)$. To first
+	order in the Lorentz-violating coefficients relevant here, the fermion
+	Lagrangian may be written as
+	\begin{equation}
+		\mathcal{L}
+		=
+		\bar\psi
+		\left(
+		i\gamma^\mu\partial_\mu-m
+		-b_\mu\gamma_5\gamma^\mu
+		-\frac{1}{2}H_{\mu\nu}\sigma^{\mu\nu}
+		+\frac{i}{2}d_{\mu\nu}
+		\gamma_5\gamma^\mu
+		\overleftrightarrow{\partial^\nu}
+		\right)\psi ,
+		\label{eq:SMEL}
+	\end{equation}
+	where
+	\begin{equation}
+		\bar\psi\overleftrightarrow{\partial^\nu}\psi
+		=
+		\bar\psi\,\partial^\nu\psi
+		-
+		(\partial^\nu\bar\psi)\psi
+	\end{equation}
+	and
+	\begin{equation}
+		\sigma^{\mu\nu}
+		=
+		\frac{i}{2}[\gamma^\mu,\gamma^\nu].
+	\end{equation}
+	
+	The coefficient $b_\mu$ is CPT odd, whereas $H_{\mu\nu}$ and
+	$d_{\mu\nu}$ are CPT even in the usual SME classification
+	\cite{ColladayKostelecky1997,ColladayKostelecky1998,
+		KosteleckyRussell2026}. This classification should not, however, be
+	used by itself to infer the sign of a particle--antiparticle energy
+	shift. The relation between the particle and antiparticle Hamiltonians
+	must be obtained from the complete relativistic theory.
+	
+	The coefficient $d_{\mu\nu}$ is particularly delicate because it occurs
+	in the kinetic sector. Its time-derivative terms must first be removed
+	from the canonical time evolution by an appropriate field
+	redefinition. Performing a FW reduction before this canonical
+	normalisation can lead to spurious sign differences or to a
+	non-Hermitian intermediate Hamiltonian \cite{KosteleckyLane1999}.
+	
+	\subsection{The Dobrescu--Mocioiu framework}
+	
+	For two nonrelativistic fermions separated by $\mathbf r$, the original
+	DM construction identifies sixteen rotationally invariant structures
+	formed from spin, relative momentum or velocity, $\hat{\mathbf r}$,
+	and the interaction range. For a boson of mass $m_\phi$ the range is
+	\begin{equation}
+		\lambda=\frac{\hbar}{m_\phi c}.
+		\label{eq:lambda}
+	\end{equation}
+	
+	The detailed normalisation of the potentials has appeared in several
+	forms in the literature. In particular, the modern review of
+	Cong \textit{et al.} gives a complete field-theoretic formulation in
+	terms of reduced coupling constants and explicitly discusses the
+	differences between historical conventions
+	\cite{Cong2025}. We therefore use labels such as $V_2$, $V_{2+3}$,
+	$V_{4+5}$, $V_{9+10}$, and $V_{12+13}$ only as database and literature
+	labels. We do not reproduce a second set of explicit potential
+	formulae here, since doing so would introduce unnecessary convention
+	dependence into the SME matching.
+	
+	This point is important for the present work. The database may contain
+	an experimental limit reported for a combined potential such as
+	$V_{2+3}$, but that does not justify assigning the result to $V_2$ or
+	$V_3$ separately. Combined experimental quantities are therefore
+	retained in their published form.
+	
+	\subsection{One-body SME operators versus two-body potentials}
+	
+	The correct conceptual relation is
+	\begin{equation}
+		\text{relativistic SME operator}
+		\longrightarrow
+		\text{one-body nonrelativistic operator}
+		\longrightarrow
+		\text{two-body interaction structure},
+		\label{eq:matchingchain}
+	\end{equation}
+	where the final step requires an explicit model for the source or
+	mediator.
+	
+	For example, $b_i$ produces a one-body spin coupling. It is not itself
+	the product of two mediator couplings. A two-body interaction involving
+	two spins may have a related spin structure, but the numerical
+	coefficient depends on the underlying relativistic interaction and on
+	the source. The present work therefore establishes structural
+	correspondence, not equality of SME coefficients and DM coupling
+	constants.
+	
+	% ============================================================
+	\section{Canonical Foldy--Wouthuysen reduction}
+	% ============================================================
+	
+	\subsection{General procedure}
+	
+	The standard FW transformation separates the positive- and
+	negative-energy sectors of the Dirac Hamiltonian and produces a
+	two-component Hamiltonian as an expansion in $|\mathbf p|/m$
+	\cite{FoldyWouthuysen1950}. For Lorentz-violating kinetic terms, the
+	canonical field redefinition must precede the FW transformation
+	\cite{KosteleckyLane1999}.
+	
+	Schematically, after canonical normalisation one writes
+	\begin{equation}
+		H=\beta m+\mathcal E+\mathcal O,
+		\qquad
+		[\beta,\mathcal E]=0,
+		\qquad
+		\{\beta,\mathcal O\}=0,
+	\end{equation}
+	and the ordinary FW expansion begins with
+	\begin{equation}
+		H_{\FW}
+		=
+		\beta m+\mathcal E
+		+\frac{\beta\mathcal O^2}{2m}
+		-\frac{1}{8m^2}
+		[\mathcal O,[\mathcal O,\mathcal E]]
+		+\cdots .
+		\label{eq:FW}
+	\end{equation}
+	
+	For the free Dirac Hamiltonian,
+	\begin{equation}
+		\mathcal O_0=\boldsymbol{\alpha}\cdot\mathbf p,
+		\qquad
+		\mathcal O_0^2=\mathbf p^2,
+	\end{equation}
+	so that the positive-energy sector begins as
+	\begin{equation}
+		H_0=m+\frac{\mathbf p^2}{2m}
+		+\mathcal O\!\left(\frac{p^4}{m^3}\right).
+	\end{equation}
+	
+	The derivative coefficient $d_{\mu\nu}$ cannot be treated by simply
+	replacing $i\partial_\mu$ with a classical momentum in the original
+	Lagrangian. The time-derivative part changes the canonical
+	normalisation of the field. The controlled treatment is therefore the
+	one developed by Kostelecký and Lane \cite{KosteleckyLane1999}.
+	
+	\subsection{$b_\mu$}
+	
+	The $b_\mu$ interaction is
+	\begin{equation}
+		\mathcal L_b
+		=
+		-b_\mu\bar\psi\gamma_5\gamma^\mu\psi .
+	\end{equation}
+	
+	Retaining the leading nonrelativistic terms from the canonical FW
+	Hamiltonian gives
+	\begin{equation}
+		H_{\NR}^{(b)}
+		=
+		-b_i\sigma^i
+		+\frac{b_0}{m}\,
+		\boldsymbol{\sigma}\cdot\mathbf p
+		+\mathcal O\!\left(\frac{p^2}{m^2}\right).
+		\label{eq:bNR}
+	\end{equation}
+	
+	Thus the spatial component gives a leading spin coupling of order
+	$m^0$, whereas $b_0$ contributes to a momentum-linear spin structure
+	suppressed by one power of $m$.
+	
+	The signs in Eq.~\eqref{eq:bNR} are those of the canonical
+	nonrelativistic Hamiltonian in the convention used here and agree with
+	the general result of Ref.~\cite{KosteleckyLane1999}.
+	
+	\subsection{$H_{\mu\nu}$}
+	
+	The tensor interaction is
+	\begin{equation}
+		\mathcal L_H
+		=
+		-\frac12 H_{\mu\nu}\bar\psi\sigma^{\mu\nu}\psi .
+	\end{equation}
+	
+	Define
+	\begin{equation}
+		B_H^i
+		=
+		\frac12\epsilon^{ijk}H_{jk},
+		\qquad
+		(H_E)^i=H_{0i}.
+	\end{equation}
+	
+	The leading nonrelativistic Hamiltonian is
+	\begin{equation}
+		H_{\NR}^{(H)}
+		=
+		\mathbf B_H\cdot\boldsymbol{\sigma}
+		-\frac{1}{m}
+		\boldsymbol{\sigma}\cdot
+		(\mathbf p\times\mathbf H_E)
+		+\mathcal O\!\left(\frac{p^2}{m^2}\right).
+		\label{eq:HNR}
+	\end{equation}
+	
+	The first term is a leading spin coupling, while the second is
+	linear in momentum. Equation~\eqref{eq:HNR} follows directly from the
+	canonical SME Hamiltonian and should not be replaced by a sign inferred
+	only from the CPT label of $H_{\mu\nu}$.
+	
+	\subsection{$d_{\mu\nu}$}
+	
+	The derivative interaction is
+	\begin{equation}
+		\mathcal L_d
+		=
+		\frac{i}{2}
+		d_{\mu\nu}
+		\bar\psi\gamma_5\gamma^\mu
+		\overleftrightarrow{\partial^\nu}\psi .
+		\label{eq:Ld}
+	\end{equation}
+	
+	After the required canonical field redefinition and FW transformation,
+	the terms relevant through first order in momentum are
+	\begin{equation}
+		H_{\NR}^{(d)}
+		=
+		m d_{i0}\sigma^i
+		-
+		\left(
+		d_{ij}+d_{00}\delta_{ij}
+		\right)p_j\sigma^i
+		+\mathcal O\!\left(\frac{p^2}{m}\right).
+		\label{eq:dNR}
+	\end{equation}
+	
+	The mass-enhanced term
+	\begin{equation}
+		H_{\NR}^{(d_{i0})}
+		=
+		m d_{i0}\sigma^i
+		\label{eq:di0}
+	\end{equation}
+	is the established result quoted in the SME nonrelativistic
+	Hamiltonian \cite{KosteleckyLane1999}.
+	
+	The momentum-linear contribution is important because the physically
+	relevant combination is not $d_{ij}$ or $d_{00}$ separately at this
+	order, but
+	\begin{equation}
+		d_{ij}+d_{00}\delta_{ij}.
+		\label{eq:dcombination}
+	\end{equation}
+	Accordingly, the earlier treatment in which the $d_{ij}$ and $d_{00}$
+	terms were assigned independent unresolved signs is replaced here by
+	the canonically normalised result of Ref.~\cite{KosteleckyLane1999}.
+	
+	\subsection{Particle--antiparticle transformation}
+	
+	A further point is essential for the matter--antimatter analysis.
+	For the one-particle SME Hamiltonian, the corresponding antiparticle
+	Hamiltonian can be written in the same form after the coefficient
+	substitutions
+	\begin{equation}
+		\begin{aligned}
+			a_\mu&\rightarrow -a_\mu,
+			&
+			b_\mu&\rightarrow +b_\mu,
+			&
+			c_{\mu\nu}&\rightarrow +c_{\mu\nu},
+			\\
+			d_{\mu\nu}&\rightarrow -d_{\mu\nu},
+			&
+			e_\mu&\rightarrow -e_\mu,
+			&
+			f_\mu&\rightarrow -f_\mu,
+			\\
+			g_{\lambda\mu\nu}&\rightarrow +g_{\lambda\mu\nu},
+			&
+			H_{\mu\nu}&\rightarrow -H_{\mu\nu}.
+		\end{aligned}
+		\label{eq:antiparticleSME}
+	\end{equation}
+	These substitutions are part of the canonical particle--antiparticle
+	construction of the SME Hamiltonian \cite{KosteleckyLane1999}.
+	
+	Equation~\eqref{eq:antiparticleSME} also illustrates why the statement
+	``CPT even'' or ``CPT odd'' should not be used as a shortcut for the
+	sign of an experimentally measured energy shift. The discrete-symmetry
+	classification concerns the relativistic operator, whereas the
+	particle--antiparticle relation of a particular nonrelativistic
+	observable follows from the complete Hamiltonian and the conventions
+	used for the antiparticle state.
+	
+	\subsection{Controlled matching summary}
+	
+	The controlled results are summarised in Table~\ref{tab:matching}.
+	The last column deliberately describes operator structure rather than
+	assigning a DM potential number to an SME coefficient.
+	
+	\begin{table*}[t]
+		\caption{Controlled nonrelativistic structures obtained from the
+			selected minimal-SME coefficients. The table does not identify an SME
+			coefficient with a two-body mediator coupling.}
+		\label{tab:matching}
+		\begin{ruledtabular}
+			\begin{tabular}{lcccl}
+				SME coefficient & CPT character & Nonrelativistic contribution
+				& Leading order & Operator structure\\
+				\hline
+				$b_i$
+				& odd
+				& $-b_i\sigma^i$
+				& $m^0$
+				& spin-linear
+				\\
+				$b_0$
+				& odd
+				& $(b_0/m)\boldsymbol{\sigma}\cdot\mathbf p$
+				& $m^{-1}$
+				& spin--momentum
+				\\
+				$H_{ij}$
+				& even
+				& $\mathbf B_H\cdot\boldsymbol{\sigma}$
+				& $m^0$
+				& spin-linear
+				\\
+				$H_{0i}$
+				& even
+				& $-m^{-1}\boldsymbol{\sigma}\cdot
+				(\mathbf p\times\mathbf H_E)$
+				& $m^{-1}$
+				& spin--momentum
+				\\
+				$d_{i0}$
+				& even
+				& $m d_{i0}\sigma^i$
+				& $m^1$
+				& spin-linear
+				\\
+				$d_{ij},d_{00}$
+				& even
+				& $-(d_{ij}+d_{00}\delta_{ij})p_j\sigma^i$
+				& $m^0$
+				& spin--momentum
+			\end{tabular}
+		\end{ruledtabular}
+	\end{table*}
+	
+	The table is intentionally narrower than a complete SME--DM
+	dictionary. The minimal SME fermion sector contains additional
+	coefficients, including $a_\mu$, $c_{\mu\nu}$, $e_\mu$, $f_\mu$, and
+	$g_{\lambda\mu\nu}$, which require separate treatment. Moreover, a
+	true two-body matching requires an explicit relativistic scattering
+	amplitude and cannot be inferred from the one-body Hamiltonian alone.
+	
+	% ============================================================
+	\section{Matter--antimatter comparison of constraints}
+	% ============================================================
+	
+	\subsection{Signed observables}
+	
+	Let $\theta_f$ denote a signed observable associated with a fermion and
+	let $\theta_{\bar f}$ be the corresponding observable for the
+	antifermion. Once the complete relativistic transformation has been
+	derived, exact CPT symmetry imposes a relation of the form
+	\begin{equation}
+		\theta_{\bar f}
+		=
+		\eta_\CPT\theta_f,
+		\qquad
+		\eta_\CPT=\pm1,
+		\label{eq:CPTsigned}
+	\end{equation}
+	where the value of $\eta_\CPT$ depends on the particular signed
+	observable and its conventions. It must therefore be derived rather
+	than assigned solely from the name of the underlying SME coefficient.
+	
+	A corresponding CPT residual is
+	\begin{equation}
+		\Delta_\CPT
+		=
+		\theta_{\bar f}-\eta_\CPT\theta_f .
+		\label{eq:DeltaCPT}
+	\end{equation}
+	
+	If the measurements are approximately Gaussian, a simple test statistic
+	is
+	\begin{equation}
+		\chi^2_\CPT
+		=
+		\frac{
+			\left(
+			\theta_{\bar f}-\eta_\CPT\theta_f
+			\right)^2
+		}{
+			\sigma_{\bar f}^2+\sigma_f^2
+			-2\eta_\CPT\,\mathrm{Cov}(\theta_f,\theta_{\bar f})
+		}.
+		\label{eq:chiCPT}
+	\end{equation}
+	
+	This is the appropriate type of construction when signed information
+	and its uncertainty are available.
+	
+	\subsection{One-sided exclusion limits}
+	
+	The situation is different when the published results are
+	\begin{equation}
+		|g_f|<U_f,
+		\qquad
+		|g_{\bar f}|<U_{\bar f},
+		\qquad
+		U_f,U_{\bar f}>0 .
+		\label{eq:limits}
+	\end{equation}
+	
+	One can define the purely numerical quantity
+	\begin{equation}
+		A_U
+		=
+		\frac{U_f-U_{\bar f}}
+		{U_f+U_{\bar f}},
+		\label{eq:AU}
+	\end{equation}
+	but it should not be called a measured CPT asymmetry.
+	
+	\subsection{Sensitivity-gap theorem}
+	
+	Suppose two experiments constrain the same underlying coupling magnitude
+	$g_\star$ with sensitivity factors $s_f$ and $s_{\bar f}$:
+	\begin{equation}
+		U_f=s_f g_\star,
+		\qquad
+		U_{\bar f}=s_{\bar f}g_\star .
+		\label{eq:sensitivity}
+	\end{equation}
+	
+	Substitution into Eq.~\eqref{eq:AU} gives
+	\begin{equation}
+		A_U
+		=
+		\frac{s_f-s_{\bar f}}
+		{s_f+s_{\bar f}}.
+		\label{eq:gapA}
+	\end{equation}
+	
+	The underlying coupling has cancelled. Equation~\eqref{eq:gapA}
+	therefore contains no CPT parameter.
+	
+	For example,
+	\begin{equation}
+		s_{\bar f}\ll s_f
+		\quad\Longrightarrow\quad
+		A_U\rightarrow +1,
+	\end{equation}
+	whereas
+	\begin{equation}
+		s_f\ll s_{\bar f}
+		\quad\Longrightarrow\quad
+		A_U\rightarrow -1.
+	\end{equation}
+	
+	The result holds irrespective of whether the underlying signed
+	interaction is CPT even or CPT odd. Consequently, a value
+	$|A_U|\simeq1$ obtained from two positive exclusion limits cannot by
+	itself be interpreted as evidence for CPT violation.
+	
+	There is also a useful algebraic warning concerning signed
+	CPT-odd quantities. If exact CPT symmetry requires
+	\begin{equation}
+		g_{\bar f}=-g_f,
+	\end{equation}
+	then the denominator of Eq.~\eqref{eq:Adef} vanishes. Exact
+	sign reversal therefore does not correspond to $A=\pm1$. The apparent
+	saturation of $A_U$ at $\pm1$ is a property of comparing positive
+	magnitudes.
+	
+	\subsection{Sensitivity-ratio diagnostic}
+	
+	A more transparent quantity derived from two one-sided limits is
+	\begin{equation}
+		R_\alpha(\lambda)
+		=
+		\frac{U_{\bar f,\alpha}(\lambda)}
+		{U_{f,\alpha}(\lambda)},
+		\label{eq:R}
+	\end{equation}
+	provided the limits have first been harmonised to the same coupling
+	normalisation, confidence convention, and operator definition.
+	
+	For a symmetric measure of the mismatch one may define
+	\begin{equation}
+		G_\alpha(\lambda)
+		=
+		\left|\ln R_\alpha(\lambda)\right|.
+		\label{eq:G}
+	\end{equation}
+	
+	Equal sensitivity corresponds to
+	\begin{equation}
+		R_\alpha=1,
+		\qquad
+		G_\alpha=0.
+	\end{equation}
+	
+	Unlike $A_U$, $G_\alpha$ makes no claim to measure a signed physical
+	coupling. It is explicitly a diagnostic of experimental coverage.
+	
+	For future experiments that provide signed likelihoods
+	$\mathcal L_f(g)$ and $\mathcal L_{\bar f}(g)$, the CPT-conserving
+	likelihood can be written schematically as
+	\begin{equation}
+		\mathcal L_{\CPT}(g)
+		=
+		\mathcal L_f(g)
+		\mathcal L_{\bar f}(\eta_\CPT g),
+	\end{equation}
+	with the appropriate nuisance parameters and correlations included.
+	This is fundamentally different from comparing the amplitudes of two
+	exclusion curves.
+	
+	% ============================================================
+	\section{Experimental constraint database}
+	% ============================================================
+	
+	\subsection{Compilation strategy}
+	
+	To quantify the present experimental landscape, we constructed a
+	structured registry of published constraints on exotic spin-dependent
+	interactions. Each record contains, where available, the fermion
+	sectors, coupling family, DM potential label, interaction range, and
+	published constraint. The common interaction-range coordinate is
+	\begin{equation}
+		\lambda=\frac{\hbar}{m_\phi c}.
+	\end{equation}
+	
+	The registry contains
+	\begin{equation}
+		N_{\rm compiled}=273,
+		\qquad
+		N_{\rm analysed}=258.
+		\label{eq:Nrecords}
+	\end{equation}
+	
+	Fifteen records are held out of the physics analysis. Twelve are
+	combined $g_Ag_V$ envelope curves labelled in the source database as
+	combined or review-only and lacking sufficient information for a unique
+	potential assignment. Two are contributor-template placeholders. One
+	is an astrophysical electron--nucleon bound for which the available
+	source information does not establish a unique potential assignment.
+	
+	The analysed records are distributed among the principal coupling
+	families as shown in Table~\ref{tab:families}.
+	
+	\begin{table}[t]
+		\caption{Constraint records in the compiled registry. The counts are
+			registry entries, not statistically independent measurements.}
+		\label{tab:families}
+		\begin{ruledtabular}
+			\begin{tabular}{lrr}
+				Coupling family & Compiled & Analysed\\
+				\hline
+				$g_Ag_A$ & 63 & 63\\
+				$g_Pg_S$ & 53 & 53\\
+				$g_Sg_S$ & 49 & 49\\
+				$g_Vg_V$ & 43 & 43\\
+				$g_Ag_V$ & 37 & 25\\
+				$g_Pg_P$ & 15 & 14\\
+				$V_1$ unlabelled coupling & 11 & 11\\
+				Template placeholder & 2 & 0\\
+				\hline
+				Total & 273 & 258
+			\end{tabular}
+		\end{ruledtabular}
+	\end{table}
+	
+	The registry includes constraints from atomic and molecular
+	spectroscopy, torsion balances, comagnetometry, spin sensors,
+	positronium, antiprotonic helium, and astrophysical observations.
+	These platforms probe substantially different interaction ranges and
+	spin sectors \cite{Ficek2018,Adkins2022,Liang2023,Jiang2024,
+		Cong2025,WuYan2026}.
+	
+	\subsection{Data-quality controls}
+	
+	The numerical registry requires several qualifications.
+	
+	First, records may be filed under more than one coupling family.
+	Consequently, the 258 analysed records do not represent 258
+	statistically independent measurements. Forty-eight records correspond
+	to repeated entries of the same bound under different coupling labels,
+	leaving 210 unique constraint curves for the purposes of the curve
+	inventory. The term ``unique'' is used deliberately: these curves
+	should not be treated as statistically independent unless their
+	experimental origins are independently established.
+	
+	Second, six registry entries contain interaction-range values of order
+	$10^{52}\,\mathrm{m}$. These values are physically implausible and are
+	consistent with a unit-token parsing error. They are excluded from
+	interpretations of global range coverage and do not enter the direct
+	matter--antimatter comparisons discussed below.
+	
+	Third, several experiments report combined potential classes rather
+	than individual components. Labels such as $V_{2+3}$ and $V_{4+5}$ are
+	therefore retained as published. They are not decomposed into separate
+	potential limits without an independent theoretical justification.
+	
+	These controls are important because a compilation of exclusion curves
+	can otherwise create an artificial impression of statistical precision.
+	
+	% ============================================================
+	\section{Matter--antimatter coverage}
+	% ============================================================
+	
+	Of the 258 analysed records, 19 involve an antimatter sector:
+	nine electron--antiproton records, five electron--positron records,
+	three electron--antimuon records, one antiproton--helium record, and
+	one molecular-ion record associated with an antimuon sector. Thus
+	\begin{equation}
+		N_{\rm antimatter}=19,
+		\qquad
+		N_{\rm matter}=239.
+		\label{eq:mattercounts}
+	\end{equation}
+	
+	The relevant issue for a CPT comparison is not simply whether an
+	antimatter measurement exists. A directly comparable result requires
+	agreement in operator definition, fermion sector, coupling
+	normalisation, and overlapping interaction range.
+	
+	The sector inventory in the present registry is shown in
+	Table~\ref{tab:sectorcoverage}. The sector tags are not necessarily
+	additive because a single registry record may contribute to more than
+	one phenomenological category.
+	
+	\begin{table*}[t]
+		\caption{Matter and antimatter coverage by the canonical fermion-sector
+			labels used in the registry. Counts are analysed registry records and
+			are not statistically independent measurements. Sector tags are
+			non-exclusive.}
+		\label{tab:sectorcoverage}
+		\begin{ruledtabular}
+			\begin{tabular}{lrrrr}
+				Matter sector & Antimatter sector & Matter & Antimatter
+				& Coverage\\
+				\hline
+				$e-e$ & $e-e^+$ & 44 & 5 & both\\
+				$e-p$ & $e-\bar p$ & 12 & 9 & both\\
+				$e-\mu$ & $e-\bar\mu$ & 3 & 3 & both; not directly matched\\
+				$e-n$ & $e-\bar n$ & 16 & 0 & no antimatter record\\
+				$\mu-\mu$ & $\mu-\bar\mu$ & 1 & 0 & no antimatter record\\
+				$n-p$ & $n-\bar p$ & 9 & 0 & no directly matched record\\
+				$n-n$ & $n-\bar n$ & 8 & 0 & no antimatter record\\
+				$p-p$ & $p-\bar p$ & 0 & 0 & no record\\
+				$e-N$ & $e-\bar N$ & 54 & 0 & no directly matched record\\
+				$n-N$ & $n-\bar N$ & 52 & 0 & no directly matched record\\
+				$p-N$ & $p-\bar N$ & 23 & 0 & no directly matched record
+			\end{tabular}
+		\end{ruledtabular}
+	\end{table*}
+	
+	The proton--antinucleus entry requires particular care. Antiprotonic
+	helium spectroscopy provides an antiproton--nuclear constraint
+	\cite{Ficek2018}, but the published result uses a normalisation that
+	cannot be inserted into the corresponding proton--nucleus entries
+	without an explicit conversion. It is therefore not counted as a
+	directly comparable $p-\bar N$ result in the adopted coupling
+	normalisation.
+	
+	The three nuclear-source categories contain
+	\begin{equation}
+		54+52+23=129
+	\end{equation}
+	matter-sector registry records. The corresponding directly comparable
+	antimatter count is zero in the adopted convention. The principal
+	coverage limitation is therefore not the absence of matter-sector
+	constraints but the lack of matched antimatter measurements in sectors
+	where matter data are already numerous.
+	
+	% ============================================================
+	\section{Direct matter--antimatter comparisons}
+	% ============================================================
+	
+	\subsection{Matched pairs}
+	
+	Applying the registry matching criteria to coupling family, potential
+	label, fermion sector, and overlapping interaction range gives eleven
+	direct matter--antimatter pairs.
+	
+	For each pair, the published curves were interpolated onto a common
+	logarithmic range coordinate. A nominal 300-point grid was used in the
+	original numerical implementation. The pointwise quantity was
+	\begin{equation}
+		A_U(\lambda_i)
+		=
+		\frac{
+			U_f(\lambda_i)-U_{\bar f}(\lambda_i)
+		}{
+			U_f(\lambda_i)+U_{\bar f}(\lambda_i)
+		}.
+		\label{eq:AUlambda}
+	\end{equation}
+	
+	The values in Table~\ref{tab:asymmetry} are retained as diagnostic
+	quantities only. They are not interpreted as estimates of a CPT
+	parameter.
+	
+	\begin{table*}[t]
+		\caption{Bound-based matter--antimatter sensitivity diagnostics for the
+			eleven directly matched pairs in the registry. The quantity $|A_U|$
+			is calculated from positive upper limits and is therefore not a
+			CPT-violation estimator. The effective degrees of freedom are included
+			only to document the exploratory autocorrelation analysis. The
+			previously quoted bootstrap intervals are not reproduced because the
+			underlying uncertainty model does not provide formal confidence
+			intervals for a CPT parameter.}
+		\label{tab:asymmetry}
+		\begin{ruledtabular}
+			\begin{tabular}{lccc}
+				Coupling & Potential & Sector & $|A_U|$ \\
+				\hline
+				$g_Ag_A$ & $V_2$ & $e-\bar p$ & 0.9998\\
+				$g_Ag_A$ & $V_{2+3}$ & $e-e^+$ & 0.9892\\
+				$g_Ag_A$ & $V_{2+3}$ & $e-e^+$ & 0.9539\\
+				$g_Pg_P$ & $V_{2+3}$ & $e-e^+$ & 0.9535\\
+				$g_Vg_V$ & $V_{2+3}$ & $e-e^+$ & 0.9535\\
+				$g_Sg_S$ & $V_1$ & $e-e^+$ & 0.8727\\
+				$g_Ag_A$ & $V_{2+3}$ & $e-\bar p$ & 0.8236\\
+				$g_Ag_A$ & $V_{2+3}$ & $e-\bar p$ & 0.8044\\
+				$g_Pg_P$ & $V_{2+3}$ & $e-\bar p$ & 0.7994\\
+				$g_Vg_V$ & $V_{2+3}$ & $e-\bar p$ & 0.7994\\
+				$g_Ag_A$ & $V_2$ & $e-e^+$ & 0.3336
+			\end{tabular}
+		\end{ruledtabular}
+	\end{table*}
+	
+	The eleven values range from approximately $0.33$ to $1$. This broad
+	range is precisely what is expected if the statistic is responding to
+	different experimental sensitivities rather than to a common signed
+	physical asymmetry.
+	
+	\subsection{Internal null behaviour}
+	
+	The $g_Sg_S$, $V_1$, electron--positron comparison is particularly
+	instructive because it produces a large bound-based asymmetry,
+	$|A_U|\simeq0.87$, despite the fact that the quantity being compared is
+	not a signed CPT-odd observable. The same procedure therefore produces
+	large apparent asymmetries in channels where interpreting the result as
+	a CPT signal is unjustified.
+	
+	This is an internal null check on the statistic. The numerical value of
+	$A_U$ is controlled by the relative strengths of the two exclusion
+	curves, not by the discrete-symmetry classification of the underlying
+	interaction.
+	
+	The lowest value in the table,
+	\begin{equation}
+		|A_U|\simeq0.334,
+	\end{equation}
+	also demonstrates that the statistic is not mathematically forced to
+	be close to unity. Its magnitude simply tracks the degree of mismatch
+	between the available constraints.
+	
+	% ============================================================
+	\section{Coverage by potential label}
+	% ============================================================
+	
+	The same registry can be organised by its DM potential labels. The
+	result is shown in Table~\ref{tab:potentialcoverage}. The counts in
+	different rows are not additive because individual records can carry
+	multiple phenomenological labels.
+	
+	\begin{table}[t]
+		\caption{Matter and antimatter registry coverage by DM potential label.
+			Counts are non-exclusive registry counts.}
+		\label{tab:potentialcoverage}
+		\begin{ruledtabular}
+			\begin{tabular}{lrr}
+				Potential label & Matter & Antimatter\\
+				\hline
+				$V_{4+5}$ & 58 & 3\\
+				$V_{9+10}$ & 31 & 0\\
+				$V_{2+3}$ & 27 & 10\\
+				$V_{1a}$ & 30 & 0\\
+				$V_2$ & 17 & 2\\
+				$V_1$ & 44 & 3\\
+				$V_{12+13}$ & 16 & 0\\
+				$V_{11}$ & 7 & 0\\
+				$V_8$ & 5 & 1\\
+				$V_{15}$ & 2 & 0\\
+				$V_{16}$ & 2 & 0
+			\end{tabular}
+		\end{ruledtabular}
+	\end{table}
+	
+	Six of the eleven classified potential groups have no antimatter record
+	despite nonzero matter coverage:
+	\begin{equation}
+		V_{11},\qquad
+		V_{15},\qquad
+		V_{16},\qquad
+		V_{1a},\qquad
+		V_{9+10},\qquad
+		V_{12+13}.
+	\end{equation}
+	
+	The $V_{2+3}$ group has the largest number of antimatter entries in the
+	present registry. This is a statement about the existing experimental
+	literature and not about an intrinsic suitability of this potential for
+	a CPT test.
+	
+	Recent experimental developments continue to improve sensitivity to
+	spin-dependent interactions using quantum sensors and related
+	techniques \cite{Jiao2021,Liang2023,Jiang2024,Cong2025,WuYan2026}.
+	Recent torsion-balance work has also explicitly considered
+	$V_{4+5}$ and $V_{12+13}$ interactions between polarized electrons and
+	unpolarised nucleons \cite{Jin2026}. These developments demonstrate
+	that improved matter-sector coverage is continuing, while the present
+	registry still shows a substantial antimatter deficit.
+	
+	% ============================================================
+	\section{Statistical methodology and limitations}
+	% ============================================================
+	
+	\subsection{Interpolation and correlation}
+	
+	The 300-point interpolation grid used for the matched curves should not
+	be interpreted as 300 independent observations. Published exclusion
+	curves are smooth functions of interaction range and neighbouring
+	interpolated points are strongly correlated.
+	
+	The exploratory analysis estimated the autocorrelation function of the
+	interpolated residual sequence,
+	\begin{equation}
+		C(k)
+		=
+		\frac{
+			\sum_i(x_i-\bar x)(x_{i+k}-\bar x)
+		}{
+			\sum_i(x_i-\bar x)^2
+		},
+		\label{eq:ACF}
+	\end{equation}
+	and used the first crossing of $C(k)=e^{-1}$ as a characteristic
+	correlation scale.
+	
+	This procedure is useful as a diagnostic against treating every
+	interpolated point as independent. It is not a rigorous derivation of
+	the likelihood of the original experimental measurements, because the
+	published curves do not generally provide the full covariance matrix.
+	
+	Accordingly, the autocorrelation-based effective degrees of freedom are
+	not used as the primary basis for a CPT significance claim.
+	
+	\subsection{Uncertainty assignment}
+	
+	Most published constraint curves do not provide point-by-point
+	covariance matrices. The original analysis therefore estimated local
+	fractional uncertainties from the curvature of the curves in
+	logarithmic coordinates. A schematic weighted diagnostic is
+	\begin{equation}
+		\chi^2_{\rm w}
+		=
+		\sum_i
+		\frac{
+			[A_U(\lambda_i)-\overline{A_U}]^2
+		}{
+			\sigma_A^2(\lambda_i)
+		}.
+		\label{eq:chiweighted}
+	\end{equation}
+	
+	A parametric bootstrap with 2000 resamples was then used to propagate
+	the estimated uncertainty model to summary quantities. This is not a
+	bootstrap of the original experimental events. It propagates an
+	assumed uncertainty model inferred from published curves and therefore
+	cannot restore systematic uncertainties or correlations that were not
+	published.
+	
+	Furthermore, taking an absolute value produces a nonlinear statistic.
+	An interval for $|A_U|$ therefore cannot be interpreted as a confidence
+	interval for a signed CPT parameter.
+	
+	\subsection{The correct null hypothesis}
+	
+	A conventional signed CPT test asks whether
+	\begin{equation}
+		H_0:
+		\theta_{\bar f}=\eta_\CPT\theta_f.
+		\label{eq:nullCPT}
+	\end{equation}
+	
+	The one-sided-bound comparison instead asks whether
+	\begin{equation}
+		H_0:
+		\frac{U_{\bar f}}{U_f}=1.
+		\label{eq:nullsens}
+	\end{equation}
+	
+	These hypotheses are not equivalent. Consequently, even a very precise
+	determination that $U_{\bar f}/U_f\neq1$ is not a measurement of
+	CPT violation.
+	
+	% ============================================================
+	\section{A practical framework for future CPT tests}
+	% ============================================================
+	
+	A genuine matter--antimatter test of an exotic spin-dependent
+	interaction requires four conditions.
+	
+	First, the same physical operator must be defined on both sides of the
+	comparison. Spin, momentum, velocity, and antiparticle-state
+	conventions must be specified explicitly.
+	
+	Second, the transformation between the matter and antimatter
+	observables must be derived from the relativistic operator or
+	scattering amplitude. The sign of an effective nonrelativistic
+	Hamiltonian term cannot safely be inferred from a coupling label alone.
+	
+	Third, the experiments must provide signed information or likelihood
+	functions whenever a signed CPT test is intended. Two positive upper
+	limits do not determine whether the underlying coupling is positive,
+	negative, or zero.
+	
+	Fourth, the matter and antimatter experiments must have sufficiently
+	overlapping sensitivity in interaction range and operator convention.
+	A comparison made where one experiment is many orders of magnitude
+	less sensitive than the other is principally a comparison of
+	experimental reach.
+	
+	\subsection{Stage I: sensitivity coverage}
+	
+	For each operator and range, calculate
+	\begin{equation}
+		R_\alpha(\lambda)
+		=
+		\frac{U_{\bar f,\alpha}(\lambda)}
+		{U_{f,\alpha}(\lambda)}.
+	\end{equation}
+	
+	A balanced interval may be defined by
+	\begin{equation}
+		|\ln R_\alpha(\lambda)|<\epsilon,
+		\label{eq:balanced}
+	\end{equation}
+	where $\epsilon$ is selected according to the intended experimental
+	criterion.
+	
+	This step identifies where matter and antimatter measurements have
+	comparable sensitivity. It does not itself test CPT.
+	
+	\subsection{Stage II: likelihood-level comparison}
+	
+	Suppose a matter experiment provides a signed estimator $\hat g_f$ and
+	likelihood $\mathcal L_f(g_f)$, while the corresponding antimatter
+	experiment provides $\mathcal L_{\bar f}(g_{\bar f})$. The
+	CPT-conserving hypothesis is
+	\begin{equation}
+		g_{\bar f}=\eta_\CPT g_f.
+	\end{equation}
+	
+	A likelihood-ratio statistic can then be defined as
+	\begin{equation}
+		q_\CPT
+		=
+		-2\ln
+		\frac{
+			\displaystyle
+			\max_g
+			\mathcal L_f(g)
+			\mathcal L_{\bar f}(\eta_\CPT g)
+		}{
+			\displaystyle
+			\max_{g_f,g_{\bar f}}
+			\mathcal L_f(g_f)
+			\mathcal L_{\bar f}(g_{\bar f})
+		}.
+		\label{eq:likelihoodratio}
+	\end{equation}
+	
+	In an actual analysis, nuisance parameters, correlated systematics,
+	non-Gaussian likelihoods, and the precise statistical construction of
+	each experiment must be retained. Equation~\eqref{eq:likelihoodratio}
+	is therefore a framework rather than a numerical result of the present
+	database.
+	
+	% ============================================================
+	\section{Experimental implications}
+	% ============================================================
+	
+	\subsection{Electron--nucleus, neutron--nucleus, and proton--nucleus
+		sectors}
+	
+	The registry contains substantial matter-sector coverage in
+	\begin{equation}
+		N_{e-N}=54,
+		\qquad
+		N_{n-N}=52,
+		\qquad
+		N_{p-N}=23,
+	\end{equation}
+	while the corresponding directly comparable antimatter counts are
+	zero in the adopted coupling normalisation.
+	
+	These sectors consequently provide clear targets for future matched
+	matter--antimatter measurements. The objective should not simply be a
+	stronger upper limit. The experiment should reproduce the same
+	operator definition, coupling normalisation, and interaction-range
+	dependence as an existing matter-sector measurement so that the two
+	results can eventually be compared at the likelihood level.
+	
+	\subsection{Velocity-dependent and related potential classes}
+	
+	The registry contains matter-sector entries but no antimatter entries
+	for $V_{1a}$, $V_{9+10}$, and $V_{12+13}$. Such gaps identify areas
+	where a future antimatter measurement could add qualitatively new
+	coverage.
+	
+	The recent torsion-balance proposal of Jin \textit{et al.} specifically
+	addresses $V_{4+5}$ and $V_{12+13}$ using polarized electrons and
+	unpolarised nucleon sources \cite{Jin2026}. The work illustrates how
+	operator-specific sensitivity can be developed experimentally, but a
+	corresponding antimatter source or bound system would still be required
+	for a direct CPT comparison.
+	
+	\subsection{Electron--positron and electron--antiproton systems}
+	
+	Electron--positron and electron--antiproton systems currently provide
+	the most developed antimatter coverage in the registry. Positronium is
+	particularly useful because its leptonic composition allows precision
+	comparison with bound-state QED calculations \cite{Adkins2022}.
+	Atomic spectroscopy has also been used to constrain exotic
+	spin-dependent interactions in positronium, muonium, hydrogen, and
+	antiprotonic helium \cite{Fadeev2022}.
+	
+	Antiprotonic helium provides a direct example of a matter--antimatter
+	spin-dependent constraint, having been used to search for exotic
+	spin- and velocity-dependent interactions between electrons and
+	antiprotons \cite{Ficek2018}.
+	
+	These systems are therefore useful benchmark channels for developing
+	the signed-likelihood methodology advocated here. Where physically
+	possible, future measurements should preserve enough information to
+	construct signed shifts, likelihood functions, or covariance matrices
+	rather than reducing the final result to a positive exclusion magnitude.
+	
+	% ============================================================
+	\section{Discussion}
+	% ============================================================
+	
+	The main result of this work is methodological. A numerical difference
+	between matter and antimatter exclusion limits is not, by itself, a
+	measurement of CPT violation.
+	
+	The result follows directly from Eq.~\eqref{eq:gapA}. If two experiments
+	report positive upper limits, their difference can arise entirely from
+	relative experimental sensitivity. This remains true even if the
+	underlying interaction is exactly CPT conserving.
+	
+	The compiled registry gives this mathematical observation an empirical
+	context. Only 19 of 258 analysed records involve an antimatter sector,
+	and six of eleven classified potential groups have no antimatter
+	coverage. The largest sector deficits occur in electron--nucleus,
+	neutron--nucleus, and proton--nucleus interactions.
+	
+	The numerical values of $|A_U|$ should consequently be described as
+	sensitivity-gap diagnostics. Values in the range
+	\begin{equation}
+		|A_U|\simeq0.8--1
+	\end{equation}
+	do not constitute anomalous CPT signals merely because they are
+	numerically large.
+	
+	The reinterpretation does not diminish the value of antimatter
+	experiments. Instead, it specifies what additional information is
+	required before their results can become quantitative CPT tests.
+	The experimentally useful objective is to produce matched matter and
+	antimatter measurements of the same operator over overlapping
+	interaction ranges.
+	
+	The recent literature demonstrates continued progress on both the
+	matter and antimatter sides. Spin sensors and NV-diamond experiments
+	have improved laboratory constraints \cite{Jiao2021,Liang2023,Jiang2024},
+	while antiprotonic helium and positronium provide antimatter systems
+	with well-developed precision spectroscopy
+	\cite{Ficek2018,Adkins2022}. New torsion-balance proposals extend the
+	available sensitivity to additional spin-dependent structures
+	\cite{Jin2026}. The principal missing ingredient for a broad CPT
+	programme is therefore not another numerical comparison of unequal
+	upper limits, but matched measurements with compatible definitions.
+	
+	There is also a broader methodological lesson for global compilations
+	of new-physics constraints. A collection of exclusion curves is not
+	automatically a collection of statistically independent measurements.
+	Duplicate records, combined potential classes, correlated interpolation
+	points, different coupling normalisations, and heterogeneous
+	statistical conventions must be retained explicitly.
+	
+	% ============================================================
+	\section{Limitations}
+	% ============================================================
+	
+	The numerical registry is a curated compilation rather than a guarantee
+	of exhaustive coverage of every relevant publication available by the
+	date of this manuscript. The literature continues to develop rapidly,
+	and future releases should incorporate additional measurements and
+	proposals.
+	
+	Fifteen of the 273 compiled records are held out of the physics
+	analysis. This is preferable to assigning them unsupported potential
+	labels, but it means that the registry is not completely closed under
+	all possible source conventions.
+	
+	Several range entries are affected by probable unit-token errors. These
+	entries must be corrected against their source data before the registry
+	is used for global range statistics.
+	
+	The SME--nonrelativistic matching is restricted to
+	$b_\mu$, $H_{\mu\nu}$, and $d_{\mu\nu}$. It is therefore not a complete
+	SME fermion-sector dictionary. In particular, the remaining minimal-SME
+	coefficients require separate derivations.
+	
+	The DM labels in the database are phenomenological labels and are not
+	treated as one-to-one images of SME coefficients. A complete
+	relativistic--nonrelativistic--two-body dictionary would require explicit
+	matching of relativistic scattering amplitudes for the underlying
+	mediator models.
+	
+	Finally, the bound-asymmetry analysis is not a CPT hypothesis test.
+	The autocorrelation analysis can diagnose the effect of correlated
+	interpolation, but it cannot convert one-sided exclusion curves into
+	signed measurements or reconstruct experimental likelihoods that were
+	not published.
+	
+	% ============================================================
+	\section{Conclusions}
+	% ============================================================
+	
+	We have developed a unified framework for connecting selected
+	relativistic SME fermion operators to their controlled
+	nonrelativistic structures and for assessing what can and cannot be
+	learned from matter--antimatter comparisons of published
+	spin-dependent interaction limits.
+	
+	The canonical FW treatment gives, through the leading orders relevant
+	here,
+	\begin{align}
+		H_{\NR}^{(b)}
+		&=
+		-b_i\sigma^i
+		+\frac{b_0}{m}\,
+		\boldsymbol{\sigma}\cdot\mathbf p,
+		\label{eq:summaryb}
+		\\
+		H_{\NR}^{(H)}
+		&=
+		\mathbf B_H\cdot\boldsymbol{\sigma}
+		-\frac{1}{m}
+		\boldsymbol{\sigma}\cdot
+		(\mathbf p\times\mathbf H_E),
+		\label{eq:summaryH}
+		\\
+		H_{\NR}^{(d)}
+		&=
+		m d_{i0}\sigma^i
+		-
+		(d_{ij}+d_{00}\delta_{ij})p_j\sigma^i .
+		\label{eq:summaryd}
+	\end{align}
+	
+	The $d_{i0}$ contribution is mass enhanced and agrees with the
+	established nonrelativistic SME Hamiltonian. The momentum-linear
+	$d$ sector is governed by the canonically normalised combination
+	$d_{ij}+d_{00}\delta_{ij}$; the earlier treatment in terms of separate
+	unresolved signs is therefore superseded.
+	
+	The particle--antiparticle relation must likewise be obtained from the
+	complete Hamiltonian. In the canonical SME treatment the relevant
+	coefficient substitutions include
+	\begin{equation}
+		b_\mu\rightarrow+b_\mu,
+		\qquad
+		d_{\mu\nu}\rightarrow-d_{\mu\nu},
+		\qquad
+		H_{\mu\nu}\rightarrow-H_{\mu\nu},
+	\end{equation}
+	for the antiparticle Hamiltonian \cite{KosteleckyLane1999}. The CPT
+	classification of a relativistic coefficient should not be confused
+	with the sign of an individual experimentally defined nonrelativistic
+	observable.
+	
+	The principal statistical result is exact. If two positive upper
+	limits are represented by
+	\begin{equation}
+		U_f=s_f g_\star,
+		\qquad
+		U_{\bar f}=s_{\bar f}g_\star,
+	\end{equation}
+	then
+	\begin{equation}
+		A_U
+		=
+		\frac{s_f-s_{\bar f}}
+		{s_f+s_{\bar f}}.
+	\end{equation}
+	The underlying coupling cancels, so the statistic is a measure of
+	relative experimental sensitivity rather than a CPT observable.
+	Large values of $|A_U|$ can occur under exact CPT symmetry, while
+	small values do not by themselves establish CPT invariance.
+	
+	The compiled registry contains 273 records, 258 of which enter the
+	present analysis. Nineteen involve antimatter, and eleven satisfy the
+	adopted criteria for direct matter--antimatter comparison. Six of the
+	eleven classified potential groups have no antimatter record. The
+	largest sector deficits occur in electron--nucleus, neutron--nucleus,
+	and proton--nucleus interactions.
+	
+	The appropriate next-generation programme is therefore two-stage.
+	First, existing exclusion curves should be used to identify balanced
+	sensitivity regions through
+	\begin{equation}
+		R_\alpha(\lambda)
+		=
+		\frac{U_{\bar f,\alpha}(\lambda)}
+		{U_{f,\alpha}(\lambda)}.
+	\end{equation}
+	Second, experiments in those regions should report signed observables
+	or likelihood functions so that the actual CPT hypothesis
+	\begin{equation}
+		\theta_{\bar f}-\eta_\CPT\theta_f=0
+	\end{equation}
+	can be tested directly.
+	
+	% ============================================================
+	\section{Further Work}
+	% ============================================================
+	
+	Several extensions follow naturally.
+	
+	First, the complete minimal-SME fermion sector should be treated using
+	the same canonical field-normalisation and FW procedure. This would
+	extend the present controlled matching beyond $b_\mu$, $H_{\mu\nu}$,
+	and $d_{\mu\nu}$.
+	
+	Second, the one-body SME structures should be matched explicitly to
+	two-fermion relativistic amplitudes for specified mediator models.
+	This is the appropriate route to a genuine SME--DM coupling dictionary.
+	
+	Third, the constraint registry should preserve source likelihoods,
+	confidence conventions, covariance information, coupling
+	normalisations, and experimental provenance whenever these are
+	available. Such a structure would allow future matter and antimatter
+	measurements to be compared without reconstructing the statistical
+	problem from published exclusion curves.
+	
+	Finally, the most informative future experiments are those that produce
+	matched matter--antimatter observables for the same operator over
+	overlapping interaction ranges. Once such measurements exist, the
+	sensitivity-ratio analysis developed here can identify the relevant
+	coverage, while a likelihood-level comparison can provide the actual
+	quantitative CPT test.
+	
+	% ============================================================
+	\section*{Acknowledgments}
+	% ============================================================
+	
+	We thank the experimental and theoretical communities whose published
+	results and constraint data provide the foundation for systematic
+	cross-platform comparisons of exotic spin-dependent interactions.
+	TSO gratefully acknowledges CERN for sponsoring his participation in
+	the CERN Summer Student Lecture Programme 2026 and for the scientific
+	training and research environment provided during his participation.
+	He also acknowledges the CMS Collaboration for the broader scientific
+	training and collaborative research environment which supported the development of this work.
+	
+	% ============================================================
+	% References
+	% ============================================================
+	
+	\bibliographystyle{apsrev4-2}
+	\bibliography{references}
+	
+\end{document}

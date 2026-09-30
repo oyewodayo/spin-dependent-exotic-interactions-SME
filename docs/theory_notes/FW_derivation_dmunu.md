@@ -24,7 +24,7 @@ $$
 $$
 
 $d_{\mu\nu}$ is **traceless**, not antisymmetric like $H_{\mu\nu}$, so $d_{00}$
-need not vanish. Despite being CPT-even (same sign for matter and antimatter),
+need not vanish. Despite being CPT-even (same sign for CPT-conjugate matter and antimatter states),
 it generates a rich phenomenology because different components produce
 non-relativistic Hamiltonians at different orders in $1/m$, spanning
 Dobrescu–Mocioiu potentials $V_2$, $V_7$, and $V_8$.
@@ -45,7 +45,9 @@ couplings.
 * $d_{00}$: $H_{NR} = +d_{00}\,(\boldsymbol\sigma\cdot\mathbf p)$ (order $m^0$
   in momentum) $\to V_8$, via the FW $\mathcal O^2/2m$ expansion — structure
   matches Eq. (4) exactly, sign included.
-* CPT-even: no sign flip for antimatter; $A_\alpha$ is predicted near $0$,
+* CPT-even: no sign flip for the CPT-conjugate antiparticle (opposite sign at
+  the same physical spin, Kostelecký & Lane rule $d\to-d$); $A_\alpha=0$ for
+  the underlying couplings,
   subject to the same sensitivity-gap caveat discussed in
   `FW_derivation_bmy.md` §4.2.
 
@@ -84,7 +86,9 @@ Kostelecký & Lane state explicitly that the field operators for
 $a_\mu,b_\mu,e_\mu,f_\mu,g_{\lambda\mu\nu}$ are CPT-odd, and the rest —
 including $c_{\mu\nu}$, $d_{\mu\nu}$, $H_{\mu\nu}$ — are CPT-even.
 $d_{\mu\nu}$'s contribution to the effective coupling is therefore the same
-for matter and antimatter; no sign flip is expected in the SPINDEP asymmetry
+for CPT-conjugate matter and antimatter states (verified for $d_{00}$, $d_{j0}$
+and $d_{jk}$ in `derivations/sympy/FW_antiparticle_all_coefficients.ipynb`;
+at the same physical spin the sign reverses); no sign flip is expected in the SPINDEP asymmetry
 parameter $A_\alpha$ from this coefficient (subject to the sensitivity-gap
 caveat in `FW_derivation_bmy.md` §4.2, which applies uniformly to every
 CPT-even coefficient).

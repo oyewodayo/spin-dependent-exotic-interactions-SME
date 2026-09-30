@@ -18,7 +18,7 @@ The goal of this derivation is to take the fully relativistic SME Lagrangian ter
 
 > [!NOTE]
 > **Key Result**
-> The b_i (spatial) component generates V₂ at leading order m⁰: H_NR = −b_i σ^i (matter), +b_i σ^i (antimatter) — see §4.
+> The b_i (spatial) component generates V₂ at leading order m⁰: H_NR = −b_i σ^i (matter), +b_i σ^i (CPT-conjugate antimatter state, spin reversed) — see §4. At the same physical spin the antiparticle also has −b_i σ^i (Kostelecký & Lane rule b → +b).
 > The b_0 (temporal) component generates V₇, V₈ at subleading order m⁻¹: H_NR = −b_0 (σ·p)/m
 > This sign flip is the qualitative CPT-odd signature of b_μ. It does **not** by itself predict |Aα| → 1 in SPINDEP's output — that requires the separate sensitivity-gap argument in §4.2, since the framework compares independent one-sided bounds, not signed couplings.
 
@@ -62,7 +62,7 @@ $$
 
 &nbsp;&nbsp;&nbsp;&nbsp;*(2.4a)*
 
-However, the COUPLING changes sign because the antiparticle b_μ coefficient is −b_μ relative to the particle. This is the origin of the matter—antimatter sign flip in the NR Hamiltonian, derived explicitly in §4.
+C alone therefore cannot produce a matter–antimatter sign difference for b_μ. At the same physical spin, particle and antiparticle see the same b_μ (Kostelecký & Lane, J. Math. Phys. 40, 6245, 1999: b → +b). The sign difference appears between CPT-conjugate states, which have reversed spin (§4).
 
 ## 3. Foldy—Wouthuysen Transformation
 
@@ -191,12 +191,20 @@ $$
 
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.1)*
 
-By the standard hole-theory prescription (Bjorken & Drell, Ch. 5), a
-negative-energy solution $\phi_-$ of $H\phi_-=-|E|\phi_-$ is reinterpreted
-as a positive-energy antiparticle state via an overall sign flip of the
-Hamiltonian, since $(-H)\phi_-=+|E|\phi_-$: the antiparticle sees every
-perturbation term with the opposite sign to the value it takes on the
-lower block of the original, unconjugated $H$. Applying this to Eq. (4.1),
+By the standard hole-theory prescription (Bjorken & Drell, Ch. 5), an
+antiparticle of momentum $\mathbf p$ and spin $\mathbf s$ is the absence of a
+negative-energy solution of momentum $-\mathbf p$ and spin $-\mathbf s$, and
+its energy is minus the energy of that solution. A CPT test compares the
+particle with its CPT-conjugate state, an antiparticle of the same momentum
+and reversed spin. Labelling that state by the particle's spin operator,
+
+$$
+H^{\bar f}_{NR}(\mathbf p,\boldsymbol\sigma) = -H_{\rm lower}(-\mathbf p,\boldsymbol\sigma).
+$$
+
+&nbsp;&nbsp;&nbsp;&nbsp;*(4.2)*
+
+$b_i$ carries no momentum, so applying Eq. (4.2) to Eq. (4.1) gives
 
 $$
 H_{NR}^{\bar f}(b_i) = -\left(-b_i\,\sigma^i\right) = +b_i\,\sigma^i.
@@ -204,18 +212,25 @@ $$
 
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.4)*
 
-This reproduces the antiparticle result used throughout §4.2 and
-Chapter 4, now via a route verified computationally against
-`dirac_algebra.py`'s already-trusted `upper`/`lower` block projections
-(the same utilities used elsewhere in this note) rather than an
-index-dependent charge-conjugation identity.
+The CPT-conjugate antiparticle receives the opposite shift, which is the
+CPT-odd signature. At the same physical spin the shift is identical,
+$-\mathbf b\cdot\mathbf s$ for both, which is Kostelecký & Lane's rule
+$b\to+b$. The two statements are equivalent, because $\mathbf b\cdot\boldsymbol\sigma$
+changes sign when the spin is reversed. Bluhm, Kostelecký & Russell (PRL 82,
+2254, 1999) find the same: their hydrogen-to-antihydrogen substitution leaves
+$b_\mu$ unchanged, and the $b$-dependent 1S–2S shift reverses because the
+antihydrogen states compared have opposite positron and antiproton spin
+assignments. `derivations/sympy/FW_antiparticle_all_coefficients.ipynb`
+verifies Eq. (4.2) for every SME coefficient family. The momentum reversal
+matters for every term odd in $\mathbf p$, including $b_0$.
+
 
 ### 4.2 Implication for the Asymmetry Parameter
 
 The two-body interaction potential for a matter—antimatter pair is proportional to the product of the single-particle NR Hamiltonians. For the b_i term:
 
 $$
-V_pair ∝ H_NR^matter × H_NR^antimatter ∝ (-b·σ_1)(+b·σ_2)
+V_pair ∝ H_NR^matter × H_NR^antimatter ∝ (-b·σ_1)(+b·σ_2)   (antiparticle in the CPT-conjugate state)
 $$
 
 &nbsp;&nbsp;&nbsp;&nbsp;*(4.5)*
@@ -262,7 +277,7 @@ The coupling constant $g_A$ in eq. (5.1) is identified with the b_μ coefficient
 
 - **All gAgA pairs show |Aα| ≈ 1:** This is *consistent with* a b_μ sign flip, but — per the corrected §4.2 above — is equally well explained by a sensitivity gap between the matter- and antimatter-sector bounds, with no CPT violation required. The two explanations cannot be distinguished from the asymmetry value alone; it would require checking whether the matter and antimatter bounds being compared are of comparable experimental precision. The small deviations from 1 in pairs 4—5 reflect curve curvature effects in the uncertainty model, not necessarily physics.
 
-- **gsgs pair at |Aα| = 0.873:** The gsgs potential does not couple to b_μ at leading order (scalar coupling requires c_μν, which is CPT-even), so a value below 1 is consistent with no CPT-odd contribution. But note this is the *same type* of argument as the gAgA case above: a lower or higher |Aα| here is also compatible with a smaller sensitivity gap between the two experiments, independent of the CPT status of the dominant operator.
+- **gsgs pair at |Aα| = 0.873:** $V_1$ is spin-independent, so b_μ does not feed it; only a_μ, c_μν and e_μ enter spin-independent terms. Its asymmetry is nonetheless comparable to the gAgA pairs, which is what a sensitivity gap between the two experiments produces regardless of channel.
 
 - **Observable consequences:** A measurement of b_i ≠ 0 for any fermion would appear as a direction-dependent shift in atomic energy levels (sidereal variation). SPINDEP constraints bound the effective b_i from the ratio of matter to antimatter coupling bounds.
 

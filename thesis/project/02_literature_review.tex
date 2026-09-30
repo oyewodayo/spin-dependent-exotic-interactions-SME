@@ -77,10 +77,29 @@ $\sigma^{\mu\nu}=\tfrac{i}{2}[\gamma^\mu,\gamma^\nu]$. Note the operator
 ordering in the $b_\mu$ term, $\gamma_5\gamma^\mu$ rather than
 $\gamma^\mu\gamma_5$: since $\{\gamma_5,\gamma^\mu\}=0$, the two orderings
 differ by an overall sign, so this convention fixes the sign of every
-non-relativistic result derived from $b_\mu$ later in this thesis. Table
-\ref{tab:sme-classification} classifies every coefficient in
-Eq.~\eqref{eq:sme-minimal}, together with the dimension-5 coefficients
-$e_\mu,f_\mu$, by CPT parity and leading spin-dependent role.
+non-relativistic result derived from $b_\mu$ later in this thesis. Coefficients in the mass sector $M$ ($a_\mu$, $b_\mu$,
+$H_{\mu\nu}$) have dimensions of mass, while those in the kinetic sector
+$\Gamma^\nu$ are dimensionless (Kosteleck\'{y} and Lane, 1999a).
+
+Equation~\eqref{eq:sme-minimal} omits $e_\mu$, $f_\mu$ and
+$g_{\lambda\mu\nu}$. These three are also dimensionless and renormalisable
+in the single-fermion Lagrangian, but they cannot come from any
+renormalisable term of the full standard-model extension, because every
+such term would violate its SU(2)$\times$U(1) gauge structure. They could
+arise only from non-renormalisable, higher-dimensional operators involving
+the Higgs field, and are therefore expected to be strongly suppressed
+(Colladay and Kosteleck\'{y}, 1998). For the electron, they are absent or
+suppressed relative to the other coefficients. For the proton and neutron,
+however, strong binding inside a composite particle could generate
+appreciable effective values (Kosteleck\'{y} and Lane, 1999a). Of the three,
+only $g_{\lambda\mu\nu}$ produces spin-dependent terms. $e_\mu$ enters
+the non-relativistic Hamiltonian only through spin-independent terms, and
+$f_\mu$ does not enter it at all (Kosteleck\'{y} and Lane, 1999a, 1999b).
+$f_\mu$ can in fact be absorbed into the other coefficients by a field
+redefinition (Altschul, 2006). This thesis therefore keeps
+$g_{\lambda\mu\nu}$ and sets $e_\mu$ and $f_\mu$ aside.
+Table~\ref{tab:sme-classification} classifies all eight coefficients by
+CPT parity, mass dimension and leading spin-dependent role.
 
 \begin{table}[h]
 \centering
@@ -88,18 +107,19 @@ $e_\mu,f_\mu$, by CPT parity and leading spin-dependent role.
 \toprule
 Coefficient & CPT & Mass dim.\ & Leading spin-dependent role \\
 \midrule
-$a_\mu$        & Odd  & 4 & None at leading order; velocity-dependent at $O(1/m)$ \\
-$b_\mu$        & Odd  & 4 & Zeeman-like spin coupling, $V_2$ \\
-$c_{\mu\nu}$   & Even & 4 & Direction-dependent kinetic modification; subleading $V_2$-type \\
-$d_{\mu\nu}$   & Even & 4 & Spin-velocity and mass-enhanced couplings, $V_2,V_7,V_8$ \\
-$e_\mu$        & Odd  & 5 & Velocity-dependent, contributes to $V_8$ and higher \\
-$f_\mu$        & Odd  & 5 & Velocity-dependent, contributes to $V_8$ and higher \\
-$g_{\lambda\mu\nu}$ & Odd & 5 & Not treated in this thesis \\
-$H_{\mu\nu}$   & Even & 4 & Anisotropic spin coupling, $V_3,V_7$ \\
+$a_\mu$        & Odd  & 1 & None at leading order; velocity-dependent at $O(1/m)$ \\
+$b_\mu$        & Odd  & 1 & Zeeman-like spin coupling, $V_2$ \\
+$c_{\mu\nu}$   & Even & 0 & None; direction-dependent kinetic modification, spin-independent \\
+$d_{\mu\nu}$   & Even & 0 & Spin-velocity and mass-enhanced couplings, $V_2,V_7,V_8$ \\
+$e_\mu$        & Odd  & 0 & None; energy shift and velocity-dependent term, spin-independent \\
+$f_\mu$        & Odd  & 0 & None; absent from the non-relativistic Hamiltonian at linear order and removable by a field redefinition \\
+$g_{\lambda\mu\nu}$ & Odd & 0 & Spin couplings via $\sigma^{\lambda\mu}$, $V_2,V_7,V_8$ \\
+$H_{\mu\nu}$   & Even & 1 & Anisotropic spin coupling, $V_3,V_7$ \\
 \bottomrule
 \end{tabular}
 \caption{Classification of minimal (and near-minimal) SME fermion-sector
-coefficients (Colladay and Kostelecký, 1998; Kostelecký and Lane, 1999).}
+coefficients (Colladay and Kostelecký, 1998; Kostelecký and Lane, 1999a, 1999b). ``Mass dim.'' is the mass dimension of the coefficient itself; the
+operators it multiplies have dimension 3 in the mass sector and 4 in the kinetic sector.}
 \label{tab:sme-classification}
 \end{table}
 
@@ -237,12 +257,13 @@ term. This is why coefficients coupling through odd operators (such as
 $b_0$ and $H_{0i}$) are systematically subleading relative to those
 coupling through even operators (such as $b_i$ and $H_{ij}$). Projecting
 the block-diagonal result onto the upper block gives the matter-sector
-Hamiltonian directly; the antiparticle sector requires the separate
-hole-theory reinterpretation of the lower (negative-energy) block, not a
-direct charge-conjugation transformation of the field-theoretic coupling
-itself, since the relevant bilinear $\bar\psi\gamma_5\gamma^\mu\psi$ is
-even under charge conjugation for every $\mu$ and so cannot alone account
-for the sign difference between the two sectors (Chapter~4).
+Hamiltonian directly. The antiparticle sector follows from the lower
+(negative-energy) block by the hole-theory reinterpretation, which reverses
+the sign of the energy, the momentum and the spin. Charge conjugation of
+the bilinear alone cannot supply the matter--antimatter sign difference for
+$b_\mu$, since $\bar\psi\gamma_5\gamma^\mu\psi$ is even under $C$ for every
+$\mu$. The difference is a CPT effect, and it appears when CPT-conjugate
+states are compared (Chapter~4).
 
 \subsection{CPT Symmetry and the Asymmetry Parameter}
 \label{sec:asymmetry-def}
@@ -261,7 +282,9 @@ defines the dimensionless asymmetry parameter
 \end{equation}
 where $g_{\alpha}^{f}$ and $g_{\alpha}^{\bar f}$ are the effective coupling
 constants for a fermion species and its antifermion in interaction channel
-$\alpha$. Under exact CPT symmetry, $A_\alpha=0$ for every channel. As
+$\alpha$. The antifermion coupling refers to the CPT-conjugate state, with
+the same momentum and reversed spin. With this definition, exact CPT
+symmetry gives $A_\alpha=0$ for every channel. As
 Chapter~4 derives in detail, $g_\alpha^f$ and $g_\alpha^{\bar f}$ as
 actually reported in the literature are one-sided experimental upper
 bounds rather than signed measured couplings, which limits how directly a
@@ -303,7 +326,7 @@ spin-dependent forces mediated by axion-like particles, establishing the
 Yukawa-type potential structure and the $g_sg_p$ coupling dependence that
 remains standard today. Colladay and Kostelecký (1997, 1998) constructed
 the SME as the most general effective field theory allowing Lorentz and CPT
-violation, and Kostelecký and Lane (1999) derived the non-relativistic
+violation, and Kostelecký and Lane (1999a, 1999b) derived the non-relativistic
 limit of SME fermion-sector terms, providing the first formal bridge
 toward experimentally accessible observables. Dobrescu and Mocioiu (2006)
 then provided the complete classification of non-relativistic potentials

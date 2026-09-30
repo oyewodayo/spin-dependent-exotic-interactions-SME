@@ -39,8 +39,8 @@
 | $d_{i0}$ | Mixed components | **Even** | Odd | Generates $+d_{i0}\,m\,\sigma^i$ ($m^1$ enhancement) |
 | $d_{ij}$ | Spatial components | **Even** | Odd | Generates $+d_{ij}\,p^j\,\sigma^i$ (velocity-dependent) |
 | $d_{00}$ | Temporal component | **Even** | Odd | Generates $+d_{00}\,(\boldsymbol\sigma\cdot\mathbf p)$ (momentum-dependent); **nonzero** (traceless, not antisymmetric) |
-| $e_\mu,\,f_\mu$ | Dimension-5 vectors | **Odd** | Odd | Velocity-dependent; contribute to $V_8$ and higher; not yet constrained by any SPINDEP pair |
-| $g_{\lambda\mu\nu}$ | Dimension-5 tensor | **Odd** | Odd | Listed in Ch. 2's classification table; not treated further in this thesis |
+| $e_\mu,\,f_\mu$ | Dimensionless vectors (kinetic sector) | **Odd** | Odd | No spin-dependent term: $e_\mu$ enters only spin-independent terms; $f_\mu$ is absent from $H_{NR}$ at linear order and removable by field redefinition (Altschul 2006) |
+| $g_{\lambda\mu\nu}$ | Dimensionless tensor (kinetic sector) | **Odd** | Odd | Reduced in Ch. 4; generates $V_2$, $V_7$, $V_8$ |
 
 **Convention note:** the $b_\mu$ term's operator ordering matters. This thesis uses $\gamma_5\gamma^\mu$ (not $\gamma^\mu\gamma_5$) throughout — Ch. 1 Eq. 2, Ch. 2 Eq. sme-minimal, and `FW_derivation_bmy.md` all agree on this. Since $\{\gamma_5,\gamma^\mu\}=0$, the two orderings are exact negatives of each other; `derivations/sympy/FW_bmu_term.ipynb` implements the opposite ordering internally and so reports the opposite sign for $H_{NR}(b_i)$ — a bookkeeping artifact of that convention, not an independent result (see the notebook's own convention note).
 
@@ -120,7 +120,7 @@ The channel index $\alpha$ is dropped when clear from context (Ch. 3's coefficie
 - Under exact CPT symmetry, $A_\alpha=0$ for every channel (Ch. 1).
 - For a genuinely CPT-odd, exactly signed coupling ($g_{\bar f}=-g_f$), the formula's denominator vanishes identically — $A_\alpha$ **diverges**, it does not saturate at 1 (Ch. 3, confirmed with `sympy.limit`).
 - What SPINDEP actually computes uses one-sided experimental **upper bounds**, not signed measurements, for both $g_f$ and $g_{\bar f}$. A ratio of two independent positive bounds of very different tightness approaches $\pm1$ regardless of the true CPT parity of the underlying physics — a sensitivity-gap effect (Ch. 1, 3, 4 all state this).
-- Statistical significance ($p\to0$ after the Ch. 4 autocorrelation correction) is **not** the same claim as evidence for CPT violation — every one of the ten matched pairs in Ch. 4, Table 4.2, is significant, yet none can currently be read as CPT-violation evidence rather than a sensitivity gap (Ch. 4 §"Interpretation").
+- Statistical significance (Z from 5.1 to 51 after the Ch. 4 autocorrelation correction) is **not** the same claim as evidence for CPT violation — every one of the fifteen matched pairs in Ch. 4 is significant, yet none can currently be read as CPT-violation evidence rather than a sensitivity gap (Ch. 4 §"Interpretation").
 
 ---
 
@@ -145,7 +145,7 @@ The channel index $\alpha$ is dropped when clear from context (Ch. 3's coefficie
 | Sign/Expression | Meaning | Why |
 |-----------------|---------|-----|
 | $-\mathbf b\cdot\boldsymbol\sigma$ | Matter NR Hamiltonian for $b_i$ | $\gamma^0\gamma_5\gamma^i = -\Sigma^i$ |
-| $+\mathbf b\cdot\boldsymbol\sigma$ | Antimatter NR Hamiltonian for $b_i$ | Charge conjugation flips sign; CPT-odd |
+| $+\mathbf b\cdot\boldsymbol\sigma$ | Antimatter NR Hamiltonian for $b_i$, CPT-conjugate state (spin reversed) | Hole theory with $\mathbf p\to-\mathbf p$, $\mathbf s\to-\mathbf s$; CPT-odd. At the same physical spin: $-\mathbf b\cdot\boldsymbol\sigma$ (Kostelecký & Lane rule $b\to+b$) |
 | $+b_0(\boldsymbol\sigma\cdot\mathbf p)/m$ | NR Hamiltonian for $b_0$ | Odd operator becomes even via FW at $m^{-1}$ |
 | $-\boldsymbol{\mathcal H}_B\cdot\boldsymbol\sigma$ | NR Hamiltonian for $H_{ij}$ | Standard Zeeman coupling; CPT-even |
 | $-\frac1m\boldsymbol\sigma\cdot(\mathbf p\times\mathbf H_E)$ | NR Hamiltonian for $H_{0i}$ | Odd operator at $m^{-1}$ via FW |
@@ -179,24 +179,27 @@ The channel index $\alpha$ is dropped when clear from context (Ch. 3's coefficie
 |----------------|----------|-------------|
 | $b_\mu$ | Bilinear rule: $\mathrm{CPT}[\bar\psi\gamma_5\gamma^\mu\psi]=-\bar\psi\gamma_5\gamma^\mu\psi$ | **CPT-odd** — Lagrangian changes sign |
 | $H_{\mu\nu}$ | Bilinear rule: $\mathrm{CPT}[\bar\psi\sigma^{\mu\nu}\psi]=+\bar\psi\sigma^{\mu\nu}\psi$ | **CPT-even** — Lagrangian unchanged |
-| $c_{\mu\nu}$ | Bilinear rule: $\gamma^\mu$ alone is $\eta_\Gamma=+1$; the paired derivative doesn't change that | **CPT-even** |
-| $d_{\mu\nu}$ | **Not** derivable from the simple bilinear rule — $d_{\mu\nu}$'s operator is $\gamma_5\gamma_\mu$ paired with a derivative $\partial_\nu$, and the derivative itself carries a CPT transformation the plain $\eta_\Gamma$ table doesn't capture. Kostelecký & Lane state the result directly | **CPT-even** (stated, not bilinear-derived) |
-| $a_\mu,e_\mu,f_\mu,g_{\lambda\mu\nu}$ | Stated directly by Kostelecký & Lane; $a_\mu$'s bilinear ($\gamma^\mu$, $\eta_\Gamma=+1$) would naively suggest even, but $a_\mu$ is classified CPT-odd in the source — a reminder that the simple $\eta_\Gamma$ table is a heuristic for the *listed* coefficients ($b_\mu$, $H_{\mu\nu}$), not a universal derivation | **CPT-odd** (stated) |
-| $b_\mu$ (charge conjugation) | $C[\bar\psi\gamma_5\gamma^\mu\psi]=+\bar\psi\gamma_5\gamma^\mu\psi$ (current even), but the *coefficient* picks up a sign under $C$ | Matter couples as $-b_\mu$, antimatter as $+b_\mu$ |
-| $H_{\mu\nu}$ (charge conjugation) | $C[\bar\psi\sigma^{\mu\nu}\psi]=+\bar\psi\sigma^{\mu\nu}\psi$ | Same sign for matter and antimatter |
-| $d_{\mu\nu}$ (charge conjugation) | Same direct-statement basis as its CPT row above | Same sign for matter and antimatter |
+| $c_{\mu\nu}$ | Bilinear rule: vector ($-$) times derivative ($-$) | **CPT-even** |
+| $d_{\mu\nu}$ | Bilinear rule: axial vector ($-$) times derivative ($-$) | **CPT-even** |
+| $a_\mu$ | Bilinear rule: vector ($-$) | **CPT-odd** |
+| $e_\mu,f_\mu,g_{\lambda\mu\nu}$ | Bilinear rule: scalar/pseudoscalar/tensor ($+$) times derivative ($-$) | **CPT-odd** |
+| $b_\mu$ (charge conjugation) | $C[\bar\psi\gamma_5\gamma^\mu\psi]=+\bar\psi\gamma_5\gamma^\mu\psi$ (axial current C-even) | $C$ alone gives no sign difference; at the same physical spin the antiparticle has the same $b_\mu$ (Kostelecký & Lane: $b\to+b$). The CPT-odd flip appears between CPT-conjugate states |
+| $H_{\mu\nu}$ (charge conjugation) | $C[\bar\psi\sigma^{\mu\nu}\psi]=-\bar\psi\sigma^{\mu\nu}\psi$ (tensor current C-odd) | Opposite sign at the same physical spin ($H\to-H$); same sign between CPT-conjugate states (CPT-even) |
+| $d_{\mu\nu}$ (antiparticle) | Kostelecký & Lane: $d\to-d$ at the same physical spin | Same sign between CPT-conjugate states (CPT-even) |
 
-**Correction from an earlier draft of this reference:** $d_{\mu\nu}$'s CPT-even property must **not** be attributed to a bilinear $\bar\psi\gamma_5\sigma^{\mu\nu}\psi$ — that is not $d_{\mu\nu}$'s Lagrangian (it isn't any of the three coefficients' Lagrangian; $H_{\mu\nu}$'s is $\bar\psi\sigma^{\mu\nu}\psi$, without the $\gamma_5$). Citing $\gamma_5\sigma^{\mu\nu}$ for $d_{\mu\nu}$ reproduces exactly the wrong mass-sector operator that `docs/theory_notes/FW_derivation_dmunu.md` used to (incorrectly) assume before it was corrected against Kostelecký & Lane (1999). The $a_\mu$ row above was added for the same reason: it's a case where the naive bilinear rule alone would give the wrong answer if applied without checking the source's direct classification.
+CPT parities of the bilinears $\bar\psi\Gamma\psi$: scalar $+$, pseudoscalar $+$, vector $-$, axial vector $-$, tensor $+$ (Peskin & Schroeder 1995, §3.6); each derivative contributes a further $-$. This reproduces Kostelecký & Lane's classification for all eight coefficients. The matter–antimatter relations are verified for every coefficient family in `derivations/sympy/FW_antiparticle_all_coefficients.ipynb`.
+
+**Correction from an earlier draft of this reference:** $d_{\mu\nu}$'s CPT-even property must **not** be attributed to a bilinear $\bar\psi\gamma_5\sigma^{\mu\nu}\psi$ — that is not $d_{\mu\nu}$'s Lagrangian (it isn't any of the three coefficients' Lagrangian; $H_{\mu\nu}$'s is $\bar\psi\sigma^{\mu\nu}\psi$, without the $\gamma_5$). Citing $\gamma_5\sigma^{\mu\nu}$ for $d_{\mu\nu}$ reproduces exactly the wrong mass-sector operator that `docs/theory_notes/FW_derivation_dmunu.md` used to (incorrectly) assume before it was corrected against Kostelecký & Lane (1999). (An earlier version of this table also claimed that $a_\mu$ and $d_{\mu\nu}$ could not be classified by the bilinear rule. They can, once the vector bilinear is given CPT parity $-$ and the derivative is counted.)
 
 ---
 
 ## Key Takeaways
 
-1. **$b_\mu$ sign flip**: Matter gets $-\mathbf b\cdot\boldsymbol\sigma$; antimatter gets $+\mathbf b\cdot\boldsymbol\sigma$ (genuine CPT-odd signature).
+1. **$b_\mu$ and $g_{\lambda\mu\nu}$ sign flip**: between CPT-conjugate states (antiparticle spin reversed), matter gets $-\mathbf b\cdot\boldsymbol\sigma$ and antimatter $+\mathbf b\cdot\boldsymbol\sigma$ (genuine CPT-odd signature). All three contributing $g$ families flip likewise. At the same physical spin the shifts coincide (Kostelecký & Lane rule).
 
-2. **$H_{\mu\nu}$, $d_{\mu\nu}$, $c_{\mu\nu}$ same sign**: Matter and antimatter both get the same coupling (CPT-even). $d_{\mu\nu}$'s evenness is stated directly by Kostelecký & Lane, not derived from the simple bilinear rule.
+2. **$H_{\mu\nu}$, $d_{\mu\nu}$, $c_{\mu\nu}$ same sign**: CPT-conjugate matter and antimatter states get the same coupling (CPT-even). At the same physical spin the spin-dependent $H$ and $d$ terms reverse sign.
 
-3. **$A_\alpha$ ambiguity**: The ratio of one-sided upper bounds gives $|A_\alpha|\to1$ from sensitivity gaps, **not** necessarily from CPT violation — true at the formal level (Ch. 1, 3) and confirmed empirically across every one of the ten matched pairs in the compiled database (Ch. 4), including the CPT-even $g_sg_s$ pair, which shows the same high-asymmetry pattern as the CPT-odd $g_Ag_A$ pairs.
+3. **$A_\alpha$ ambiguity**: The ratio of one-sided upper bounds gives $|A_\alpha|\to1$ from sensitivity gaps, **not** necessarily from CPT violation — true at the formal level (Ch. 1, 3) and confirmed empirically across all fifteen matched pairs in the compiled database (Ch. 4), including the spin-independent $g_sg_s$ pair, whose asymmetry is comparable to that of the spin-dependent $g_Ag_A$ pairs.
 
 4. **Statistical significance ≠ CPT evidence**: every matched pair in Ch. 4 is significant at effectively $p\to0$ after the autocorrelation correction, but significance answers "is this asymmetry real," not "is this asymmetry caused by CPT violation" — the sensitivity-gap explanation is not ruled out by significance alone.
 
@@ -204,4 +207,4 @@ The channel index $\alpha$ is dropped when clear from context (Ch. 3's coefficie
 
 6. **$d_{ij}, d_{00}$ sign**: Structure is correct, but **overall sign is open** pending a wavefunction-renormalization treatment of the kinetic sector.
 
-7. **The central empirical limitation (Ch. 4–5)**: of 273 compiled datasets, only 17 touch an antimatter sector at all (concentrated in $e$-$\bar p$, $e$-$e^+$, $e$-$\bar\mu$), which is why a meaningful matter–antimatter comparison is currently possible in only ten matched pairs, and why none of the sensitivity-gap-vs-CPT-violation ambiguities above can yet be resolved from the existing database.
+7. **The central empirical limitation (Ch. 4–5)**: of 283 compiled datasets, 247 enter the analysis and only 22 of those touch an antimatter sector ($e$-$\bar p$, $e$-$\bar\mu$ from muonium, $e$-$e^+$, $\bar p$-He, $dd\mu^+$). That is why only fifteen matter–antimatter pairs (thirteen independent) can be matched, and why none of the sensitivity-gap-vs-CPT-violation ambiguities above can yet be resolved from the existing database.

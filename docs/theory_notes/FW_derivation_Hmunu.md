@@ -26,7 +26,7 @@ $$
 \sigma^{\mu\nu} = \frac{i}{2}[\gamma^\mu, \gamma^\nu].
 $$
 
-Unlike $b_\mu$, $H_{\mu\nu}$ is CPT-EVEN but Lorentz-odd. It does not change sign under CPT, meaning matter and antimatter couple identically at tree level. Its primary experimental signature is an anisotropy (direction-dependence) rather than a matter--antimatter asymmetry.
+Unlike $b_\mu$, $H_{\mu\nu}$ is CPT-EVEN but Lorentz-odd. It does not change sign under CPT, meaning CPT-conjugate matter and antimatter states (antiparticle spin reversed) receive identical shifts at tree level; at the same physical spin the shifts are opposite (Kostelecký & Lane rule $H\to-H$). Its primary experimental signature is an anisotropy (direction-dependence) rather than a matter--antimatter asymmetry.
 
 $H_{\mu\nu}$ has two distinct sectors: the magnetic-like spatial components $H_{ij}$ and the electric-like mixed components $H_{0i}$. These generate different DM potentials at different orders in the $1/m$ expansion, as derived below.
 ---
@@ -55,7 +55,7 @@ $$
 
   $\rightarrow V_7$ (spin-velocity)
 
-* CPT-even: same sign for matter and antimatter (no $A\alpha = 1$ signature)
+* CPT-even: same Hamiltonian for the CPT-conjugate antiparticle, so $g^{\bar f}=g^f$ and $A\alpha=0$ for the underlying couplings
 
 * Experimental signature: sidereal variation, **not** matter-antimatter asymmetry
 
@@ -95,17 +95,27 @@ the same sign as the original. $H_{\mu\nu}$ is CPT-even.
 
 Under Lorentz transformations, since $H_{\mu\nu}$ is a fixed background tensor, it explicitly breaks Lorentz invariance but not CPT.
 
-Under charge conjugation alone:
+Charge conjugation alone does not settle the matter–antimatter relation: the
+tensor current is C-odd,
 
-$$ \bar{\psi}^c\sigma^{\mu\nu}\psi^c = +\bar{\psi}\sigma^{\mu\nu}\psi $$
+$$ \bar{\psi}^c\sigma^{\mu\nu}\psi^c = -\bar{\psi}\sigma^{\mu\nu}\psi , $$
 
-(C-even tensor current).
+(verified with `dirac_algebra.py`: $C\sigma^{\mu\nu\,T}C^{-1}=-\sigma^{\mu\nu}$),
+which gives the same-spin rule $H\to-H$ of Kostelecký & Lane. The relevant
+comparison for a CPT test is between CPT-conjugate states (antiparticle of the
+same momentum, reversed spin). In hole theory, an antiparticle of momentum
+$\mathbf p$ and spin $\mathbf s$ is the absence of a negative-energy solution
+of momentum $-\mathbf p$ and spin $-\mathbf s$, so the CPT-conjugate
+antiparticle has $H^{\bar f}_{NR}(\mathbf p,\boldsymbol\sigma) =
+-H_{\rm lower}(-\mathbf p,\boldsymbol\sigma)$. For both $H_{ij}$ and $H_{0i}$
+this gives
 
-The antiparticle coupling is therefore the **same sign** as the particle:
+$$ H_{NR}^{\bar f}\big|_{\text{CPT-conjugate}} = H_{NR}^{f}, $$
 
-$$ H_{NR}^{\text{antimatter}} = H_{NR}^{\text{matter}}. $$
-
-This means $H_{\mu\nu}$ predicts
+as the CPT-even character of $H_{\mu\nu}$ requires. At the same physical spin
+the sign reverses. The two statements are equivalent because both terms are
+linear in spin (`derivations/sympy/FW_antiparticle_all_coefficients.ipynb`).
+For the underlying couplings $g^{\bar f}=g^f$, so $H_{\mu\nu}$ gives
 
 $$ A\alpha = 0 $$
 

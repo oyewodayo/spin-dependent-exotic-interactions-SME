@@ -1,0 +1,759 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{booktabs,array,longtable}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sig}{\bm{\sigma}}
+\newcommand{\Aa}{A_\alpha}
+\newcommand{\gfb}{g^{\bar f}}
+\newcounter{qn}
+\newcommand{\Q}[1]{\refstepcounter{qn}\par\medskip\noindent\textbf{Q\theqn.\ #1}\par\nopagebreak}
+\newcommand{\A}{\noindent\textit{Answer.}\ }
+
+\title{Defence Preparation Guide\\[0.3em]
+\large What changed since the 21 September draft, why, and how to defend it}
+\author{Oyewo Temidayo Solomon\\ Department of Physics, University of Ibadan}
+\date{28 September 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+% =====================================================================
+\section*{How to use this guide}
+\addcontentsline{toc}{section}{How to use this guide}
+
+Part~\ref{part:changes} lists every substantive change made since the
+draft Prof.\ Oyewande reviewed on 21 September, with the old and new
+statement side by side. Part~\ref{part:physics} explains the physics and
+statistics behind the changes at the depth a panel is likely to probe.
+Part~\ref{part:qa} is a bank of likely questions with answers you can
+defend. Part~\ref{part:ref} collects the numbers you should know by heart
+and tells you where each result lives in the repository.
+
+Read Part~\ref{part:physics} slowly, with the notebooks open. Every
+claim in it was checked either against the primary papers or by running
+the code; the places where something was \emph{not} re-verified are
+flagged explicitly in Section~\ref{sec:unverified}.
+
+% =====================================================================
+\section{What changed since 21 September}
+\label{part:changes}
+
+\subsection{Theory}
+
+\begin{longtable}{@{}p{0.47\textwidth}p{0.47\textwidth}@{}}
+\toprule
+\textbf{21 September draft} & \textbf{Current version} \\
+\midrule
+\endhead
+Three coefficients derived: $b_\mu$, $H_{\mu\nu}$, $d_{\mu\nu}$.
+& Four: $b_\mu$, $d_{\mu\nu}$, $g_{\lambda\mu\nu}$, $H_{\mu\nu}$, shown to be
+the complete set producing spin-dependent terms. \\[0.4em]
+$d_{ij}$ and $d_{00}$ ``correct in structure but carry an open overall
+sign''; objective counted as four of five achieved.
+& Sign resolved: Kostelecký and Lane's lower-index $p_j$ is the covariant
+component $p_j=-p^j$. All three $d_{\mu\nu}$ components match exactly.
+All five objectives met. \\[0.4em]
+Limitation: ``only three of the eight SME coefficients derived''.
+& Removed. $a_\mu$, $c_{\mu\nu}$, $e_\mu$ enter only spin-independent
+terms; $f_\mu$ does not enter at this order and can be removed by a field
+redefinition (Altschul 2006). \\[0.4em]
+$e_\mu$, $f_\mu$, $g_{\lambda\mu\nu}$ called ``dimension-5''.
+& They are dimensionless. The correct point (Colladay and Kostelecký
+1998) is that no renormalisable, gauge-invariant term of the full SME
+generates them, so they are expected to be suppressed, though possibly
+not for nucleons (Kostelecký and Lane 1999a). \\[0.4em]
+Antiparticle Hamiltonian taken as minus the lower block at the same
+$\mathbf p$ and $\sig$.
+& Antiparticle compared as the CPT-conjugate state, with the momentum
+reversed: $H^{\bar f}(\mathbf p,\sig)=-H_{\rm lower}(-\mathbf p,\sig)$.
+Verified for every SME coefficient family. \\[0.4em]
+Master table last column: ``$|\Aa|\to1$ predicted'' for CPT-odd rows,
+``$\Aa\approx0$'' for CPT-even rows.
+& Replaced by the actual relation for CPT-conjugate states,
+$\gfb=-g^f$ (CPT-odd) or $\gfb=g^f$ (CPT-even). The old entries
+contradicted the thesis's own divergence result. \\[0.4em]
+Both Kostelecký--Lane papers cited as ``1999''.
+& Split into 1999a (PRD 60, 116010) and 1999b (J.\ Math.\ Phys.\ 40,
+6245), each cited where used. Altschul (2006) and Wu \textit{et al.}\
+(2023) added. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Database and results}
+
+\begin{longtable}{@{}p{0.47\textwidth}p{0.47\textwidth}@{}}
+\toprule
+\textbf{21 September draft} & \textbf{Current version} \\
+\midrule
+\endhead
+273 datasets; 21 classified \texttt{UNKNOWN}.
+& 283 compiled, 247 analysed. The 36 held out are itemised: 28 combined
+envelopes (12 $g_Ag_V$, 16 $g_pg_s$), 5 duplicates at 90\% CL, 2 template
+placeholders, 1 bound with no potential assignment. \\[0.4em]
+19 of 273 datasets involve antimatter.
+& 22 of 247. Muonium ($e^-\mu^+$) bounds moved to the antimatter side,
+consistent with how $dd\mu^+$ was already treated. \\[0.4em]
+Ten matched pairs.
+& Fifteen, of which thirteen are independent (two $g_Vg_V$/$g_pg_p$ rows
+use byte-identical Fadeev files). \\[0.4em]
+Six of eleven potentials, four of nine sectors with no antimatter data.
+& Seven of twelve potentials; six of eleven sector pairs. \\[0.4em]
+Priority sectors $e$-$N$, $e$-$n$, $n$-$p$, $n$-$n$.
+& $e$-$N$, $n$-$N$, $p$-$N$, $e$-$n$, $n$-$p$, $n$-$n$ (150 of the 225
+matter-sector datasets). \\[0.4em]
+$g_sg_s$ pair described as a ``CPT-even channel''.
+& Described as spin-independent; $a_\mu$ (CPT-odd), $c_{\mu\nu}$ and
+$e_\mu$ (CPT-odd) all feed spin-independent terms, so ``CPT-even'' could
+not be defended. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Statistics}
+
+\begin{longtable}{@{}p{0.47\textwidth}p{0.47\textwidth}@{}}
+\toprule
+\textbf{21 September draft} & \textbf{Current version} \\
+\midrule
+\endhead
+``Every pair remains significant at effectively $p\to0$.''
+& Bug fixed: the full $\chi^2$ had been compared with the reduced
+degrees of freedom. Now $\chi^2_{\rm eff}=\chi^2 n_{\rm eff}/n$ on
+$n_{\rm eff}$ dof, quoted as a Gaussian $Z$. Range $Z=5.1$ to $51$. \\[0.4em]
+Bootstrap interval on mean $|\Aa|$ by delta-method, clipped at 1.
+& Couplings perturbed log-normally, $\Aa$ recomputed exactly, median
+bootstrap bias removed. Every interval now contains its point estimate
+(before, six did not). \\
+\bottomrule
+\end{longtable}
+
+\subsection{Errors found in the final review and corrected}
+
+\begin{itemize}[leftmargin=1.2em]
+\item The printed $H_{\rm NR}(g_{[0k]0})$ and $H_{\rm NR}(g_{[kl]j})$ had
+the wrong sign: they were Kostelecký and Lane's expressions without the
+$p_j=-p^j$ conversion. Correct forms: $+\sig\cdot(\mathbf p\times
+\mathbf g_{00})$ and $+\tfrac12\varepsilon_{klm}g_{mlj}p^j\sigma^k$.
+\item ``0.9998, the highest asymmetry'': the highest is 1.0000.
+\item ``Every Cong 2025 pair sits at the top of the table'': false; replaced
+by a like-for-like comparison (all four rose).
+\item $e$-$N$ given as 54 in the text but 50 in the table; ``273 rows''
+should be 283; ``16--31'' datasets should be 14--31; atlas caption said 25
+curves from 10 experiments, the figure shows 27 from 11.
+\item Unit-error pairs: three matched pairs touch an affected dataset, not
+two.
+\item Delaunay \textit{et al.}\ (2017) was listed as an antimatter
+experiment; it is hydrogen and helium spectroscopy.
+\item The $\bar p$-He $|\alpha|$ bound was attributed to Ficek \textit{et al.}\
+(2018); it comes from Salumbides \textit{et al.}\ (2014).
+\item The tensor current $\bar\psi\sigma^{\mu\nu}\psi$ was called C-even in
+the notes; it is C-odd (checked numerically).
+\end{itemize}
+
+% =====================================================================
+\section{The physics and statistics, in depth}
+\label{part:physics}
+
+\subsection{The minimal SME fermion Lagrangian}
+
+For one Dirac fermion (Kostelecký and Lane 1999a, Eqs.~1--3),
+\begin{equation}
+\mathcal L=\tfrac12 i\bar\psi\Gamma^\nu\overleftrightarrow{\partial}_\nu\psi
+-\bar\psi M\psi,
+\end{equation}
+\begin{align}
+M&=m+a_\mu\gamma^\mu+b_\mu\gamma_5\gamma^\mu+\tfrac12H_{\mu\nu}\sigma^{\mu\nu},\\
+\Gamma^\nu&=\gamma^\nu+c^{\mu\nu}\gamma_\mu+d^{\mu\nu}\gamma_5\gamma_\mu
++e^\nu+if^\nu\gamma_5+\tfrac12g^{\lambda\mu\nu}\sigma_{\lambda\mu}.
+\end{align}
+
+\textbf{Index counting.} Each coefficient carries the indices of its
+Dirac matrix plus, in $\Gamma^\nu$, the derivative index $\nu$. Scalar
+and pseudoscalar structures carry none, vector and axial vector one,
+the tensor $\sigma$ two. So $e,f$ have one index, $c,d$ two, and $g$
+three, which is why it needs a third letter, $\lambda$. It is
+antisymmetric in its first two indices because $\sigma^{\lambda\mu}$ is.
+
+\textbf{Dimensions.} ``The parameters appearing in $M$ have dimensions of
+mass, while those in $\Gamma$ are dimensionless'' (Kostelecký and Lane
+1999a). So $a,b,H$ have mass dimension 1 and $c,d,e,f,g$ are
+dimensionless.
+
+\textbf{Why $e,f,g$ are special.} Colladay and Kostelecký (1998, near
+their Eq.~29): all renormalisable terms that could generate them ``are
+directly incompatible with the electroweak structure''; they could come
+only from higher-dimensional operators involving the Higgs field, so they
+are expected to be highly suppressed. Kostelecký and Lane (1999a) add
+that for protons and neutrons, strong binding ``might generate effective
+terms governed by appreciable parameters''. That caveat is the physical
+reason studying $g_{\lambda\mu\nu}$ is worthwhile for nucleon sectors.
+
+\textbf{CPT parity from bilinears.} The CPT parities of
+$\bar\psi\Gamma\psi$ are $+$ (scalar), $+$ (pseudoscalar), $-$ (vector),
+$-$ (axial vector), $+$ (tensor); each derivative adds a $-$. That gives
+$a,b$ odd; $H$ even; $c,d$ even; $e,f,g$ odd, exactly Kostelecký and
+Lane's classification.
+
+\subsection{The Foldy--Wouthuysen reduction}
+
+Split the Dirac Hamiltonian into even (block-diagonal) and odd
+(off-diagonal) parts relative to $\beta$. The FW generator
+$S=-i\beta\mathcal O/2m$ removes the odd part order by order:
+\begin{equation}
+H'\approx\beta m+\mathcal E+\frac{\beta\mathcal O^2}{2m}
+-\frac{[\mathcal O,[\mathcal O,\mathcal E]]}{8m^2}+\dots
+\end{equation}
+An even perturbation survives at order $m^0$ (e.g.\ $b_i$, $H_{ij}$). An
+odd perturbation contributes only through its cross term with
+$\bm\alpha\cdot\mathbf p$, at order $1/m$ (e.g.\ $b_0$, $H_{0i}$). Kinetic
+coefficients multiply $p_\nu$, and when $\nu=0$ that brings in the
+energy, $\approx m$, which is why $d_{i0}$ and $g_{[kl]0}$ are
+mass-enhanced (order $m^{+1}$).
+
+Coefficients in $\Gamma_0$ first need the field redefinition
+$A=1-\tfrac12\gamma^0(\Gamma_0-\gamma_0)$ (Kostelecký and Lane 1999b) so
+that the time-derivative term is standard and the Hamiltonian is
+Hermitian.
+
+\subsection{The momentum-index convention (the old ``open sign'')}
+
+Kostelecký and Lane's non-relativistic Hamiltonian (1999a, Eq.~4) is
+written with lower-index $p_j$. Their intermediate relativistic
+Hamiltonian (1999b) has the free term $m\mathcal P_0:=-p_j\gamma^0\gamma^j$.
+That equals $-\bm\alpha\cdot\mathbf p$ if $p_j$ is read as the physical
+momentum, which would give the wrong free Dirac Hamiltonian. To recover
+$+\bm\alpha\cdot\mathbf p+\beta m$, $p_j$ must be the covariant component,
+$p_j=-p^j$. Under that reading every $d_{\mu\nu}$ term agrees, signs
+included. The mass-enhanced $d_{i0}$ term has no momentum, which is why it
+agreed all along while the momentum-linear terms seemed flipped: that
+pattern is the fingerprint of an index convention, not of an error. The
+$g_{\lambda\mu\nu}$ sector, derived independently, agrees under the same
+reading, an independent check.
+
+\subsection{Completeness of the four coefficients}
+
+In Kostelecký and Lane's Hamiltonian to third order (1999b, Eq.~26),
+every term multiplied by $\sig$ contains only $b$, $d$, $g$, $H$. The
+spin-independent terms contain $a$, $c$, $e$; $f$ appears nowhere. Since
+every Dobrescu--Mocioiu potential except $V_1$ is spin-dependent, the four
+coefficients are the complete spin-dependent dictionary at these orders.
+Altschul (2006) shows $f_\mu$ can be removed entirely by a field
+redefinition.
+
+\subsection{Matter versus antimatter: the central subtlety}
+\label{sec:antimatter}
+
+After FW reduction the even Hamiltonian has an upper block (particles)
+and a lower block (negative-energy solutions).
+
+\textbf{Hole theory.} An antiparticle of momentum $\mathbf p$ and spin
+$\mathbf s$ is the \emph{absence} of a negative-energy solution with
+momentum $-\mathbf p$ and spin $-\mathbf s$, and its energy is minus that
+solution's energy.
+
+\textbf{Two legitimate comparisons.}
+\begin{enumerate}[leftmargin=1.5em]
+\item \emph{CPT-conjugate state.} CPT maps a particle $(\mathbf p,\mathbf
+s)$ to an antiparticle $(\mathbf p,-\mathbf s)$ (C swaps particle and
+antiparticle, P reverses $\mathbf p$, T reverses $\mathbf p$ and
+$\mathbf s$). Labelling that state by the particle's spin operator:
+\begin{equation}
+H^{\bar f}(\mathbf p,\sig)=-H_{\rm lower}(-\mathbf p,\sig).
+\end{equation}
+Under exact CPT symmetry this equals the particle Hamiltonian, so this is
+the comparison under which $\Aa=0$. The thesis defines $\gfb$ this way.
+\item \emph{Same physical spin.} Writing $H_{\rm lower}=a_0+\mathbf
+a\cdot\sig$, charge conjugation ($\chi\to i\sigma_2\chi^*$) gives
+\begin{equation}
+H^{\bar f}_{\rm same\ spin}(\mathbf p,\sig)=-a_0(-\mathbf p)+\mathbf a(-\mathbf p)\cdot\sig .
+\end{equation}
+\end{enumerate}
+
+\textbf{The rule.} Between CPT-conjugate states a coefficient flips sign
+exactly when it is CPT-odd. At the same physical spin, the relation is
+(CPT parity)$\times$(parity of the term under $\mathbf s\to-\mathbf s$), counting even as $+1$ and odd as $-1$, where $+1$ means the same sign and $-1$ a flip. For $b$: $(-1)(-1)=+1$, same sign; for $H$: $(+1)(-1)=-1$, a flip.
+The two differ only for spin-linear terms, and that difference is
+Kostelecký and Lane's antiparticle rule (1999b, last paragraph):
+$a\to-a$, $b\to+b$, $c\to+c$, $d\to-d$, $e\to-e$, $f\to-f$, $g\to+g$,
+$H\to-H$.
+
+\textbf{Worked example: $b_i$.} $\gamma^0\gamma_5\gamma^i=-\Sigma^i$ and
+$\Sigma^i={\rm diag}(\sigma^i,\sigma^i)$, so both blocks equal
+$-\mathbf b\cdot\sig$. With no momentum dependence,
+$H^{\bar f}_{\rm CPT}=-(-\mathbf b\cdot\sig)=+\mathbf b\cdot\sig$:
+opposite to the particle. At the same physical spin the antiparticle has
+$-\mathbf b\cdot\mathbf s$, the same as the particle. Both statements are
+true; they compare different states.
+
+\textbf{Why C alone does not do it.} The axial current is C-even (checked:
+$C(\gamma_5\gamma^\mu)^TC^{-1}=+\gamma_5\gamma^\mu$), so charge conjugation
+of the bilinear gives no sign. The flip is a CPT effect.
+
+\textbf{What went wrong before.} The earlier method took $-H_{\rm
+lower}(\mathbf p,\sig)$, reversing neither momentum nor spin. It agrees
+with the CPT-conjugate comparison only for terms even in $\mathbf p$. For
+$b_i$ that is harmless, which is why the central result survived. For
+$g_{[0k]0}$ and $g_{[kl]j}$, which are linear in $\mathbf p$, it produced
+the false claim that only one $g$ family flips.
+
+\textbf{External checks.} Bluhm, Kostelecký and Russell (1999): their
+hydrogen-to-antihydrogen substitution leaves $b_\mu$ unchanged (the
+same-spin rule), and the $b$-dependent 1S--2S shift reverses because ``the
+hyperfine states in $\bar{\rm H}$ have opposite positron and antiproton
+spin assignments'': the compared states are CPT conjugates.
+\texttt{FW\_antiparticle\_all\_coefficients.ipynb} checks both
+comparisons for all 16 coefficient families; both agree with CPT parity
+and with the published rule in every case.
+
+\subsection{The asymmetry parameter and why it cannot test CPT with bounds}
+
+$\Aa=(g^f-\gfb)/(g^f+\gfb)$, with $\gfb$ for the CPT-conjugate state.
+
+\begin{itemize}[leftmargin=1.2em]
+\item Exact CPT symmetry: $\gfb=g^f$, so $\Aa=0$.
+\item A CPT-odd coefficient alone: $\gfb=-g^f$, so the denominator
+vanishes and $\Aa$ diverges. It does \emph{not} approach 1.
+\item Published bounds are positive numbers $|g|\le B$. Put two of them
+in: $\Aa=(1-r)/(1+r)$ with $r=B_{\bar f}/B_f$. It depends only on the
+ratio of sensitivities. One bound much tighter than the other gives
+$|\Aa|\to1$ whatever the physics.
+\item Any true pair of couplings below the two bounds is allowed, so the
+true $\Aa$ can be anything. The bounds do not constrain it.
+\end{itemize}
+
+\textbf{Empirical confirmation.} The four pairs built on the 2025 hydrogen
+bounds of Cong \textit{et al.}\ each have an older twin with the same
+coupling, potential and antimatter partner. Tightening only the matter
+side raised the asymmetry every time: 0.9998$\to$0.9999,
+0.8044$\to$1.0000, 0.8236$\to$0.9303, 0.7994$\to$0.9304.
+
+\textbf{Design criterion.} A new antimatter bound is useful for a CPT test
+in proportion to how well its sensitivity matches the matter bound, not
+how tight it is. That is why the Jiao/Karshenboim pair (0.3336), the least
+saturated, is the most informative.
+
+\subsection{Statistics}
+
+\textbf{Grid.} Both curves are interpolated log-linearly onto 300
+log-spaced points over their overlap.
+
+\textbf{Uncertainties.} Published exclusion curves carry no error bars.
+Each point gets a fractional uncertainty from the local curvature of the
+curve in log--log space, between 2\% and 50\%. This is a heuristic, and
+the $\chi^2$ values depend on it; the conclusions do not.
+
+\textbf{Weighted $\chi^2$.} $\chi^2=\sum_i (g_{m,i}-g_{a,i})^2/(\sigma_{m,i}^2
++\sigma_{a,i}^2)$ tests $H_0$: the two exclusion curves coincide on the
+grid. Rejecting it means the two experiments reached different
+sensitivities. It says nothing about the couplings themselves.
+
+\textbf{Autocorrelation.} Adjacent grid points are not independent. The
+autocorrelation length $\tau$ is the lag where the normalised
+autocorrelation of the $\chi^2$ residuals first drops below $1/e$;
+$n_{\rm eff}=n/\tau$. The statistic is rescaled by the same factor,
+$\chi^2_{\rm eff}=\chi^2 n_{\rm eff}/n$, and compared with a $\chi^2$
+distribution on $n_{\rm eff}$ dof. (The old code compared the full
+$\chi^2$ with $n_{\rm eff}$, which overstated significance.) Tail
+probabilities are computed in arbitrary precision and quoted as a
+one-sided Gaussian $Z$. Example: Jiao/Karshenboim, $\chi^2_{\rm
+eff}=48.5$ on 9 dof, $p\approx2\times10^{-7}$, $Z=5.1$.
+
+\textbf{Bootstrap.} 2000 resamples; each perturbs both couplings by
+$g\to g\,e^{\sigma\epsilon}$ and recomputes $\Aa$ exactly. $|\Aa|$ is
+folded at 0 and saturates at 1, so resampled means sit off the estimate;
+the median offset (the bootstrap bias) is subtracted before quoting the
+95\% interval. An interval excluding zero is not, on its own, evidence of
+asymmetry, because $|\Aa|$ is biased away from zero by construction.
+
+\subsection{The database}
+
+\begin{itemize}[leftmargin=1.2em]
+\item Sources: the compilation of Cong \textit{et al.}\ (RMP 2025) and the
+primary papers. Filename prefixes give the potential: \texttt{3} means
+$V_3$ alone, \texttt{23} means $V_2+V_3$.
+\item Units normalised to metres (m, MeV$^{-1}$, eV$^{-1}$, cm, nm, fm).
+$|\alpha|$ (gravity-normalised) and $|g|$ bounds are kept apart; typical
+values differ by more than thirty orders of magnitude.
+\item Muonium: all six $e$-$\mu$ bounds come from muonium (Karshenboim's
+$\mu e$ curve is from muonium hyperfine data; Ohayon 2022 and Stadnik 2023
+are $e^-\mu^+$). Muonium contains an antimuon, so these are antimatter.
+\item Six datasets have implausible ranges up to $10^{52}$~m (two $V_3$,
+two $V_{9+10}$, two $V_{15}$). Three matched pairs touch one, but the
+tails lie outside every overlap used.
+\item 48 datasets are the same bound filed under several couplings; the
+coverage figures collapse them to 199 independent bounds.
+\end{itemize}
+
+\subsection{What was not re-verified}
+\label{sec:unverified}
+
+\begin{itemize}[leftmargin=1.2em]
+\item ``Every potential assignment agrees with the source compilation's
+records for the 194 datasets they cover.'' This comes from an earlier
+check against the Cong \textit{et al.}\ online records (Zenodo
+10.5281/zenodo.14572652) and was not repeated.
+\item Why the source compilation files the Fadeev \textit{et al.}\ $V_3$
+curves under both $g_Vg_V$ and $g_pg_p$. The Fadeev paper treats
+pseudovector and pseudoscalar interactions; the $g_Vg_V$ label comes from
+the compilation. The thesis only states the fact that the rows are
+identical.
+\end{itemize}
+
+% =====================================================================
+\section{Likely questions and answers}
+\label{part:qa}
+
+\subsection{Scope and contribution}
+
+\Q{In one sentence, what does this thesis do?}
+\A It builds a complete dictionary from the spin-dependent SME
+coefficients to the Dobrescu--Mocioiu potentials, compiles the published
+bounds into one standardised database, and shows what a matter--antimatter
+comparison of those bounds can and cannot say about CPT symmetry.
+
+\Q{What is new here? Kostelecký and Lane already derived the non-relativistic Hamiltonian.}
+\A Three things. The explicit matching of each SME term to the
+Dobrescu--Mocioiu basis, together with a proof that $b$, $d$, $g$, $H$ are
+the complete spin-dependent set. A standardised, auditable database of 283
+bounds with a matching pipeline. And the result that an asymmetry built
+from one-sided bounds tracks sensitivity, not CPT status, shown both
+analytically and in the data.
+
+\Q{Your main result is a limitation. Why is that a contribution?}
+\A Because it is the thing a reader would otherwise get wrong. All fifteen
+pairs are highly significant; without the analysis one would be tempted to
+read that as a CPT signal. The thesis shows why it is not, turns that into
+a concrete design criterion (sensitivity matching), and identifies exactly
+which sectors and potentials need antimatter data.
+
+\Q{Why these four coefficients and not the others?}
+\A In Kostelecký and Lane's third-order Hamiltonian, only $b$, $d$, $g$, $H$
+appear in spin-dependent terms. $a$, $c$, $e$ appear only in
+spin-independent terms, and $f$ not at all. All potentials except $V_1$
+are spin-dependent, so nothing is missing.
+
+\subsection{The SME--DM mapping}
+
+\Q{SME coefficients are fixed background fields; DM potentials come from
+boson exchange between two fermions. How can one map to the other?}
+\A The dictionary matches operator structure, not mechanism. A background
+$b_i$ gives a single-particle term $-\mathbf b\cdot\sig$; a boson exchange
+gives two-body terms with the same spin structure at each vertex. The
+mapping tells you which Dobrescu--Mocioiu structure an experiment must be
+sensitive to in order to constrain a given SME coefficient combination. It
+does not claim the two are the same physics. This is a fair question and
+the honest answer is exactly that.
+
+\Q{Why the Foldy--Wouthuysen transformation?}
+\A It gives the non-relativistic Hamiltonian as an explicit $2\times2$
+Pauli operator, order by order in $1/m$, which is exactly the form needed
+to compare term by term with the potentials. It is also the method
+Kostelecký and Lane used, which made a term-by-term check possible.
+
+\Q{What was the $d_{ij}$ sign problem, and how do you know it is solved and not hidden?}
+\A The momentum-linear terms appeared to have the opposite sign to
+Kostelecký and Lane. Their own free-particle term,
+$m\mathcal P_0=-p_j\gamma^0\gamma^j$, only reproduces the correct free
+Dirac Hamiltonian if $p_j=-p^j$. With that, all terms agree. Two checks
+make it convincing: the mass term, which has no momentum, always agreed;
+and the $g$ sector, derived separately, agrees under the same convention.
+A wavefunction-renormalisation explanation was tested and ruled out.
+
+\Q{Why does $g$ have three indices? Why $\lambda$?}
+\A It multiplies $\sigma_{\lambda\mu}$ (two indices) inside $\Gamma^\nu$
+(one more, the derivative index). $\lambda$ is just the next free letter;
+it is the SME convention. Note that the thesis also uses $\lambda$ for the
+interaction range; context distinguishes them.
+
+\Q{Is $g_{\lambda\mu\nu}$ really dimension five?}
+\A No; that was an error in the earlier draft. It is dimensionless and
+multiplies a dimension-four operator. What is true is that it cannot come
+from a renormalisable, gauge-invariant term of the full SME, so it is
+expected to be suppressed for electrons (Colladay and Kostelecký 1998),
+but possibly not for nucleons (Kostelecký and Lane 1999a).
+
+\Q{Which $g$ families contribute, and why does $g_{[0k]j}$ vanish?}
+\A $g_{[kl]0}$ (Zeeman-like, mass-enhanced, $V_2$), $g_{[0k]0}$
+(spin--velocity, $V_7$), $g_{[kl]j}$ (velocity-dependent, $V_7,V_8$).
+$g_{[0k]j}$ gives nothing at the orders kept; in Eq.~26 of Kostelecký and
+Lane it first appears at order $p^2/m^2$.
+
+\subsection{CPT and antimatter}
+
+\Q{Does $b_\mu$ flip sign between matter and antimatter or not? Kostelecký
+and Lane say $b\to+b$.}
+\A Both are right; they compare different states. Between CPT-conjugate
+states (antiparticle spin reversed) the $b$ term flips, which is the
+CPT-odd signature. At the same physical spin it does not, which is the
+Kostelecký--Lane rule. They differ because $\mathbf b\cdot\sig$ changes
+sign when the spin is reversed. The thesis uses the CPT-conjugate
+comparison because that is the one under which exact CPT symmetry gives
+$\Aa=0$.
+
+\Q{Why not just use charge conjugation?}
+\A The axial current is C-even, so C alone gives no sign difference for
+$b$. The difference is a CPT effect. Charge conjugation of the two-spinor
+is used, but together with the hole-theory reversal of momentum and spin.
+
+\Q{Your earlier draft said only one $g$ family flips. What happened?}
+\A The antiparticle was taken as minus the lower block without reversing
+the momentum. That is harmless for terms with no momentum, such as $b_i$,
+but wrong for the two momentum-linear $g$ families. With the reversal all
+three flip, as a CPT-odd coefficient must. I then checked every SME
+coefficient family both ways in one notebook.
+
+\Q{How do you know your antiparticle rule is right?}
+\A Three independent checks agree: the full symbolic FW reduction with
+charge conjugation for all 16 families; Kostelecký and Lane's published
+antiparticle substitution rule; and Bluhm, Kostelecký and Russell's
+antihydrogen analysis. A direct numerical diagonalisation of the Dirac
+Hamiltonian also gives the same signs.
+
+\Q{Muonium: why is it antimatter?}
+\A Muonium is $e^-\mu^+$; the $\mu^+$ is an antimuon. The database already
+counted $dd\mu^+$ as antimatter for exactly that reason, so treating
+muonium as matter was inconsistent.
+
+\subsection{The asymmetry parameter}
+
+\Q{If $\Aa$ built from bounds cannot test CPT, why define it at all?}
+\A It is the natural observable, and with signed measurements of the same
+coupling in both sectors it would work. With bounds, it becomes a
+diagnostic of sensitivity matching. Showing precisely where the obvious
+observable breaks down is part of the result.
+
+\Q{What does a CPT-odd coefficient predict for $\Aa$?}
+\A For signed couplings, $\gfb=-g^f$ and $\Aa$ diverges. For magnitudes it
+gives $|\gfb|=|g^f|$. Neither gives $|\Aa|\to1$. Values near 1 in the data
+come from sensitivity gaps.
+
+\Q{Then why is the lowest-asymmetry pair the most informative?}
+\A Because its two bounds are closest in sensitivity, so it is the only
+comparison not dominated by the sensitivity ratio.
+
+\Q{The $g_sg_s$ pair: is it CPT-even?}
+\A I do not claim that. $V_1$ is spin-independent; $a_\mu$ and $e_\mu$
+(CPT-odd) and $c_{\mu\nu}$ (CPT-even) all enter spin-independent terms.
+What the pair shows is that a channel none of the four spin-dependent
+coefficients feeds has an asymmetry comparable to the spin-dependent
+pairs, again pointing to sensitivity, not physics.
+
+\subsection{Statistics}
+
+\Q{What is your null hypothesis?}
+\A That the matter and antimatter exclusion curves coincide at every grid
+point, tested jointly with a weighted $\chi^2$. Rejecting it means the
+experiments reached different sensitivities. It is not a test of the
+underlying couplings.
+
+\Q{What does a $p$-value mean for an asymmetry built from upper limits?}
+\A Only this: if the two curves were the same curve plus noise of the
+assumed size, how unlikely is the observed disagreement. It measures a
+sensitivity difference.
+
+\Q{Where do your uncertainties come from? Published bounds have none.}
+\A From a curvature heuristic, 2\% to 50\% of the bound. That is a
+modelling choice. The $Z$ values depend on it; the qualitative conclusions
+do not, because they rest on the analytic argument and on the
+like-for-like comparisons, not on the $\chi^2$.
+
+\Q{Why correct for autocorrelation, and how?}
+\A 300 interpolated points come from far fewer real measurements, so they
+are correlated. I estimate $\tau$ from the residual autocorrelation, set
+$n_{\rm eff}=n/\tau$, and rescale $\chi^2$ by the same factor. An earlier
+version rescaled only the degrees of freedom, which overstated
+significance; that is fixed.
+
+\Q{Your earlier draft said $p\to0$. Now?}
+\A $Z$ from 5.1 (Jiao/Karshenboim, $p\approx2\times10^{-7}$) to 51. The
+earlier ``$p\to0$'' was partly the bug and partly floating-point underflow.
+
+\Q{Your bootstrap interval excludes zero. Is that evidence of asymmetry?}
+\A No. $|\Aa|$ is biased away from zero by the absolute value, so its
+interval excludes zero almost always. The interval only describes spread
+from the assumed uncertainties. I also correct the median bootstrap bias,
+which otherwise pushes intervals off the estimate near 0 and 1.
+
+\Q{Fifteen pairs, but are they independent?}
+\A Thirteen are. Two $g_Vg_V$/$g_pg_p$ rows use byte-identical files, and
+several pairs share one side (Ficek 2018 is the antimatter side of seven).
+The shared datasets mean the pairs are not fully independent even among
+the thirteen, which is another reason not to combine them into a single
+significance.
+
+\subsection{Data}
+
+\Q{How were potentials assigned?}
+\A From filename prefixes (the numeric prefix is the potential number),
+explicit tokens, and a small override table, checked against the source
+compilation's records. \emph{Caveat:} the claim of agreement for the 194
+datasets those records cover comes from an earlier check I did not repeat
+before this defence.
+
+\Q{Why exclude 36 datasets?}
+\A 28 are combined envelopes over several experiments with no single
+potential; 5 are 90\% CL duplicates of 95\% CL curves; 2 are template
+placeholders; 1 has no potential that can be established. Each is recorded
+with its reason; none is silently dropped.
+
+\Q{What about the implausible interaction ranges?}
+\A Six datasets reach up to $10^{52}$~m, almost certainly a mis-detected
+unit. Three matched pairs touch one, but the asymmetry is computed only on
+the overlap, which in all three cases lies far inside the plausible range.
+
+\Q{Why is the $\bar p$-$N$ bound not used?}
+\A It is published as a gravity-normalised strength $|\alpha|$, not a
+coupling $|g|$; comparing it with the $p$-$N$ data would need a conversion
+the framework does not perform.
+
+\subsection{Limitations and future work}
+
+\Q{What are the main limitations?}
+\A The asymmetry cannot distinguish CPT violation from sensitivity gaps
+with bounds; the uncertainty model is heuristic; derivations stop at the
+orders kept in $1/m$; 36 datasets are held out; antimatter coverage is
+thin, which is the finding itself.
+
+\Q{What would turn this into a real CPT test?}
+\A Antimatter-sector bounds of sensitivity comparable to their matter
+counterparts, or signed measurements. The highest-value sectors are
+$e$-$N$, $n$-$N$ and $p$-$N$, and the potentials $V_{1a}$, $V_{9+10}$,
+$V_{12+13}$. Reanalysing existing BASE, ALPHA and co-magnetometer data, as
+Wu \textit{et al.}\ (2023) did for Lorentz-violation data, is the cheapest
+first step.
+
+\Q{What would you do next with more time?}
+\A Carry the reductions to higher order in $1/m$; decompose the 28
+envelope curves; re-verify all potential assignments against the source
+records; add a conversion for $|\alpha|$ bounds; and propagate the curve
+uncertainties more rigorously than the curvature heuristic.
+
+\subsection{Awkward questions}
+
+\Q{Did you make mistakes along the way?}
+\A Yes, and they are documented: the open $d$ sign, the antiparticle
+method, a wrong dimension label, a statistics bug and a mis-classified
+sector. Each was found by checking against primary sources or by rerunning
+the code, and each fix is recorded with the check that confirms it.
+
+\Q{Is your software trustworthy?}
+\A It has an automated test suite (140 tests), including regression tests
+for each bug fixed, and the full analysis reruns from one command. The
+derivations are in executable SymPy notebooks that assert their own
+results against Kostelecký and Lane.
+
+\Q{Could a referee reproduce Table II from your repository?}
+\A Yes: run the pipeline, and \texttt{results/tables/asymmetry\_summary.csv}
+contains every number in the table, including $n_{\rm eff}$, $Z$ and the
+intervals.
+
+% =====================================================================
+\section{Quick reference}
+\label{part:ref}
+
+\subsection{Numbers to know}
+
+\begin{center}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Datasets compiled / analysed / held out & 283 / 247 / 36 \\
+Antimatter / matter datasets (analysed) & 22 / 225 \\
+Antimatter by sector & $e\bar p$ 9, $e\bar\mu$ 6, $ee^+$ 5, $\bar p$He 1, $dd\mu^+$ 1 \\
+Matched pairs (independent) & 15 (13) \\
+Pairs in $V_2$ or $V_3$ & 14 of 15 \\
+Mean $|\Aa|$ range & 0.3336 to 1.0000 \\
+$n_{\rm eff}$ range & 6 to 21 (of 300) \\
+$Z$ range & 5.1 to 51 \\
+Potentials with no antimatter data & 7 of 12 \\
+Sector pairs with no antimatter data & 6 of 11 \\
+$e$-$N$ / $n$-$N$ / $p$-$N$ matter datasets & 50 / 49 / 18 (117 of 225) \\
+Independent bounds after de-duplication & 199 \\
+Implausible-range datasets & 6 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The fifteen pairs}
+
+\begin{center}\small
+\begin{tabular}{@{}lllllrrr@{}}
+\toprule
+Coupling & $V$ & Sector & Matter & Antimatter & $|\Aa|$ & $n_{\rm eff}$ & $Z$ \\
+\midrule
+$g_Ag_A$ & 3 & $e\bar p$ & Cong 2025 & Fadeev 2022 & 1.0000 & 8 & 51.1 \\
+$g_Ag_A$ & 2 & $e\bar p$ & Cong 2025 & Ficek 2018 & 0.9999 & 21 & 34.4 \\
+$g_Ag_A$ & 2 & $e\bar p$ & Karshenboim 2011 & Ficek 2018 & 0.9998 & 17 & 38.8 \\
+$g_Ag_A$ & 2 & $ee^+$ & Ficek 2017 & Karshenboim 2011 & 0.9892 & 21 & 48.2 \\
+$g_Ag_A$ & 3 & $ee^+$ & Ficek 2017 & Fadeev 2022 & 0.9539 & 6 & 38.5 \\
+$g_Vg_V$ & 3 & $ee^+$ & Fadeev 2022 & Fadeev 2022 & 0.9535 & 6 & 37.1 \\
+$g_pg_p$ & 3 & $ee^+$ & Fadeev 2022 & Fadeev 2022 & 0.9535 & 6 & 37.1 \\
+$g_pg_p$ & 3 & $e\bar p$ & Cong 2025 & Ficek 2018 & 0.9304 & 6 & 34.3 \\
+$g_Ag_A$ & 3 & $e\bar p$ & Cong 2025 & Ficek 2018 & 0.9303 & 6 & 34.3 \\
+$g_sg_s$ & 1 & $ee^+$ & Delaunay 2017 & Adkins 2022 & 0.8727 & 21 & 25.7 \\
+$g_Ag_A$ & 3 & $e\bar p$ & Fadeev 2022 & Ficek 2018 & 0.8236 & 6 & 37.3 \\
+$g_Ag_A$ & 3 & $e\bar p$ & Fadeev 2022 & Fadeev 2022 & 0.8044 & 8 & 43.8 \\
+$g_Vg_V$ & 3 & $e\bar p$ & Fadeev 2022 & Ficek 2018 & 0.7994 & 7 & 31.8 \\
+$g_pg_p$ & 3 & $e\bar p$ & Fadeev 2022 & Ficek 2018 & 0.7994 & 7 & 31.8 \\
+$g_Ag_A$ & 2 & $ee^+$ & Jiao 2020 & Karshenboim 2011 & 0.3336 & 9 & 5.1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Matter--antimatter relations}
+
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Coefficient & CPT & CPT-conjugate state & Same physical spin \\
+\midrule
+$b_\mu$ & odd & flips & same \\
+$g_{\lambda\mu\nu}$ (all 3 families) & odd & flips & same \\
+$H_{\mu\nu}$ & even & same & flips \\
+$d_{\mu\nu}$ & even & same & flips \\
+$a_\mu$, $e_\mu$ (spin-independent) & odd & flips & flips \\
+$c_{\mu\nu}$ (spin-independent) & even & same & same \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Where things live}
+
+\begin{itemize}[leftmargin=1.2em]
+\item Derivations: \path{derivations/sympy/FW_bmu_term.ipynb},
+\path{FW_Hmunu_term.ipynb}, \path{FW_dmunu_term.ipynb},
+\path{FW_gmunu_term.ipynb}.
+\item Antiparticle check for every coefficient:
+\path{derivations/sympy/FW_antiparticle_all_coefficients.ipynb}.
+\item Theory notes: \path{docs/theory_notes/}.
+\item Pipeline: \path{spindep_framework}; results in
+\path{results/tables/asymmetry_summary.csv} and
+\path{dataset_registry.csv}; statistics in
+\path{spindep/src/statistics.py}; tests in \path{tests/}.
+\item Thesis: \path{thesis/project/}; journal draft:
+\path{thesis/aps-draft/}; summit abstract:
+\path{thesis/aps-draft/summit-abstract.txt}.
+\end{itemize}
+
+\subsection{Key references}
+
+\begin{itemize}[leftmargin=1.2em]
+\item D.~Colladay and V.~A. Kostelecký, Phys.\ Rev.\ D \textbf{58}, 116002 (1998).
+\item V.~A. Kostelecký and C.~D. Lane, Phys.\ Rev.\ D \textbf{60}, 116010 (1999) [1999a].
+\item V.~A. Kostelecký and C.~D. Lane, J.\ Math.\ Phys.\ \textbf{40}, 6245 (1999) [1999b].
+\item R.~Bluhm, V.~A. Kostelecký and N.~Russell, Phys.\ Rev.\ Lett.\ \textbf{82}, 2254 (1999).
+\item B.~Altschul, J.\ Phys.\ A \textbf{39}, 13757 (2006).
+\item B.~A. Dobrescu and I.~Mocioiu, JHEP \textbf{11}, 005 (2006).
+\item L.~Cong \textit{et al.}, Rev.\ Mod.\ Phys.\ \textbf{97}, 025005 (2025).
+\item S.~G. Karshenboim, Phys.\ Rev.\ A \textbf{83}, 062119 (2011).
+\item L.~Y. Wu \textit{et al.}, Phys.\ Rev.\ Lett.\ \textbf{131}, 091002 (2023).
+\end{itemize}
+
+\end{document}

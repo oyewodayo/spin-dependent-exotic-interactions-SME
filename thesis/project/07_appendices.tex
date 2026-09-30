@@ -49,8 +49,8 @@ $d_{\mu\nu}$ & Traceless tensor, kinetic sector & Even & Odd & $\mathcal L_d=\tf
 $d_{i0}$ & Mixed part of $d_{\mu\nu}$ & Even & Odd & Generates $+d_{i0}\,m\,\sigma^i$ ($m^1$ enhancement) \\
 $d_{ij}$ & Spatial part of $d_{\mu\nu}$ & Even & Odd & Generates $+d_{ij}\,p^j\,\sigma^i$ (velocity-dependent) \\
 $d_{00}$ & Temporal part of $d_{\mu\nu}$ & Even & Odd & Generates $+d_{00}\,(\boldsymbol\sigma\cdot\mathbf p)$ \\
-$e_\mu,\,f_\mu$ & Dimension-5 vectors & Odd & Odd & Velocity-dependent; contribute to $V_8$ and higher \\
-$g_{\lambda\mu\nu}$ & Dimension-5 tensor & Odd & Odd & Listed for completeness; not treated further \\
+$e_\mu,\,f_\mu$ & Dimensionless vectors & Odd & Odd & No spin-dependent term: $e_\mu$ is spin-independent, $f_\mu$ absent at linear order \\
+$g_{\lambda\mu\nu}$ & Dimensionless tensor & Odd & Odd & Kinetic-sector spin couplings; generates $V_2$, $V_7$, $V_8$ \\
 \bottomrule
 \end{tabular}
 \caption{SME fermion-sector coefficients used in this thesis.}
@@ -109,7 +109,7 @@ Symbol & Meaning \\
 $g_Ag_A$, $g_pg_s$, $g_sg_s$, $g_Vg_V$, $g_Ag_V$, $g_pg_p$ & Coupling-family classification tags for a dataset \\
 $\chi^2$ & Chi-squared statistic \\
 $\mathrm{dof}_{\text{eff}}$ & Effective degrees of freedom, corrected for autocorrelation among interpolated grid points \\
-$p_{\text{eff}}$ & Significance recomputed against $\mathrm{dof}_{\text{eff}}$ \\
+$Z_{\text{eff}}$ & Weighted-$\chi^2$ significance after rescaling $\chi^2$ by $\mathrm{dof}_{\text{eff}}/n$ and testing on $\mathrm{dof}_{\text{eff}}$ degrees of freedom, as a one-sided Gaussian equivalent \\
 $\overline{|A_\alpha|}$ & Mean absolute asymmetry across the grid for one matched pair \\
 95\% CI & Bootstrap (2000 resamples) confidence interval on $\overline{|A_\alpha|}$ \\
 \bottomrule
@@ -149,15 +149,21 @@ resources are:
   \item \textbf{Foldy--Wouthuysen derivation notebooks} -- executable
     SymPy notebooks (\texttt{FW\_bmu}\allowbreak\texttt{\_term.ipynb},
     \texttt{FW\_Hmunu}\allowbreak\texttt{\_term.ipynb},
-    \texttt{FW\_dmunu}\allowbreak\texttt{\_term.ipynb})
+    \texttt{FW\_dmunu}\allowbreak\texttt{\_term.ipynb},
+    \texttt{FW\_gmunu}\allowbreak\texttt{\_term.ipynb})
     reproducing, symbolically, every non-relativistic Hamiltonian derived
     in Chapter~4, together with supporting modules for Dirac algebra and
     Pauli-matrix manipulation, and the symbolic limit calculation used to
     establish the divergence of the asymmetry parameter
     (Eq.~\eqref{eq:Aalpha-divergence}) under an exact signed CPT-odd
-    substitution.
+    substitution. A further notebook,
+    \texttt{FW\_antiparticle}\allowbreak\texttt{\_all}\allowbreak\texttt{\_coefficients.ipynb},
+    derives the matter--antimatter relation for every SME coefficient
+    family, both between CPT-conjugate states and at fixed physical spin,
+    and checks it against each coefficient's CPT parity and against
+    Kostelecký and Lane's (1999b) antiparticle rule.
   \item \textbf{Theory notes} -- worked derivations in prose form for the
-    $b_\mu$, $H_{\mu\nu}$, and $d_{\mu\nu}$ terms and the resulting
+    $b_\mu$, $H_{\mu\nu}$, $d_{\mu\nu}$, and $g_{\lambda\mu\nu}$ terms and the resulting
     potential-matching table, cross-referenced against the notebooks above.
   \item \textbf{Constraint datasets} -- the underlying two-column CSV files
     for all 283 compiled datasets, of which 247 enter the analysis, organised by coupling family and
